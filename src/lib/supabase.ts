@@ -28,7 +28,7 @@ const inMemoryAvailabilityOverrides = new Map<
 let inMemoryTours: Tour[] = [...TOURS_DATA];
 let inMemoryBlogs: BlogPost[] = [...BLOG_POSTS_DATA];
 
-// Generate dynamic mock availability for given month
+// Generate clean default availability for given month (all days available by default, 0 fake bookings)
 function generateDefaultAvailability(year: number, month: number): DayAvailability[] {
   const daysInMonth = new Date(year, month, 0).getDate();
   const list: DayAvailability[] = [];
@@ -37,7 +37,6 @@ function generateDefaultAvailability(year: number, month: number): DayAvailabili
     const dayStr = String(day).padStart(2, '0');
     const monthStr = String(month).padStart(2, '0');
     const dateStr = `${year}-${monthStr}-${dayStr}`;
-    const dayOfWeek = new Date(year, month - 1, day).getDay();
 
     // Check if an override exists first (from admin toggle)
     const override = inMemoryAvailabilityOverrides.get(dateStr);
@@ -51,23 +50,12 @@ function generateDefaultAvailability(year: number, month: number): DayAvailabili
       continue;
     }
 
-    // Default semi-realistic distribution
-    let status: DayAvailabilityStatus = 'available';
-    let remainingSlots = 2;
-
-    if (day % 7 === 0 || (day % 11 === 0 && dayOfWeek === 6)) {
-      status = 'booked';
-      remainingSlots = 0;
-    } else if (day % 5 === 0 || dayOfWeek === 0) {
-      status = 'limited';
-      remainingSlots = 1;
-    }
-
+    // Completely clean default: All days available, 0 fake bookings
     list.push({
       date: dateStr,
-      status,
-      remainingSlots,
-      note: status === 'booked' ? '満席' : status === 'limited' ? '残り1組様' : 'ご予約可能',
+      status: 'available',
+      remainingSlots: 1,
+      note: 'ご予約可能',
     });
   }
 
@@ -78,6 +66,10 @@ function generateDefaultAvailability(year: number, month: number): DayAvailabili
  * Fetch availability for a specific year and month
  */
 export async function fetchAvailability(year: number, month: number): Promise<DayAvailability[]> {
+  const days = generateDefaultAvailability(year, month);
+  const availabilityMap = new Map<string, DayAvailability>();
+  days.forEach((d) => availabilityMap.set(d.date, d));
+
   if (supabase) {
     try {
       const startDate = `${year}-${String(month).padStart(2, '0')}-01`;
@@ -91,19 +83,21 @@ export async function fetchAvailability(year: number, month: number): Promise<Da
         .lte('date', endDate);
 
       if (!error && data && data.length > 0) {
-        return data.map((item) => ({
-          date: item.date,
-          status: item.status as DayAvailabilityStatus,
-          remainingSlots: item.remaining_slots,
-          note: item.note,
-        }));
+        data.forEach((item) => {
+          availabilityMap.set(item.date, {
+            date: item.date,
+            status: item.status as DayAvailabilityStatus,
+            remainingSlots: item.remaining_slots ?? 0,
+            note: item.note,
+          });
+        });
       }
     } catch (err) {
       console.warn('Failed to query Supabase availability, falling back to local store:', err);
     }
   }
 
-  return generateDefaultAvailability(year, month);
+  return Array.from(availabilityMap.values()).sort((a, b) => a.date.localeCompare(b.date));
 }
 
 /**

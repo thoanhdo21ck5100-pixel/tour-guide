@@ -105,7 +105,8 @@ export default async function TourDetailPage({
                 {tour.categoryLabel}
               </span>
               <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-amber-300 font-bold">
-                1日1組限定・完全貸切
+                <Star className="w-3.5 h-3.5 fill-amber-300" />
+                {tour.rating} ({tour.reviewCount}件の日本人クチコミ)
               </span>
               <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-slate-200">
                 <Clock className="w-3.5 h-3.5 text-amber-300" />
