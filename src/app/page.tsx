@@ -515,34 +515,62 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right QR Box */}
-              <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 bg-white rounded-2xl text-slate-900 text-center shadow-lg">
-                <div className="relative w-40 h-40 bg-white rounded-xl border border-slate-200 p-2 flex items-center justify-center shadow-xs">
-                  <Image
-                    src="/images/guide/anh-tho-line-qr.jpg"
-                    alt="LINE公式QRコード"
-                    width={150}
-                    height={150}
-                    className="object-contain"
-                  />
-                </div>
-                <div className="mt-3 space-y-1">
-                  <span className="text-xs font-bold text-slate-800 block">
-                    LINE ID: <span className="text-[#06c755]">bii010121</span>
+              {/* Right QR Cards: LINE & Instagram */}
+              <div className="lg:col-span-4 flex flex-row sm:flex-row lg:flex-col gap-3.5 items-center justify-center">
+                {/* LINE QR Card */}
+                <div className="flex-1 w-full max-w-[210px] bg-white rounded-2xl p-3.5 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#06c755] mb-1.5">
+                    <MessageCircle className="w-3.5 h-3.5 fill-[#06c755]" />
+                    <span>公式LINE QR</span>
+                  </div>
+                  <div className="relative w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs">
+                    <Image
+                      src="/images/guide/anh-tho-line-qr.jpg"
+                      alt="LINE公式QRコード"
+                      width={120}
+                      height={120}
+                      className="object-contain rounded-lg"
+                    />
+                  </div>
+                  <span className="mt-2 text-[11px] font-bold text-slate-800">
+                    ID: <span className="text-[#06c755] font-mono">bii010121</span>
                   </span>
+                </div>
+
+                {/* Instagram QR Card */}
+                <div className="flex-1 w-full max-w-[210px] bg-white rounded-2xl p-3.5 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center">
                   <a
                     href={SITE_CONFIG.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-pink-600 hover:text-pink-700 transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-bold text-pink-600 hover:text-pink-700 transition-colors mb-1.5"
                   >
-                    <InstagramIcon className="w-3.5 h-3.5" />
-                    <span>@{SITE_CONFIG.instagramHandle}</span>
+                    <InstagramIcon className="w-3.5 h-3.5 text-pink-500" />
+                    <span>Instagram QR</span>
+                  </a>
+                  <a
+                    href={SITE_CONFIG.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs hover:scale-102 transition-transform overflow-hidden"
+                  >
+                    <Image
+                      src="/images/guide/anh-tho-instagram-qr.png"
+                      alt="Instagram QRコード"
+                      width={120}
+                      height={120}
+                      className="object-cover rounded-lg"
+                    />
+                  </a>
+                  <a
+                    href={SITE_CONFIG.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 text-[11px] font-bold text-slate-800 hover:text-pink-600 transition-colors font-mono"
+                  >
+                    @{SITE_CONFIG.instagramHandle}
                   </a>
                 </div>
-                <span className="text-[10px] text-slate-500 mt-1 block">
-                  スマホでQRを読み取って友だち追加
-                </span>
               </div>
             </div>
           </div>
