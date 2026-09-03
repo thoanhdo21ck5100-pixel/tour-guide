@@ -134,7 +134,7 @@ export default function HomePage() {
                     <div className="flex items-center gap-3">
                       <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0">
                         <Image
-                          src="/images/guide/avatar.jpg"
+                          src="/images/guide/anh-tho-avatar.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
                           fill
                           className="object-cover object-[center_25%]"
@@ -235,7 +235,7 @@ export default function HomePage() {
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200">
                 <div className="relative h-80 sm:h-96 w-full">
                   <Image
-                    src="/images/guide/about.jpg"
+                    src="/images/guide/anh-tho-about.jpg"
                     alt="ダナン専属ガイド アン トー (Anh Tho)"
                     fill
                     className="object-cover object-top"
@@ -519,7 +519,7 @@ export default function HomePage() {
               <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 bg-white rounded-2xl text-slate-900 text-center shadow-lg">
                 <div className="relative w-40 h-40 bg-white rounded-xl border border-slate-200 p-2 flex items-center justify-center shadow-xs">
                   <Image
-                    src="/images/guide/line-qr.jpg"
+                    src="/images/guide/anh-tho-line-qr.jpg"
                     alt="LINE公式QRコード"
                     width={150}
                     height={150}

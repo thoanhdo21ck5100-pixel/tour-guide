@@ -15,7 +15,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     author: {
       name: 'アン トー (Anh Tho)',
       role: '神戸経済大学卒 / 日本語能力試験N1',
-      avatar: '/images/guide/avatar.jpg'
+      avatar: '/images/guide/anh-tho-avatar.jpg'
     },
     content: {
       intro: '日本から直行便やハノイ・ホーチミン経由でダナン国際空港に到着した際、日本人旅行者の方が一番最初に直面するのが「ホテルまでの移動問題」です。空港の外に出ると「タクシー？タクシー？」と声をかけてくるドライバーが大勢いますが、不用意についていくと法外な料金を請求されるトラブルも後を絶ちません。今回は、安全かつ最もリーズナブルにホテルへ移動する方法を詳しく解説します。',
@@ -64,7 +64,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     author: {
       name: 'アン トー (Anh Tho)',
       role: '神戸経済大学卒 / 日本語能力試験N1',
-      avatar: '/images/guide/avatar.jpg'
+      avatar: '/images/guide/anh-tho-avatar.jpg'
     },
     content: {
       intro: 'ベトナム中部旅行のハイライトといえば、夕暮れとともに無数のランタンが灯る世界遺産の街「ホイアン」。川沿いに揺らめく灯籠と、ノスタルジックな黄色い壁の街並みは息をのむ美しさです。しかし、夕方以降は観光客が集中し、小舟の客引きや混雑で疲れてしまうことも。今回は、地元ガイド目線で本当に楽しむための攻略法をお伝えします。',
@@ -110,7 +110,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     author: {
       name: 'アン トー (Anh Tho)',
       role: '神戸経済大学卒 / 日本語能力試験N1',
-      avatar: '/images/guide/avatar.jpg'
+      avatar: '/images/guide/anh-tho-avatar.jpg'
     },
     content: {
       intro: '日本から飛行機で約5時間半。週末＋有給1日で気軽に行けるビーチリゾートとして大人気のダナン。美しいビーチと豊かな自然、そして隣接する世界遺産ホイアンの古都散策がセットで楽しめるのが最大の魅力です。今回は「せっかくなら映える写真も撮りたいし、美味しいものも食べたい、でも疲れすぎるのは嫌」という方にぴったりの2泊3日満喫プランを作成しました。',
