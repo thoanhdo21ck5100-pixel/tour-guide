@@ -163,7 +163,7 @@ export default function HomePage() {
                     <div className="flex items-center gap-3.5">
                       <div className="relative w-18 h-18 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 shadow-lg ring-2 ring-amber-400/20">
                         <Image
-                          src="/images/guide/anh-tho-avatar-v2.jpg"
+                          src="/images/guide/anh-tho-avatar-centered.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
                           fill
                           className="object-cover"
@@ -244,9 +244,9 @@ export default function HomePage() {
             {/* Left Image & Credentials */}
             <div className="lg:col-span-5">
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200">
-                <div className="relative h-80 sm:h-96 w-full">
+                <div className="relative h-96 sm:h-[460px] w-full">
                   <Image
-                    src="/images/guide/anh-tho-about.jpg"
+                    src="/images/guide/anh-tho-about-raised.jpg"
                     alt="ダナン専属ガイド アン トー (Anh Tho)"
                     fill
                     className="object-cover object-top"
