@@ -17,8 +17,10 @@ import TrustBadges from '@/components/TrustBadges';
 import TourCard from '@/components/TourCard';
 import BlogCard from '@/components/BlogCard';
 import FaqAccordion from '@/components/FaqAccordion';
+import InstagramIcon from '@/components/InstagramIcon';
 import { getFeaturedTours } from '@/lib/data/tours';
 import { getFeaturedBlogPosts } from '@/lib/data/blog';
+import { SITE_CONFIG } from '@/lib/seo';
 
 export default function HomePage() {
   const featuredTours = getFeaturedTours();
@@ -132,10 +134,11 @@ export default function HomePage() {
                     <div className="flex items-center gap-3">
                       <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0">
                         <Image
-                          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+                          src="/images/guide/avatar.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
                           fill
                           className="object-cover"
+                          priority
                         />
                       </div>
                       <div>
@@ -232,7 +235,7 @@ export default function HomePage() {
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200">
                 <div className="relative h-80 sm:h-96 w-full">
                   <Image
-                    src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80"
+                    src="/images/guide/about.jpg"
                     alt="ダナン専属ガイド アン トー (Anh Tho)"
                     fill
                     className="object-cover"
@@ -481,37 +484,64 @@ export default function HomePage() {
                   「このフライト時間でホイアンまで行ける？」「おすすめの海鮮レストランは？」「小さな子供がいるけれど大丈夫？」など、現地にいる日本人対応ガイドが迅速に丁寧にお返事いたします。
                 </p>
 
-                <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+                <div className="pt-2 flex flex-wrap items-center gap-3">
                   <a
-                    href="https://line.me/ti/p/~bii010121"
+                    href={SITE_CONFIG.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#06c755] hover:bg-[#05b34c] text-white font-black text-sm rounded-2xl shadow-xl hover:scale-102 transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#06c755] hover:bg-[#05b34c] text-white font-black text-sm rounded-2xl shadow-xl hover:scale-102 transition-all"
                   >
                     <MessageCircle className="w-5 h-5 fill-white" />
-                    <span>公式LINEを友だち追加する</span>
+                    <span>公式LINEで相談</span>
+                  </a>
+
+                  <a
+                    href={SITE_CONFIG.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-black text-sm rounded-2xl shadow-xl hover:scale-102 transition-all"
+                  >
+                    <InstagramIcon className="w-5 h-5 text-white" />
+                    <span>Instagram DMで相談</span>
                   </a>
 
                   <Link
                     href="/contact"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm rounded-2xl transition-all"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm rounded-2xl transition-all"
                   >
                     <Calendar className="w-4 h-4 text-amber-400" />
-                    <span>空き状況カレンダーを見る</span>
+                    <span>空き状況カレンダー</span>
                   </Link>
                 </div>
               </div>
 
-              {/* Right QR Placeholder */}
+              {/* Right QR Box */}
               <div className="lg:col-span-4 flex flex-col items-center justify-center p-6 bg-white rounded-2xl text-slate-900 text-center shadow-lg">
-                <div className="w-36 h-36 bg-slate-100 rounded-xl flex flex-col items-center justify-center border border-slate-200 p-2">
-                  <QrCode className="w-28 h-28 text-slate-800" />
+                <div className="relative w-40 h-40 bg-white rounded-xl border border-slate-200 p-2 flex items-center justify-center shadow-xs">
+                  <Image
+                    src="/images/guide/line-qr.jpg"
+                    alt="LINE公式QRコード"
+                    width={150}
+                    height={150}
+                    className="object-contain"
+                  />
                 </div>
-                <span className="mt-3 text-xs font-bold text-slate-800">
-                  LINE ID: <span className="text-[#06c755]">bii010121</span>
-                </span>
-                <span className="text-[10px] text-slate-500 mt-0.5">
-                  ID検索またはタップして友だち追加
+                <div className="mt-3 space-y-1">
+                  <span className="text-xs font-bold text-slate-800 block">
+                    LINE ID: <span className="text-[#06c755]">bii010121</span>
+                  </span>
+                  <a
+                    href={SITE_CONFIG.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-pink-600 hover:text-pink-700 transition-colors"
+                  >
+                    <InstagramIcon className="w-3.5 h-3.5" />
+                    <span>@{SITE_CONFIG.instagramHandle}</span>
+                  </a>
+                </div>
+                <span className="text-[10px] text-slate-500 mt-1 block">
+                  スマホでQRを読み取って友だち追加
                 </span>
               </div>
             </div>

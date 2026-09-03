@@ -14,6 +14,8 @@ import {
   QrCode,
   Sparkles,
 } from 'lucide-react';
+import InstagramIcon from '@/components/InstagramIcon';
+import { SITE_CONFIG } from '@/lib/seo';
 
 export default function ContactClient() {
   const searchParams = useSearchParams();
@@ -123,13 +125,23 @@ export default function ContactClient() {
 
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
                 <a
-                  href="https://line.me/ti/p/~bii010121"
+                  href={SITE_CONFIG.lineUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto flex-1 py-3 px-4 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>公式LINEを開く（ID: bii010121）</span>
+                  <span>公式LINEを開く（ID: {SITE_CONFIG.lineId}）</span>
+                </a>
+
+                <a
+                  href={SITE_CONFIG.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto flex-1 py-3 px-4 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-2"
+                >
+                  <InstagramIcon className="w-4 h-4 text-white" />
+                  <span>Instagram DM（@{SITE_CONFIG.instagramHandle}）</span>
                 </a>
               </div>
             </div>

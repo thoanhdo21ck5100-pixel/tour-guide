@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { Compass, MessageCircle, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
+import InstagramIcon from '@/components/InstagramIcon';
+import { SITE_CONFIG } from '@/lib/seo';
 
 export default function Footer() {
   return (
@@ -114,13 +116,22 @@ export default function Footer() {
             </p>
             <div className="space-y-3 text-xs">
               <a
-                href="https://line.me/ti/p/~bii010121"
+                href={SITE_CONFIG.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-[#06c755]/15 border border-[#06c755]/30 text-emerald-300 hover:bg-[#06c755]/25 transition-all"
               >
                 <MessageCircle className="w-4 h-4 text-[#06c755] shrink-0" />
-                <span>公式LINEで即時相談 (ID: bii010121)</span>
+                <span>公式LINEで即時相談 (ID: {SITE_CONFIG.lineId})</span>
+              </a>
+              <a
+                href={SITE_CONFIG.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-pink-500/15 border border-pink-500/30 text-pink-300 hover:bg-pink-500/25 transition-all"
+              >
+                <InstagramIcon className="w-4 h-4 text-pink-400 shrink-0" />
+                <span>Instagram DM（@{SITE_CONFIG.instagramHandle}）</span>
               </a>
               <div className="flex items-center gap-2 text-slate-400">
                 <Mail className="w-4 h-4 text-amber-400 shrink-0" />

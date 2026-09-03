@@ -23,6 +23,8 @@ export const SITE_CONFIG = {
   contactEmail: 'thoanhdo21ck5100@gmail.com',
   lineId: 'bii010121',
   lineUrl: 'https://line.me/ti/p/~bii010121',
+  instagramHandle: 'bii010121',
+  instagramUrl: 'https://www.instagram.com/bii010121',
 };
 
 export function constructMetadata({
