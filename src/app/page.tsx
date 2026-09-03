@@ -79,7 +79,7 @@ export default function HomePage() {
               </div>
 
               {/* CTAs */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+              <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3">
                 <Link
                   href="/contact"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm shadow-lg hover:shadow-xl hover:scale-102 active:scale-98 transition-all"
@@ -87,13 +87,24 @@ export default function HomePage() {
                   <Calendar className="w-4 h-4" />
                   <span>空き状況の確認・予約する</span>
                 </Link>
-                <Link
-                  href="/contact#line-consultation"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-sm shadow-md hover:shadow-lg hover:scale-102 active:scale-98 transition-all"
+                <a
+                  href={SITE_CONFIG.lineUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-sm shadow-md hover:shadow-lg hover:scale-102 active:scale-98 transition-all"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>LINEで無料旅程相談</span>
-                </Link>
+                  <span>LINEで無料相談</span>
+                </a>
+                <a
+                  href={SITE_CONFIG.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-sm shadow-md hover:shadow-lg hover:scale-102 active:scale-98 transition-all"
+                >
+                  <InstagramIcon className="w-4 h-4 text-white" />
+                  <span>Instagram相談</span>
+                </a>
               </div>
 
               {/* Metrics & Social Proof */}
@@ -127,54 +138,54 @@ export default function HomePage() {
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-transparent to-black/30" />
+
+                    {/* Floating Satisfaction Badge (Top-Right: Never covers text) */}
+                    <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-slate-900 py-2 px-3.5 rounded-2xl shadow-xl border border-white/80 flex items-center gap-2 z-10">
+                      <div className="w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 shrink-0">
+                        <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1">
+                          <span className="text-xs font-black text-[#0B2545]">4.98</span>
+                          <div className="flex text-amber-400 text-[10px]">
+                            {'★'.repeat(5)}
+                          </div>
+                        </div>
+                        <span className="text-[9px] text-slate-500 font-bold block leading-none">
+                          Googleクチコミ高評価
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Floating Guide Intro Card */}
-                  <div className="p-5 bg-[#0B2545]/95 backdrop-blur-md border-t border-slate-700">
-                    <div className="flex items-center gap-3">
-                      <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0">
+                  <div className="p-5 sm:p-6 bg-[#0B2545]/95 backdrop-blur-md border-t border-slate-700">
+                    <div className="flex items-center gap-3.5">
+                      <div className="relative w-18 h-18 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 shadow-lg ring-2 ring-amber-400/20">
                         <Image
-                          src="/images/guide/anh-tho-avatar.jpg"
+                          src="/images/guide/anh-tho-avatar-v2.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
                           fill
-                          className="object-cover object-[center_25%]"
+                          className="object-cover"
                           priority
                         />
                       </div>
                       <div>
-                        <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block">
+                        <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block mb-0.5">
                           YOUR PERSONAL GUIDE
                         </span>
-                        <h2 className="text-base font-bold text-white">
+                        <h2 className="text-lg font-bold text-white leading-tight">
                           アン トー (Anh Tho)
                         </h2>
-                        <p className="text-xs text-slate-300">
+                        <p className="text-xs text-slate-300 mt-1">
                           神戸経済大学卒 / 日本語能力試験N1
                         </p>
                       </div>
                     </div>
 
-                    <p className="mt-3 text-xs text-slate-300 leading-relaxed">
+                    <p className="mt-3.5 text-xs text-slate-300 leading-relaxed">
                       「日本のみなさま、シンチャオ！神戸経済大学で学び、日本のおもてなし文化に触れました。温かい心でダナン＆ホイアンの特別な旅をお手伝いします。」
                     </p>
-                  </div>
-                </div>
-
-                {/* Floating Satisfaction Stamp */}
-                <div className="absolute -bottom-4 -left-4 bg-white text-slate-900 py-2.5 px-4 rounded-2xl shadow-xl border border-slate-200 flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
-                    <Star className="w-4 h-4 fill-amber-500 text-amber-500" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1">
-                      <span className="text-sm font-black text-[#0B2545]">4.98</span>
-                      <div className="flex text-amber-400">
-                        {'★'.repeat(5)}
-                      </div>
-                    </div>
-                    <span className="text-[10px] text-slate-500 font-medium">
-                      Googleクチコミ高評価
-                    </span>
                   </div>
                 </div>
               </div>

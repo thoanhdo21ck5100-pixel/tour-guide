@@ -6,6 +6,8 @@ import { TOURS_DATA } from '@/lib/data/tours';
 import TourCard from '@/components/TourCard';
 import { TourCategory } from '@/types';
 import { Sparkles, MessageCircle, SlidersHorizontal, ShieldCheck } from 'lucide-react';
+import InstagramIcon from '@/components/InstagramIcon';
+import { SITE_CONFIG } from '@/lib/seo';
 
 export default function ToursClient() {
   const [selectedCategory, setSelectedCategory] = useState<TourCategory>('all');
@@ -129,13 +131,24 @@ export default function ToursClient() {
               >
                 オーダーメイドのご相談・お見積り
               </Link>
-              <Link
-                href="/contact#line-consultation"
-                className="px-6 py-3 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-1.5"
+              <a
+                href={SITE_CONFIG.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-1.5"
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
-                LINEでサクッと相談する
-              </Link>
+                LINEで相談する
+              </a>
+              <a
+                href={SITE_CONFIG.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-1.5"
+              >
+                <InstagramIcon className="w-4 h-4 text-white" />
+                Instagram DMで相談
+              </a>
             </div>
           </div>
         </div>

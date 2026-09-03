@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { TOURS_DATA } from '@/lib/data/tours';
 import { ContactMethod } from '@/types';
 import { CheckCircle, AlertCircle, Loader2, MessageCircle, CalendarCheck, ShieldCheck } from 'lucide-react';
+import InstagramIcon from '@/components/InstagramIcon';
+import { SITE_CONFIG } from '@/lib/seo';
 
 interface BookingFormProps {
   initialDate?: string;
@@ -112,15 +114,26 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
                 公式LINEを追加して「予約した{formData.name}です」と一言送っていただくと最優先で返信いたします。
               </p>
             </div>
-            <a
-              href="https://line.me/ti/p/~bii010121"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-[#06c755] text-white text-xs font-bold rounded-lg shrink-0 flex items-center gap-1.5 shadow-sm hover:bg-[#05b34c]"
-            >
-              <MessageCircle className="w-4 h-4 fill-white" />
-              LINE友だち追加
-            </a>
+            <div className="flex flex-col sm:flex-row gap-2 shrink-0">
+              <a
+                href={SITE_CONFIG.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-2 bg-[#06c755] hover:bg-[#05b34c] text-white text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-sm transition-all"
+              >
+                <MessageCircle className="w-4 h-4 fill-white" />
+                LINE友だち追加
+              </a>
+              <a
+                href={SITE_CONFIG.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-2 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-sm transition-all"
+              >
+                <InstagramIcon className="w-4 h-4 text-white" />
+                Instagram DM
+              </a>
+            </div>
           </div>
 
           <button
