@@ -44,7 +44,7 @@ export default function HomePage() {
               {/* Trust Tag */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs font-bold tracking-wide">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>ベトナム観光総局公認・完全貸切ツアー</span>
+                <span>神戸経済大学卒・日本語能力試験N1専属ガイド</span>
               </div>
 
               {/* Primary SEO Heading */}
@@ -107,19 +107,19 @@ export default function HomePage() {
                 </a>
               </div>
 
-              {/* Metrics & Social Proof */}
+              {/* Authentic Credentials */}
               <div className="pt-6 border-t border-slate-700/60 grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-xl sm:text-2xl font-black text-amber-400">99.4%</div>
-                  <div className="text-[11px] text-slate-400 mt-0.5">日本人顧客満足度</div>
+                  <div className="text-sm sm:text-base font-black text-amber-400">神戸経済大学</div>
+                  <div className="text-[11px] text-slate-300 mt-0.5">経済学部 卒業</div>
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-black text-amber-400">1,200組+</div>
-                  <div className="text-[11px] text-slate-400 mt-0.5">累計ご案内実績</div>
+                  <div className="text-sm sm:text-base font-black text-amber-400">JLPT N1</div>
+                  <div className="text-[11px] text-slate-300 mt-0.5">日本語能力試験N1</div>
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-black text-amber-400">100%</div>
-                  <div className="text-[11px] text-slate-400 mt-0.5">完全貸切専用車</div>
+                  <div className="text-sm sm:text-base font-black text-amber-400">1日1組限定</div>
+                  <div className="text-[11px] text-slate-300 mt-0.5">完全貸切プライベート</div>
                 </div>
               </div>
             </div>
@@ -138,24 +138,6 @@ export default function HomePage() {
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-transparent to-black/30" />
-
-                    {/* Floating Satisfaction Badge (Top-Right: Never covers text) */}
-                    <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-slate-900 py-2 px-3.5 rounded-2xl shadow-xl border border-white/80 flex items-center gap-2 z-10">
-                      <div className="w-7 h-7 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 shrink-0">
-                        <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1">
-                          <span className="text-xs font-black text-[#0B2545]">4.98</span>
-                          <div className="flex text-amber-400 text-[10px]">
-                            {'★'.repeat(5)}
-                          </div>
-                        </div>
-                        <span className="text-[9px] text-slate-500 font-bold block leading-none">
-                          Googleクチコミ高評価
-                        </span>
-                      </div>
-                    </div>
                   </div>
 
                   {/* Floating Guide Intro Card */}
@@ -163,7 +145,7 @@ export default function HomePage() {
                     <div className="flex items-center gap-3.5">
                       <div className="relative w-18 h-18 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 shadow-lg ring-2 ring-amber-400/20">
                         <Image
-                          src="/images/guide/anh-tho-avatar-v2.jpg"
+                          src="/images/guide/anh-tho-avatar-v3.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
                           fill
                           className="object-cover"
@@ -244,9 +226,9 @@ export default function HomePage() {
             {/* Left Image & Credentials */}
             <div className="lg:col-span-5">
               <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200">
-                <div className="relative h-80 sm:h-96 w-full">
+                <div className="relative h-96 sm:h-[480px] w-full">
                   <Image
-                    src="/images/guide/anh-tho-about.jpg"
+                    src="/images/guide/anh-tho-about-v3.jpg"
                     alt="ダナン専属ガイド アン トー (Anh Tho)"
                     fill
                     className="object-cover object-top"
