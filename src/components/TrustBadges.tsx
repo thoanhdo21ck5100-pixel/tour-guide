@@ -27,7 +27,7 @@ export default function TrustBadges() {
       icon: MessageCircleHeart,
       title: 'LINE事前相談いつでも無料',
       subtitle: 'ご予約前のご質問大歓迎',
-      description: '旅程の相談から天候の確認、おすすめの服装まで、日本人スタッフがLINEで丁寧にお答えします。',
+      description: '旅程の相談から天候の確認、おすすめの服装まで、専属ガイド（アン トー）が直接LINEで丁寧にお答えします。',
       color: 'text-emerald-700 bg-emerald-50/80 border-emerald-300',
     },
   ];
