@@ -137,7 +137,7 @@ export default function HomePage() {
                           src="/images/guide/avatar.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
                           fill
-                          className="object-cover"
+                          className="object-cover object-[center_25%]"
                           priority
                         />
                       </div>
@@ -238,7 +238,7 @@ export default function HomePage() {
                     src="/images/guide/about.jpg"
                     alt="ダナン専属ガイド アン トー (Anh Tho)"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/80 via-transparent to-transparent" />
                 </div>
