@@ -104,7 +104,7 @@ export default function AdminSidebar() {
               <ShieldCheck className="w-4 h-4" />
             </div>
             <div>
-              <p className="text-[11px] font-bold text-white">専属ガイド (Nguyen)</p>
+              <p className="text-[11px] font-bold text-white">専属ガイド (Anh Tho)</p>
               <p className="text-[10px] text-emerald-400">ログイン中</p>
             </div>
           </div>

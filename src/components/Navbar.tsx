@@ -118,7 +118,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="py-1 border-b border-slate-100 hover:text-amber-600"
             >
-              ガイド紹介（専属グエン）
+              ガイド紹介（専属アン トー）
             </Link>
             <Link
               href="/#faq"

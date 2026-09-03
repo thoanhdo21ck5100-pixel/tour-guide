@@ -133,7 +133,7 @@ export default function HomePage() {
                       <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0">
                         <Image
                           src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
-                          alt="専属ガイド グエン"
+                          alt="専属ガイド アン トー (Anh Tho)"
                           fill
                           className="object-cover"
                         />
@@ -143,16 +143,16 @@ export default function HomePage() {
                           YOUR PERSONAL GUIDE
                         </span>
                         <h2 className="text-base font-bold text-white">
-                          グエン (Nguyen)
+                          アン トー (Anh Tho)
                         </h2>
                         <p className="text-xs text-slate-300">
-                          ダナン公認国際ツアーガイド / 日本語検定N1
+                          神戸経済大学卒 / 日本語能力試験N1
                         </p>
                       </div>
                     </div>
 
                     <p className="mt-3 text-xs text-slate-300 leading-relaxed">
-                      「日本のみなさま、シンチャオ！温かいおもてなしの心で、ダナン＆ホイアンの特別な旅をお手伝いします。」
+                      「日本のみなさま、シンチャオ！神戸経済大学で学び、日本のおもてなし文化に触れました。温かい心でダナン＆ホイアンの特別な旅をお手伝いします。」
                     </p>
                   </div>
                 </div>
@@ -233,22 +233,22 @@ export default function HomePage() {
                 <div className="relative h-80 sm:h-96 w-full">
                   <Image
                     src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80"
-                    alt="ダナン専属ガイド グエン"
+                    alt="ダナン専属ガイド アン トー (Anh Tho)"
                     fill
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/80 via-transparent to-transparent" />
                 </div>
                 <div className="p-6 bg-[#0B2545] text-white">
-                  <h3 className="text-lg font-bold">ダナン専属ガイド：グエン (Nguyen)</h3>
+                  <h3 className="text-lg font-bold">ダナン専属ガイド：アン トー (Anh Tho)</h3>
                   <p className="text-xs text-amber-300 mt-1">
-                    ベトナム政府公認 国際ツアーガイドライセンス（第108/VNAT号）
+                    神戸経済大学 卒業 / 日本語能力試験N1取得
                   </p>
                   <div className="mt-3 pt-3 border-t border-slate-700 grid grid-cols-2 gap-2 text-xs text-slate-300">
-                    <div>✔ 日本語能力試験N1取得</div>
-                    <div>✔ 日本滞在経験・留学歴あり</div>
-                    <div>✔ ガイド歴10年（日本人専門）</div>
-                    <div>✔ 応急救護講習修了</div>
+                    <div>✔ 神戸経済大学 卒業</div>
+                    <div>✔ 日本語能力試験N1 (JLPT N1)</div>
+                    <div>✔ 日本人向けガイド・折衝 2年</div>
+                    <div>✔ 1日1組様限定・完全貸切</div>
                   </div>
                 </div>
               </div>
@@ -265,10 +265,13 @@ export default function HomePage() {
                 心あたたまるベトナム体験をお届けしたい」
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                初めまして、ダナン生まれダナン育ちのグエンと申します。日本の大学で学び、日本のみなさんの礼儀正しさや「おもてなし」の心に深く感動しました。
+                初めまして、ダナン専属ガイドのアン トー (Anh Tho) と申します。神戸経済大学で学び、日本のみなさんの礼儀正しさや「おもてなし」の心に深く感銘を受けました。
               </p>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                「海外旅行で言葉が通じない不安」「不当なぼったくりタクシーへの恐怖」「団体ツアーのせわしないスケジュール」...そうしたストレスを一切なくし、ご家族や大切な人と最高の思い出を作っていただきたいという想いから、1日1組様限定の完全貸切プライベートツアーを始めました。
+                大学卒業後は、日本人観光客の皆様のご案内や日系パートナー企業との折衝業務に2年間従事してまいりました。日本のお客様が大切にされる「時間厳守」「清潔さ」「細やかな心配り」を徹底し、一人ひとりに寄り添った温かいガイドをお約束します。
+              </p>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                「言葉が通じない不安」「不当なぼったくりタクシーへの警戒」「団体ツアーのせわしないスケジュール」...そうしたストレスを一切なくし、ご家族や大切な人と一生モノの思い出を作っていただけるよう、1日1組様限定の完全貸切プライベートツアーで心を込めてエスコートいたします。
               </p>
 
               {/* 3 Reassurances */}
@@ -347,7 +350,7 @@ export default function HomePage() {
                   「日本語がとてもお上手で、両親も大喜びでした」
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  70代の両親を連れてのダナン＆ホイアン旅行で利用しました。階段の多い五行山では歩きやすいルートを選んでくださり、専用車もとても清潔で快適でした。グエンさんの細やかな気配りに感動です！
+                  70代の両親を連れてのダナン＆ホイアン旅行で利用しました。階段の多い五行山では歩きやすいルートを選んでくださり、専用車もとても清潔で快適でした。アン トーさんの細やかな気配りに感動です！
                 </p>
               </div>
               <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
@@ -480,7 +483,7 @@ export default function HomePage() {
 
                 <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
                   <a
-                    href="https://line.me"
+                    href="https://line.me/ti/p/~bii010121"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#06c755] hover:bg-[#05b34c] text-white font-black text-sm rounded-2xl shadow-xl hover:scale-102 transition-all"
@@ -505,10 +508,10 @@ export default function HomePage() {
                   <QrCode className="w-28 h-28 text-slate-800" />
                 </div>
                 <span className="mt-3 text-xs font-bold text-slate-800">
-                  LINE ID: <span className="text-[#06c755]">@danang_guide</span>
+                  LINE ID: <span className="text-[#06c755]">bii010121</span>
                 </span>
                 <span className="text-[10px] text-slate-500 mt-0.5">
-                  スマホでQRを読み取って友だち追加
+                  ID検索またはタップして友だち追加
                 </span>
               </div>
             </div>

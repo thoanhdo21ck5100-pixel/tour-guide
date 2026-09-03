@@ -113,7 +113,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
               </p>
             </div>
             <a
-              href="https://line.me"
+              href="https://line.me/ti/p/~bii010121"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 bg-[#06c755] text-white text-xs font-bold rounded-lg shrink-0 flex items-center gap-1.5 shadow-sm hover:bg-[#05b34c]"

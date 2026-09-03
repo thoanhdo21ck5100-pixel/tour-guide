@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Compass, MessageCircle, Mail, MapPin, CheckCircle2 } from 'lucide-react';
+import { Compass, MessageCircle, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -18,12 +18,12 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-xs leading-relaxed text-slate-400">
-              ベトナム観光総局公認の日本語ガイド「グエン」による完全貸切のプライベートツアー。安心・安全・おもてなしの心で、一生の思い出に残るダナン・ホイアンの旅をお届けします。
+              神戸経済大学卒・日本語能力試験N1保持の専属ガイド「アン トー (Anh Tho)」による完全貸切のプライベートツアー。安心・安全・おもてなしの心で、一生の思い出に残るダナン・ホイアンの旅をお届けします。
             </p>
             <div className="flex flex-col gap-2 text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>ベトナム公認国際ツアーガイドライセンス保持</span>
+                <span>神戸経済大学 経済学部 卒業</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -31,7 +31,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>安心の完全貸切・チップ不要の明朗会計</span>
+                <span>日本人向けガイド・折衝経験 2年（完全貸切・明朗会計）</span>
               </div>
             </div>
           </div>
@@ -113,20 +113,30 @@ export default function Footer() {
               旅程のご相談、お見積り、お日にちの空き確認など、日本語でお気軽にご連絡ください。
             </p>
             <div className="space-y-3 text-xs">
-              <Link
-                href="/contact#line-consultation"
+              <a
+                href="https://line.me/ti/p/~bii010121"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-[#06c755]/15 border border-[#06c755]/30 text-emerald-300 hover:bg-[#06c755]/25 transition-all"
               >
                 <MessageCircle className="w-4 h-4 text-[#06c755] shrink-0" />
-                <span>公式LINEで即時相談</span>
-              </Link>
+                <span>公式LINEで即時相談 (ID: bii010121)</span>
+              </a>
               <div className="flex items-center gap-2 text-slate-400">
                 <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>contact@danang-private-guide.com</span>
+                <a href="mailto:thoanhdo21ck5100@gmail.com" className="hover:text-white transition-colors">
+                  thoanhdo21ck5100@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-slate-400">
+                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <a href="tel:+84968781121" className="hover:text-white transition-colors font-mono">
+                  +84 968 781 121 (ベトナム現地)
+                </a>
               </div>
               <div className="flex items-center gap-2 text-slate-400">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Hai Chau, Da Nang City, Vietnam</span>
+                <span>Da Nang City & Hoi An, Vietnam</span>
               </div>
             </div>
           </div>

@@ -13,8 +13,8 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     readingTime: '5分で読める',
     featured: true,
     author: {
-      name: 'グエン (Nguyen)',
-      role: 'ダナン公認日本語ガイド / 在住歴30年',
+      name: 'アン トー (Anh Tho)',
+      role: '神戸経済大学卒 / 日本語能力試験N1',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
     },
     content: {
@@ -62,8 +62,8 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     readingTime: '6分で読める',
     featured: true,
     author: {
-      name: 'グエン (Nguyen)',
-      role: 'ダナン公認日本語ガイド / 在住歴30年',
+      name: 'アン トー (Anh Tho)',
+      role: '神戸経済大学卒 / 日本語能力試験N1',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
     },
     content: {
@@ -108,8 +108,8 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     readingTime: '7分で読める',
     featured: true,
     author: {
-      name: 'グエン (Nguyen)',
-      role: 'ダナン公認日本語ガイド / 在住歴30年',
+      name: 'アン トー (Anh Tho)',
+      role: '神戸経済大学卒 / 日本語能力試験N1',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
     },
     content: {

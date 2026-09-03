@@ -4,9 +4,9 @@ export default function TrustBadges() {
   const badges = [
     {
       icon: Award,
-      title: 'ベトナム政府公認ガイド',
-      subtitle: '安心の日本語能力試験N1',
-      description: '日本人向けツアー歴10年のベテラン。丁寧な日本語と温かいおもてなしでご案内します。',
+      title: '日本語能力試験N1専属',
+      subtitle: '神戸経済大学 卒業',
+      description: '日本留学経験と2年間の折衝・ガイド実績。丁寧な日本語と温かいおもてなしでご案内します。',
       color: 'text-amber-600 bg-amber-50 border-amber-200',
     },
     {

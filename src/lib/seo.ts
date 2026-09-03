@@ -18,10 +18,11 @@ export const SITE_CONFIG = {
     'ダナン グルメ ツアー',
     'ベトナム 中部 個人旅行'
   ],
-  author: 'ダナン・コンシェルジュ (Nguyen)',
-  contactPhone: '+84-90-123-4567',
-  contactEmail: 'contact@danang-private-guide.com',
-  lineId: '@danang_guide'
+  author: 'アン トー (Anh Tho)',
+  contactPhone: '+84 968 781 121',
+  contactEmail: 'thoanhdo21ck5100@gmail.com',
+  lineId: 'bii010121',
+  lineUrl: 'https://line.me/ti/p/~bii010121',
 };
 
 export function constructMetadata({
@@ -94,7 +95,7 @@ export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'TouristInformationCenter',
-    name: 'ダナン プライベートツアー コンシェルジュ (Nguyen Guide Service)',
+    name: 'ダナン プライベートツアー (Anh Tho Guide Service)',
     image: SITE_CONFIG.ogImage,
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.contactPhone,

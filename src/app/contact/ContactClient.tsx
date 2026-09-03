@@ -123,13 +123,13 @@ export default function ContactClient() {
 
               <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
                 <a
-                  href="https://line.me"
+                  href="https://line.me/ti/p/~bii010121"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto flex-1 py-3 px-4 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>公式LINEを開く（@danang_guide）</span>
+                  <span>公式LINEを開く（ID: bii010121）</span>
                 </a>
               </div>
             </div>

@@ -121,7 +121,7 @@ INSERT INTO public.blog_posts (
     CURRENT_DATE,
     '5分で読める',
     true,
-    '{"name": "グエン (Nguyen)", "role": "ダナン公認日本語ガイド / 在住歴30年", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
+    '{"name": "アン トー (Anh Tho)", "role": "神戸経済大学卒 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
     '{
         "intro": "日本からダナン国際空港に到着した際、一番最初に直面するのが「ホテルまでの移動問題」です。安全かつ最もリーズナブルにホテルへ移動する方法を詳しく解説します。",
         "sections": [
@@ -150,7 +150,7 @@ INSERT INTO public.blog_posts (
     CURRENT_DATE,
     '6分で読める',
     true,
-    '{"name": "グエン (Nguyen)", "role": "ダナン公認日本語ガイド / 在住歴30年", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
+    '{"name": "アン トー (Anh Tho)", "role": "神戸経済大学卒 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
     '{
         "intro": "ベトナム中部旅行のハイライトといえば、夕暮れとともに無数のランタンが灯る世界遺産の街「ホイアン」。",
         "sections": [

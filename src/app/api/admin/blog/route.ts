@@ -15,8 +15,8 @@ const BlogSchema = z.object({
   readingTime: z.string().default('5分で読める'),
   featured: z.boolean().default(false),
   author: z.object({
-    name: z.string().default('グエン (Nguyen)'),
-    role: z.string().default('ダナン公認日本語ガイド'),
+    name: z.string().default('アン トー (Anh Tho)'),
+    role: z.string().default('神戸経済大学卒 / 日本語能力試験N1'),
     avatar: z.string().default('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'),
   }),
   content: z.object({
