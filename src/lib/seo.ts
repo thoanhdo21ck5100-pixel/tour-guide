@@ -30,7 +30,7 @@ export const SITE_CONFIG = {
   ],
   author: 'アン トー (Anh Tho)',
   contactPhone: '+84 968 781 121',
-  contactEmail: 'thoanhdo21ck5100@gmail.com',
+  contactEmail: 'nihongoguide01@gmail.com',
   lineId: '@564pshie',
   lineUrl: 'https://lin.ee/vssKBHS',
   instagramHandle: 'tho.anh.do01',
