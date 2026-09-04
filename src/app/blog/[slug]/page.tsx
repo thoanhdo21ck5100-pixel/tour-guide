@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { getBlogPostBySlug, BLOG_POSTS_DATA } from '@/lib/data/blog';
 import { getTourBySlug } from '@/lib/data/tours';
-import { constructMetadata, generateBlogPostSchema } from '@/lib/seo';
+import { constructMetadata, generateBlogPostSchema, generateBreadcrumbSchema } from '@/lib/seo';
 import GuideStrategicValueCard from '@/components/GuideStrategicValueCard';
 
 export async function generateStaticParams() {
@@ -57,12 +57,21 @@ export default async function BlogPostPage({
 
   const relatedTour = post.relatedTourSlug ? getTourBySlug(post.relatedTourSlug) : null;
   const jsonLd = generateBlogPostSchema(post);
+  const breadcrumbLd = generateBreadcrumbSchema([
+    { name: 'ホーム', url: '/' },
+    { name: '現地ブログ', url: '/blog' },
+    { name: post.title, url: `/blog/${post.slug}` },
+  ]);
 
   return (
     <article className="bg-[#FDFBF7] min-h-screen py-10 sm:py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6">

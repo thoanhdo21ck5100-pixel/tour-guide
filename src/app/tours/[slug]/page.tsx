@@ -15,7 +15,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { getTourBySlug, TOURS_DATA } from '@/lib/data/tours';
-import { constructMetadata, generateTouristTripSchema, SITE_CONFIG } from '@/lib/seo';
+import { constructMetadata, generateTouristTripSchema, generateBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import InstagramIcon from '@/components/InstagramIcon';
 import GuideStrategicValueCard from '@/components/GuideStrategicValueCard';
 
@@ -58,12 +58,21 @@ export default async function TourDetailPage({
   }
 
   const jsonLd = generateTouristTripSchema(tour);
+  const breadcrumbLd = generateBreadcrumbSchema([
+    { name: 'ホーム', url: '/' },
+    { name: 'ツアー一覧', url: '/tours' },
+    { name: tour.title, url: `/tours/${tour.slug}` },
+  ]);
 
   return (
     <div className="bg-[#FDFBF7] min-h-screen py-8 sm:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">

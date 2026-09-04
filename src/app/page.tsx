@@ -20,14 +20,25 @@ import FaqAccordion from '@/components/FaqAccordion';
 import InstagramIcon from '@/components/InstagramIcon';
 import { getFeaturedTours } from '@/lib/data/tours';
 import { getFeaturedBlogPosts } from '@/lib/data/blog';
-import { SITE_CONFIG } from '@/lib/seo';
+import { FAQS_DATA } from '@/lib/data/faqs';
+import { SITE_CONFIG, generateLocalBusinessSchema, generateFaqSchema } from '@/lib/seo';
 
 export default function HomePage() {
   const featuredTours = getFeaturedTours();
   const featuredPosts = getFeaturedBlogPosts();
+  const localBusinessSchema = generateLocalBusinessSchema();
+  const faqSchema = generateFaqSchema(FAQS_DATA);
 
   return (
     <div className="flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#07192E] via-[#0B2545] to-[#133E68] text-white pt-12 pb-20 sm:pt-20 sm:pb-28">
         {/* Subtle Background pattern */}
