@@ -90,6 +90,17 @@ export function constructMetadata({
       description: metaDesc,
       images: [ogImg],
     },
+    icons: {
+      icon: [
+        { url: '/favicon.ico' },
+        { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+        { url: '/images/logo-emblem.png', sizes: '512x512', type: 'image/png' },
+      ],
+      apple: [
+        { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+      ],
+      shortcut: ['/favicon.ico'],
+    },
   };
 }
 
@@ -98,7 +109,8 @@ export function generateLocalBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'TouristInformationCenter',
     name: 'ダナン プライベートツアー (Anh Tho Guide Service)',
-    image: SITE_CONFIG.ogImage,
+    image: `${SITE_CONFIG.url}/images/logo.png`,
+    logo: `${SITE_CONFIG.url}/images/logo.png`,
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.contactPhone,
     address: {

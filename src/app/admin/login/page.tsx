@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Compass, Lock, Mail, Loader2, AlertCircle, ShieldCheck, KeyRound } from 'lucide-react';
+import { Lock, Mail, Loader2, AlertCircle, ShieldCheck, KeyRound } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
 export default function AdminLoginPage() {
@@ -18,7 +19,10 @@ export default function AdminLoginPage() {
     setIsLoading(true);
 
     try {
-      // 1. If Supabase is connected, attempt authenticating via Supabase Auth
+      if (!email || !password) {
+        throw new Error('メールアドレスとパスワードを入力してください。');
+      }
+
       if (supabase) {
         const { error: authError } = await supabase.auth.signInWithPassword({
           email,
@@ -27,22 +31,22 @@ export default function AdminLoginPage() {
 
         if (!authError) {
           if (typeof window !== 'undefined') {
-            localStorage.setItem('admin_session', JSON.stringify({ email, timestamp: Date.now() }));
+            localStorage.setItem('admin_session', 'authenticated');
           }
           router.push('/admin');
           return;
         }
 
-        // If Supabase auth failed, check if it's the offline demo account
+        // Check demo account fallback
         if (email !== 'admin@danang-guide.com' || password !== 'DanangGuide2026!') {
           throw new Error(authError.message || 'メールアドレスまたはパスワードが正しくありません。');
         }
       }
 
-      // 2. Offline / Demo Fallback Account for Testing
+      // Demo fallback
       if (email === 'admin@danang-guide.com' && password === 'DanangGuide2026!') {
         if (typeof window !== 'undefined') {
-          localStorage.setItem('admin_session', JSON.stringify({ email, timestamp: Date.now() }));
+          localStorage.setItem('admin_session', 'authenticated');
         }
         router.push('/admin');
         return;
@@ -50,11 +54,11 @@ export default function AdminLoginPage() {
 
       throw new Error('メールアドレスまたはパスワードが正しくありません。');
     } catch (err: unknown) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError('ログイン中に予期せぬエラーが発生しました。');
-      }
+      const errorMsg =
+        err instanceof Error
+          ? err.message
+          : 'ログインに失敗しました。認証情報を確認してください。';
+      setError(errorMsg);
     } finally {
       setIsLoading(false);
     }
@@ -70,8 +74,15 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md bg-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-200">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white mx-auto shadow-md mb-3">
-            <Compass className="w-7 h-7" />
+          <div className="relative w-20 h-20 mx-auto mb-3">
+            <Image
+              src="/images/logo-emblem.png"
+              alt="ANH THO TOUR GUIDE"
+              width={80}
+              height={80}
+              className="w-full h-full object-contain"
+              priority
+            />
           </div>
           <span className="text-[11px] font-bold text-amber-600 tracking-wider uppercase block">
             ADMINISTRATOR PORTAL

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   Calendar,
@@ -42,8 +43,14 @@ export default function AdminSidebar() {
       <div>
         {/* Brand */}
         <div className="p-6 border-b border-slate-800 flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white shadow-md">
-            <Compass className="w-5 h-5" />
+          <div className="relative w-9 h-9 shrink-0 rounded-full bg-white/5 p-0.5 border border-white/10 shadow-sm">
+            <Image
+              src="/images/logo-emblem.png"
+              alt="ANH THO TOUR GUIDE"
+              width={36}
+              height={36}
+              className="w-full h-full object-contain"
+            />
           </div>
           <div>
             <span className="text-[10px] font-bold text-amber-400 tracking-wider block">

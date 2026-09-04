@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Compass, MessageCircle, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
+import Image from 'next/image';
+import { MessageCircle, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 import InstagramIcon from '@/components/InstagramIcon';
 import { SITE_CONFIG } from '@/lib/seo';
 
@@ -11,12 +12,19 @@ export default function Footer() {
           {/* Brand & Guide Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white shadow-md">
-                <Compass className="w-6 h-6" />
+              <div className="relative w-12 h-12 shrink-0 rounded-full bg-white/5 p-1 border border-white/10 shadow-md">
+                <Image
+                  src="/images/logo-emblem.png"
+                  alt="ANH THO TOUR GUIDE"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <p className="text-xs text-amber-400 font-semibold tracking-wider">現地公認 日本語ガイド</p>
                 <h3 className="text-base font-bold text-white tracking-tight">ダナン プライベートツアー</h3>
+                <p className="text-[10px] text-slate-400 font-medium tracking-wider">ANH THO TOUR GUIDE VIETNAM</p>
               </div>
             </div>
             <p className="text-xs leading-relaxed text-slate-400">

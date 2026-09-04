@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, MessageCircle, Calendar, Compass, ShieldCheck } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X, MessageCircle, Calendar, ShieldCheck } from 'lucide-react';
 import InstagramIcon from '@/components/InstagramIcon';
 import { SITE_CONFIG } from '@/lib/seo';
 
@@ -29,12 +30,21 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0B2545] to-[#133E68] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-            <Compass className="w-6 h-6 text-amber-400" />
+          <div className="relative w-11 h-11 shrink-0 group-hover:scale-105 transition-transform">
+            <Image
+              src="/images/logo-emblem.png"
+              alt="ANH THO TOUR GUIDE"
+              width={44}
+              height={44}
+              className="w-full h-full object-contain"
+              priority
+            />
           </div>
           <div>
-            <div className="text-xs font-semibold text-amber-600 tracking-wider">
-              現地公認 日本語ガイド
+            <div className="text-[11px] font-semibold text-amber-600 tracking-wider flex items-center gap-1.5">
+              <span>現地公認 日本語ガイド</span>
+              <span className="hidden sm:inline text-slate-300">|</span>
+              <span className="hidden sm:inline text-slate-500 font-bold">ANH THO</span>
             </div>
             <div className="text-base sm:text-lg font-bold text-[#0B2545] tracking-tight group-hover:text-[#133E68] transition-colors">
               ダナン プライベートツアー
