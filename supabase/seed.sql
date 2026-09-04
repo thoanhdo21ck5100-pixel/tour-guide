@@ -104,8 +104,42 @@ INSERT INTO public.tours (
     'お客様のご宿泊ホテルロビー',
     'ご参加日前日までキャンセル無料。',
     '["本場のベトナム料理を安心して楽しみたい方", "夜のダナンを安全に散策したい方"]'::jsonb
+),
+(
+    'danang-local-market-deep-cafe-tour',
+    'ダナン市内ローカル市場＆ディープカフェ巡りツアー',
+    'ハン市場＆コン市場を日本語ガイドと安心探検！名物ココナッツコーヒーと厳選ローカルストリートフード半日体験',
+    'food',
+    'グルメ＆ローカル',
+    '約4.5時間',
+    9800,
+    1650000,
+    '※名物ココナッツコーヒー・市場名物グルメ・専用車送迎込み',
+    4.97,
+    76,
+    'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80',
+    'ディープ体験No.1',
+    true,
+    '観光客で賑わう「ハン市場」と市民の台所「コン市場」を日本語ガイドと散策。安心・清潔な厳選ローカルフード＆濃厚ココナッツコーヒーを味わう充実の半日ツアーです。',
+    'ガイドブックに載っている観光地だけでなく、地元の人々が通うディープな市場やローカルカフェを体験したい方に最適なツアーです。安心・安全に満喫していただけます。',
+    '["日本語ガイド同行で安心", "ハン市場でお土産ハント", "コン市場のディープな屋台体験", "名物ココナッツコーヒー", "厳選清潔グルメ"]'::jsonb,
+    '[
+        {"time": "08:30 / 13:30", "title": "ホテルお迎え", "description": "専用車でお迎えにあがります。"},
+        {"time": "09:00 / 14:00", "title": "ハン市場散策", "description": "お土産選びに最適な市場をご案内。"},
+        {"time": "10:00 / 15:00", "title": "コン市場屋台街探検", "description": "市民の胃袋で名物グルメ試食。"},
+        {"time": "11:15 / 16:15", "title": "隠れ家カフェでココナッツコーヒー", "description": "レトロな空間でひんやりドリンク。"},
+        {"time": "13:00 / 18:00", "title": "ホテルご到着・解散", "description": "ホテルまでお送りします。"}
+    ]'::jsonb,
+    '["専用車送迎", "日本語ガイド料", "ココナッツコーヒー代", "軽食代", "ミネラルウォーター"]'::jsonb,
+    '["お土産購入代", "追加飲食費"]'::jsonb,
+    'お客様のご宿泊ホテルロビー',
+    'ご参加日前日までキャンセル無料。',
+    '["リアルな市場の活気を味わいたい方", "安心にローカルフードを楽しみたい方"]'::jsonb
 )
-ON CONFLICT (slug) DO NOTHING;
+ON CONFLICT (slug) DO UPDATE SET
+    title = EXCLUDED.title,
+    subtitle = EXCLUDED.subtitle,
+    short_description = EXCLUDED.short_description;
 
 -- 2. Nạp bài viết Blog SEO mẫu vào bảng 'blog_posts'
 INSERT INTO public.blog_posts (
@@ -113,7 +147,7 @@ INSERT INTO public.blog_posts (
 ) VALUES 
 (
     'danang-airport-grab-transport-guide',
-    '【2026年最新】ダナン空港から市内ホテルへの移動ガイド！Grab配車アプリの使い方とぼったくりタクシー回避法',
+    '【2026年最新】ダナンの移動はGrabが安心！空港からの乗り方からぼったくり防止策まで徹底解説',
     '初めてのダナン空港到着でも安心！Grabの正しい乗り場、クレジットカード登録方法、空港出入口の白タク勧誘をスマートに回避するコツを日本語ガイドが徹底解説します。',
     '交通・移動',
     '["ダナン空港", "Grab乗り方", "タクシー", "ダナン治安"]'::jsonb,
@@ -163,5 +197,80 @@ INSERT INTO public.blog_posts (
         "conclusion": "ホイアンの夜は魔法のような時間です。当プライベートツアーで特別な夜をお約束します。"
     }'::jsonb,
     'danang-hoian-classic-day-trip'
+),
+(
+    'danang-best-season-weather-clothing-guide',
+    '【2026年最新】ダナンのベストシーズンは？乾季・雨季の特徴と服装選びのコツ',
+    'ダナン旅行のベストシーズンはいつ？乾季（3〜8月）の透き通るビーチの魅力から、雨季（9〜12月）の過ごし方、月別の平均気温や失敗しない服装選びのコツを徹底解説！',
+    '気候・準備',
+    '["ダナンベストシーズン", "乾季と雨季", "ダナンの天気", "服装のコツ"]'::jsonb,
+    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+    CURRENT_DATE,
+    '6分で読める',
+    true,
+    '{"name": "アン トー (Anh Tho)", "role": "神戸経済大学卒 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
+    '{
+        "intro": "ダナン旅行を計画中の方へ、乾季と雨季の特徴、月別の気候、そして失敗しない服装・持ち物のコツを分かりやすくまとめました。",
+        "sections": [
+            {
+                "heading": "1. 乾季（3〜8月）と雨季（9〜12月）の違い",
+                "body": "乾季は晴天が多くビーチリゾートに最適。雨季はスコールがありますが涼しく観光しやすい利点もあります。",
+                "tips": ["4〜8月がビーチリゾートのベストシーズンです。"]
+            }
+        ],
+        "conclusion": "いつでもLINEでお気軽にご相談ください！"
+    }'::jsonb,
+    'danang-hoian-classic-day-trip'
+),
+(
+    'hoian-souvenirs-handicrafts-silk-shops',
+    'ホイアン古都で買いたい！センスが光るおしゃれなお土産・雑貨店まとめ',
+    '世界遺産ホイアンで見つける、上質なシルク製品、繊細な手刺繍リネン、折りたたみランタン、名品クラフトチョコレートまで厳選紹介！',
+    'お土産・ショッピング',
+    '["ホイアンお土産", "ベトナム雑貨", "シルク", "オーダーメイド"]'::jsonb,
+    'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80',
+    CURRENT_DATE,
+    '6分で読める',
+    true,
+    '{"name": "アン トー (Anh Tho)", "role": "神戸経済大学卒 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
+    '{
+        "intro": "ホイアン古都の伝統とセンスあふれる名店・お土産を厳選してご紹介します。",
+        "sections": [
+            {
+                "heading": "1. シルク＆リネンのオーダーメイド",
+                "body": "24時間で自分にぴったりのお洋服を仕立てられます。",
+                "tips": ["Yaly Coutureなどの老舗が安心です。"]
+            }
+        ],
+        "conclusion": "ホイアンならではのお気に入りの逸品を見つけてください！"
+    }'::jsonb,
+    'danang-hoian-classic-day-trip'
+),
+(
+    'danang-safe-stylish-cafes-girls-solo-trip',
+    '女子旅・一人旅必見！ダナン旅行で絶対に訪れたい安全でおしゃれなカフェ5選',
+    '清潔でWi-Fi完備、写真映え抜群で治安も安心！女子旅や一人旅の日本人旅行者に心からおすすめできるダナン市内のおしゃれカフェ厳選5選。',
+    'カフェ・グルメ',
+    '["ダナンカフェ", "女子旅", "一人旅", "ココナッツコーヒー"]'::jsonb,
+    'https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80',
+    CURRENT_DATE,
+    '5分で読める',
+    true,
+    '{"name": "アン トー (Anh Tho)", "role": "神戸経済大学卒 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
+    '{
+        "intro": "女性一人でも安心してゆっくりくつろげる、ダナン市内のおしゃれで清潔なカフェ5選です。",
+        "sections": [
+            {
+                "heading": "1. Cộng Cà Phê（コンカフェ）",
+                "body": "レトロな世界観と名物ココナッツミルクコーヒーが絶品の人気店です。",
+                "tips": ["ハン川沿い店のリバービューが最高です。"]
+            }
+        ],
+        "conclusion": "ダナンのカフェ文化で最高の癒やし時間をお過ごしください！"
+    }'::jsonb,
+    'danang-local-market-deep-cafe-tour'
 )
-ON CONFLICT (slug) DO NOTHING;
+ON CONFLICT (slug) DO UPDATE SET
+    title = EXCLUDED.title,
+    excerpt = EXCLUDED.excerpt;
+
