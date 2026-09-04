@@ -22,8 +22,8 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <h3 className="text-base font-bold text-white tracking-wider">ANH THO</h3>
-                <p className="text-xs text-amber-400 font-semibold tracking-wider">ダナン日本語ガイド</p>
+                <h3 className="text-base font-bold text-white tracking-tight">ダナン日本語ガイド</h3>
+                <p className="text-xs text-amber-400 font-semibold tracking-wider">プライベートツアー</p>
               </div>
             </div>
             <p className="text-xs leading-relaxed text-slate-400">
