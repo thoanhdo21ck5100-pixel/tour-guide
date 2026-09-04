@@ -101,6 +101,9 @@ export function constructMetadata({
       ],
       shortcut: ['/favicon.ico'],
     },
+    verification: {
+      google: 'Eo_PA54cjRmdJ2STOUuKVrKixpZX_UVcyTfUnSn7B3Q',
+    },
   };
 }
 

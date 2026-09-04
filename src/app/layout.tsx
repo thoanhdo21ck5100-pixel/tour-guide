@@ -25,6 +25,10 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${notoSansJP.variable} scroll-smooth`}>
       <head>
+        <meta
+          name="google-site-verification"
+          content="Eo_PA54cjRmdJ2STOUuKVrKixpZX_UVcyTfUnSn7B3Q"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
