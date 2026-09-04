@@ -15,6 +15,7 @@ import {
 import { getBlogPostBySlug, BLOG_POSTS_DATA } from '@/lib/data/blog';
 import { getTourBySlug } from '@/lib/data/tours';
 import { constructMetadata, generateBlogPostSchema } from '@/lib/seo';
+import GuideStrategicValueCard from '@/components/GuideStrategicValueCard';
 
 export async function generateStaticParams() {
   return BLOG_POSTS_DATA.map((post) => ({
@@ -184,6 +185,13 @@ export default async function BlogPostPage({
               {post.content.conclusion}
             </p>
           </div>
+
+          {/* Strategic Guide Value & Consultation Callout */}
+          <GuideStrategicValueCard
+            mode="blog"
+            relatedTourSlug={post.relatedTourSlug}
+            className="mt-8 mb-4"
+          />
 
           {/* Related Tour Recommendation Box */}
           {relatedTour && (

@@ -4,6 +4,7 @@ import { BLOG_POSTS_DATA } from '@/lib/data/blog';
 import BlogCard from '@/components/BlogCard';
 import { constructMetadata } from '@/lib/seo';
 import { BookOpen, Sparkles, MessageCircle } from 'lucide-react';
+import GuideStrategicValueCard from '@/components/GuideStrategicValueCard';
 
 export const metadata: Metadata = constructMetadata({
   title: 'ダナン現地お役立ちブログ | 観光・交通・グルメ・最新情報',
@@ -46,8 +47,11 @@ export default function BlogIndexPage() {
           ))}
         </div>
 
+        {/* Strategic Guide Value & Practical Phrases Card */}
+        <GuideStrategicValueCard mode="blog" className="mt-14" />
+
         {/* Consultation Callout */}
-        <div className="mt-16 bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-12 bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
             <span className="text-xs font-bold text-amber-600 flex items-center justify-center md:justify-start gap-1">
               <Sparkles className="w-3.5 h-3.5" />

@@ -8,6 +8,7 @@ import { TourCategory } from '@/types';
 import { Sparkles, MessageCircle, SlidersHorizontal, ShieldCheck } from 'lucide-react';
 import InstagramIcon from '@/components/InstagramIcon';
 import { SITE_CONFIG } from '@/lib/seo';
+import GuideStrategicValueCard from '@/components/GuideStrategicValueCard';
 
 export default function ToursClient() {
   const [selectedCategory, setSelectedCategory] = useState<TourCategory>('all');
@@ -112,8 +113,11 @@ export default function ToursClient() {
           ))}
         </div>
 
+        {/* Strategic Guide Value & Omotenashi Standard */}
+        <GuideStrategicValueCard mode="tour" className="mt-14" />
+
         {/* Order-made Custom Tour Callout Banner */}
-        <div className="mt-16 bg-gradient-to-r from-[#0B2545] to-[#133E68] text-white rounded-3xl p-8 sm:p-10 shadow-lg relative overflow-hidden">
+        <div className="mt-12 bg-gradient-to-r from-[#0B2545] to-[#133E68] text-white rounded-3xl p-8 sm:p-10 shadow-lg relative overflow-hidden">
           <div className="max-w-2xl">
             <span className="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold inline-block mb-3">
               100% ORDER-MADE

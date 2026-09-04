@@ -17,6 +17,7 @@ import {
 import { getTourBySlug, TOURS_DATA } from '@/lib/data/tours';
 import { constructMetadata, generateTouristTripSchema, SITE_CONFIG } from '@/lib/seo';
 import InstagramIcon from '@/components/InstagramIcon';
+import GuideStrategicValueCard from '@/components/GuideStrategicValueCard';
 
 export async function generateStaticParams() {
   return TOURS_DATA.map((tour) => ({
@@ -195,6 +196,9 @@ export default async function TourDetailPage({
                 ))}
               </div>
             </div>
+
+            {/* Strategic Guide Value & Omotenashi Standard */}
+            <GuideStrategicValueCard mode="tour" />
 
             {/* Inclusions & Exclusions */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
