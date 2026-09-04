@@ -1,12 +1,22 @@
 import { Metadata } from 'next';
 import { Tour, BlogPost } from '@/types';
 
+const getSiteUrl = (): string => {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, '');
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  return 'https://tour-guide-jet-one.vercel.app';
+};
+
 export const SITE_CONFIG = {
   name: 'ダナン プライベートツアー | ベトナム現地公認 日本語ガイド',
   shortName: 'ダナン・プライベートガイド',
   description:
     '【ダナン プライベートツアー公認ガイド】日本人旅行者のための安心・快適なベトナム・ダナン＆ホイアン完全貸切観光ツアー。日本語堪能な専属ローカルガイドが、五行山・バーナーヒルズ・ランタン夜市までおもてなしの心でご案内。LINE事前相談無料。',
-  url: 'https://danang-private-guide.com',
+  url: getSiteUrl(),
   ogImage: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=80',
   keywords: [
     'ダナン プライベートツアー',
