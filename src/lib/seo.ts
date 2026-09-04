@@ -31,8 +31,8 @@ export const SITE_CONFIG = {
   author: 'アン トー (Anh Tho)',
   contactPhone: '+84 968 781 121',
   contactEmail: 'thoanhdo21ck5100@gmail.com',
-  lineId: 'bii010121',
-  lineUrl: 'https://line.me/ti/p/~bii010121',
+  lineId: '@564pshie',
+  lineUrl: 'https://lin.ee/vssKBHS',
   instagramHandle: 'tho.anh.do01',
   instagramUrl: 'https://www.instagram.com/tho.anh.do01?igsi=MThteDdsazlhdDdlaQ==',
 };

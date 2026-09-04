@@ -527,18 +527,28 @@ export default function HomePage() {
                     <MessageCircle className="w-3.5 h-3.5 fill-[#06c755]" />
                     <span>公式LINE QR</span>
                   </div>
-                  <div className="relative w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs">
+                  <a
+                    href={SITE_CONFIG.lineUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-28 h-28 sm:w-32 sm:h-32 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer"
+                  >
                     <Image
-                      src="/images/guide/anh-tho-line-qr.jpg"
+                      src="/images/guide/line-qr.png"
                       alt="LINE公式QRコード"
                       width={120}
                       height={120}
                       className="object-contain rounded-lg"
                     />
-                  </div>
-                  <span className="mt-2 text-[11px] font-bold text-slate-800">
-                    ID: <span className="text-[#06c755] font-mono">bii010121</span>
-                  </span>
+                  </a>
+                  <a
+                    href={SITE_CONFIG.lineUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 text-[11px] font-bold text-slate-800 hover:text-[#06c755] transition-colors"
+                  >
+                    ID: <span className="text-[#06c755] font-mono">{SITE_CONFIG.lineId}</span>
+                  </a>
                 </div>
 
                 {/* Instagram QR Card */}

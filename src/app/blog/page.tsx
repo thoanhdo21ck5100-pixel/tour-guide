@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { BLOG_POSTS_DATA } from '@/lib/data/blog';
 import BlogCard from '@/components/BlogCard';
-import { constructMetadata } from '@/lib/seo';
+import { constructMetadata, SITE_CONFIG } from '@/lib/seo';
 import { BookOpen, Sparkles, MessageCircle } from 'lucide-react';
 import GuideStrategicValueCard from '@/components/GuideStrategicValueCard';
 
@@ -65,13 +65,15 @@ export default function BlogIndexPage() {
             </p>
           </div>
 
-          <Link
-            href="/contact#line-consultation"
+          <a
+            href={SITE_CONFIG.lineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-3.5 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md flex items-center gap-2 shrink-0 transition-all"
           >
             <MessageCircle className="w-4 h-4 fill-white" />
             LINEで質問・相談する
-          </Link>
+          </a>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import AvailabilityCalendar from '@/components/AvailabilityCalendar';
 import BookingForm from '@/components/BookingForm';
 import {
@@ -119,11 +120,32 @@ export default function ContactClient() {
                 </div>
               </div>
 
-              <p className="text-xs text-slate-600 leading-relaxed">
-                「フォーム入力が面倒」「日程がまだ確定していない」「旅程の相談だけしたい」という方は、公式LINEから直接メッセージをお送りください。
-              </p>
+              <div className="flex flex-col sm:flex-row items-center gap-4 bg-slate-50/70 p-4 rounded-xl border border-slate-100">
+                <a
+                  href={SITE_CONFIG.lineUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative w-24 h-24 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs shrink-0 hover:scale-105 transition-transform"
+                >
+                  <Image
+                    src="/images/guide/line-qr.png"
+                    alt="LINE公式QRコード"
+                    width={90}
+                    height={90}
+                    className="object-contain rounded-lg"
+                  />
+                </a>
+                <div className="space-y-1.5 text-center sm:text-left">
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    「フォーム入力が面倒」「日程がまだ確定していない」「旅程の相談だけしたい」という方は、公式LINEから直接メッセージをお送りください。
+                  </p>
+                  <p className="text-xs font-bold text-slate-800">
+                    LINE ID: <span className="text-[#06c755] font-mono">{SITE_CONFIG.lineId}</span>
+                  </p>
+                </div>
+              </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
+              <div className="pt-1 flex flex-col sm:flex-row items-center gap-3">
                 <a
                   href={SITE_CONFIG.lineUrl}
                   target="_blank"
