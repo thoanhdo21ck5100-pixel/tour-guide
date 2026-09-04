@@ -22,9 +22,8 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <p className="text-xs text-amber-400 font-semibold tracking-wider">現地公認 日本語ガイド</p>
-                <h3 className="text-base font-bold text-white tracking-tight">ダナン プライベートツアー</h3>
-                <p className="text-[10px] text-slate-400 font-medium tracking-wider">ANH THO TOUR GUIDE VIETNAM</p>
+                <h3 className="text-base font-bold text-white tracking-wider">ANH THO</h3>
+                <p className="text-xs text-amber-400 font-semibold tracking-wider">ダナン日本語ガイド</p>
               </div>
             </div>
             <p className="text-xs leading-relaxed text-slate-400">

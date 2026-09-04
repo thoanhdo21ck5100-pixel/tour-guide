@@ -40,14 +40,12 @@ export default function Navbar() {
               priority
             />
           </div>
-          <div>
-            <div className="text-[11px] font-semibold text-amber-600 tracking-wider flex items-center gap-1.5">
-              <span>現地公認 日本語ガイド</span>
-              <span className="hidden sm:inline text-slate-300">|</span>
-              <span className="hidden sm:inline text-slate-500 font-bold">ANH THO</span>
+          <div className="flex flex-col justify-center">
+            <div className="text-base sm:text-lg font-black text-[#0B2545] tracking-wider leading-tight group-hover:text-[#133E68] transition-colors">
+              ANH THO
             </div>
-            <div className="text-base sm:text-lg font-bold text-[#0B2545] tracking-tight group-hover:text-[#133E68] transition-colors">
-              ダナン プライベートツアー
+            <div className="text-[10px] sm:text-[11px] font-bold text-amber-600 tracking-wider leading-tight">
+              ダナン日本語ガイド
             </div>
           </div>
         </Link>
