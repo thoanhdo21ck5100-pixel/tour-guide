@@ -127,7 +127,7 @@ export default function Footer() {
                 href={SITE_CONFIG.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-[#06c755]/15 border border-[#06c755]/30 text-emerald-300 hover:bg-[#06c755]/25 transition-all"
+                className="h-10 flex items-center gap-2.5 px-4 rounded-lg bg-[#06c755]/15 border border-[#06c755]/30 text-emerald-300 hover:bg-[#06c755]/25 transition-all"
               >
                 <MessageCircle className="w-4 h-4 text-[#06c755] shrink-0" />
                 <span>公式LINEで即時相談 (ID: {SITE_CONFIG.lineId})</span>
@@ -136,7 +136,7 @@ export default function Footer() {
                 href={SITE_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-pink-500/15 border border-pink-500/30 text-pink-300 hover:bg-pink-500/25 transition-all"
+                className="h-10 flex items-center gap-2.5 px-4 rounded-lg bg-pink-500/15 border border-pink-500/30 text-pink-300 hover:bg-pink-500/25 transition-all"
               >
                 <InstagramIcon className="w-4 h-4 text-pink-400 shrink-0" />
                 <span>Instagram DM（@{SITE_CONFIG.instagramHandle}）</span>
@@ -145,7 +145,7 @@ export default function Footer() {
                 href={SITE_CONFIG.xUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-200 hover:bg-slate-700/80 hover:text-white transition-all"
+                className="h-10 flex items-center gap-2.5 px-4 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-200 hover:bg-slate-700/80 hover:text-white transition-all"
               >
                 <XIcon className="w-4 h-4 text-white shrink-0" />
                 <span>X / Twitter（@{SITE_CONFIG.xHandle}）</span>

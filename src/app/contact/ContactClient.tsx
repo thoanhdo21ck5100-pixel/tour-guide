@@ -146,35 +146,44 @@ export default function ContactClient() {
                 </div>
               </div>
 
-              <div className="pt-1 flex flex-col sm:flex-row items-center gap-3">
+              <div className="pt-1 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 <a
                   href={SITE_CONFIG.lineUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto flex-1 py-3 px-4 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-2"
+                  className="h-13 px-3 bg-[#06c755] hover:bg-[#05b34c] text-white rounded-xl shadow-xs hover:shadow transition-all flex items-center justify-center gap-2.5"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>公式LINEを開く（ID: {SITE_CONFIG.lineId}）</span>
+                  <MessageCircle className="w-5 h-5 fill-white shrink-0" />
+                  <div className="text-left leading-tight min-w-0">
+                    <div className="font-bold text-xs">公式LINE</div>
+                    <div className="text-[10px] opacity-90 font-mono truncate">ID: {SITE_CONFIG.lineId}</div>
+                  </div>
                 </a>
 
                 <a
                   href={SITE_CONFIG.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto flex-1 py-3 px-4 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-2"
+                  className="h-13 px-3 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white rounded-xl shadow-xs hover:shadow transition-all flex items-center justify-center gap-2.5"
                 >
-                  <InstagramIcon className="w-4 h-4 text-white" />
-                  <span>Instagram DM（@{SITE_CONFIG.instagramHandle}）</span>
+                  <InstagramIcon className="w-5 h-5 text-white shrink-0" />
+                  <div className="text-left leading-tight min-w-0">
+                    <div className="font-bold text-xs">Instagram DM</div>
+                    <div className="text-[10px] opacity-90 font-mono truncate">@{SITE_CONFIG.instagramHandle}</div>
+                  </div>
                 </a>
 
                 <a
                   href={SITE_CONFIG.xUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto flex-1 py-3 px-4 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-2"
+                  className="h-13 px-3 bg-slate-900 hover:bg-black text-white rounded-xl shadow-xs hover:shadow transition-all flex items-center justify-center gap-2.5"
                 >
-                  <XIcon className="w-3.5 h-3.5 text-white" />
-                  <span>X / Twitter（@{SITE_CONFIG.xHandle}）</span>
+                  <XIcon className="w-4 h-4 text-white shrink-0" />
+                  <div className="text-left leading-tight min-w-0">
+                    <div className="font-bold text-xs">X (Twitter)</div>
+                    <div className="text-[10px] opacity-90 font-mono truncate">@{SITE_CONFIG.xHandle}</div>
+                  </div>
                 </a>
               </div>
             </div>

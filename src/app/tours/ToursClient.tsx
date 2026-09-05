@@ -132,7 +132,7 @@ export default function ToursClient() {
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <Link
                 href="/contact"
-                className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow-md transition-all"
+                className="h-11 px-6 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center"
               >
                 オーダーメイドのご相談・お見積り
               </Link>
@@ -140,27 +140,27 @@ export default function ToursClient() {
                 href={SITE_CONFIG.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-1.5"
+                className="h-11 px-5 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5"
               >
-                <MessageCircle className="w-4 h-4 fill-white" />
+                <MessageCircle className="w-4 h-4 fill-white shrink-0" />
                 LINEで相談する
               </a>
               <a
                 href={SITE_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-1.5"
+                className="h-11 px-5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5"
               >
-                <InstagramIcon className="w-4 h-4 text-white" />
+                <InstagramIcon className="w-4 h-4 text-white shrink-0" />
                 Instagram DMで相談
               </a>
               <a
                 href={SITE_CONFIG.xUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-3 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-1.5"
+                className="h-11 px-5 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5"
               >
-                <XIcon className="w-3.5 h-3.5 text-white" />
+                <XIcon className="w-3.5 h-3.5 text-white shrink-0" />
                 X / Twitterで相談
               </a>
             </div>

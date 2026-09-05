@@ -326,9 +326,9 @@ export default async function TourDetailPage({
               <div className="space-y-3">
                 <Link
                   href={`/contact?tour=${tour.slug}`}
-                  className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                  className="w-full h-12 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
-                  <Calendar className="w-4 h-4" />
+                  <Calendar className="w-4 h-4 text-white shrink-0" />
                   <span>このツアーを仮予約する</span>
                 </Link>
 
@@ -336,9 +336,9 @@ export default async function TourDetailPage({
                   href={SITE_CONFIG.lineUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded-xl bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
+                  className="w-full h-12 px-6 rounded-xl bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <MessageCircle className="w-4 h-4 fill-white shrink-0" />
                   <span>LINEでこのツアーを相談する</span>
                 </a>
 
@@ -346,9 +346,9 @@ export default async function TourDetailPage({
                   href={SITE_CONFIG.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
+                  className="w-full h-12 px-6 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
                 >
-                  <InstagramIcon className="w-4 h-4 text-white" />
+                  <InstagramIcon className="w-4 h-4 text-white shrink-0" />
                   <span>Instagram DMで質問する</span>
                 </a>
 
@@ -356,9 +356,9 @@ export default async function TourDetailPage({
                   href={SITE_CONFIG.xUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
+                  className="w-full h-12 px-6 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
                 >
-                  <XIcon className="w-4 h-4 text-white" />
+                  <XIcon className="w-4 h-4 text-white shrink-0" />
                   <span>X / Twitterで質問する</span>
                 </a>
               </div>

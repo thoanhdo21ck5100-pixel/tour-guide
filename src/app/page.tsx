@@ -91,41 +91,45 @@ export default function HomePage() {
               </div>
 
               {/* CTAs */}
-              <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3">
+              {/* CTAs */}
+              <div className="pt-2 flex flex-col items-center lg:items-start gap-3 max-w-lg">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm shadow-lg hover:shadow-xl hover:scale-102 active:scale-98 transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-102 active:scale-98 transition-all"
                 >
-                  <Calendar className="w-4 h-4" />
-                  <span>空き状況の確認・予約する</span>
+                  <Calendar className="w-4 h-4 text-white" />
+                  <span>空き状況の確認・予約する（無料）</span>
                 </Link>
-                <a
-                  href={SITE_CONFIG.lineUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-sm shadow-md hover:shadow-lg hover:scale-102 active:scale-98 transition-all"
-                >
-                  <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>LINEで無料相談</span>
-                </a>
-                <a
-                  href={SITE_CONFIG.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-sm shadow-md hover:shadow-lg hover:scale-102 active:scale-98 transition-all"
-                >
-                  <InstagramIcon className="w-4 h-4 text-white" />
-                  <span>Instagram相談</span>
-                </a>
-                <a
-                  href={SITE_CONFIG.xUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-slate-900/90 hover:bg-black border border-white/20 text-white font-bold text-sm shadow-md hover:shadow-lg hover:scale-102 active:scale-98 transition-all"
-                >
-                  <XIcon className="w-4 h-4 text-white" />
-                  <span>X (Twitter)</span>
-                </a>
+
+                <div className="w-full grid grid-cols-3 gap-2.5">
+                  <a
+                    href={SITE_CONFIG.lineUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-11 px-2.5 sm:px-4 rounded-xl bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+                    <span className="truncate">LINE相談</span>
+                  </a>
+                  <a
+                    href={SITE_CONFIG.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-11 px-2.5 sm:px-4 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <InstagramIcon className="w-4 h-4 text-white shrink-0" />
+                    <span className="truncate">Instagram</span>
+                  </a>
+                  <a
+                    href={SITE_CONFIG.xUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-11 px-2.5 sm:px-4 rounded-xl bg-slate-900/90 hover:bg-black border border-white/20 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <XIcon className="w-4 h-4 text-white shrink-0" />
+                    <span className="truncate">X (Twitter)</span>
+                  </a>
+                </div>
               </div>
 
               {/* Authentic Credentials */}
@@ -501,43 +505,43 @@ export default function HomePage() {
                   「このフライト時間でホイアンまで行ける？」「おすすめの海鮮レストランは？」「小さな子供がいるけれど大丈夫？」など、現地にいる日本人対応ガイドが迅速に丁寧にお返事いたします。
                 </p>
 
-                <div className="pt-2 flex flex-wrap items-center gap-2.5">
+                <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-xl">
                   <a
                     href={SITE_CONFIG.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#06c755] hover:bg-[#05b34c] text-white font-black text-xs sm:text-sm rounded-xl shadow-lg hover:scale-102 transition-all"
+                    className="h-11 px-3 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
                   >
-                    <MessageCircle className="w-4 h-4 fill-white" />
-                    <span>公式LINE</span>
+                    <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+                    <span className="truncate">公式LINE</span>
                   </a>
 
                   <a
                     href={SITE_CONFIG.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg hover:scale-102 transition-all"
+                    className="h-11 px-3 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
                   >
-                    <InstagramIcon className="w-4 h-4 text-white" />
-                    <span>Instagram</span>
+                    <InstagramIcon className="w-4 h-4 text-white shrink-0" />
+                    <span className="truncate">Instagram</span>
                   </a>
 
                   <a
                     href={SITE_CONFIG.xUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-slate-900 hover:bg-black border border-white/20 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg hover:scale-102 transition-all"
+                    className="h-11 px-3 bg-slate-900 hover:bg-black border border-white/20 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
                   >
-                    <XIcon className="w-4 h-4 text-white" />
-                    <span>X (Twitter)</span>
+                    <XIcon className="w-4 h-4 text-white shrink-0" />
+                    <span className="truncate">X (Twitter)</span>
                   </a>
 
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm rounded-xl transition-all"
+                    className="h-11 px-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-1.5"
                   >
-                    <Calendar className="w-4 h-4 text-amber-400" />
-                    <span>空き状況</span>
+                    <Calendar className="w-4 h-4 text-amber-400 shrink-0" />
+                    <span className="truncate">空き状況・予約</span>
                   </Link>
                 </div>
               </div>
@@ -624,13 +628,13 @@ export default function HomePage() {
                     href={SITE_CONFIG.xUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-24 h-24 sm:w-26 sm:h-26 bg-slate-950 rounded-xl border border-slate-800 p-2 flex flex-col items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer group"
+                    className="relative w-24 h-24 sm:w-26 sm:h-26 bg-slate-50 rounded-xl border border-slate-200 p-2 flex flex-col items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer group"
                   >
-                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors mb-1">
+                    <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-black transition-colors mb-1.5 shadow-xs">
                       <XIcon className="w-5 h-5 text-white" />
                     </div>
-                    <span className="text-[9px] text-slate-300 font-bold">ダナン現地情報</span>
-                    <span className="text-[8px] text-amber-400 font-semibold">フォロー ›</span>
+                    <span className="text-[10px] text-slate-800 font-bold">ダナン現地情報</span>
+                    <span className="text-[9px] text-amber-600 font-semibold">最新ポスト ›</span>
                   </a>
                   <a
                     href={SITE_CONFIG.xUrl}

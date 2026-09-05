@@ -76,35 +76,35 @@ export default function Navbar() {
             href={SITE_CONFIG.lineUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#06c755] bg-emerald-50 border border-emerald-200 rounded-full hover:bg-emerald-100 transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3 text-xs font-semibold text-[#06c755] bg-emerald-50 border border-emerald-200 rounded-full hover:bg-emerald-100 transition-colors"
           >
-            <MessageCircle className="w-3.5 h-3.5 fill-[#06c755]" />
+            <MessageCircle className="w-3.5 h-3.5 fill-[#06c755] shrink-0" />
             <span>LINE相談</span>
           </a>
           <a
             href={SITE_CONFIG.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-pink-600 bg-pink-50 border border-pink-200 rounded-full hover:bg-pink-100 transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3 text-xs font-semibold text-pink-600 bg-pink-50 border border-pink-200 rounded-full hover:bg-pink-100 transition-colors"
           >
-            <InstagramIcon className="w-3.5 h-3.5 text-pink-500" />
+            <InstagramIcon className="w-3.5 h-3.5 text-pink-500 shrink-0" />
             <span>Instagram</span>
           </a>
           <a
             href={SITE_CONFIG.xUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-800 bg-slate-100 border border-slate-200 rounded-full hover:bg-slate-200 hover:text-black transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3 text-xs font-semibold text-slate-800 bg-slate-100 border border-slate-200 rounded-full hover:bg-slate-200 hover:text-black transition-colors"
             title="公式 X (Twitter)"
           >
-            <XIcon className="w-3.5 h-3.5 text-slate-800" />
-            <span>X</span>
+            <XIcon className="w-3.5 h-3.5 text-slate-800 shrink-0" />
+            <span>X (Twitter)</span>
           </a>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full hover:from-amber-600 hover:to-amber-700 shadow-sm hover:shadow transition-all"
+            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3.5 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full hover:from-amber-600 hover:to-amber-700 shadow-sm hover:shadow transition-all"
           >
-            <Calendar className="w-3.5 h-3.5" />
+            <Calendar className="w-3.5 h-3.5 text-white shrink-0" />
             <span>空き状況・予約</span>
           </Link>
         </div>
