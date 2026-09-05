@@ -505,44 +505,49 @@ export default function HomePage() {
                   「このフライト時間でホイアンまで行ける？」「おすすめの海鮮レストランは？」「小さな子供がいるけれど大丈夫？」など、現地にいる日本人対応ガイドが迅速に丁寧にお返事いたします。
                 </p>
 
-                <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-xl">
-                  <a
-                    href={SITE_CONFIG.lineUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-11 px-3 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
-                  >
-                    <MessageCircle className="w-4 h-4 fill-white shrink-0" />
-                    <span className="truncate">公式LINE</span>
-                  </a>
-
-                  <a
-                    href={SITE_CONFIG.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-11 px-3 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
-                  >
-                    <InstagramIcon className="w-4 h-4 text-white shrink-0" />
-                    <span className="truncate">Instagram</span>
-                  </a>
-
-                  <a
-                    href={SITE_CONFIG.xUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-11 px-3 bg-slate-900 hover:bg-black border border-white/20 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
-                  >
-                    <XIcon className="w-4 h-4 text-white shrink-0" />
-                    <span className="truncate">X (Twitter)</span>
-                  </a>
-
+                <div className="pt-2 flex flex-wrap items-center gap-3">
                   <Link
                     href="/contact"
-                    className="h-11 px-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-1.5"
+                    className="h-11 px-5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 whitespace-nowrap shrink-0"
                   >
-                    <Calendar className="w-4 h-4 text-amber-400 shrink-0" />
-                    <span className="truncate">空き状況・予約</span>
+                    <Calendar className="w-4 h-4 text-white shrink-0" />
+                    <span>空き状況・予約フォームへ</span>
                   </Link>
+
+                  <div className="flex items-center gap-2 shrink-0">
+                    <a
+                      href={SITE_CONFIG.lineUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-11 h-11 bg-[#06c755] hover:bg-[#05b34c] text-white rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center shrink-0 hover:scale-105"
+                      title="公式LINEでチャット相談"
+                      aria-label="公式LINEでチャット相談"
+                    >
+                      <MessageCircle className="w-5 h-5 fill-white shrink-0" />
+                    </a>
+
+                    <a
+                      href={SITE_CONFIG.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-11 h-11 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center shrink-0 hover:scale-105"
+                      title="Instagram DMで相談"
+                      aria-label="Instagram DMで相談"
+                    >
+                      <InstagramIcon className="w-5 h-5 text-white shrink-0" />
+                    </a>
+
+                    <a
+                      href={SITE_CONFIG.xUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-11 h-11 bg-slate-900 hover:bg-black border border-white/20 text-white rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center shrink-0 hover:scale-105"
+                      title="公式 X (Twitter)"
+                      aria-label="公式 X (Twitter)"
+                    >
+                      <XIcon className="w-4.5 h-4.5 text-white shrink-0" />
+                    </a>
+                  </div>
                 </div>
               </div>
 

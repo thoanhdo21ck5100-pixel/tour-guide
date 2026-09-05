@@ -41,68 +41,70 @@ export default function Navbar() {
               priority
             />
           </div>
-          <div className="flex flex-col justify-center">
-            <div className="text-base sm:text-lg font-bold text-[#0B2545] tracking-tight leading-tight group-hover:text-[#133E68] transition-colors">
+          <div className="flex flex-col justify-center whitespace-nowrap">
+            <div className="text-base sm:text-lg font-bold text-[#0B2545] tracking-tight leading-tight group-hover:text-[#133E68] transition-colors whitespace-nowrap">
               ダナン日本語ガイド
             </div>
-            <div className="text-[10px] sm:text-[11px] font-semibold text-amber-600 tracking-wider leading-tight">
+            <div className="text-[10px] sm:text-[11px] font-semibold text-amber-600 tracking-wider leading-tight whitespace-nowrap">
               プライベートツアー
             </div>
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-700">
-          <Link href="/" className="hover:text-amber-600 transition-colors">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm font-medium text-slate-700 whitespace-nowrap">
+          <Link href="/" className="hover:text-amber-600 transition-colors whitespace-nowrap">
             ホーム
           </Link>
-          <Link href="/tours" className="hover:text-amber-600 transition-colors">
+          <Link href="/tours" className="hover:text-amber-600 transition-colors whitespace-nowrap">
             ツアー一覧
           </Link>
-          <Link href="/blog" className="hover:text-amber-600 transition-colors">
+          <Link href="/blog" className="hover:text-amber-600 transition-colors whitespace-nowrap">
             現地ブログ
           </Link>
-          <Link href="/#guide" className="hover:text-amber-600 transition-colors">
+          <Link href="/#guide" className="hover:text-amber-600 transition-colors whitespace-nowrap">
             ガイド紹介
           </Link>
-          <Link href="/#faq" className="hover:text-amber-600 transition-colors">
+          <Link href="/#faq" className="hover:text-amber-600 transition-colors whitespace-nowrap">
             よくある質問
           </Link>
         </nav>
 
         {/* Action Buttons */}
-        <div className="hidden sm:flex items-center gap-2">
+        <div className="hidden sm:flex items-center gap-2 shrink-0">
           <a
             href={SITE_CONFIG.lineUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3 text-xs font-semibold text-[#06c755] bg-emerald-50 border border-emerald-200 rounded-full hover:bg-emerald-100 transition-colors"
+            className="w-[34px] h-[34px] rounded-full bg-emerald-50 border border-emerald-200 text-[#06c755] hover:bg-emerald-100 flex items-center justify-center shrink-0 transition-all hover:scale-105"
+            title="公式LINEで無料相談"
+            aria-label="公式LINEで無料相談"
           >
-            <MessageCircle className="w-3.5 h-3.5 fill-[#06c755] shrink-0" />
-            <span>LINE相談</span>
+            <MessageCircle className="w-4 h-4 fill-[#06c755] shrink-0" />
           </a>
           <a
             href={SITE_CONFIG.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3 text-xs font-semibold text-pink-600 bg-pink-50 border border-pink-200 rounded-full hover:bg-pink-100 transition-colors"
+            className="w-[34px] h-[34px] rounded-full bg-pink-50 border border-pink-200 text-pink-600 hover:bg-pink-100 flex items-center justify-center shrink-0 transition-all hover:scale-105"
+            title="Instagram DM"
+            aria-label="Instagram DM"
           >
-            <InstagramIcon className="w-3.5 h-3.5 text-pink-500 shrink-0" />
-            <span>Instagram</span>
+            <InstagramIcon className="w-4 h-4 text-pink-500 shrink-0" />
           </a>
           <a
             href={SITE_CONFIG.xUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3 text-xs font-semibold text-slate-800 bg-slate-100 border border-slate-200 rounded-full hover:bg-slate-200 hover:text-black transition-colors"
+            className="w-[34px] h-[34px] rounded-full bg-slate-100 border border-slate-200 text-slate-800 hover:bg-slate-200 hover:text-black flex items-center justify-center shrink-0 transition-all hover:scale-105"
             title="公式 X (Twitter)"
+            aria-label="公式 X (Twitter)"
           >
             <XIcon className="w-3.5 h-3.5 text-slate-800 shrink-0" />
-            <span>X (Twitter)</span>
           </a>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3.5 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full hover:from-amber-600 hover:to-amber-700 shadow-sm hover:shadow transition-all"
+            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3.5 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full hover:from-amber-600 hover:to-amber-700 shadow-sm hover:shadow transition-all shrink-0 whitespace-nowrap"
           >
             <Calendar className="w-3.5 h-3.5 text-white shrink-0" />
             <span>空き状況・予約</span>
