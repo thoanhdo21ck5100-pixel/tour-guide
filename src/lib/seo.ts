@@ -12,21 +12,23 @@ const getSiteUrl = (): string => {
 };
 
 export const SITE_CONFIG = {
-  name: 'ダナン プライベートツアー | ベトナム現地公認 日本語ガイド',
-  shortName: 'ダナン・プライベートガイド',
+  name: 'ベトナム日本語ガイド | ベトナム全土プライベートツアー【現地公認】',
+  shortName: 'ベトナム日本語ガイド',
   description:
-    '【ダナン プライベートツアー公認ガイド】日本人旅行者のための安心・快適なベトナム・ダナン＆ホイアン完全貸切観光ツアー。日本語堪能な専属ローカルガイドが、五行山・バーナーヒルズ・ランタン夜市までおもてなしの心でご案内。LINE事前相談無料。',
+    '【ベトナム日本語ガイド公認】日本人旅行者のための安心・快適なベトナム全土プライベート観光ツアー。ダナン・ホイアンをはじめ、ハノイ・ホーチミン・フエなどベトナム各地を日本語堪能な専属ガイドが完全貸切でおもてなし。空港送迎・ホテル宿泊・買い物サポート完備。LINE事前相談無料。',
   url: getSiteUrl(),
   ogImage: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=80',
   keywords: [
+    'ベトナム 日本語ガイド',
+    'ベトナム プライベートツアー',
+    'ダナン 日本語ガイド',
     'ダナン プライベートツアー',
-    'ベトナム ローカルガイド',
-    'ダナン 観光 日本語ガイド',
-    'ダナン チャーター 日本語',
+    'ベトナム 全土 個人旅行',
+    'ベトナム チャーター 日本語',
     'ホイアン ランタン ツアー',
     'バーナーヒルズ 専用車 送迎',
-    'ダナン グルメ ツアー',
-    'ベトナム 中部 個人旅行'
+    'ハノイ ホーチミン 日本語ガイド',
+    'ベトナム 空港送迎 日本語'
   ],
   author: 'アン トー (Anh Tho)',
   contactPhone: '+84 968 781 121',
@@ -53,7 +55,7 @@ export function constructMetadata({
   noIndex?: boolean;
 } = {}): Metadata {
   const fullTitle = title
-    ? `${title} | ダナン プライベートツアー【現地公認 日本語ガイド】`
+    ? `${title} | ベトナム日本語ガイド【現地公認プライベートツアー】`
     : `${SITE_CONFIG.name} - 安心の完全貸切・明朗会計`;
 
   const metaDesc = description || SITE_CONFIG.description;
@@ -123,7 +125,7 @@ export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'TouristInformationCenter',
-    name: 'ダナン プライベートツアー (Anh Tho Guide Service)',
+    name: 'ベトナム日本語ガイド (Anh Tho Guide Service)',
     image: `${SITE_CONFIG.url}/images/logo.png`,
     logo: `${SITE_CONFIG.url}/images/logo.png`,
     url: SITE_CONFIG.url,
@@ -157,7 +159,7 @@ export function generateLocalBusinessSchema() {
     priceRange: '¥¥',
     currenciesAccepted: 'JPY, VND, USD',
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
-    areaServed: ['Da Nang', 'Hoi An', 'Hue', 'Ba Na Hills', 'My Son'],
+    areaServed: ['Vietnam', 'Da Nang', 'Hoi An', 'Hue', 'Hanoi', 'Ho Chi Minh City', 'Ba Na Hills', 'My Son'],
     knowsLanguage: ['ja', 'vi', 'en'],
   };
 }

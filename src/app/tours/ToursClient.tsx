@@ -61,11 +61,11 @@ export default function ToursClient() {
             ALL PRIVATE TOURS & PLANS
           </span>
           <h1 className="text-2xl sm:text-4xl font-black text-[#0B2545] tracking-tight">
-            ダナン プライベートツアープラン一覧
+            ベトナム プライベートツアープラン一覧
           </h1>
           <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
             すべてのツアーは他のお客様と同乗しない「完全プライベート貸切（1日1組様限定）」。
-            冷暖房完備の専用車と日本語検定N1ガイドが、安心・安全・快適にダナン＆ホイアンをご案内します。
+            冷暖房完備の専用車と日本語検定N1ガイドが、安心・安全・快適にダナン・ホイアンをはじめベトナム各地をご案内します。行きたい都市やオリジナル旅程のオーダーメイドも承ります。
           </p>
 
           {/* Quick Assurance Badges */}

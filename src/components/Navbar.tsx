@@ -21,7 +21,7 @@ export default function Navbar() {
             ベトナム政府公認ガイド
           </span>
           <span className="hidden sm:inline text-slate-400">|</span>
-          <span>1日1組限定の完全貸切プライベートツアー</span>
+          <span>1日1組限定・ベトナム全土プライベートツアー</span>
           <span className="hidden sm:inline text-slate-400">|</span>
           <span className="text-emerald-300 font-medium">LINEで事前相談いつでも無料受付中</span>
         </div>
@@ -34,7 +34,7 @@ export default function Navbar() {
           <div className="relative w-11 h-11 shrink-0 group-hover:scale-105 transition-transform">
             <Image
               src="/images/logo-emblem.png"
-              alt="ダナン日本語ガイド"
+              alt="ベトナム日本語ガイド"
               width={44}
               height={44}
               className="w-full h-full object-contain"
@@ -43,7 +43,7 @@ export default function Navbar() {
           </div>
           <div className="flex flex-col justify-center whitespace-nowrap">
             <div className="text-base sm:text-lg font-bold text-[#0B2545] tracking-tight leading-tight group-hover:text-[#133E68] transition-colors whitespace-nowrap">
-              ダナン日本語ガイド
+              ベトナム日本語ガイド
             </div>
             <div className="text-[10px] sm:text-[11px] font-semibold text-amber-600 tracking-wider leading-tight whitespace-nowrap">
               プライベートツアー

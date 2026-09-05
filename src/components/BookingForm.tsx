@@ -354,11 +354,11 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
           {/* Hotel Name */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1.5">
-              ご宿泊先ホテル名（または予定エリア）
+              ご宿泊先ホテル名（または予定エリア・都市）
             </label>
             <input
               type="text"
-              placeholder="例: ハイアット リージェンシー ダナン（未定の場合は「未定」）"
+              placeholder="例: ハイアット リージェンシー ダナン、ハノイ旧市街、ホーチミン市内など（未定の場合は「未定」）"
               value={formData.hotelName}
               onChange={(e) => setFormData({ ...formData, hotelName: e.target.value })}
               className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
@@ -368,11 +368,11 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
           {/* Message / Special Requests */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1.5">
-              ご質問・ご要望・アレルギー等
+              ご質問・ご要望・希望都市やアレルギー等
             </label>
             <textarea
               rows={3}
-              placeholder="例: フライト到着が14:00なので15:00スタートにできますか？パクチーが苦手です。小さな子供が乗れるチャイルドシートはありますか？"
+              placeholder="例: フライト到着が14:00なので15:00スタートにできますか？ダナン以外の都市（ハノイやホーチミン等）のツアーも相談したいです。パクチーが苦手です。"
               value={formData.specialRequests}
               onChange={(e) => setFormData({ ...formData, specialRequests: e.target.value })}
               className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"

@@ -60,7 +60,7 @@ export default function HomePage() {
               {/* Trust Tag */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs font-bold tracking-wide">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>ダナン出身・日本語能力試験N1専属ガイド</span>
+                <span>ダナン出身・日本語能力試験N1専属ガイド（ベトナム全土対応）</span>
               </div>
 
               {/* Primary SEO Heading */}
@@ -69,13 +69,13 @@ export default function HomePage() {
                 <br />
                 一生モノの
                 <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200 bg-clip-text text-transparent">
-                  ダナン プライベートツアー
+                  ベトナム プライベートツアー
                 </span>
               </h1>
 
               {/* Subheading with Secondary Keywords */}
               <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                ベトナム・ダナン観光は、日本語堪能な専属ローカルガイドにお任せください。五行山、バーナーヒルズ（神の手）、世界遺産ホイアンのランタン夜市まで、専用車で他人に気兼ねなくマイペースに満喫いただけます。
+                ダナン・ホイアンをはじめ、ハノイやホーチミンなどベトナム全土の観光は、日本語堪能な専属ガイドにお任せください。五行山、バーナーヒルズなどの名所巡りから、ベトナム各地の完全オーダーメイドツアーまで、専用車で他人に気兼ねなくマイペースに満喫いただけます。
               </p>
 
               {/* Key selling bullets */}
@@ -90,7 +90,7 @@ export default function HomePage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-emerald-400" />
-                  ダナン空港送迎・ホテル発着対応
+                  ベトナム全土・空港＆ホテル送迎対応
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-emerald-400" />
@@ -196,13 +196,13 @@ export default function HomePage() {
                           アン トー (Anh Tho)
                         </h2>
                         <p className="text-xs text-slate-300 mt-1">
-                          ダナン出身（生粋のローカル）/ 日本語能力試験N1
+                          ダナン出身（生粋のローカル）/ JLPT N1 / ベトナム全土対応
                         </p>
                       </div>
                     </div>
 
                     <p className="mt-3.5 text-xs text-slate-300 leading-relaxed">
-                      「日本のみなさま、シンチャオ！生まれ育った大好きなダナンを、日本の皆様に心から楽しんでいただけるよう、安心の日本語とおもてなしの心で特別な旅をお手伝いします。」
+                      「日本のみなさま、シンチャオ！生まれ育ったダナンをはじめ、ハノイやホーチミンなどベトナム全土の旅を、日本の皆様に心から楽しんでいただけるよう、安心の日本語とおもてなしの心で特別な旅をお手伝いします。」
                     </p>
                   </div>
                 </div>
@@ -272,11 +272,11 @@ export default function HomePage() {
               <span>AIRPORT & HOTEL TRANSFER SERVICE</span>
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white">
-              ダナン空港送迎 ＆ ホテル往復完全対応
+              ベトナム各地・空港送迎 ＆ ホテル往復完全対応
             </h2>
             <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
               「到着直後のタクシー客引きやGrab配車が不安」「重いスーツケースを持ったまま移動したくない」という方へ。
-              空港到着ゲートからホテルお送りまで、清潔なエアコン付き専用車でおもてなしいたします。
+              ダナン国際空港をはじめ、ベトナム各地の空港到着ゲートからホテルお送りまで、清潔なエアコン付き専用車でおもてなしいたします。
             </p>
           </div>
 
@@ -363,7 +363,7 @@ export default function HomePage() {
           <div className="mt-10 p-6 rounded-2xl bg-white/10 border border-white/15 flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 text-xs font-semibold">
               <span className="px-3.5 py-1.5 rounded-lg bg-white/10 border border-white/10 text-amber-300">
-                ✈️ ダナン国際空港
+                ✈️ ダナン・ハノイ・各地国際空港
               </span>
               <span className="text-slate-400">⇄</span>
               <span className="px-3.5 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-400/30 text-emerald-300">
@@ -371,7 +371,7 @@ export default function HomePage() {
               </span>
               <span className="text-slate-400">⇄</span>
               <span className="px-3.5 py-1.5 rounded-lg bg-white/10 border border-white/10 text-sky-300">
-                🏨 各ホテル（ダナン／ホイアン）
+                🏨 各ホテル（ダナン／ホイアン／ハノイ等）
               </span>
             </div>
 
@@ -398,22 +398,22 @@ export default function HomePage() {
                 <div className="relative h-96 sm:h-[480px] w-full">
                   <Image
                     src="/images/guide/anh-tho-about-v3.jpg"
-                    alt="ダナン専属ガイド アン トー (Anh Tho)"
+                    alt="ベトナム日本語ガイド アン トー (Anh Tho)"
                     fill
                     className="object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/80 via-transparent to-transparent" />
                 </div>
                 <div className="p-6 bg-[#0B2545] text-white">
-                  <h3 className="text-lg font-bold">ダナン専属ガイド：アン トー (Anh Tho)</h3>
+                  <h3 className="text-lg font-bold">ベトナム日本語ガイド：アン トー (Anh Tho)</h3>
                   <p className="text-xs text-amber-300 mt-1">
-                    ダナン出身（生粋のローカル）/ 日本語能力試験N1取得
+                    ダナン出身（生粋のローカル）/ 日本語能力試験N1取得 / ベトナム全土対応
                   </p>
                   <div className="mt-3 pt-3 border-t border-slate-700 grid grid-cols-2 gap-2 text-xs text-slate-300">
                     <div>✔ ダナン生まれ・生粋の現地育ち</div>
                     <div>✔ 日本語能力試験N1 (JLPT N1)</div>
                     <div>✔ 日本人向けガイド・折衝 2年</div>
-                    <div>✔ 空港送迎・ホテル完全対応</div>
+                    <div>✔ ベトナム全土・送迎完全対応</div>
                     <div>✔ 宿泊・買い物・滞在サポート</div>
                     <div>✔ チップ不要・安心の明朗会計</div>
                   </div>
@@ -432,7 +432,7 @@ export default function HomePage() {
                 心あたたまるベトナム体験をお届けしたい」
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                初めまして、ダナン専属ガイドのアン トー (Anh Tho) と申します。生まれ育った故郷ダナンを深く愛し、日本語能力試験N1を取得して長年日本人旅行者の皆様をご案内してまいりました。
+                初めまして、ベトナム日本語ガイドのアン トー (Anh Tho) と申します。生まれ育った故郷ダナンを中心に、ハノイやホーチミンなどベトナム全土のプライベートツアーを承っております。日本語能力試験N1を取得し、長年日本人旅行者の皆様を安心・安全にご案内してまいりました。
               </p>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 日本人観光客の皆様のご案内や日系パートナー企業との折衝業務に2年間従事し、日本のお客様が大切にされる「時間厳守」「清潔さ」「細やかな心配り」を徹底。地元ローカルならではの安心できる名店や隠れた絶景スポットまで、一人ひとりに寄り添った温かいガイドをお約束します。

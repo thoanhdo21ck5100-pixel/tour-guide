@@ -39,7 +39,7 @@ export async function generateMetadata({
   }
 
   return constructMetadata({
-    title: `${tour.title} | ダナン プライベートツアー`,
+    title: `${tour.title} | ベトナム日本語ガイド`,
     description: tour.shortDescription,
     image: tour.heroImage,
     canonical: `/tours/${tour.slug}`,

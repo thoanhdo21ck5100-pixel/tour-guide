@@ -5,15 +5,15 @@ export default function TrustBadges() {
     {
       icon: Award,
       title: 'ダナン出身・JLPT N1専属',
-      subtitle: '生粋の現地ローカルガイド',
-      description: 'ダナン生まれ・育ちならではのディープな知識と日本語能力試験N1の流暢な日本語。温かいおもてなしでご案内します。',
+      subtitle: 'ベトナム全土対応ローカルガイド',
+      description: 'ダナン生まれ・育ちならではのディープな知識と日本語能力試験N1の流暢な日本語。ベトナム全土の旅を温かいおもてなしでご案内します。',
       color: 'text-amber-600 bg-amber-50 border-amber-200',
     },
     {
       icon: Users,
       title: '完全貸切・送迎＆滞在支援',
       subtitle: '空港＆ホテル直行専用車',
-      description: '空港お出迎えからホテル往復送迎、チェックイン通訳、お買い物や滞在中の個人的なお困りごとまで手厚くサポートします。',
+      description: 'ベトナム各地の空港お出迎えからホテル往復送迎、チェックイン通訳、お買い物や滞在中の個人的なお困りごとまで手厚くサポートします。',
       color: 'text-indigo-600 bg-indigo-50 border-indigo-200',
     },
     {

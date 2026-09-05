@@ -23,17 +23,17 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <h3 className="text-base font-bold text-white tracking-tight">ダナン日本語ガイド</h3>
+                <h3 className="text-base font-bold text-white tracking-tight">ベトナム日本語ガイド</h3>
                 <p className="text-xs text-amber-400 font-semibold tracking-wider">プライベートツアー</p>
               </div>
             </div>
             <p className="text-xs leading-relaxed text-slate-400">
-              ダナン出身・日本語能力試験N1保持の専属ガイド「アン トー (Anh Tho)」による完全貸切のプライベートツアー。安心・安全・おもてなしの心で、一生の思い出に残るダナン・ホイアンの旅をお届けします。ダナン空港送迎・ホテル完全送迎にも対応。
+              ダナン出身・日本語能力試験N1保持の専属ガイド「アン トー (Anh Tho)」による完全貸切のプライベートツアー。安心・安全・おもてなしの心で、ダナン・ホイアンをはじめハノイやホーチミンなどベトナム全土のご旅行をお手伝いします。空港送迎・ホテル宿泊・買い物サポートまで幅広く対応。
             </p>
             <div className="flex flex-col gap-2 text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>ダナン出身・生粋の現地ローカル</span>
+                <span>ダナン出身・生粋の現地ローカル（ベトナム全土対応）</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -45,7 +45,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>ダナン国際空港送迎・ホテル完全送迎対応</span>
+                <span>ベトナム各地の空港送迎・ホテル送迎対応</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -181,7 +181,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            &copy; {new Date().getFullYear()} ダナン プライベートツアー コンシェルジュ. All rights reserved.
+            &copy; {new Date().getFullYear()} ベトナム日本語ガイド (Anh Tho Guide Service). All rights reserved.
           </div>
           <div className="flex items-center gap-6">
             <span>プライバシーポリシー</span>
