@@ -29,7 +29,7 @@ export default function BlogEditorClient({ initialPost, isNew }: BlogEditorClien
     featured: initialPost?.featured ?? false,
     author: initialPost?.author || {
       name: 'アン トー (Anh Tho)',
-      role: '神戸経済大学卒 / 日本語能力試験N1',
+      role: 'ダナン出身 / 日本語能力試験N1',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
     },
     content: initialPost?.content || {

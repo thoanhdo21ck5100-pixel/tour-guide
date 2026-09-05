@@ -14,7 +14,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     featured: true,
     author: {
       name: 'アン トー (Anh Tho)',
-      role: '神戸経済大学卒 / 日本語能力試験N1',
+      role: 'ダナン出身 / 日本語能力試験N1',
       avatar: '/images/guide/anh-tho-avatar.jpg'
     },
     content: {
@@ -71,7 +71,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     featured: true,
     author: {
       name: 'アン トー (Anh Tho)',
-      role: '神戸経済大学卒 / 日本語能力試験N1',
+      role: 'ダナン出身 / 日本語能力試験N1',
       avatar: '/images/guide/anh-tho-avatar.jpg'
     },
     content: {
@@ -124,7 +124,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     featured: true,
     author: {
       name: 'アン トー (Anh Tho)',
-      role: '神戸経済大学卒 / 日本語能力試験N1',
+      role: 'ダナン出身 / 日本語能力試験N1',
       avatar: '/images/guide/anh-tho-avatar.jpg'
     },
     content: {
@@ -176,7 +176,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     featured: true,
     author: {
       name: 'アン トー (Anh Tho)',
-      role: '神戸経済大学卒 / 日本語能力試験N1',
+      role: 'ダナン出身 / 日本語能力試験N1',
       avatar: '/images/guide/anh-tho-avatar.jpg'
     },
     content: {
@@ -234,7 +234,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     featured: true,
     author: {
       name: 'アン トー (Anh Tho)',
-      role: '神戸経済大学卒 / 日本語能力試験N1',
+      role: 'ダナン出身 / 日本語能力試験N1',
       avatar: '/images/guide/anh-tho-avatar.jpg'
     },
     content: {
@@ -296,7 +296,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     featured: true,
     author: {
       name: 'アン トー (Anh Tho)',
-      role: '神戸経済大学卒 / 日本語能力試験N1',
+      role: 'ダナン出身 / 日本語能力試験N1',
       avatar: '/images/guide/anh-tho-avatar.jpg'
     },
     content: {

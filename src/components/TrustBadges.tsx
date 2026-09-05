@@ -4,16 +4,16 @@ export default function TrustBadges() {
   const badges = [
     {
       icon: Award,
-      title: '日本語能力試験N1専属',
-      subtitle: '神戸経済大学 卒業',
-      description: '日本留学経験と2年間の折衝・ガイド実績。丁寧な日本語と温かいおもてなしでご案内します。',
+      title: 'ダナン出身・JLPT N1専属',
+      subtitle: '生粋の現地ローカルガイド',
+      description: 'ダナン生まれ・育ちならではのディープな知識と日本語能力試験N1の流暢な日本語。温かいおもてなしでご案内します。',
       color: 'text-amber-600 bg-amber-50 border-amber-200',
     },
     {
       icon: Users,
-      title: '完全貸切プライベート',
-      subtitle: '他のお客様との混乗ゼロ',
-      description: 'ご家族・カップル・お友達だけの専用車ツアー。他人に気を使わず写真撮影や休憩も自由自在です。',
+      title: '完全貸切・送迎サポート',
+      subtitle: '空港＆ホテル直行専用車',
+      description: '空港お出迎えからホテル往復送迎まで完全対応。他のお客様との混乗ゼロで、スーツケースを積んだまま手ぶら観光も可能です。',
       color: 'text-indigo-600 bg-indigo-50 border-indigo-200',
     },
     {

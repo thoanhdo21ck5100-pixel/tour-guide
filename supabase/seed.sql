@@ -155,7 +155,7 @@ INSERT INTO public.blog_posts (
     CURRENT_DATE,
     '5分で読める',
     true,
-    '{"name": "アン トー (Anh Tho)", "role": "神戸経済大学卒 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
+    '{"name": "アン トー (Anh Tho)", "role": "ダナン出身 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
     '{
         "intro": "日本からダナン国際空港に到着した際、一番最初に直面するのが「ホテルまでの移動問題」です。安全かつ最もリーズナブルにホテルへ移動する方法を詳しく解説します。",
         "sections": [
@@ -184,7 +184,7 @@ INSERT INTO public.blog_posts (
     CURRENT_DATE,
     '6分で読める',
     true,
-    '{"name": "アン トー (Anh Tho)", "role": "神戸経済大学卒 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
+    '{"name": "アン トー (Anh Tho)", "role": "ダナン出身 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
     '{
         "intro": "ベトナム中部旅行のハイライトといえば、夕暮れとともに無数のランタンが灯る世界遺産の街「ホイアン」。",
         "sections": [
@@ -208,7 +208,7 @@ INSERT INTO public.blog_posts (
     CURRENT_DATE,
     '6分で読める',
     true,
-    '{"name": "アン トー (Anh Tho)", "role": "神戸経済大学卒 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
+    '{"name": "アン トー (Anh Tho)", "role": "ダナン出身 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
     '{
         "intro": "ダナン旅行を計画中の方へ、乾季と雨季の特徴、月別の気候、そして失敗しない服装・持ち物のコツを分かりやすくまとめました。",
         "sections": [
@@ -232,7 +232,7 @@ INSERT INTO public.blog_posts (
     CURRENT_DATE,
     '6分で読める',
     true,
-    '{"name": "アン トー (Anh Tho)", "role": "神戸経済大学卒 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
+    '{"name": "アン トー (Anh Tho)", "role": "ダナン出身 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
     '{
         "intro": "ホイアン古都の伝統とセンスあふれる名店・お土産を厳選してご紹介します。",
         "sections": [
@@ -256,7 +256,7 @@ INSERT INTO public.blog_posts (
     CURRENT_DATE,
     '5分で読める',
     true,
-    '{"name": "アン トー (Anh Tho)", "role": "神戸経済大学卒 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
+    '{"name": "アン トー (Anh Tho)", "role": "ダナン出身 / 日本語能力試験N1", "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"}'::jsonb,
     '{
         "intro": "女性一人でも安心してゆっくりくつろげる、ダナン市内のおしゃれで清潔なカフェ5選です。",
         "sections": [

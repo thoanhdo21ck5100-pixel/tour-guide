@@ -12,6 +12,10 @@ import {
   MapPin,
   Car,
   QrCode,
+  Plane,
+  Luggage,
+  Clock,
+  Hotel,
 } from 'lucide-react';
 import TrustBadges from '@/components/TrustBadges';
 import TourCard from '@/components/TourCard';
@@ -56,7 +60,7 @@ export default function HomePage() {
               {/* Trust Tag */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs font-bold tracking-wide">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>神戸経済大学卒・日本語能力試験N1専属ガイド</span>
+                <span>ダナン出身・日本語能力試験N1専属ガイド</span>
               </div>
 
               {/* Primary SEO Heading */}
@@ -75,14 +79,18 @@ export default function HomePage() {
               </p>
 
               {/* Key selling bullets */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-5 text-xs text-slate-300">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 sm:gap-x-5 text-xs text-slate-300">
                 <span className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-emerald-400" />
                   日本語検定N1ガイド専属
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-emerald-400" />
-                  1日1組様限定・完全プライベート
+                  1日1組様限定・完全貸切
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-amber-400" />
+                  ダナン空港送迎・ホテル発着対応
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-emerald-400" />
@@ -90,7 +98,6 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* CTAs */}
               {/* CTAs */}
               <div className="pt-2 flex flex-col items-center lg:items-start gap-3 max-w-lg">
                 <Link
@@ -135,16 +142,16 @@ export default function HomePage() {
               {/* Authentic Credentials */}
               <div className="pt-6 border-t border-slate-700/60 grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-sm sm:text-base font-black text-amber-400">神戸経済大学</div>
-                  <div className="text-[11px] text-slate-300 mt-0.5">経済学部 卒業</div>
+                  <div className="text-sm sm:text-base font-black text-amber-400">ダナン出身</div>
+                  <div className="text-[11px] text-slate-300 mt-0.5">生粋の現地ローカル</div>
                 </div>
                 <div>
                   <div className="text-sm sm:text-base font-black text-amber-400">JLPT N1</div>
-                  <div className="text-[11px] text-slate-300 mt-0.5">日本語能力試験N1</div>
+                  <div className="text-[11px] text-slate-300 mt-0.5">日本語能力試験最上級</div>
                 </div>
                 <div>
                   <div className="text-sm sm:text-base font-black text-amber-400">1日1組限定</div>
-                  <div className="text-[11px] text-slate-300 mt-0.5">完全貸切プライベート</div>
+                  <div className="text-[11px] text-slate-300 mt-0.5">完全貸切・空港送迎OK</div>
                 </div>
               </div>
             </div>
@@ -185,13 +192,13 @@ export default function HomePage() {
                           アン トー (Anh Tho)
                         </h2>
                         <p className="text-xs text-slate-300 mt-1">
-                          神戸経済大学卒 / 日本語能力試験N1
+                          ダナン出身（生粋のローカル）/ 日本語能力試験N1
                         </p>
                       </div>
                     </div>
 
                     <p className="mt-3.5 text-xs text-slate-300 leading-relaxed">
-                      「日本のみなさま、シンチャオ！神戸経済大学で学び、日本のおもてなし文化に触れました。温かい心でダナン＆ホイアンの特別な旅をお手伝いします。」
+                      「日本のみなさま、シンチャオ！生まれ育った大好きなダナンを、日本の皆様に心から楽しんでいただけるよう、安心の日本語とおもてなしの心で特別な旅をお手伝いします。」
                     </p>
                   </div>
                 </div>
@@ -247,7 +254,137 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. WHY CHOOSE US / GUIDE PROFILE SECTION */}
+      {/* 4. AIRPORT & HOTEL TRANSFER SECTION */}
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-900 to-[#0B2545] text-white relative overflow-hidden">
+        {/* Background glow effects */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300 text-xs font-bold mb-3 tracking-wider">
+              <Plane className="w-3.5 h-3.5 text-amber-400" />
+              <span>AIRPORT & HOTEL TRANSFER SERVICE</span>
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white">
+              ダナン空港送迎 ＆ ホテル往復完全対応
+            </h2>
+            <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              「到着直後のタクシー客引きやGrab配車が不安」「重いスーツケースを持ったまま移動したくない」という方へ。
+              空港到着ゲートからホテルお送りまで、清潔なエアコン付き専用車でおもてなしいたします。
+            </p>
+          </div>
+
+          {/* 4 Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {/* Feature 1 */}
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-400/30 transition-all hover:bg-white/[0.08] flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
+                  <Plane className="w-6 h-6" />
+                </div>
+                <h3 className="text-base font-bold text-white mb-2">
+                  空港到着口でのお出迎え
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  ダナン国際空港の到着ゲートで、お名前を書いたネームボードを持ってお待ちします。到着直後の客引きやGrab待ちのストレスは一切ありません。
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-amber-300 font-semibold flex items-center gap-1">
+                <Check className="w-3.5 h-3.5" />
+                <span>フライト遅延時も追加料金なし</span>
+              </div>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-400/30 transition-all hover:bg-white/[0.08] flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+                  <Hotel className="w-6 h-6" />
+                </div>
+                <h3 className="text-base font-bold text-white mb-2">
+                  ダナン＆ホイアン全ホテル対応
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  ダナン市内のシティホテルはもちろん、ミーケビーチ沿いの高級リゾートやホイアン旧市街周辺のホテルまで、宿泊先ロビー前まで完全プライベート送迎。
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-emerald-300 font-semibold flex items-center gap-1">
+                <Check className="w-3.5 h-3.5" />
+                <span>ホイアンリゾートも割増なし</span>
+              </div>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-400/30 transition-all hover:bg-white/[0.08] flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center mb-4">
+                  <Luggage className="w-6 h-6" />
+                </div>
+                <h3 className="text-base font-bold text-white mb-2">
+                  荷物を積んだまま手ぶら観光
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  「午前便で到着してチェックイン前に五行山へ」「最終日チェックアウト後にホイアン夜市を観光して空港へ直行」など、大きなお荷物を積んだまま観光できます。
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-sky-300 font-semibold flex items-center gap-1">
+                <Check className="w-3.5 h-3.5" />
+                <span>トランクにスーツケース完全積載</span>
+              </div>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-amber-400/30 transition-all hover:bg-white/[0.08] flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <h3 className="text-base font-bold text-white mb-2">
+                  深夜・早朝便も柔軟対応
+                </h3>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  日本からの深夜便や早朝発便にも完全プライベート対応。空港でのチェックイン手続きや搭乗カウンターのご案内まで、最後まで温かくサポートいたします。
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-purple-300 font-semibold flex items-center gap-1">
+                <Check className="w-3.5 h-3.5" />
+                <span>フライト時間連動スケジュール</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Visual Route Flow & CTA Banner */}
+          <div className="mt-10 p-6 rounded-2xl bg-white/10 border border-white/15 flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 text-xs font-semibold">
+              <span className="px-3.5 py-1.5 rounded-lg bg-white/10 border border-white/10 text-amber-300">
+                ✈️ ダナン国際空港
+              </span>
+              <span className="text-slate-400">⇄</span>
+              <span className="px-3.5 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-400/30 text-emerald-300">
+                🚗 エアコン付き専用車（完全貸切・荷物OK）
+              </span>
+              <span className="text-slate-400">⇄</span>
+              <span className="px-3.5 py-1.5 rounded-lg bg-white/10 border border-white/10 text-sky-300">
+                🏨 各ホテル（ダナン／ホイアン）
+              </span>
+            </div>
+
+            <div className="flex items-center gap-3 shrink-0">
+              <Link
+                href="/contact"
+                className="h-11 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-1.5 whitespace-nowrap"
+              >
+                <span>送迎付きツアーを相談・予約する</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. WHY CHOOSE US / GUIDE PROFILE SECTION */}
       <section id="guide" className="py-16 sm:py-24 bg-white border-y border-slate-200/80">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -266,13 +403,13 @@ export default function HomePage() {
                 <div className="p-6 bg-[#0B2545] text-white">
                   <h3 className="text-lg font-bold">ダナン専属ガイド：アン トー (Anh Tho)</h3>
                   <p className="text-xs text-amber-300 mt-1">
-                    神戸経済大学 卒業 / 日本語能力試験N1取得
+                    ダナン出身（生粋のローカル）/ 日本語能力試験N1取得
                   </p>
                   <div className="mt-3 pt-3 border-t border-slate-700 grid grid-cols-2 gap-2 text-xs text-slate-300">
-                    <div>✔ 神戸経済大学 卒業</div>
+                    <div>✔ ダナン生まれ・生粋の現地育ち</div>
                     <div>✔ 日本語能力試験N1 (JLPT N1)</div>
                     <div>✔ 日本人向けガイド・折衝 2年</div>
-                    <div>✔ 1日1組様限定・完全貸切</div>
+                    <div>✔ ダナン空港送迎・ホテル完全対応</div>
                   </div>
                 </div>
               </div>
@@ -289,10 +426,10 @@ export default function HomePage() {
                 心あたたまるベトナム体験をお届けしたい」
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                初めまして、ダナン専属ガイドのアン トー (Anh Tho) と申します。神戸経済大学で学び、日本のみなさんの礼儀正しさや「おもてなし」の心に深く感銘を受けました。
+                初めまして、ダナン専属ガイドのアン トー (Anh Tho) と申します。生まれ育った故郷ダナンを深く愛し、日本語能力試験N1を取得して長年日本人旅行者の皆様をご案内してまいりました。
               </p>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                大学卒業後は、日本人観光客の皆様のご案内や日系パートナー企業との折衝業務に2年間従事してまいりました。日本のお客様が大切にされる「時間厳守」「清潔さ」「細やかな心配り」を徹底し、一人ひとりに寄り添った温かいガイドをお約束します。
+                日本人観光客の皆様のご案内や日系パートナー企業との折衝業務に2年間従事し、日本のお客様が大切にされる「時間厳守」「清潔さ」「細やかな心配り」を徹底。地元ローカルならではの安心できる名店や隠れた絶景スポットまで、一人ひとりに寄り添った温かいガイドをお約束します。
               </p>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 「言葉が通じない不安」「不当なぼったくりタクシーへの警戒」「団体ツアーのせわしないスケジュール」...そうしたストレスを一切なくし、ご家族や大切な人と一生モノの思い出を作っていただけるよう、1日1組様限定の完全貸切プライベートツアーで心を込めてエスコートいたします。

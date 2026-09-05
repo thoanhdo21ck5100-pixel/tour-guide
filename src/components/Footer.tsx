@@ -28,12 +28,12 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-xs leading-relaxed text-slate-400">
-              神戸経済大学卒・日本語能力試験N1保持の専属ガイド「アン トー (Anh Tho)」による完全貸切のプライベートツアー。安心・安全・おもてなしの心で、一生の思い出に残るダナン・ホイアンの旅をお届けします。
+              ダナン出身・日本語能力試験N1保持の専属ガイド「アン トー (Anh Tho)」による完全貸切のプライベートツアー。安心・安全・おもてなしの心で、一生の思い出に残るダナン・ホイアンの旅をお届けします。ダナン空港送迎・ホテル完全送迎にも対応。
             </p>
             <div className="flex flex-col gap-2 text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>神戸経済大学 経済学部 卒業</span>
+                <span>ダナン出身・生粋の現地ローカル</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -42,6 +42,10 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>日本人向けガイド・折衝経験 2年（完全貸切・明朗会計）</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>ダナン国際空港送迎・ホテル完全送迎対応</span>
               </div>
             </div>
           </div>
