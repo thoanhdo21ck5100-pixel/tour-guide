@@ -1,4 +1,4 @@
-export type TourCategory = 'all' | 'classic' | 'food' | 'custom' | 'family';
+export type TourCategory = 'all' | 'classic' | 'women' | 'men' | 'food' | 'custom' | 'family';
 
 export interface ItineraryItem {
   time: string;
@@ -13,7 +13,7 @@ export interface Tour {
   slug: string;
   title: string;
   subtitle: string;
-  category: 'classic' | 'food' | 'custom' | 'family';
+  category: 'classic' | 'women' | 'men' | 'food' | 'custom' | 'family';
   categoryLabel: string;
   duration: string;
   priceJpy: number;

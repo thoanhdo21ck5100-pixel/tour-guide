@@ -76,6 +76,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tours/danang-girls-trip-beauty-spa-nail-shopping" className="hover:text-amber-400 transition-colors">
+                  【女子旅】美爪ネイル＆極上スパ・コスメツアー
+                </Link>
+              </li>
+              <li>
+                <Link href="/tours/danang-men-active-marine-nightlife-seafood-bar" className="hover:text-amber-400 transition-colors">
+                  【男旅】爽快マリン＆豪快海鮮・夜景バー
+                </Link>
+              </li>
+              <li>
                 <Link href="/tours/custom-order-made-central-vietnam" className="hover:text-amber-400 transition-colors">
                   完全オーダーメイド・チャーター
                 </Link>

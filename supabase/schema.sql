@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS public.tours (
     slug TEXT UNIQUE NOT NULL,
     title TEXT NOT NULL,
     subtitle TEXT NOT NULL,
-    category TEXT NOT NULL CHECK (category IN ('classic', 'food', 'custom', 'family')),
+    category TEXT NOT NULL CHECK (category IN ('classic', 'women', 'men', 'food', 'custom', 'family')),
     category_label TEXT NOT NULL,
     duration TEXT NOT NULL,
     price_jpy INTEGER NOT NULL CHECK (price_jpy >= 0),

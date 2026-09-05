@@ -8,7 +8,7 @@ const TourSchema = z.object({
   slug: z.string().min(2).regex(/^[a-z0-9-]+$/, 'スラグは小文字英数字とハイフンのみで入力してください。'),
   title: z.string().min(2, 'ツアータイトルを入力してください。'),
   subtitle: z.string().min(2, 'サブタイトルを入力してください。'),
-  category: z.enum(['classic', 'food', 'custom', 'family']),
+  category: z.enum(['classic', 'women', 'men', 'food', 'custom', 'family']),
   categoryLabel: z.string().min(1),
   duration: z.string().min(1),
   priceJpy: z.number().int().nonnegative('料金（JPY）は0以上で入力してください。'),

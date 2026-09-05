@@ -27,6 +27,16 @@ export default function ToursClient() {
       count: TOURS_DATA.filter((t) => t.category === 'classic').length,
     },
     {
+      key: 'women',
+      label: '女子旅・ビューティー',
+      count: TOURS_DATA.filter((t) => t.category === 'women').length,
+    },
+    {
+      key: 'men',
+      label: '男旅・アクティブ＆ナイト',
+      count: TOURS_DATA.filter((t) => t.category === 'men').length,
+    },
+    {
       key: 'food',
       label: 'グルメ＆ローカル',
       count: TOURS_DATA.filter((t) => t.category === 'food').length,

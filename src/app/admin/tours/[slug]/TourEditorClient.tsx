@@ -171,6 +171,8 @@ export default function TourEditorClient({ initialTour, isNew }: TourEditorClien
                 const val = e.target.value as Tour['category'];
                 const labelMap: Record<string, string> = {
                   classic: '王道ハイライト',
+                  women: '女子旅・ビューティー',
+                  men: '男旅・アクティブ＆ナイト',
                   food: 'グルメ＆ローカル',
                   custom: '完全オーダーメイド',
                   family: 'ファミリー・癒やし',
@@ -184,6 +186,8 @@ export default function TourEditorClient({ initialTour, isNew }: TourEditorClien
               className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-amber-500"
             >
               <option value="classic">王道ハイライト</option>
+              <option value="women">女子旅・ビューティー</option>
+              <option value="men">男旅・アクティブ＆ナイト</option>
               <option value="food">グルメ＆ローカル</option>
               <option value="custom">完全オーダーメイド</option>
               <option value="family">ファミリー・癒やし</option>
