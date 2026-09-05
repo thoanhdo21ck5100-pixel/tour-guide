@@ -35,6 +35,8 @@ export const SITE_CONFIG = {
   lineUrl: 'https://lin.ee/vssKBHS',
   instagramHandle: 'tho.anh.do01',
   instagramUrl: 'https://www.instagram.com/tho.anh.do01?igsi=MThteDdsazlhdDdlaQ==',
+  xHandle: 'NihongoGuide',
+  xUrl: 'https://x.com/NihongoGuide',
 };
 
 export function constructMetadata({

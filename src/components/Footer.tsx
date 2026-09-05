@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MessageCircle, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 import InstagramIcon from '@/components/InstagramIcon';
+import XIcon from '@/components/XIcon';
 import { SITE_CONFIG } from '@/lib/seo';
 
 export default function Footer() {
@@ -139,6 +140,15 @@ export default function Footer() {
               >
                 <InstagramIcon className="w-4 h-4 text-pink-400 shrink-0" />
                 <span>Instagram DM（@{SITE_CONFIG.instagramHandle}）</span>
+              </a>
+              <a
+                href={SITE_CONFIG.xUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-200 hover:bg-slate-700/80 hover:text-white transition-all"
+              >
+                <XIcon className="w-4 h-4 text-white shrink-0" />
+                <span>X / Twitter（@{SITE_CONFIG.xHandle}）</span>
               </a>
               <div className="flex items-center gap-2 text-slate-400">
                 <Mail className="w-4 h-4 text-amber-400 shrink-0" />

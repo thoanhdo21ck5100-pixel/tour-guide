@@ -7,6 +7,7 @@ import TourCard from '@/components/TourCard';
 import { TourCategory } from '@/types';
 import { Sparkles, MessageCircle, SlidersHorizontal, ShieldCheck } from 'lucide-react';
 import InstagramIcon from '@/components/InstagramIcon';
+import XIcon from '@/components/XIcon';
 import { SITE_CONFIG } from '@/lib/seo';
 import GuideStrategicValueCard from '@/components/GuideStrategicValueCard';
 
@@ -152,6 +153,15 @@ export default function ToursClient() {
               >
                 <InstagramIcon className="w-4 h-4 text-white" />
                 Instagram DMで相談
+              </a>
+              <a
+                href={SITE_CONFIG.xUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-1.5"
+              >
+                <XIcon className="w-3.5 h-3.5 text-white" />
+                X / Twitterで相談
               </a>
             </div>
           </div>

@@ -17,6 +17,7 @@ import {
 import { getTourBySlug, TOURS_DATA } from '@/lib/data/tours';
 import { constructMetadata, generateTouristTripSchema, generateBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import InstagramIcon from '@/components/InstagramIcon';
+import XIcon from '@/components/XIcon';
 import GuideStrategicValueCard from '@/components/GuideStrategicValueCard';
 
 export async function generateStaticParams() {
@@ -349,6 +350,16 @@ export default async function TourDetailPage({
                 >
                   <InstagramIcon className="w-4 h-4 text-white" />
                   <span>Instagram DMで質問する</span>
+                </a>
+
+                <a
+                  href={SITE_CONFIG.xUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 px-6 rounded-xl bg-slate-900 hover:bg-black text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
+                >
+                  <XIcon className="w-4 h-4 text-white" />
+                  <span>X / Twitterで質問する</span>
                 </a>
               </div>
 

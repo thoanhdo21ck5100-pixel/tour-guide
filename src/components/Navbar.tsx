@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, MessageCircle, Calendar, ShieldCheck } from 'lucide-react';
 import InstagramIcon from '@/components/InstagramIcon';
+import XIcon from '@/components/XIcon';
 import { SITE_CONFIG } from '@/lib/seo';
 
 export default function Navbar() {
@@ -89,6 +90,16 @@ export default function Navbar() {
             <InstagramIcon className="w-3.5 h-3.5 text-pink-500" />
             <span>Instagram</span>
           </a>
+          <a
+            href={SITE_CONFIG.xUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-800 bg-slate-100 border border-slate-200 rounded-full hover:bg-slate-200 hover:text-black transition-colors"
+            title="公式 X (Twitter)"
+          >
+            <XIcon className="w-3.5 h-3.5 text-slate-800" />
+            <span>X</span>
+          </a>
           <Link
             href="/contact"
             className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full hover:from-amber-600 hover:to-amber-700 shadow-sm hover:shadow transition-all"
@@ -168,6 +179,16 @@ export default function Navbar() {
               >
                 <InstagramIcon className="w-5 h-5 text-white" />
                 Instagram DMで相談する
+              </a>
+              <a
+                href={SITE_CONFIG.xUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 w-full py-3 bg-slate-900 hover:bg-black text-white rounded-xl font-bold text-sm shadow-sm"
+              >
+                <XIcon className="w-4 h-4 text-white" />
+                X (Twitter) 公式アカウント
               </a>
               <Link
                 href="/contact"

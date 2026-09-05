@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import InstagramIcon from '@/components/InstagramIcon';
+import XIcon from '@/components/XIcon';
 import { SITE_CONFIG } from '@/lib/seo';
 
 export default function ContactClient() {
@@ -164,6 +165,16 @@ export default function ContactClient() {
                 >
                   <InstagramIcon className="w-4 h-4 text-white" />
                   <span>Instagram DM（@{SITE_CONFIG.instagramHandle}）</span>
+                </a>
+
+                <a
+                  href={SITE_CONFIG.xUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto flex-1 py-3 px-4 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-xl shadow-xs transition-all flex items-center justify-center gap-2"
+                >
+                  <XIcon className="w-3.5 h-3.5 text-white" />
+                  <span>X / Twitter（@{SITE_CONFIG.xHandle}）</span>
                 </a>
               </div>
             </div>
