@@ -361,17 +361,17 @@ export default function HomePage() {
 
           {/* Visual Route Flow & CTA Banner */}
           <div className="mt-10 p-6 rounded-2xl bg-white/10 border border-white/15 flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-4 text-xs font-semibold">
-              <span className="px-3.5 py-1.5 rounded-lg bg-white/10 border border-white/10 text-amber-300">
-                ✈️ ダナン・ハノイ・各地国際空港
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 text-xs font-semibold">
+              <span className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/10 text-amber-300 whitespace-nowrap">
+                ✈️ ベトナム各地空港
               </span>
               <span className="text-slate-400">⇄</span>
-              <span className="px-3.5 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-400/30 text-emerald-300">
-                🚗 エアコン付き専用車（完全貸切・荷物OK）
+              <span className="px-3 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 whitespace-nowrap">
+                🚗 専用車（完全貸切・荷物OK）
               </span>
               <span className="text-slate-400">⇄</span>
-              <span className="px-3.5 py-1.5 rounded-lg bg-white/10 border border-white/10 text-sky-300">
-                🏨 各ホテル（ダナン／ホイアン／ハノイ等）
+              <span className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/10 text-sky-300 whitespace-nowrap">
+                🏨 ご宿泊ホテル
               </span>
             </div>
 
