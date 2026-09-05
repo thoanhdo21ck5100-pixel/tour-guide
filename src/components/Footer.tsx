@@ -81,8 +81,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tours/hoian-girls-trip-aodai-photo-afternoon-tea" className="hover:text-amber-400 transition-colors">
+                  【女子旅】アオザイ変身撮影＆ランタン作り
+                </Link>
+              </li>
+              <li>
                 <Link href="/tours/danang-men-active-marine-nightlife-seafood-bar" className="hover:text-amber-400 transition-colors">
                   【男旅】爽快マリン＆豪快海鮮・夜景バー
+                </Link>
+              </li>
+              <li>
+                <Link href="/tours/danang-men-jeep-adventure-craft-beer-bbq" className="hover:text-amber-400 transition-colors">
+                  【男旅】オープンジープ探検＆クラフトビールBBQ
                 </Link>
               </li>
               <li>

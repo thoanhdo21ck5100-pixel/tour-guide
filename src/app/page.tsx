@@ -248,11 +248,11 @@ export default function HomePage() {
               href="/tours"
               className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#0B2545] hover:bg-[#133E68] text-white font-bold text-sm sm:text-base rounded-full shadow-md hover:shadow-xl hover:scale-102 active:scale-98 transition-all"
             >
-              <span>すべてのツアープラン一覧を見る（全8プラン）</span>
+              <span>すべてのツアープラン一覧を見る（全10プラン）</span>
               <ArrowRight className="w-4 h-4 text-amber-400" />
             </Link>
             <p className="text-xs text-slate-500">
-              ※王道ハイライト、女子旅スパ＆ネイル、男旅マリン＆ナイトバー、裏路地グルメ、完全オーダーメイドまで豊富にご用意しています
+              ※王道ハイライト、女子旅スパ＆アオザイ撮影、男旅ジープ＆マリン・夜景バー、裏路地グルメ、完全オーダーメイドまで豊富にご用意しています
             </p>
           </div>
         </div>
