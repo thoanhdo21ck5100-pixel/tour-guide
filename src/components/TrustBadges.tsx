@@ -11,23 +11,23 @@ export default function TrustBadges() {
     },
     {
       icon: Users,
-      title: '完全貸切・送迎サポート',
+      title: '完全貸切・送迎＆滞在支援',
       subtitle: '空港＆ホテル直行専用車',
-      description: '空港お出迎えからホテル往復送迎まで完全対応。他のお客様との混乗ゼロで、スーツケースを積んだまま手ぶら観光も可能です。',
+      description: '空港お出迎えからホテル往復送迎、チェックイン通訳、お買い物や滞在中の個人的なお困りごとまで手厚くサポートします。',
       color: 'text-indigo-600 bg-indigo-50 border-indigo-200',
     },
     {
       icon: DollarSign,
       title: '明朗会計・チップ不要',
       subtitle: '現地での不当な追加請求なし',
-      description: '車代・ガイド代・入場料を明確に提示。ガイドへのチップを気にする必要も一切ありません。',
+      description: '車代・ガイド代・入場料を明確に提示。市場でのぼったくり回避アテンドや適正価格交渉もお任せください。',
       color: 'text-emerald-600 bg-emerald-50 border-emerald-200',
     },
     {
       icon: MessageCircleHeart,
       title: 'LINE事前相談いつでも無料',
       subtitle: 'ご予約前のご質問大歓迎',
-      description: '旅程の相談から天候の確認、おすすめの服装まで、日本人スタッフがLINEで丁寧にお答えします。',
+      description: '旅程の相談からホテル選び、市場でのお買い物スポットまで、日本人対応品質のLINEで丁寧にお答えします。',
       color: 'text-emerald-700 bg-emerald-50/80 border-emerald-300',
     },
   ];

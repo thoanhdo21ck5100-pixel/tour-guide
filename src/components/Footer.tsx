@@ -47,6 +47,10 @@ export default function Footer() {
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>ダナン国際空港送迎・ホテル完全送迎対応</span>
               </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>ホテル宿泊・市場でのお買い物・滞在サポート対応</span>
+              </div>
             </div>
           </div>
 

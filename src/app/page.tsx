@@ -89,8 +89,12 @@ export default function HomePage() {
                   1日1組様限定・完全貸切
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Check className="w-4 h-4 text-amber-400" />
+                  <Check className="w-4 h-4 text-emerald-400" />
                   ダナン空港送迎・ホテル発着対応
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-emerald-400" />
+                  宿泊・お買い物・滞在サポート
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-emerald-400" />
@@ -409,7 +413,9 @@ export default function HomePage() {
                     <div>✔ ダナン生まれ・生粋の現地育ち</div>
                     <div>✔ 日本語能力試験N1 (JLPT N1)</div>
                     <div>✔ 日本人向けガイド・折衝 2年</div>
-                    <div>✔ ダナン空港送迎・ホテル完全対応</div>
+                    <div>✔ 空港送迎・ホテル完全対応</div>
+                    <div>✔ 宿泊・買い物・滞在サポート</div>
+                    <div>✔ チップ不要・安心の明朗会計</div>
                   </div>
                 </div>
               </div>
@@ -435,7 +441,7 @@ export default function HomePage() {
                 「言葉が通じない不安」「不当なぼったくりタクシーへの警戒」「団体ツアーのせわしないスケジュール」...そうしたストレスを一切なくし、ご家族や大切な人と一生モノの思い出を作っていただけるよう、1日1組様限定の完全貸切プライベートツアーで心を込めてエスコートいたします。
               </p>
 
-              {/* 3 Reassurances */}
+              {/* 4 Reassurances */}
               <div className="pt-2 space-y-3">
                 <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                   <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-xs">
@@ -475,6 +481,20 @@ export default function HomePage() {
                     </h4>
                     <p className="text-xs text-slate-500 mt-0.5">
                       ホイアンのランタンやバーナーヒルズの神の手など、プロ顔負けのベストアングルでたくさん思い出をお撮りします。
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <div className="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center shrink-0 font-bold text-xs">
+                    04
+                  </div>
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-[#0B2545]">
+                      ホテル宿泊・お買い物・個人的なお困りごとも手厚くサポート
+                    </h4>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      ホテルチェックイン時の通訳や特別なご要望の伝達、ローカル市場（ハン市場・コン市場）での適正価格お買い物アテンド、薬局や両替のご案内まで、滞在中の個人的な不安も親身にサポートします。
                     </p>
                   </div>
                 </div>
