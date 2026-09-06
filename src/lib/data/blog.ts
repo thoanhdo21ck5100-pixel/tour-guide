@@ -15,7 +15,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     author: {
       name: 'アン トー (Anh Tho)',
       role: 'ダナン出身 / 日本語能力試験N1',
-      avatar: '/images/guide/anh-tho-avatar.jpg'
+      avatar: '/images/guide/anh-tho-avatar-v3.jpg'
     },
     content: {
       intro: '日本から直行便やハノイ・ホーチミン経由でダナン国際空港に到着した際、日本人旅行者の方が一番最初に直面するのが「ホテルまでの移動問題」です。空港の外に出ると「タクシー？タクシー？」と声をかけてくるドライバーが大勢いますが、不用意についていくと法外な料金を請求されるトラブルも後を絶ちません。今回は、安全かつ最もリーズナブルにホテルへ移動する方法を詳しく解説します。',
@@ -72,7 +72,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     author: {
       name: 'アン トー (Anh Tho)',
       role: 'ダナン出身 / 日本語能力試験N1',
-      avatar: '/images/guide/anh-tho-avatar.jpg'
+      avatar: '/images/guide/anh-tho-avatar-v3.jpg'
     },
     content: {
       intro: 'ベトナム中部旅行のハイライトといえば、夕暮れとともに無数のランタンが灯る世界遺産の街「ホイアン」。川沿いに揺らめく灯籠と、ノスタルジックな黄色い壁の街並みは息をのむ美しさです。しかし、夕方以降は観光客が集中し、小舟の客引きや混雑で疲れてしまうことも。今回は、地元ガイド目線で本当に楽しむための攻略法をお伝えします。',
@@ -125,7 +125,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     author: {
       name: 'アン トー (Anh Tho)',
       role: 'ダナン出身 / 日本語能力試験N1',
-      avatar: '/images/guide/anh-tho-avatar.jpg'
+      avatar: '/images/guide/anh-tho-avatar-v3.jpg'
     },
     content: {
       intro: '日本から飛行機で約5時間半。週末＋有給1日で気軽に行けるビーチリゾートとして大人気のダナン。美しいビーチと豊かな自然、そして隣接する世界遺産ホイアンの古都散策がセットで楽しめるのが最大の魅力です。今回は「せっかくなら映える写真も撮りたいし、美味しいものも食べたい、でも疲れすぎるのは嫌」という方にぴったりの2泊3日満喫プランを作成しました。',
@@ -177,7 +177,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     author: {
       name: 'アン トー (Anh Tho)',
       role: 'ダナン出身 / 日本語能力試験N1',
-      avatar: '/images/guide/anh-tho-avatar.jpg'
+      avatar: '/images/guide/anh-tho-avatar-v3.jpg'
     },
     content: {
       intro: '「ダナン旅行を計画しているけれど、雨季って本当に観光できないの？」「一番海が綺麗で泳げる時期はいつ？」「どんな服装を持っていけばいい？」など、季節や天候に関するご質問は日本人のお客様から最も多く寄せられます。今回は、ダナン現地在住ガイドが乾季と雨季の特徴、月別の気候、そして失敗しない服装・持ち物のコツを分かりやすくまとめました。',
@@ -235,7 +235,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     author: {
       name: 'アン トー (Anh Tho)',
       role: 'ダナン出身 / 日本語能力試験N1',
-      avatar: '/images/guide/anh-tho-avatar.jpg'
+      avatar: '/images/guide/anh-tho-avatar-v3.jpg'
     },
     content: {
       intro: 'かつて国際貿易港として繁栄し、日本の朱印船も寄港した世界遺産の街「ホイアン」。現在も伝統工芸の息吹が息づくこの街には、大量生産のお土産品とは一線を画す、繊細でセンスの良い雑貨や手仕事の逸品が数多く並んでいます。今回は、日本人旅行者の方に「買って本当によかった！」と喜ばれる上質なお土産とおすすめショップをご紹介します。',
@@ -297,7 +297,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     author: {
       name: 'アン トー (Anh Tho)',
       role: 'ダナン出身 / 日本語能力試験N1',
-      avatar: '/images/guide/anh-tho-avatar.jpg'
+      avatar: '/images/guide/anh-tho-avatar-v3.jpg'
     },
     content: {
       intro: 'ベトナムは世界第2位のコーヒー大国。近年ダナンでは、伝統的な練乳コーヒーだけでなく、洗練されたインテリア、美味しいスイーツ、高速Wi-Fiと清潔な化粧室を備えたモダンでおしゃれなカフェが次々とオープンしています。「女性一人でも安心してゆっくりくつろげる場所」「写真映えする可愛いカフェ」をお探しの皆様へ、日本人旅行者の目線で自信を持っておすすめできる5軒を厳選しました。',
