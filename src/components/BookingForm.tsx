@@ -18,9 +18,12 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
     kana: '',
     contactType: 'line' as ContactMethod,
     contactValue: '',
+    backupEmail: '',
     consultationType: 'このプランを予約したい',
+    tripType: 'single' as 'single' | 'multi',
     tourSlug: initialTourSlug || 'danang-hoian-classic-day-trip',
     preferredDate: initialDate || '',
+    endDate: '',
     alternativeDate: '',
     adultsCount: 2,
     childrenCount: 0,
@@ -46,21 +49,71 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
   const [isSuccess, setIsSuccess] = useState(false);
   const [bookingId, setBookingId] = useState<string | null>(null);
 
+  // Helper to calculate trip duration
+  const getTripDurationText = (start: string, end: string) => {
+    if (!start || !end) return null;
+    const s = new Date(start);
+    const e = new Date(end);
+    const diffDays = Math.round((e.getTime() - s.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+    if (isNaN(diffDays) || diffDays <= 0) return null;
+    if (diffDays === 1) return '（日帰り / 1日間）';
+    return `（${diffDays - 1}泊${diffDays}日 / 全${diffDays}日間）`;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
+
+    // Multi-day validation: end date must be on or after start date
+    if (formData.tripType === 'multi') {
+      if (!formData.endDate) {
+        setErrorMessage('複数日プランの場合はツアー終了日を選択してください。');
+        return;
+      }
+      if (formData.endDate < formData.preferredDate) {
+        setErrorMessage('ツアー終了日は開始日以降の日付を選択してください。');
+        return;
+      }
+    }
+
     setIsSubmitting(true);
 
     try {
-      const combinedRequests = formData.consultationType
-        ? `【ご相談内容: ${formData.consultationType}】${formData.specialRequests ? `\n${formData.specialRequests}` : ''}`
-        : formData.specialRequests;
+      const emailValue =
+        formData.contactType === 'email'
+          ? formData.contactValue.trim()
+          : formData.backupEmail.trim();
+
+      // Format clean readable structured header in specialRequests
+      const durationTag =
+        formData.tripType === 'multi' && formData.endDate
+          ? `【日程タイプ: 複数日（${formData.preferredDate} 〜 ${formData.endDate} ${getTripDurationText(formData.preferredDate, formData.endDate) || ''}）】`
+          : `【日程タイプ: 1日プラン（希望日: ${formData.preferredDate}）】`;
+
+      const backupEmailTag =
+        formData.contactType !== 'email' && formData.backupEmail.trim()
+          ? `【予備メールアドレス: ${formData.backupEmail.trim()}】`
+          : '';
+
+      const consultationTag = formData.consultationType
+        ? `【ご相談内容: ${formData.consultationType}】`
+        : '';
+
+      const tags = [durationTag, backupEmailTag, consultationTag].filter(Boolean).join('\n');
+      const combinedRequests = tags
+        ? `${tags}${formData.specialRequests.trim() ? `\n\n${formData.specialRequests.trim()}` : ''}`
+        : formData.specialRequests.trim();
 
       const res = await fetch('/api/booking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
+          email: emailValue || undefined,
+          tripType: formData.tripType,
+          endDate: formData.tripType === 'multi' ? formData.endDate : undefined,
+          alternativeDate:
+            formData.tripType === 'multi' ? formData.endDate : formData.alternativeDate || undefined,
           specialRequests: combinedRequests,
         }),
       });
@@ -106,7 +159,13 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
               今後の流れについて
             </p>
             <p>
-              ご入力いただいた連絡先（{formData.contactType.toUpperCase()}: {formData.contactValue}）宛てに、内容を確認のうえLINEまたはメールにてご連絡いたします。
+              ご入力いただいた連絡先（{formData.contactType.toUpperCase()}: {formData.contactValue}）
+              {formData.contactType !== 'email' && formData.backupEmail.trim() && (
+                <span className="font-semibold text-slate-800">
+                  {' '}／ 予備メール: {formData.backupEmail.trim()}
+                </span>
+              )}
+              宛てに、内容を確認のうえLINEまたはメールにてご連絡いたします。
             </p>
             <p className="text-amber-700 font-bold bg-amber-50 p-2.5 rounded-lg border border-amber-200">
               ※このフォームを送信した時点では、予約確定ではありません。内容を確認後、詳細をご案内いたします。
@@ -151,49 +210,43 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
             type="button"
             onClick={() => {
               setIsSuccess(false);
-              setFormData({
-                name: '',
-                kana: '',
-                contactType: 'line',
-                contactValue: '',
-                consultationType: 'このプランを予約したい',
-                tourSlug: 'danang-hoian-classic-day-trip',
+              setFormData((prev) => ({
+                ...prev,
                 preferredDate: '',
+                endDate: '',
                 alternativeDate: '',
-                adultsCount: 2,
-                childrenCount: 0,
-                hotelName: '',
                 specialRequests: '',
-              });
+              }));
             }}
-            className="mt-6 text-xs text-slate-500 underline hover:text-slate-700"
+            className="mt-6 text-xs text-slate-500 hover:text-slate-800 underline transition-colors"
           >
             別の日程や別のツアーを相談する
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <span className="text-xs font-bold text-amber-600 tracking-wider block">
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Header */}
+          <div className="border-b border-slate-100 pb-4">
+            <span className="text-[10px] font-bold text-amber-600 uppercase tracking-widest block">
               RESERVATION & INQUIRY
             </span>
-            <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
+            <h2 className="text-lg sm:text-xl font-black text-[#0B2545] tracking-tight">
               プライベートツアー 予約・無料相談フォーム
-            </h3>
+            </h2>
             <p className="text-xs text-slate-500 mt-1">
               事前決済不要・到着後に全額お支払い。内容確認後、LINEまたはメールで詳細をご連絡します（送信時点では予約確定ではありません）。
             </p>
           </div>
 
-          {/* Error notification */}
+          {/* Error Banner */}
           {errorMessage && (
-            <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-xs flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 shrink-0" />
+            <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700 flex items-start gap-2 animate-in fade-in">
+              <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-rose-600" />
               <span>{errorMessage}</span>
             </div>
           )}
 
-          {/* Customer Name Fields */}
+          {/* Names */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1.5">
@@ -224,52 +277,78 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
           </div>
 
           {/* Contact Preference */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="sm:col-span-1">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                希望のご連絡ツール <span className="text-rose-500">*必須</span>
-              </label>
-              <select
-                value={formData.contactType}
-                onChange={(e) =>
-                  setFormData({ ...formData, contactType: e.target.value as ContactMethod })
-                }
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
-              >
-                <option value="line">LINE (推奨)</option>
-                <option value="email">メールアドレス</option>
-                <option value="instagram">Instagram DM</option>
-                <option value="whatsapp">WhatsApp</option>
-              </select>
-            </div>
-            <div className="sm:col-span-2">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                {formData.contactType === 'line'
-                  ? 'LINE ID または お電話番号'
-                  : formData.contactType === 'email'
-                  ? 'メールアドレス'
-                  : formData.contactType === 'instagram'
-                  ? 'Instagramユーザーネーム (@...)'
-                  : 'WhatsApp番号'}{' '}
-                <span className="text-rose-500">*必須</span>
-              </label>
-              <input
-                type={formData.contactType === 'email' ? 'email' : 'text'}
-                required
-                placeholder={
-                  formData.contactType === 'line'
-                    ? '例: yamada_line123 または 090-xxxx-xxxx'
+          <div className="space-y-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="sm:col-span-1">
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  希望のご連絡ツール <span className="text-rose-500">*必須</span>
+                </label>
+                <select
+                  value={formData.contactType}
+                  onChange={(e) =>
+                    setFormData({ ...formData, contactType: e.target.value as ContactMethod })
+                  }
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                >
+                  <option value="line">LINE (推奨)</option>
+                  <option value="instagram">Instagram DM</option>
+                  <option value="email">メールアドレス</option>
+                  <option value="whatsapp">WhatsApp</option>
+                </select>
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  {formData.contactType === 'line'
+                    ? 'LINE ID または お電話番号'
                     : formData.contactType === 'email'
-                    ? '例: yamada@example.com'
+                    ? 'ご連絡先メールアドレス'
                     : formData.contactType === 'instagram'
-                    ? '例: @taro_travel_danang'
-                    : '例: +81-90-xxxx-xxxx'
-                }
-                value={formData.contactValue}
-                onChange={(e) => setFormData({ ...formData, contactValue: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
-              />
+                    ? 'Instagramユーザーネーム (@...)'
+                    : 'WhatsApp番号'}{' '}
+                  <span className="text-rose-500">*必須</span>
+                </label>
+                <input
+                  type={formData.contactType === 'email' ? 'email' : 'text'}
+                  required
+                  placeholder={
+                    formData.contactType === 'line'
+                      ? '例: yamada_line123 または 090-xxxx-xxxx'
+                      : formData.contactType === 'email'
+                      ? '例: yamada@example.com'
+                      : formData.contactType === 'instagram'
+                      ? '例: @taro_travel_danang'
+                      : '例: +81-90-xxxx-xxxx'
+                  }
+                  value={formData.contactValue}
+                  onChange={(e) => setFormData({ ...formData, contactValue: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                />
+              </div>
             </div>
+
+            {/* Dedicated Email Field (Optional for backup / ID typo prevention) */}
+            {formData.contactType !== 'email' && (
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
+                  <span>
+                    メールアドレス <span className="text-slate-400 font-normal">（任意・予備連絡先）</span>
+                  </span>
+                  <span className="text-[10px] text-amber-600 font-normal">
+                    ※ID入力ミス防止・確認用
+                  </span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="例: yamada@example.com（LINEのID検索が不可の際などの予備連絡先として）"
+                  value={formData.backupEmail}
+                  onChange={(e) => setFormData({ ...formData, backupEmail: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                />
+                <span className="text-[10px] text-slate-400 mt-1 block">
+                  ※LINE等のIDに誤りがあった場合の確認用としてご入力いただけます（任意）
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Tour Selection */}
@@ -334,35 +413,113 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
             )}
           </div>
 
-          {/* Dates Selection */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                第1希望日 <span className="text-rose-500">*必須</span>
-              </label>
-              <input
-                type="date"
-                required
-                value={formData.preferredDate}
-                onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
-              />
-              <span className="text-[10px] text-slate-400 mt-1 block">
-                ※左のカレンダーから日付をクリックしても自動入力されます
-              </span>
-            </div>
-            <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                第2希望日 <span className="text-slate-400 font-normal">（任意）</span>
-              </label>
-              <input
-                type="date"
-                value={formData.alternativeDate}
-                onChange={(e) => setFormData({ ...formData, alternativeDate: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
-              />
+          {/* Trip Duration Type (1日のみ vs 複数日・日程期間) */}
+          <div>
+            <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              ツアー日程タイプ <span className="text-rose-500">*必須</span>
+            </label>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => setFormData({ ...formData, tripType: 'single' })}
+                className={`py-2.5 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  formData.tripType === 'single'
+                    ? 'border-amber-500 bg-amber-50/80 text-[#0B2545] font-bold shadow-xs'
+                    : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                }`}
+              >
+                <span>☀️ 1日プラン（日帰り）</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setFormData({ ...formData, tripType: 'multi' })}
+                className={`py-2.5 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  formData.tripType === 'multi'
+                    ? 'border-amber-500 bg-amber-50/80 text-[#0B2545] font-bold shadow-xs'
+                    : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                }`}
+              >
+                <span>🗓️ 複数日（周遊・連泊）</span>
+              </button>
             </div>
           </div>
+
+          {/* Dates Selection */}
+          {formData.tripType === 'single' ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  第1希望日 <span className="text-rose-500">*必須</span>
+                </label>
+                <input
+                  type="date"
+                  required
+                  value={formData.preferredDate}
+                  onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                />
+                <span className="text-[10px] text-slate-400 mt-1 block">
+                  ※左のカレンダーから日付をクリックしても自動入力されます
+                </span>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  第2希望日 <span className="text-slate-400 font-normal">（任意）</span>
+                </label>
+                <input
+                  type="date"
+                  value={formData.alternativeDate}
+                  onChange={(e) => setFormData({ ...formData, alternativeDate: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    ツアー開始日 <span className="text-rose-500">*必須</span>
+                  </label>
+                  <input
+                    type="date"
+                    required
+                    value={formData.preferredDate}
+                    onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                  />
+                  <span className="text-[10px] text-slate-400 mt-1 block">
+                    ※左のカレンダーから日付をクリックしてもセットされます
+                  </span>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    ツアー終了日（最終日） <span className="text-rose-500">*必須</span>
+                  </label>
+                  <input
+                    type="date"
+                    required
+                    min={formData.preferredDate || undefined}
+                    value={formData.endDate}
+                    onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                  />
+                </div>
+              </div>
+
+              {formData.preferredDate && formData.endDate && (
+                <div className="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 font-bold flex items-center justify-between">
+                  <span>
+                    🗓️ ご希望日程: {formData.preferredDate} 〜 {formData.endDate}
+                  </span>
+                  <span className="px-2 py-0.5 rounded-md bg-amber-200/70 text-amber-950 text-[11px]">
+                    {getTripDurationText(formData.preferredDate, formData.endDate) || '期間設定済'}
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Number of Pax */}
           <div className="grid grid-cols-2 gap-4">

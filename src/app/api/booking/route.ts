@@ -12,8 +12,11 @@ export async function POST(request: NextRequest) {
       kana,
       contactType,
       contactValue,
+      email,
+      tripType = 'single',
       tourSlug,
       preferredDate,
+      endDate,
       alternativeDate,
       adultsCount,
       childrenCount = 0,
@@ -38,7 +41,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'ツアーを選択してください。' }, { status: 400 });
     }
     if (!preferredDate || !/^\d{4}-\d{2}-\d{2}$/.test(preferredDate)) {
-      return NextResponse.json({ error: '第一希望日を正しい日付形式で選択してください。' }, { status: 400 });
+      return NextResponse.json({ error: 'ツアー希望日（開始日）を正しい日付形式で選択してください。' }, { status: 400 });
+    }
+    if (tripType === 'multi' && (!endDate || !/^\d{4}-\d{2}-\d{2}$/.test(endDate))) {
+      return NextResponse.json({ error: '複数日プランの場合は終了日を正しい日付形式で選択してください。' }, { status: 400 });
     }
 
     const adults = parseInt(adultsCount, 10);
@@ -49,15 +55,27 @@ export async function POST(request: NextRequest) {
     const matchedTour = getTourBySlug(tourSlug);
     const tourName = matchedTour ? matchedTour.title : tourSlug;
 
+    // Effective customer email (either from direct email contact or backup email field)
+    const customerEmail =
+      contactType === 'email'
+        ? contactValue.trim()
+        : email && typeof email === 'string' && email.trim().length > 0
+        ? email.trim()
+        : undefined;
+
     const submission: BookingSubmission = {
       name: name.trim(),
       kana: kana.trim(),
       contactType,
       contactValue: contactValue.trim(),
+      email: customerEmail,
+      tripType: tripType as 'single' | 'multi',
       tourSlug,
       tourName,
       preferredDate,
-      alternativeDate: alternativeDate ? alternativeDate.trim() : undefined,
+      endDate: tripType === 'multi' ? endDate : undefined,
+      alternativeDate:
+        tripType === 'multi' ? endDate : alternativeDate ? alternativeDate.trim() : undefined,
       adultsCount: adults,
       childrenCount: parseInt(childrenCount, 10) || 0,
       hotelName: hotelName ? hotelName.trim() : undefined,
@@ -68,12 +86,19 @@ export async function POST(request: NextRequest) {
 
     const adminUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://vietnam-nihongo-guide.com'}/admin/bookings`;
 
+    const dateDisplayText =
+      tripType === 'multi' && endDate
+        ? `複数日・連泊（${preferredDate} 〜 ${endDate}）`
+        : `1日（希望日: ${preferredDate}${alternativeDate ? ` / 第2希望: ${alternativeDate}` : ''}）`;
+
     console.log(`[INSTANT NOTIFICATION] New tour booking received:
 - ID: ${result.id}
 - Customer: ${submission.name} (${submission.kana})
 - Contact: [${submission.contactType}] ${submission.contactValue}
+- Email: ${submission.email || '未入力'}
+- Trip Type: ${submission.tripType || 'single'}
+- Date: ${dateDisplayText}
 - Tour: ${submission.tourName}
-- Date: ${submission.preferredDate}
 - Pax: 大人 ${submission.adultsCount}名 / お子様 ${submission.childrenCount}名
 - Hotel: ${submission.hotelName || '未定'}
 - Requests: ${submission.specialRequests || '特になし'}
@@ -85,13 +110,15 @@ export async function POST(request: NextRequest) {
         const text =
           `🔔 <b>【新規ツアー仮予約が入りました！】</b>\n\n` +
           `👤 <b>お客様名:</b> ${submission.name} (${submission.kana})\n` +
-          `📅 <b>第一希望日:</b> ${submission.preferredDate}` +
-          (submission.alternativeDate ? `\n📆 <b>第二希望日:</b> ${submission.alternativeDate}` : '') +
-          `\n👥 <b>参加人数:</b> 大人 ${submission.adultsCount}名 / お子様 ${submission.childrenCount}名\n` +
+          `🗓 <b>日程:</b> ${dateDisplayText}\n` +
+          `👥 <b>参加人数:</b> 大人 ${submission.adultsCount}名 / お子様 ${submission.childrenCount}名\n` +
           `🏝 <b>ツアー:</b> ${submission.tourName || submission.tourSlug}\n` +
           `🏨 <b>宿泊先:</b> ${submission.hotelName || '未定・未入力'}\n` +
-          `💬 <b>連絡方法:</b> [${submission.contactType.toUpperCase()}] <code>${submission.contactValue}</code>\n\n` +
-          `📝 <b>ご相談・ご要望:</b>\n${submission.specialRequests || '特になし'}\n\n` +
+          `💬 <b>第一連絡先:</b> [${submission.contactType.toUpperCase()}] <code>${submission.contactValue}</code>\n` +
+          (submission.email && submission.contactType !== 'email'
+            ? `📧 <b>予備メール:</b> <code>${submission.email}</code>\n`
+            : '') +
+          `\n📝 <b>ご相談・ご要望:</b>\n${submission.specialRequests || '特になし'}\n\n` +
           `👉 <a href="${adminUrl}">管理画面で確認・対応する</a>`;
 
         await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
@@ -122,10 +149,11 @@ export async function POST(request: NextRequest) {
                 color: 0xf59e0b,
                 fields: [
                   { name: 'お客様名', value: `${submission.name} (${submission.kana})`, inline: true },
-                  { name: '希望日', value: submission.preferredDate, inline: true },
+                  { name: '日程', value: dateDisplayText, inline: true },
                   { name: '人数', value: `大人${submission.adultsCount}名 / 子${submission.childrenCount}名`, inline: true },
                   { name: 'ツアー', value: submission.tourName || submission.tourSlug },
                   { name: '連絡先', value: `[${submission.contactType.toUpperCase()}] ${submission.contactValue}`, inline: true },
+                  { name: '予備メール', value: submission.email || '未入力', inline: true },
                   { name: '宿泊先', value: submission.hotelName || '未定', inline: true },
                   { name: 'ご要望・相談', value: submission.specialRequests || '特になし' },
                 ],
@@ -140,10 +168,11 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 3. Email Notification via Resend
+    // 3. Email Notification via Resend (To Admin and Confirmation to Customer if email exists)
     if (process.env.RESEND_API_KEY) {
       try {
         const recipient = process.env.ADMIN_NOTIFICATION_EMAIL || 'nihongoguide01@gmail.com';
+        // Admin Notification
         await fetch('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
@@ -153,23 +182,69 @@ export async function POST(request: NextRequest) {
           body: JSON.stringify({
             from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
             to: recipient,
-            subject: `【新規予約】${submission.name}様よりツアー仮予約 (${submission.preferredDate})`,
+            subject: `【新規予約】${submission.name}様よりツアー仮予約 (${preferredDate})`,
             html: `
               <h2>🔔 新しいツアー仮予約・相談リクエストを受信しました</h2>
               <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; font-family:sans-serif; font-size:14px;">
                 <tr><th style="background:#f1f5f9; text-align:left;">お客様名</th><td>${submission.name} (${submission.kana})</td></tr>
                 <tr><th style="background:#f1f5f9; text-align:left;">ツアー</th><td>${submission.tourName || submission.tourSlug}</td></tr>
-                <tr><th style="background:#f1f5f9; text-align:left;">第一希望日</th><td>${submission.preferredDate}</td></tr>
-                <tr><th style="background:#f1f5f9; text-align:left;">第二希望日</th><td>${submission.alternativeDate || 'なし'}</td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">ご希望日程</th><td>${dateDisplayText}</td></tr>
                 <tr><th style="background:#f1f5f9; text-align:left;">参加人数</th><td>大人: ${submission.adultsCount}名 / お子様: ${submission.childrenCount}名</td></tr>
                 <tr><th style="background:#f1f5f9; text-align:left;">宿泊先ホテル</th><td>${submission.hotelName || '未定'}</td></tr>
-                <tr><th style="background:#f1f5f9; text-align:left;">ご連絡先</th><td>[${submission.contactType.toUpperCase()}] ${submission.contactValue}</td></tr>
-                <tr><th style="background:#f1f5f9; text-align:left;">ご相談内容・ご要望</th><td><pre style="margin:0; font-family:inherit;">${submission.specialRequests || '特になし'}</pre></td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">第一連絡先</th><td>[${submission.contactType.toUpperCase()}] ${submission.contactValue}</td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">予備メール</th><td>${submission.email || '未入力'}</td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">ご相談・ご要望</th><td><pre style="margin:0; font-family:inherit;">${submission.specialRequests || '特になし'}</pre></td></tr>
               </table>
               <p style="margin-top:16px;"><a href="${adminUrl}" style="background:#0B2545; color:#fff; padding:10px 18px; text-decoration:none; border-radius:8px; font-weight:bold;">管理画面で詳細を見る</a></p>
             `,
           }),
         });
+
+        // Customer Auto-Confirmation Email (if customer provided an email address)
+        if (customerEmail && customerEmail.includes('@')) {
+          await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
+              to: customerEmail,
+              subject: `【ベトナム日本語ガイド】ご予約・ご相談リクエストを受け付けました（受付番号: ${result.id.slice(0, 8)}）`,
+              html: `
+                <div style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
+                  <h2 style="color: #0B2545; border-bottom: 2px solid #f59e0b; padding-bottom: 8px;">
+                    【ベトナム日本語ガイド】ご予約・相談リクエストを承りました
+                  </h2>
+                  <p>${submission.name} 様</p>
+                  <p>この度はベトナム日本語プライベートツアーへのお問い合わせ・仮予約をいただき、誠にありがとうございます。</p>
+                  <p>以下の内容でリクエストを受け付けいたしました。内容を確認の上、専属ガイドより24時間以内にご連絡させていただきます。</p>
+                  
+                  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin: 20px 0;">
+                    <p style="margin: 0 0 8px;"><strong>受付番号:</strong> ${result.id}</p>
+                    <p style="margin: 0 0 8px;"><strong>ツアープラン:</strong> ${submission.tourName || submission.tourSlug}</p>
+                    <p style="margin: 0 0 8px;"><strong>ご希望日程:</strong> ${dateDisplayText}</p>
+                    <p style="margin: 0 0 8px;"><strong>参加人数:</strong> 大人 ${submission.adultsCount}名 / お子様 ${submission.childrenCount}名</p>
+                    <p style="margin: 0 0 8px;"><strong>ご指定の連絡先:</strong> [${submission.contactType.toUpperCase()}] ${submission.contactValue}</p>
+                  </div>
+
+                  <p style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 10px 14px; font-size: 13px; color: #92400e;">
+                    ※このメールの送信時点では予約確定ではございません。ガイドからの日程確認のご連絡をもって確定となります。<br>
+                    ※事前決済は不要です。ツアー料金はベトナム現地到着後に全額お支払いいただけます（日本円・ベトナムドン対応）。
+                  </p>
+
+                  <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
+                  <p style="font-size: 12px; color: #64748b;">
+                    ベトナム日本語ガイド（Anh Tho Guide Service）<br>
+                    公式サイト: https://vietnam-nihongo-guide.com<br>
+                    公式LINE: @564pshie
+                  </p>
+                </div>
+              `,
+            }),
+          });
+        }
       } catch (emailErr) {
         console.warn('Resend email dispatch failed:', emailErr);
       }

@@ -73,10 +73,13 @@ export interface BookingSubmission {
   kana: string;
   contactType: ContactMethod;
   contactValue: string;
+  email?: string;
   consultationType?: string;
+  tripType?: 'single' | 'multi';
   tourSlug: string;
   tourName?: string;
   preferredDate: string;
+  endDate?: string;
   alternativeDate?: string;
   adultsCount: number;
   childrenCount: number;

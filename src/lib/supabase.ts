@@ -238,23 +238,37 @@ export async function fetchAllBookingsAdmin(): Promise<BookingSubmission[]> {
         .order('created_at', { ascending: false });
 
       if (!error && data) {
-        return data.map((b) => ({
-          id: b.id,
-          name: b.name,
-          kana: b.kana,
-          contactType: b.contact_type,
-          contactValue: b.contact_value,
-          tourSlug: b.tour_slug,
-          tourName: b.tour_name,
-          preferredDate: b.preferred_date,
-          alternativeDate: b.alternative_date,
-          adultsCount: b.adults_count,
-          childrenCount: b.children_count,
-          hotelName: b.hotel_name,
-          specialRequests: b.special_requests,
-          status: b.status,
-          createdAt: b.created_at,
-        }));
+        return data.map((b) => {
+          let extractedEmail = b.email;
+          if (!extractedEmail && b.special_requests) {
+            const match = b.special_requests.match(/【予備メールアドレス:\s*([^】\n]+)】/);
+            if (match && match[1]) {
+              extractedEmail = match[1].trim();
+            }
+          }
+          const isMulti = b.special_requests?.includes('複数日') || b.trip_type === 'multi';
+
+          return {
+            id: b.id,
+            name: b.name,
+            kana: b.kana,
+            contactType: b.contact_type,
+            contactValue: b.contact_value,
+            email: extractedEmail || (b.contact_type === 'email' ? b.contact_value : undefined),
+            tripType: isMulti ? 'multi' : 'single',
+            tourSlug: b.tour_slug,
+            tourName: b.tour_name,
+            preferredDate: b.preferred_date,
+            endDate: isMulti ? b.alternative_date : undefined,
+            alternativeDate: b.alternative_date,
+            adultsCount: b.adults_count,
+            childrenCount: b.children_count,
+            hotelName: b.hotel_name,
+            specialRequests: b.special_requests,
+            status: b.status,
+            createdAt: b.created_at,
+          };
+        });
       }
     } catch (err) {
       console.warn('Failed to query Supabase bookings, falling back to local store:', err);

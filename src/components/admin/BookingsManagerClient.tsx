@@ -124,7 +124,8 @@ export default function BookingsManagerClient({ initialBookings }: Props) {
       const matchName = b.name.toLowerCase().includes(q) || b.kana.toLowerCase().includes(q);
       const matchTour = (b.tourName || b.tourSlug).toLowerCase().includes(q);
       const matchContact = b.contactValue.toLowerCase().includes(q);
-      return matchName || matchTour || matchContact;
+      const matchEmail = b.email ? b.email.toLowerCase().includes(q) : false;
+      return matchName || matchTour || matchContact || matchEmail;
     }
     return true;
   });
@@ -335,12 +336,26 @@ export default function BookingsManagerClient({ initialBookings }: Props) {
                     <p className="font-bold text-[#0B2545] mt-0.5 line-clamp-2" title={b.tourName || b.tourSlug}>
                       {b.tourName || b.tourSlug}
                     </p>
-                    <p className="text-[11px] text-slate-600 font-mono mt-1 flex items-center gap-1">
-                      <Calendar className="w-3 h-3 text-amber-600 shrink-0" />
-                      第1希望: <span className="font-bold">{b.preferredDate}</span>
-                    </p>
-                    {b.alternativeDate && (
-                      <p className="text-[10px] text-slate-400 font-mono pl-4">第2希望: {b.alternativeDate}</p>
+                    {b.specialRequests?.includes('複数日') && b.alternativeDate ? (
+                      <div className="mt-1">
+                        <span className="inline-block px-1.5 py-0.5 bg-amber-100 text-amber-900 rounded font-bold text-[10px] mb-0.5">
+                          🗓️ 複数日・周遊プラン
+                        </span>
+                        <p className="text-[11px] text-slate-800 font-mono font-bold flex items-center gap-1">
+                          <Calendar className="w-3 h-3 text-amber-600 shrink-0" />
+                          {b.preferredDate} 〜 {b.alternativeDate}
+                        </p>
+                      </div>
+                    ) : (
+                      <>
+                        <p className="text-[11px] text-slate-600 font-mono mt-1 flex items-center gap-1">
+                          <Calendar className="w-3 h-3 text-amber-600 shrink-0" />
+                          第1希望: <span className="font-bold">{b.preferredDate}</span>
+                        </p>
+                        {b.alternativeDate && (
+                          <p className="text-[10px] text-slate-400 font-mono pl-4">第2希望: {b.alternativeDate}</p>
+                        )}
+                      </>
                     )}
                   </div>
 
@@ -382,6 +397,19 @@ export default function BookingsManagerClient({ initialBookings }: Props) {
                       {b.contactValue}
                     </p>
 
+                    {/* Backup Email if exists */}
+                    {b.email && b.contactType !== 'email' && (
+                      <div className="mt-1.5 pt-1 border-t border-slate-100">
+                        <span className="text-[10px] text-slate-400 block font-normal">予備メール:</span>
+                        <a
+                          href={`mailto:${b.email}?subject=【ベトナム日本語ガイド】ツアーのご予約について`}
+                          className="font-mono text-[11px] font-bold text-blue-600 hover:underline break-all block"
+                        >
+                          {b.email}
+                        </a>
+                      </div>
+                    )}
+
                     {/* Quick Direct Link Action Button */}
                     <div className="mt-2">
                       {b.contactType === 'line' && (
@@ -408,9 +436,9 @@ export default function BookingsManagerClient({ initialBookings }: Props) {
                           <ExternalLink className="w-2.5 h-2.5 opacity-70" />
                         </a>
                       )}
-                      {b.contactType === 'email' && (
+                      {(b.contactType === 'email' || b.email) && (
                         <a
-                          href={`mailto:${b.contactValue}?subject=【ベトナム日本語ガイド】ツアーのご予約・ご相談について`}
+                          href={`mailto:${b.contactType === 'email' ? b.contactValue : b.email}?subject=【ベトナム日本語ガイド】ツアーのご予約・ご相談について`}
                           className="inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 bg-[#0B2545] hover:bg-[#133E68] text-white rounded-lg transition-colors shadow-xs"
                         >
                           <Mail className="w-3 h-3" />
