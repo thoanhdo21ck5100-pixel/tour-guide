@@ -8,7 +8,7 @@ const getSiteUrl = (): string => {
   if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
   }
-  return 'https://tour-guide-jet-one.vercel.app';
+  return 'https://www.vietnam-nihongo-guide.com';
 };
 
 export const SITE_CONFIG = {
