@@ -3,6 +3,9 @@ import Image from 'next/image';
 import { Plus, Compass, Edit3, Star, Clock, ExternalLink } from 'lucide-react';
 import { getAllTours } from '@/lib/supabase';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function AdminToursListPage() {
   const tours = await getAllTours();
 

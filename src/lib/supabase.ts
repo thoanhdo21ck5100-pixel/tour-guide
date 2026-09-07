@@ -182,9 +182,10 @@ export async function saveBooking(
     createdAt: new Date().toISOString(),
   };
 
-  if (supabase) {
+  const client = getClient();
+  if (client) {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await client
         .from('bookings')
         .insert([
           {
@@ -228,9 +229,10 @@ export async function saveBooking(
  * Fetch all bookings (Admin)
  */
 export async function fetchAllBookingsAdmin(): Promise<BookingSubmission[]> {
-  if (supabase) {
+  const client = getClient();
+  if (client) {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await client
         .from('bookings')
         .select('*')
         .order('created_at', { ascending: false });
@@ -260,6 +262,39 @@ export async function fetchAllBookingsAdmin(): Promise<BookingSubmission[]> {
   }
 
   return inMemoryBookings;
+}
+
+/**
+ * Update booking status (Admin)
+ */
+export async function updateBookingStatus(
+  id: string,
+  status: 'pending' | 'confirmed' | 'cancelled'
+): Promise<{ success: boolean; error?: string }> {
+  const client = getClient();
+  if (client) {
+    try {
+      const { error } = await client
+        .from('bookings')
+        .update({ status, updated_at: new Date().toISOString() })
+        .eq('id', id);
+
+      if (error) {
+        console.error('Supabase updateBookingStatus error:', error);
+        return { success: false, error: error.message };
+      }
+      return { success: true };
+    } catch (err) {
+      console.warn('Supabase updateBookingStatus exception:', err);
+      return { success: false, error: err instanceof Error ? err.message : 'Database error' };
+    }
+  }
+
+  const found = inMemoryBookings.find((b) => b.id === id);
+  if (found) {
+    found.status = status;
+  }
+  return { success: true };
 }
 
 /**

@@ -3,6 +3,9 @@ import Image from 'next/image';
 import { Plus, FileText, Edit3, Calendar, Clock, ExternalLink } from 'lucide-react';
 import { getAllBlogs } from '@/lib/supabase';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function AdminBlogListPage() {
   const blogs = await getAllBlogs();
 

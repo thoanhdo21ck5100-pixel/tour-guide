@@ -66,7 +66,8 @@ export async function POST(request: NextRequest) {
 
     const result = await saveBooking(submission);
 
-    // Simulated Instant Notification Dispatch to Guide (via Webhook / Email / LINE Notify)
+    const adminUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://vietnam-nihongo-guide.com'}/admin/bookings`;
+
     console.log(`[INSTANT NOTIFICATION] New tour booking received:
 - ID: ${result.id}
 - Customer: ${submission.name} (${submission.kana})
@@ -78,14 +79,113 @@ export async function POST(request: NextRequest) {
 - Requests: ${submission.specialRequests || '特になし'}
     `);
 
-    // In production, trigger external webhook (e.g. Discord, Telegram, or Resend Email)
+    // 1. Telegram Bot Notification (Instant phone push notification with sound)
+    if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
+      try {
+        const text =
+          `🔔 <b>【新規ツアー仮予約が入りました！】</b>\n\n` +
+          `👤 <b>お客様名:</b> ${submission.name} (${submission.kana})\n` +
+          `📅 <b>第一希望日:</b> ${submission.preferredDate}` +
+          (submission.alternativeDate ? `\n📆 <b>第二希望日:</b> ${submission.alternativeDate}` : '') +
+          `\n👥 <b>参加人数:</b> 大人 ${submission.adultsCount}名 / お子様 ${submission.childrenCount}名\n` +
+          `🏝 <b>ツアー:</b> ${submission.tourName || submission.tourSlug}\n` +
+          `🏨 <b>宿泊先:</b> ${submission.hotelName || '未定・未入力'}\n` +
+          `💬 <b>連絡方法:</b> [${submission.contactType.toUpperCase()}] <code>${submission.contactValue}</code>\n\n` +
+          `📝 <b>ご相談・ご要望:</b>\n${submission.specialRequests || '特になし'}\n\n` +
+          `👉 <a href="${adminUrl}">管理画面で確認・対応する</a>`;
+
+        await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: process.env.TELEGRAM_CHAT_ID,
+            text,
+            parse_mode: 'HTML',
+            disable_web_page_preview: true,
+          }),
+        });
+      } catch (tgErr) {
+        console.warn('Telegram notification dispatch failed:', tgErr);
+      }
+    }
+
+    // 2. Discord Webhook Notification
+    if (process.env.DISCORD_WEBHOOK_URL) {
+      try {
+        await fetch(process.env.DISCORD_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            embeds: [
+              {
+                title: '🔔 新しいツアー仮予約リクエストを受信しました！',
+                color: 0xf59e0b,
+                fields: [
+                  { name: 'お客様名', value: `${submission.name} (${submission.kana})`, inline: true },
+                  { name: '希望日', value: submission.preferredDate, inline: true },
+                  { name: '人数', value: `大人${submission.adultsCount}名 / 子${submission.childrenCount}名`, inline: true },
+                  { name: 'ツアー', value: submission.tourName || submission.tourSlug },
+                  { name: '連絡先', value: `[${submission.contactType.toUpperCase()}] ${submission.contactValue}`, inline: true },
+                  { name: '宿泊先', value: submission.hotelName || '未定', inline: true },
+                  { name: 'ご要望・相談', value: submission.specialRequests || '特になし' },
+                ],
+                url: adminUrl,
+                timestamp: new Date().toISOString(),
+              },
+            ],
+          }),
+        });
+      } catch (discordErr) {
+        console.warn('Discord notification dispatch failed:', discordErr);
+      }
+    }
+
+    // 3. Email Notification via Resend
+    if (process.env.RESEND_API_KEY) {
+      try {
+        const recipient = process.env.ADMIN_NOTIFICATION_EMAIL || 'nihongoguide01@gmail.com';
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
+            to: recipient,
+            subject: `【新規予約】${submission.name}様よりツアー仮予約 (${submission.preferredDate})`,
+            html: `
+              <h2>🔔 新しいツアー仮予約・相談リクエストを受信しました</h2>
+              <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse; font-family:sans-serif; font-size:14px;">
+                <tr><th style="background:#f1f5f9; text-align:left;">お客様名</th><td>${submission.name} (${submission.kana})</td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">ツアー</th><td>${submission.tourName || submission.tourSlug}</td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">第一希望日</th><td>${submission.preferredDate}</td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">第二希望日</th><td>${submission.alternativeDate || 'なし'}</td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">参加人数</th><td>大人: ${submission.adultsCount}名 / お子様: ${submission.childrenCount}名</td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">宿泊先ホテル</th><td>${submission.hotelName || '未定'}</td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">ご連絡先</th><td>[${submission.contactType.toUpperCase()}] ${submission.contactValue}</td></tr>
+                <tr><th style="background:#f1f5f9; text-align:left;">ご相談内容・ご要望</th><td><pre style="margin:0; font-family:inherit;">${submission.specialRequests || '特になし'}</pre></td></tr>
+              </table>
+              <p style="margin-top:16px;"><a href="${adminUrl}" style="background:#0B2545; color:#fff; padding:10px 18px; text-decoration:none; border-radius:8px; font-weight:bold;">管理画面で詳細を見る</a></p>
+            `,
+          }),
+        });
+      } catch (emailErr) {
+        console.warn('Resend email dispatch failed:', emailErr);
+      }
+    }
+
+    // 4. In production, trigger external webhook (e.g. Zapier, Make, Slack)
     if (process.env.NOTIFICATION_WEBHOOK_URL) {
       try {
         await fetch(process.env.NOTIFICATION_WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            content: `🔔 **新しいツアー仮予約が入りました！**\nお名前: ${submission.name}\nツアー: ${submission.tourName}\n希望日: ${submission.preferredDate}\n連絡先: ${submission.contactType} (${submission.contactValue})`,
+            event: 'new_booking',
+            bookingId: result.id,
+            submission,
+            adminUrl,
           }),
         });
       } catch (webhookErr) {

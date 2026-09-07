@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { Calendar, Compass, FileText, Inbox, Plus, ArrowRight, ShieldCheck, Clock } from 'lucide-react';
 import { getAllTours, getAllBlogs, fetchAllBookingsAdmin } from '@/lib/supabase';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function AdminDashboardPage() {
   const tours = await getAllTours();
   const blogs = await getAllBlogs();
