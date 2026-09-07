@@ -7,12 +7,32 @@ import { CheckCircle, AlertCircle, Loader2, MessageCircle, CalendarCheck, Shield
 import InstagramIcon from '@/components/InstagramIcon';
 import { SITE_CONFIG } from '@/lib/seo';
 
+import AvailabilityNoticeBanner, { getDatesInRange } from '@/components/AvailabilityNoticeBanner';
+import { DayAvailability } from '@/types';
+
 interface BookingFormProps {
   initialDate?: string;
   initialTourSlug?: string;
+  tripType?: 'single' | 'multi';
+  onTripTypeChange?: (type: 'single' | 'multi') => void;
+  preferredDate?: string;
+  onPreferredDateChange?: (date: string) => void;
+  endDate?: string;
+  onEndDateChange?: (date: string) => void;
+  availabilityList?: DayAvailability[];
 }
 
-export default function BookingForm({ initialDate, initialTourSlug }: BookingFormProps) {
+export default function BookingForm({
+  initialDate,
+  initialTourSlug,
+  tripType: controlledTripType,
+  onTripTypeChange,
+  preferredDate: controlledStartDate,
+  onPreferredDateChange,
+  endDate: controlledEndDate,
+  onEndDateChange,
+  availabilityList = [],
+}: BookingFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     kana: '',
@@ -20,10 +40,10 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
     contactValue: '',
     backupEmail: '',
     consultationType: 'このプランを予約したい',
-    tripType: 'single' as 'single' | 'multi',
+    tripType: controlledTripType || ('single' as 'single' | 'multi'),
     tourSlug: initialTourSlug || 'danang-hoian-classic-day-trip',
-    preferredDate: initialDate || '',
-    endDate: '',
+    preferredDate: controlledStartDate || initialDate || '',
+    endDate: controlledEndDate || '',
     alternativeDate: '',
     adultsCount: 2,
     childrenCount: 0,
@@ -31,12 +51,26 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
     specialRequests: '',
   });
 
-  // Sync when initialDate changes from calendar selection
+  // Sync external controlled props
   useEffect(() => {
-    if (initialDate) {
+    if (controlledTripType) {
+      setFormData((prev) => ({ ...prev, tripType: controlledTripType }));
+    }
+  }, [controlledTripType]);
+
+  useEffect(() => {
+    if (controlledStartDate !== undefined) {
+      setFormData((prev) => ({ ...prev, preferredDate: controlledStartDate }));
+    } else if (initialDate) {
       setFormData((prev) => ({ ...prev, preferredDate: initialDate }));
     }
-  }, [initialDate]);
+  }, [controlledStartDate, initialDate]);
+
+  useEffect(() => {
+    if (controlledEndDate !== undefined) {
+      setFormData((prev) => ({ ...prev, endDate: controlledEndDate }));
+    }
+  }, [controlledEndDate]);
 
   useEffect(() => {
     if (initialTourSlug) {
@@ -84,6 +118,26 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
           ? formData.contactValue.trim()
           : formData.backupEmail.trim();
 
+      // Check if any date in selection is booked (to arrange partner guide)
+      const selectedDates =
+        formData.tripType === 'multi'
+          ? getDatesInRange(formData.preferredDate, formData.endDate || formData.preferredDate)
+          : formData.preferredDate
+          ? [formData.preferredDate]
+          : [];
+
+      const availabilityMap = new Map<string, DayAvailability>();
+      availabilityList.forEach((item) => availabilityMap.set(item.date, item));
+
+      const bookedInSelection = selectedDates.filter(
+        (d) => availabilityMap.get(d)?.status === 'booked'
+      );
+
+      const partnerSupportTag =
+        bookedInSelection.length > 0
+          ? `【専属ガイド満席日含む・提携日本語ガイド手配希望: ${bookedInSelection.join(', ')}】`
+          : '';
+
       // Format clean readable structured header in specialRequests
       const durationTag =
         formData.tripType === 'multi' && formData.endDate
@@ -99,7 +153,14 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
         ? `【ご相談内容: ${formData.consultationType}】`
         : '';
 
-      const tags = [durationTag, backupEmailTag, consultationTag].filter(Boolean).join('\n');
+      const tags = [
+        durationTag,
+        backupEmailTag,
+        consultationTag,
+        partnerSupportTag,
+      ]
+        .filter(Boolean)
+        .join('\n');
       const combinedRequests = tags
         ? `${tags}${formData.specialRequests.trim() ? `\n\n${formData.specialRequests.trim()}` : ''}`
         : formData.specialRequests.trim();
@@ -427,7 +488,10 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
             <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
-                onClick={() => setFormData({ ...formData, tripType: 'single' })}
+                onClick={() => {
+                  setFormData({ ...formData, tripType: 'single' });
+                  onTripTypeChange?.('single');
+                }}
                 className={`py-2.5 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                   formData.tripType === 'single'
                     ? 'border-amber-500 bg-amber-50/80 text-[#0B2545] font-bold shadow-xs'
@@ -439,7 +503,10 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
 
               <button
                 type="button"
-                onClick={() => setFormData({ ...formData, tripType: 'multi' })}
+                onClick={() => {
+                  setFormData({ ...formData, tripType: 'multi' });
+                  onTripTypeChange?.('multi');
+                }}
                 className={`py-2.5 px-3 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                   formData.tripType === 'multi'
                     ? 'border-amber-500 bg-amber-50/80 text-[#0B2545] font-bold shadow-xs'
@@ -462,7 +529,10 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
                   type="date"
                   required
                   value={formData.preferredDate}
-                  onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                  onChange={(e) => {
+                    setFormData({ ...formData, preferredDate: e.target.value });
+                    onPreferredDateChange?.(e.target.value);
+                  }}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
                 />
                 <span className="text-[10px] text-slate-400 mt-1 block">
@@ -492,7 +562,10 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
                     type="date"
                     required
                     value={formData.preferredDate}
-                    onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, preferredDate: e.target.value });
+                      onPreferredDateChange?.(e.target.value);
+                    }}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
                   />
                   <span className="text-[10px] text-slate-400 mt-1 block">
@@ -508,7 +581,10 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
                     required
                     min={formData.preferredDate || undefined}
                     value={formData.endDate}
-                    onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, endDate: e.target.value });
+                      onEndDateChange?.(e.target.value);
+                    }}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
                   />
                 </div>
@@ -526,6 +602,14 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
               )}
             </div>
           )}
+
+          {/* Availability Status & Reassurance Notice */}
+          <AvailabilityNoticeBanner
+            tripType={formData.tripType}
+            startDate={formData.preferredDate}
+            endDate={formData.endDate}
+            availabilityList={availabilityList}
+          />
 
           {/* Number of Pax */}
           <div className="grid grid-cols-2 gap-4">

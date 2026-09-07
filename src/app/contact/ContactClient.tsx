@@ -19,16 +19,28 @@ import InstagramIcon from '@/components/InstagramIcon';
 import XIcon from '@/components/XIcon';
 import { SITE_CONFIG } from '@/lib/seo';
 
+import AvailabilityNoticeBanner from '@/components/AvailabilityNoticeBanner';
+import { DayAvailability } from '@/types';
+
 export default function ContactClient() {
   const searchParams = useSearchParams();
   const initialTour = searchParams.get('tour') || searchParams.get('plan') || undefined;
 
-  const [selectedDate, setSelectedDate] = useState<string>('');
+  const [tripType, setTripType] = useState<'single' | 'multi'>('single');
+  const [startDate, setStartDate] = useState<string>('');
+  const [endDate, setEndDate] = useState<string>('');
+  const [availabilityList, setAvailabilityList] = useState<DayAvailability[]>([]);
 
-  const handleDateSelect = (date: string) => {
-    setSelectedDate(date);
-    // Smooth scroll to form on mobile
-    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+  const handleDateRangeChange = (start: string, end: string) => {
+    setStartDate(start);
+    setEndDate(end);
+
+    // Smooth scroll to form on mobile when selection is complete
+    if (
+      typeof window !== 'undefined' &&
+      window.innerWidth < 1024 &&
+      (tripType === 'single' ? Boolean(start) : Boolean(start && end))
+    ) {
       const formElem = document.getElementById('booking-form-section');
       if (formElem) {
         formElem.scrollIntoView({ behavior: 'smooth' });
@@ -108,26 +120,21 @@ export default function ContactClient() {
           {/* Left Column: Calendar & LINE info */}
           <div className="lg:col-span-6 space-y-6">
             <AvailabilityCalendar
-              selectedDate={selectedDate}
-              onSelectDate={handleDateSelect}
+              tripType={tripType}
+              onTripTypeChange={setTripType}
+              startDate={startDate}
+              endDate={endDate}
+              onDateRangeChange={handleDateRangeChange}
+              onAvailabilityLoaded={setAvailabilityList}
             />
 
-            {/* Selected Date Notice */}
-            {selectedDate && (
-              <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-4 animate-in fade-in">
-                <div>
-                  <span className="text-[11px] font-bold text-emerald-800 block">
-                    選択中の日付:
-                  </span>
-                  <span className="text-base font-black text-emerald-900">
-                    {selectedDate}
-                  </span>
-                </div>
-                <span className="text-xs text-emerald-700">
-                  右の予約フォームに自動セットされました
-                </span>
-              </div>
-            )}
+            {/* Selected Date Range Notice & Status Reassurance */}
+            <AvailabilityNoticeBanner
+              tripType={tripType}
+              startDate={startDate}
+              endDate={endDate}
+              availabilityList={availabilityList}
+            />
 
             {/* LINE Quick Consultation Box */}
             <div id="line-consultation" className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-4">
@@ -216,8 +223,14 @@ export default function ContactClient() {
           {/* Right Column: Booking Form */}
           <div id="booking-form-section" className="lg:col-span-6">
             <BookingForm
-              initialDate={selectedDate}
               initialTourSlug={initialTour}
+              tripType={tripType}
+              onTripTypeChange={setTripType}
+              preferredDate={startDate}
+              onPreferredDateChange={setStartDate}
+              endDate={endDate}
+              onEndDateChange={setEndDate}
+              availabilityList={availabilityList}
             />
           </div>
         </div>
