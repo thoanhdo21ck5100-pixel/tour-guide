@@ -316,10 +316,11 @@ export default function BookingForm({
           {/* Names */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              <label htmlFor="booking-name" className="block text-xs font-bold text-slate-700 mb-1.5">
                 お名前（漢字） <span className="text-rose-500">*必須</span>
               </label>
               <input
+                id="booking-name"
                 type="text"
                 required
                 placeholder="例: 山田 太郎"
@@ -329,10 +330,11 @@ export default function BookingForm({
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              <label htmlFor="booking-kana" className="block text-xs font-bold text-slate-700 mb-1.5">
                 フリガナ（カタカナ） <span className="text-rose-500">*必須</span>
               </label>
               <input
+                id="booking-kana"
                 type="text"
                 required
                 placeholder="例: ヤマダ タロウ"
@@ -347,10 +349,11 @@ export default function BookingForm({
           <div className="space-y-3">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="sm:col-span-1">
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                <label htmlFor="booking-contact-type" className="block text-xs font-bold text-slate-700 mb-1.5">
                   希望のご連絡ツール <span className="text-rose-500">*必須</span>
                 </label>
                 <select
+                  id="booking-contact-type"
                   value={formData.contactType}
                   onChange={(e) =>
                     setFormData({ ...formData, contactType: e.target.value as ContactMethod })
@@ -364,7 +367,7 @@ export default function BookingForm({
                 </select>
               </div>
               <div className="sm:col-span-2">
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                <label htmlFor="booking-contact-value" className="block text-xs font-bold text-slate-700 mb-1.5">
                   {formData.contactType === 'line'
                     ? 'LINE ID または お電話番号'
                     : formData.contactType === 'email'
@@ -375,6 +378,7 @@ export default function BookingForm({
                   <span className="text-rose-500">*必須</span>
                 </label>
                 <input
+                  id="booking-contact-value"
                   type={formData.contactType === 'email' ? 'email' : 'text'}
                   required
                   placeholder={
@@ -396,22 +400,23 @@ export default function BookingForm({
             {/* Dedicated Email Field (Optional for backup / ID typo prevention) */}
             {formData.contactType !== 'email' && (
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
+                <label htmlFor="booking-backup-email" className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
                   <span>
-                    メールアドレス <span className="text-slate-400 font-normal">（任意・予備連絡先）</span>
+                    メールアドレス <span className="text-slate-500 font-normal">（任意・予備連絡先）</span>
                   </span>
-                  <span className="text-[10px] text-amber-600 font-normal">
+                  <span className="text-[10px] text-amber-700 font-normal">
                     ※ID入力ミス防止・確認用
                   </span>
                 </label>
                 <input
+                  id="booking-backup-email"
                   type="email"
                   placeholder="例: yamada@example.com（LINEのID検索が不可の際などの予備連絡先として）"
                   value={formData.backupEmail}
                   onChange={(e) => setFormData({ ...formData, backupEmail: e.target.value })}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
                 />
-                <span className="text-[10px] text-slate-400 mt-1 block">
+                <span className="text-[10px] text-slate-500 mt-1 block">
                   ※LINE等のIDに誤りがあった場合の確認用としてご入力いただけます（任意）
                 </span>
               </div>
@@ -420,10 +425,11 @@ export default function BookingForm({
 
           {/* Tour Selection */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1.5">
+            <label htmlFor="booking-tour-slug" className="block text-xs font-bold text-slate-700 mb-1.5">
               ご希望のツアープラン <span className="text-rose-500">*必須</span>
             </label>
             <select
+              id="booking-tour-slug"
               value={formData.tourSlug}
               onChange={(e) => setFormData({ ...formData, tourSlug: e.target.value })}
               className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
@@ -522,10 +528,11 @@ export default function BookingForm({
           {formData.tripType === 'single' ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                <label htmlFor="booking-preferred-date" className="block text-xs font-bold text-slate-700 mb-1.5">
                   第1希望日 <span className="text-rose-500">*必須</span>
                 </label>
                 <input
+                  id="booking-preferred-date"
                   type="date"
                   required
                   value={formData.preferredDate}
@@ -535,15 +542,16 @@ export default function BookingForm({
                   }}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
                 />
-                <span className="text-[10px] text-slate-400 mt-1 block">
+                <span className="text-[10px] text-slate-500 mt-1 block">
                   ※左のカレンダーから日付をクリックしても自動入力されます
                 </span>
               </div>
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                  第2希望日 <span className="text-slate-400 font-normal">（任意）</span>
+                <label htmlFor="booking-alt-date" className="block text-xs font-bold text-slate-700 mb-1.5">
+                  第2希望日 <span className="text-slate-500 font-normal">（任意）</span>
                 </label>
                 <input
+                  id="booking-alt-date"
                   type="date"
                   value={formData.alternativeDate}
                   onChange={(e) => setFormData({ ...formData, alternativeDate: e.target.value })}
@@ -555,10 +563,11 @@ export default function BookingForm({
             <div className="space-y-3">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  <label htmlFor="booking-start-date" className="block text-xs font-bold text-slate-700 mb-1.5">
                     ツアー開始日 <span className="text-rose-500">*必須</span>
                   </label>
                   <input
+                    id="booking-start-date"
                     type="date"
                     required
                     value={formData.preferredDate}
@@ -568,15 +577,16 @@ export default function BookingForm({
                     }}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
                   />
-                  <span className="text-[10px] text-slate-400 mt-1 block">
+                  <span className="text-[10px] text-slate-500 mt-1 block">
                     ※左のカレンダーから日付をクリックしてもセットされます
                   </span>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  <label htmlFor="booking-end-date" className="block text-xs font-bold text-slate-700 mb-1.5">
                     ツアー終了日（最終日） <span className="text-rose-500">*必須</span>
                   </label>
                   <input
+                    id="booking-end-date"
                     type="date"
                     required
                     min={formData.preferredDate || undefined}
@@ -614,10 +624,11 @@ export default function BookingForm({
           {/* Number of Pax */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              <label htmlFor="booking-adults-count" className="block text-xs font-bold text-slate-700 mb-1.5">
                 大人（中学生以上） <span className="text-rose-500">*必須</span>
               </label>
               <select
+                id="booking-adults-count"
                 value={formData.adultsCount}
                 onChange={(e) =>
                   setFormData({ ...formData, adultsCount: parseInt(e.target.value, 10) })
@@ -632,10 +643,11 @@ export default function BookingForm({
               </select>
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              <label htmlFor="booking-children-count" className="block text-xs font-bold text-slate-700 mb-1.5">
                 お子様（小学生以下）
               </label>
               <select
+                id="booking-children-count"
                 value={formData.childrenCount}
                 onChange={(e) =>
                   setFormData({ ...formData, childrenCount: parseInt(e.target.value, 10) })
@@ -653,10 +665,11 @@ export default function BookingForm({
 
           {/* Hotel Name */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1.5">
+            <label htmlFor="booking-hotel-name" className="block text-xs font-bold text-slate-700 mb-1.5">
               ご宿泊先ホテル名（または予定エリア・都市）
             </label>
             <input
+              id="booking-hotel-name"
               type="text"
               placeholder="例: ハイアット リージェンシー ダナン、ハノイ旧市街、ホーチミン市内など（未定の場合は「未定」）"
               value={formData.hotelName}
@@ -667,10 +680,11 @@ export default function BookingForm({
 
           {/* Message / Special Requests */}
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1.5">
+            <label htmlFor="booking-special-requests" className="block text-xs font-bold text-slate-700 mb-1.5">
               ご質問・ご要望・希望都市やアレルギー等
             </label>
             <textarea
+              id="booking-special-requests"
               rows={3}
               placeholder="例: フライト到着が14:00なので15:00スタートにできますか？ダナン以外の都市（ハノイやホーチミン等）のツアーも相談したいです。パクチーが苦手です。"
               value={formData.specialRequests}

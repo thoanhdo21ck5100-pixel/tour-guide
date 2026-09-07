@@ -333,16 +333,11 @@ export default function AvailabilityCalendar({
         ))}
       </div>
 
-      {/* 5. Calendar Days Grid */}
-      {isLoading ? (
-        <div className="py-16 text-center text-xs text-slate-400 animate-pulse">
-          カレンダー空き状況を読み込み中...
-        </div>
-      ) : (
-        <div
-          className="grid grid-cols-7 gap-1.5 pt-1"
-          onMouseLeave={handleGridMouseLeave}
-        >
+      {/* 5. Calendar Days Grid (Always rendered to guarantee ZERO Cumulative Layout Shift) */}
+      <div
+        className="grid grid-cols-7 gap-1.5 pt-1"
+        onMouseLeave={handleGridMouseLeave}
+      >
           {/* Empty cells before month start */}
           {Array.from({ length: firstDayOfWeek }).map((_, i) => (
             <div key={`empty-${i}`} className="h-14 sm:h-16 rounded-xl bg-slate-50/40" />
@@ -403,6 +398,15 @@ export default function AvailabilityCalendar({
                 {/* Day Interactive Cell Button */}
                 <button
                   type="button"
+                  aria-label={`${currentYear}年${currentMonth}月${dayNum}日 ${
+                    isLoading
+                      ? '空き状況確認中'
+                      : isBooked
+                      ? '満席 (提携ガイド対応可)'
+                      : isLimited
+                      ? '残り僅か'
+                      : '空きあり'
+                  }`}
                   onClick={() => handleDateClick(dateStr)}
                   className={`w-full h-14 sm:h-16 p-1 rounded-xl flex flex-col items-center justify-between border transition-all text-left relative z-10 cursor-pointer ${
                     isStart || isEnd || isSingleSelected || isSameDay
@@ -433,7 +437,12 @@ export default function AvailabilityCalendar({
 
                   {/* Status Indicator Badge */}
                   <div className="w-full flex justify-center pb-0.5">
-                    {isBooked ? (
+                    {isLoading ? (
+                      <span className="text-[9px] text-slate-400 font-medium flex items-center gap-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300 animate-pulse shrink-0"></span>
+                        確認中
+                      </span>
+                    ) : isBooked ? (
                       <span
                         className={`text-[9px] font-bold px-1 py-0.2 rounded leading-tight flex items-center gap-0.5 ${
                           isStart || isEnd || isSingleSelected || isSameDay
@@ -476,7 +485,6 @@ export default function AvailabilityCalendar({
             );
           })}
         </div>
-      )}
 
       {/* 6. Legend & Reassurance Note */}
       <div className="pt-3 border-t border-slate-100 space-y-2 text-xs">

@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { constructMetadata } from '@/lib/seo';
 import ContactClient from './ContactClient';
@@ -10,16 +9,18 @@ export const metadata: Metadata = constructMetadata({
   canonical: '/contact',
 });
 
-export default function ContactPage() {
-  return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen py-20 text-center text-xs text-slate-500">
-          予約カレンダーを読み込み中...
-        </div>
-      }
-    >
-      <ContactClient />
-    </Suspense>
-  );
+interface ContactPageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  const resolvedParams = await searchParams;
+  const initialTour =
+    typeof resolvedParams.tour === 'string'
+      ? resolvedParams.tour
+      : typeof resolvedParams.plan === 'string'
+      ? resolvedParams.plan
+      : undefined;
+
+  return <ContactClient initialTour={initialTour} />;
 }

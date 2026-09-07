@@ -8,9 +8,10 @@ import { constructMetadata, generateLocalBusinessSchema } from '@/lib/seo';
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
-  weight: ['400', '500', '700', '900'],
+  weight: ['400', '700'],
   display: 'swap',
   variable: '--font-noto-sans-jp',
+  preload: true,
 });
 
 export const metadata: Metadata = constructMetadata();

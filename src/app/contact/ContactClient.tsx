@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import AvailabilityCalendar from '@/components/AvailabilityCalendar';
@@ -22,9 +21,11 @@ import { SITE_CONFIG } from '@/lib/seo';
 import AvailabilityNoticeBanner from '@/components/AvailabilityNoticeBanner';
 import { DayAvailability } from '@/types';
 
-export default function ContactClient() {
-  const searchParams = useSearchParams();
-  const initialTour = searchParams.get('tour') || searchParams.get('plan') || undefined;
+interface ContactClientProps {
+  initialTour?: string;
+}
+
+export default function ContactClient({ initialTour }: ContactClientProps) {
 
   const [tripType, setTripType] = useState<'single' | 'multi'>('single');
   const [startDate, setStartDate] = useState<string>('');
