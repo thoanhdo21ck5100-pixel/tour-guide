@@ -643,7 +643,7 @@ export default function HomePage() {
           <div className="bg-white/5 border border-white/15 rounded-3xl p-6 sm:p-10 backdrop-blur-md relative overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Left Info */}
-              <div className="lg:col-span-6 space-y-4">
+              <div className="lg:col-span-5 space-y-4">
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold">
                   <MessageCircle className="w-3.5 h-3.5 fill-emerald-300" />
                   SNS・LINE事前相談は完全無料
@@ -706,7 +706,7 @@ export default function HomePage() {
               </div>
 
               {/* Right Social Cards: LINE, Instagram & X */}
-              <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch justify-center">
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch justify-center">
                 {/* LINE QR Card */}
                 <div className="bg-white rounded-2xl p-3.5 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-[#06c755] mb-1.5">
@@ -731,7 +731,7 @@ export default function HomePage() {
                     href={SITE_CONFIG.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 text-[11px] font-bold text-slate-800 hover:text-[#06c755] transition-colors"
+                    className="mt-2 text-[11px] font-bold text-slate-800 hover:text-[#06c755] transition-colors leading-tight break-all max-w-full block"
                   >
                     ID: <span className="text-[#06c755] font-mono">{SITE_CONFIG.lineId}</span>
                   </a>
@@ -766,7 +766,8 @@ export default function HomePage() {
                     href={SITE_CONFIG.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 text-[11px] font-bold text-slate-800 hover:text-pink-600 transition-colors font-mono"
+                    className="mt-2 text-[10px] sm:text-[11px] font-bold text-slate-800 hover:text-pink-600 transition-colors leading-tight break-all max-w-full px-0.5 block"
+                    title={`@${SITE_CONFIG.instagramHandle}`}
                   >
                     @{SITE_CONFIG.instagramHandle}
                   </a>
@@ -799,7 +800,7 @@ export default function HomePage() {
                     href={SITE_CONFIG.xUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 text-[11px] font-bold text-slate-800 hover:text-sky-600 transition-colors font-mono truncate max-w-full"
+                    className="mt-2 text-[11px] font-bold text-slate-800 hover:text-sky-600 transition-colors leading-tight break-all max-w-full block"
                   >
                     @{SITE_CONFIG.xHandle}
                   </a>

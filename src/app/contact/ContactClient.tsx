@@ -193,7 +193,7 @@ export default function ContactClient() {
                   <InstagramIcon className="w-5 h-5 text-white shrink-0" />
                   <div className="text-left leading-tight min-w-0">
                     <div className="font-bold text-xs">Instagram DM</div>
-                    <div className="text-[10px] opacity-90 font-mono truncate">@{SITE_CONFIG.instagramHandle}</div>
+                    <div className="text-[10px] opacity-90 break-all leading-tight">@{SITE_CONFIG.instagramHandle}</div>
                   </div>
                 </a>
 
