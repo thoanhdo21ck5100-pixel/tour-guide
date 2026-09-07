@@ -706,10 +706,10 @@ export default function HomePage() {
               </div>
 
               {/* Right Social Cards: LINE, Instagram & X */}
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch justify-center">
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 items-stretch justify-center">
                 {/* LINE QR Card */}
-                <div className="bg-white rounded-2xl p-3.5 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#06c755] mb-1.5">
+                <div className="bg-white rounded-2xl p-2.5 sm:p-3 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
+                  <div className="flex items-center gap-1 text-[11px] font-bold text-[#06c755] mb-1.5">
                     <MessageCircle className="w-3.5 h-3.5 fill-[#06c755]" />
                     <span>公式LINE</span>
                   </div>
@@ -717,13 +717,13 @@ export default function HomePage() {
                     href={SITE_CONFIG.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-24 h-24 sm:w-26 sm:h-26 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer"
+                    className="relative w-20 h-20 sm:w-22 sm:h-22 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer"
                   >
                     <Image
                       src="/images/guide/line-qr.png"
                       alt="LINE公式QRコード"
-                      width={100}
-                      height={100}
+                      width={90}
+                      height={90}
                       className="object-contain rounded-lg"
                     />
                   </a>
@@ -731,19 +731,19 @@ export default function HomePage() {
                     href={SITE_CONFIG.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 text-[11px] font-bold text-slate-800 hover:text-[#06c755] transition-colors leading-tight break-all max-w-full block"
+                    className="mt-2 text-[9.5px] sm:text-[10px] font-bold text-slate-800 hover:text-[#06c755] transition-colors whitespace-nowrap block"
                   >
                     ID: <span className="text-[#06c755] font-mono">{SITE_CONFIG.lineId}</span>
                   </a>
                 </div>
 
                 {/* Instagram QR Card */}
-                <div className="bg-white rounded-2xl p-3.5 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
+                <div className="bg-white rounded-2xl p-2.5 sm:p-3 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
                   <a
                     href={SITE_CONFIG.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs font-bold text-pink-600 hover:text-pink-700 transition-colors mb-1.5"
+                    className="flex items-center gap-1 text-[11px] font-bold text-pink-600 hover:text-pink-700 transition-colors mb-1.5"
                   >
                     <InstagramIcon className="w-3.5 h-3.5 text-pink-500" />
                     <span>Instagram</span>
@@ -752,13 +752,13 @@ export default function HomePage() {
                     href={SITE_CONFIG.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-24 h-24 sm:w-26 sm:h-26 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs hover:scale-102 transition-transform overflow-hidden"
+                    className="relative w-20 h-20 sm:w-22 sm:h-22 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs hover:scale-102 transition-transform overflow-hidden"
                   >
                     <Image
                       src="/images/guide/anh-tho-instagram-qr.png"
                       alt="Instagram QRコード"
-                      width={100}
-                      height={100}
+                      width={90}
+                      height={90}
                       className="object-cover rounded-lg"
                     />
                   </a>
@@ -766,7 +766,7 @@ export default function HomePage() {
                     href={SITE_CONFIG.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 text-[10px] sm:text-[11px] font-bold text-slate-800 hover:text-pink-600 transition-colors leading-tight break-all max-w-full px-0.5 block"
+                    className="mt-2 text-[8px] sm:text-[8.5px] lg:text-[9px] font-bold text-slate-800 hover:text-pink-600 transition-colors whitespace-nowrap tracking-tight block max-w-full"
                     title={`@${SITE_CONFIG.instagramHandle}`}
                   >
                     @{SITE_CONFIG.instagramHandle}
@@ -774,12 +774,12 @@ export default function HomePage() {
                 </div>
 
                 {/* X (Twitter) Card */}
-                <div className="bg-white rounded-2xl p-3.5 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
+                <div className="bg-white rounded-2xl p-2.5 sm:p-3 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
                   <a
                     href={SITE_CONFIG.xUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs font-bold text-slate-900 hover:text-sky-600 transition-colors mb-1.5"
+                    className="flex items-center gap-1 text-[11px] font-bold text-slate-900 hover:text-sky-600 transition-colors mb-1.5"
                   >
                     <XIcon className="w-3.5 h-3.5 text-slate-900" />
                     <span>X (Twitter)</span>
@@ -788,19 +788,19 @@ export default function HomePage() {
                     href={SITE_CONFIG.xUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-24 h-24 sm:w-26 sm:h-26 bg-slate-50 rounded-xl border border-slate-200 p-2 flex flex-col items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer group"
+                    className="relative w-20 h-20 sm:w-22 sm:h-22 bg-slate-50 rounded-xl border border-slate-200 p-1.5 flex flex-col items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer group"
                   >
-                    <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-black transition-colors mb-1.5 shadow-xs">
-                      <XIcon className="w-5 h-5 text-white" />
+                    <div className="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-black transition-colors mb-1 shadow-xs">
+                      <XIcon className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-[10px] text-slate-800 font-bold">ダナン現地情報</span>
-                    <span className="text-[9px] text-amber-600 font-semibold">最新ポスト ›</span>
+                    <span className="text-[9px] text-slate-800 font-bold">ダナン現地情報</span>
+                    <span className="text-[8px] text-amber-600 font-semibold">最新ポスト ›</span>
                   </a>
                   <a
                     href={SITE_CONFIG.xUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 text-[11px] font-bold text-slate-800 hover:text-sky-600 transition-colors leading-tight break-all max-w-full block"
+                    className="mt-2 text-[9.5px] sm:text-[10px] font-bold text-slate-800 hover:text-sky-600 transition-colors whitespace-nowrap block"
                   >
                     @{SITE_CONFIG.xHandle}
                   </a>
