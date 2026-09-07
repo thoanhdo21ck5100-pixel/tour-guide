@@ -18,9 +18,9 @@ export default function TrustBadges() {
     },
     {
       icon: DollarSign,
-      title: '明朗会計・チップ不要',
-      subtitle: '現地での不当な追加請求なし',
-      description: '車代・ガイド代・入場料を明確に提示。市場でのぼったくり回避アテンドや適正価格交渉もお任せください。',
+      title: '事前決済不要・現地全額払い',
+      subtitle: '日本円（JPY）/ ドン（VND）対応',
+      description: '事前振込やカード決済は不要。ツアー料金はベトナム到着後に全額お支払いいただけます。チップ不要・明朗会計です。',
       color: 'text-emerald-600 bg-emerald-50 border-emerald-200',
     },
     {

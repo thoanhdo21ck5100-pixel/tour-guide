@@ -18,6 +18,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
     kana: '',
     contactType: 'line' as ContactMethod,
     contactValue: '',
+    consultationType: 'このプランを予約したい',
     tourSlug: initialTourSlug || 'danang-hoian-classic-day-trip',
     preferredDate: initialDate || '',
     alternativeDate: '',
@@ -51,10 +52,17 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
     setIsSubmitting(true);
 
     try {
+      const combinedRequests = formData.consultationType
+        ? `【ご相談内容: ${formData.consultationType}】${formData.specialRequests ? `\n${formData.specialRequests}` : ''}`
+        : formData.specialRequests;
+
       const res = await fetch('/api/booking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          specialRequests: combinedRequests,
+        }),
       });
 
       const data = await res.json();
@@ -86,10 +94,10 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
           </div>
 
           <h3 className="text-xl font-bold text-[#0B2545] tracking-tight">
-            仮予約のリクエストを承りました！
+            予約・相談リクエストを承りました！
           </h3>
           <p className="text-xs text-slate-500 mt-1">
-            予約管理番号: <span className="font-mono font-bold text-slate-700">{bookingId}</span>
+            受付管理番号: <span className="font-mono font-bold text-slate-700">{bookingId}</span>
           </p>
 
           <div className="mt-6 p-5 bg-slate-50 border border-slate-200 rounded-xl text-left text-xs leading-relaxed text-slate-700 space-y-2">
@@ -98,10 +106,13 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
               今後の流れについて
             </p>
             <p>
-              ご入力いただいた連絡先（{formData.contactType.toUpperCase()}: {formData.contactValue}）宛てに、専属ガイドより原則<strong>24時間以内</strong>に日程の確定および詳しいご案内をお送りいたします。
+              ご入力いただいた連絡先（{formData.contactType.toUpperCase()}: {formData.contactValue}）宛てに、内容を確認のうえLINEまたはメールにてご連絡いたします。
             </p>
-            <p className="text-slate-500">
-              ※現時点では「仮予約」となります。ガイドからのご連絡をもって本予約確定となります。
+            <p className="text-amber-700 font-bold bg-amber-50 p-2.5 rounded-lg border border-amber-200">
+              ※このフォームを送信した時点では、予約確定ではありません。内容を確認後、詳細をご案内いたします。
+            </p>
+            <p className="text-slate-600">
+              ※事前決済は不要です。ツアー料金はベトナム到着後に全額お支払いいただけます（日本円・ベトナムドン対応）。
             </p>
           </div>
 
@@ -111,7 +122,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
                 LINEでさらにスムーズにやり取り可能！
               </p>
               <p className="text-[11px] text-emerald-700">
-                公式LINEを追加して「予約した{formData.name}です」と一言送っていただくと最優先で返信いたします。
+                公式LINEを追加して「予約相談した{formData.name}です」と一言送っていただくと最優先で返信いたします。
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2 shrink-0">
@@ -145,6 +156,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
                 kana: '',
                 contactType: 'line',
                 contactValue: '',
+                consultationType: 'このプランを予約したい',
                 tourSlug: 'danang-hoian-classic-day-trip',
                 preferredDate: '',
                 alternativeDate: '',
@@ -156,20 +168,20 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
             }}
             className="mt-6 text-xs text-slate-500 underline hover:text-slate-700"
           >
-            別の日程や別のツアーを予約する
+            別の日程や別のツアーを相談する
           </button>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <span className="text-xs font-bold text-amber-600 tracking-wider block">
-              RESERVATION FORM
+              RESERVATION & INQUIRY
             </span>
             <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
-              プライベートツアー お申し込み・お問い合わせ
+              プライベートツアー 予約・無料相談フォーム
             </h3>
             <p className="text-xs text-slate-500 mt-1">
-              完全プライベートのため1日1組様限定となります。気になる点やご要望もお気軽にご記入ください。
+              事前決済不要・到着後に全額お支払い。内容確認後、LINEまたはメールで詳細をご連絡します（送信時点では予約確定ではありません）。
             </p>
           </div>
 
@@ -281,6 +293,47 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
             </select>
           </div>
 
+          {/* Consultation Type (ご相談内容) */}
+          <div>
+            <label className="block text-xs font-bold text-slate-700 mb-2">
+              ご相談内容 <span className="text-rose-500">*必須</span>
+            </label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {[
+                { value: 'このプランを予約したい', label: 'このプランを予約したい' },
+                { value: 'このプランをアレンジしたい', label: 'このプランをアレンジしたい' },
+                { value: 'オーダーメイドで相談したい', label: 'オーダーメイドで相談したい' },
+                { value: 'その他', label: 'その他・ご質問' },
+              ].map((opt) => (
+                <label
+                  key={opt.value}
+                  className={`flex items-center gap-2.5 p-3 rounded-xl border text-xs font-medium cursor-pointer transition-all ${
+                    formData.consultationType === opt.value
+                      ? 'border-amber-500 bg-amber-50/70 text-[#0B2545] font-bold shadow-xs'
+                      : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="consultationType"
+                    value={opt.value}
+                    checked={formData.consultationType === opt.value}
+                    onChange={(e) =>
+                      setFormData({ ...formData, consultationType: e.target.value })
+                    }
+                    className="w-4 h-4 text-amber-600 focus:ring-amber-500 border-slate-300"
+                  />
+                  <span>{opt.label}</span>
+                </label>
+              ))}
+            </div>
+            {formData.consultationType === 'このプランをアレンジしたい' && (
+              <p className="text-[11px] text-amber-700 mt-2 bg-amber-50 p-2.5 rounded-lg border border-amber-200/80">
+                💡 「ホイアンでは〇〇に行きたい」「昼食をベトナム料理に変更したい」など、下のご要望欄にお気軽にご記入ください。
+              </p>
+            )}
+          </div>
+
           {/* Dates Selection */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
@@ -380,12 +433,16 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
           </div>
 
           {/* Reassurance note */}
-          <div className="p-3 bg-slate-50 rounded-xl flex items-start gap-2.5 text-[11px] text-slate-600 border border-slate-200">
+          <div className="p-3.5 bg-slate-50 rounded-xl flex items-start gap-2.5 text-[11px] text-slate-600 border border-slate-200">
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-            <div>
-              <span>
-                ご入力いただいた個人情報はツアー手配のご連絡のみに使用し、第三者への開示は一切いたしません。キャンセル規定はご参加日の3日前まで無料です。
-              </span>
+            <div className="space-y-1">
+              <p className="font-bold text-slate-800">
+                事前決済不要（ツアー料金はベトナム到着後に全額お支払い）
+              </p>
+              <p className="text-slate-600 leading-relaxed">
+                ※フォーム送信時点では予約確定ではありません。内容を確認後、LINEまたはメールで詳細をご案内いたします。
+                キャンセルをご希望の場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。
+              </p>
             </div>
           </div>
 
@@ -393,15 +450,15 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+            className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
           >
             {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                <span>仮予約を送信中...</span>
+                <span>送信中...</span>
               </>
             ) : (
-              <span>この内容で仮予約リクエストを送信する（無料）</span>
+              <span>予約・無料相談を申し込む（事前決済不要）</span>
             )}
           </button>
         </form>

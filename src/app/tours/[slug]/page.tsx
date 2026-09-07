@@ -115,9 +115,9 @@ export default async function TourDetailPage({
               <span className="px-3 py-1 bg-white/20 backdrop-blur-md text-white font-medium rounded-full">
                 {tour.categoryLabel}
               </span>
-              <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-amber-300 font-bold">
-                <Star className="w-3.5 h-3.5 fill-amber-300" />
-                {tour.rating} ({tour.reviewCount}件の日本人クチコミ)
+              <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-amber-300 font-bold">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                事前決済不要・現地払い
               </span>
               <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-slate-200">
                 <Clock className="w-3.5 h-3.5 text-amber-300" />
@@ -314,7 +314,7 @@ export default async function TourDetailPage({
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>3日前までキャンセル無料</span>
+                  <span>1週間前までキャンセル料なし</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
@@ -329,7 +329,7 @@ export default async function TourDetailPage({
                   className="w-full h-12 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
                   <Calendar className="w-4 h-4 text-white shrink-0" />
-                  <span>このツアーを仮予約する</span>
+                  <span>このプランを予約・無料相談する</span>
                 </Link>
 
                 <a
@@ -365,7 +365,7 @@ export default async function TourDetailPage({
 
               <div className="mt-4 text-center">
                 <span className="text-[10px] text-slate-400">
-                  ※仮予約時点での料金決済は発生しません。
+                  ※事前決済不要。ツアー料金はベトナム到着後に全額お支払いいただけます。
                 </span>
               </div>
             </div>

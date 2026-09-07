@@ -24,7 +24,7 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
           <span className="inline-flex items-center gap-1 text-amber-300">
             <ShieldCheck className="w-3.5 h-3.5" />
-            ベトナム政府公認ガイド
+            ダナン出身・JLPT N1の日本語ガイド
           </span>
           <span className="hidden sm:inline text-slate-400">|</span>
           <span>1日1組限定・ベトナム全土プライベートツアー</span>
@@ -113,7 +113,7 @@ export default function Navbar() {
             className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3.5 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full hover:from-amber-600 hover:to-amber-700 shadow-sm hover:shadow transition-all shrink-0 whitespace-nowrap"
           >
             <Calendar className="w-3.5 h-3.5 text-white shrink-0" />
-            <span>空き状況・予約</span>
+            <span>予約・無料相談</span>
           </Link>
         </div>
 
@@ -204,7 +204,7 @@ export default function Navbar() {
                 className="flex items-center justify-center gap-2 w-full py-3 bg-[#0B2545] text-white rounded-xl font-bold text-sm shadow-sm"
               >
                 <Calendar className="w-5 h-5 text-amber-400" />
-                空き状況の確認・予約フォームへ
+                予約・無料相談フォームへ
               </Link>
             </div>
           </div>

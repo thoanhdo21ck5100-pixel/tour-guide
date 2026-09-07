@@ -80,13 +80,13 @@ export default function ToursClient() {
 
           {/* Quick Assurance Badges */}
           <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-slate-700">
-            <span className="inline-flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs">
+            <span className="inline-flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs font-semibold text-emerald-700">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              明朗会計・チップ不要
+              事前決済不要・到着後に全額払い
             </span>
             <span className="inline-flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              3日前までキャンセル無料
+              1週間前までキャンセル料なし
             </span>
             <span className="inline-flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs">
               <MessageCircle className="w-3.5 h-3.5 text-[#06c755]" />

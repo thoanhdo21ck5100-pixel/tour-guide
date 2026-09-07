@@ -94,7 +94,7 @@ export default function HomePage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-emerald-400" />
-                  宿泊・お買い物・滞在サポート
+                  事前決済不要・到着後に全額払い
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-emerald-400" />
@@ -109,7 +109,7 @@ export default function HomePage() {
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-102 active:scale-98 transition-all"
                 >
                   <Calendar className="w-4 h-4 text-white" />
-                  <span>空き状況の確認・予約する（無料）</span>
+                  <span>予約・無料相談を申し込む（事前決済不要）</span>
                 </Link>
 
                 <div className="w-full grid grid-cols-3 gap-2.5">
@@ -432,10 +432,10 @@ export default function HomePage() {
                 心あたたまるベトナム体験をお届けしたい」
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                初めまして、ベトナム日本語ガイドのアン トー (Anh Tho) と申します。生まれ育った故郷ダナンを中心に、ハノイやホーチミンなどベトナム全土のプライベートツアーを承っております。日本語能力試験N1を取得し、長年日本人旅行者の皆様を安心・安全にご案内してまいりました。
+                初めまして、ベトナム日本語ガイドのアン トー (Anh Tho) と申します。生まれ育った故郷ダナンを中心に、ハノイやホーチミンなどベトナム全土のプライベートツアーを承っております。日本語能力試験N1を取得し、日本人のお客様への対応や日系企業との折衝業務を経験してきました。
               </p>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                日本人観光客の皆様のご案内や日系パートナー企業との折衝業務に2年間従事し、日本のお客様が大切にされる「時間厳守」「清潔さ」「細やかな心配り」を徹底。地元ローカルならではの安心できる名店や隠れた絶景スポットまで、一人ひとりに寄り添った温かいガイドをお約束します。
+                日本人のお客様への対応や、日系企業との折衝業務を2年間経験し、日本のお客様が大切にされる「時間厳守」「清潔さ」「細やかな心配り」を徹底。地元ローカルならではの安心できる名店や隠れた絶景スポットまで、一人ひとりに寄り添った温かいガイドをお約束します。
               </p>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 「言葉が通じない不安」「不当なぼったくりタクシーへの警戒」「団体ツアーのせわしないスケジュール」...そうしたストレスを一切なくし、ご家族や大切な人と一生モノの思い出を作っていただけるよう、1日1組様限定の完全貸切プライベートツアーで心を込めてエスコートいたします。
@@ -504,79 +504,76 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. CUSTOMER TESTIMONIALS */}
+      {/* 5. SERVICE PHILOSOPHY & COMMITMENT */}
       <section className="py-16 sm:py-24 bg-[#FDFBF7]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold text-amber-600 tracking-wider block mb-1">
-              VOICE OF TRAVELERS
+              OUR SERVICE PHILOSOPHY
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
-              ご利用いただいたお客様のリアルなご感想
+              一組一組のお客様との旅を大切に
             </h2>
-            <p className="mt-3 text-xs sm:text-sm text-slate-600">
-              ご夫婦旅行、女子旅、三世代のご家族旅行まで、多くの日本人旅行者の方にご満足いただいています。
+            <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              現在、サービスを丁寧に準備・運営しております。初めてのベトナム旅行でも心から安心して楽しんでいただけるよう、旅行前のご相談から当日のご案内まで、日本語で誠心誠意サポートいたします。
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Review 1 */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+            {/* Commitment 1 */}
+            <div className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-amber-400 mb-3">
-                  {'★'.repeat(5)}
-                  <span className="text-xs font-bold text-slate-700 ml-1">5.0</span>
+                <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center font-bold text-sm mb-4">
+                  01
                 </div>
-                <h3 className="text-sm font-bold text-[#0B2545] mb-2">
-                  「日本語がとてもお上手で、両親も大喜びでした」
+                <h3 className="text-base font-bold text-[#0B2545] mb-2">
+                  旅行前の個別相談から日本語でサポート
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  70代の両親を連れてのダナン＆ホイアン旅行で利用しました。階段の多い五行山では歩きやすいルートを選んでくださり、専用車もとても清潔で快適でした。アン トーさんの細やかな気配りに感動です！
+                  「初めてのベトナム旅行で不安」「自分たちの行きたい場所を組み合わせたい」「まだ予定が決まっていない」など、LINEやメールで出発前から日本語でじっくりご相談いただけます。
                 </p>
               </div>
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-                <span className="font-bold text-slate-700">T.佐藤様ご家族（東京都 / 3名参加）</span>
-                <span>2026年1月参加</span>
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-emerald-700 font-semibold">
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <span>LINE・Instagram・Xで相談無料</span>
               </div>
             </div>
 
-            {/* Review 2 */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+            {/* Commitment 2 */}
+            <div className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-amber-400 mb-3">
-                  {'★'.repeat(5)}
-                  <span className="text-xs font-bold text-slate-700 ml-1">5.0</span>
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center font-bold text-sm mb-4">
+                  02
                 </div>
-                <h3 className="text-sm font-bold text-[#0B2545] mb-2">
-                  「女子旅で映え写真を100枚以上撮ってくれました！」
+                <h3 className="text-base font-bold text-[#0B2545] mb-2">
+                  一組一組のお客様に向き合う貸切案内
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  ホイアンの夜市とランタンカフェに連れて行ってもらいました。どこで撮れば綺麗に写るかを熟知されていて、素敵な写真がたくさん残せました。美味しいバインセオのお店も最高でした！
+                  他のツアー客との混乗は一切ございません。エアコン完備の清潔な専用車と専属日本語ガイドが、お客様だけのペース・ご体調に合わせて柔軟にルートや休憩を調整いたします。
                 </p>
               </div>
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-                <span className="font-bold text-slate-700">M.渡辺様・K.田中様（大阪府 / 女子旅）</span>
-                <span>2026年2月参加</span>
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-emerald-700 font-semibold">
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <span>他人に気兼ねないプライベート空間</span>
               </div>
             </div>
 
-            {/* Review 3 */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+            {/* Commitment 3 */}
+            <div className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
               <div>
-                <div className="flex items-center gap-1 text-amber-400 mb-3">
-                  {'★'.repeat(5)}
-                  <span className="text-xs font-bold text-slate-700 ml-1">5.0</span>
+                <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-200 text-sky-600 flex items-center justify-center font-bold text-sm mb-4">
+                  03
                 </div>
-                <h3 className="text-sm font-bold text-[#0B2545] mb-2">
-                  「LINEでの事前相談から当日まで完璧なサポート」
+                <h3 className="text-base font-bold text-[#0B2545] mb-2">
+                  事前決済不要・到着後に全額お支払い
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  初めてのベトナムで不安でしたが、旅行前にLINEで服装や両替について質問できたのが本当に助かりました。当日のバーナーヒルズも混雑を避けて案内していただき大満足です。
+                  事前のクレジットカード決済や銀行振込は不要です。ツアー料金はベトナム到着後に日本円（JPY）またはベトナムドン（VND）でお支払いいただけます。チップ等の不当な追加請求も一切ありません。
                 </p>
               </div>
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-                <span className="font-bold text-slate-700">H.小林様ご夫妻（神奈川県 / ハネムーン）</span>
-                <span>2026年2月参加</span>
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-emerald-700 font-semibold">
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <span>日本円（JPY）・ドン（VND）対応</span>
               </div>
             </div>
           </div>
@@ -668,7 +665,7 @@ export default function HomePage() {
                     className="h-11 px-5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 whitespace-nowrap shrink-0"
                   >
                     <Calendar className="w-4 h-4 text-white shrink-0" />
-                    <span>空き状況・予約フォームへ</span>
+                    <span>空き状況・予約・無料相談フォームへ</span>
                   </Link>
 
                   <div className="flex items-center gap-2 shrink-0">

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Clock, Star, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Clock, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Tour } from '@/types';
 
 interface TourCardProps {
@@ -33,16 +33,14 @@ export default function TourCard({ tour }: TourCardProps) {
           </span>
         </div>
 
-        {/* Duration & Rating Overlay */}
+        {/* Duration & Reassurance Overlay */}
         <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-medium">
           <div className="flex items-center gap-1.5 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md">
             <Clock className="w-3.5 h-3.5 text-amber-300" />
             <span>所要時間: {tour.duration}</span>
           </div>
-          <div className="flex items-center gap-1 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md">
-            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-            <span className="font-bold">{tour.rating}</span>
-            <span className="text-slate-200 text-[10px]">({tour.reviewCount})</span>
+          <div className="flex items-center gap-1 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md text-amber-300 font-bold text-[11px]">
+            <span>事前決済不要</span>
           </div>
         </div>
       </div>
@@ -71,7 +69,9 @@ export default function TourCard({ tour }: TourCardProps) {
         {/* Price & Action */}
         <div className="mt-6 pt-4 border-t border-slate-100 flex items-end justify-between">
           <div>
-            <span className="text-[11px] text-slate-500 block">安心の完全定額制</span>
+            <span className="text-[11px] text-emerald-700 font-medium block">
+              事前決済不要・現地払い
+            </span>
             <div className="flex items-baseline gap-1">
               <span className="text-xl sm:text-2xl font-black text-[#0B2545]">
                 {tour.priceJpy.toLocaleString()}
@@ -87,7 +87,7 @@ export default function TourCard({ tour }: TourCardProps) {
             href={`/tours/${tour.slug}`}
             className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#0B2545] text-white text-xs font-bold rounded-xl group-hover:bg-amber-600 transition-colors shadow-xs"
           >
-            <span>日程を見る</span>
+            <span>詳細・予約相談</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>

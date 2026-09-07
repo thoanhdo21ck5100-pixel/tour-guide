@@ -15,7 +15,7 @@ export const TOURS_DATA: Tour[] = [
     rating: 4.98,
     reviewCount: 186,
     heroImage: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=80',
-    badge: '1番人気・満足度No.1',
+    badge: '王道・定番プラン',
     isFeatured: true,
     shortDescription: 'ダナンの3大名所（ソンチャ半島リンウン寺・五行山・ピンクの大聖堂）と、幻想的な世界遺産ホイアンの夜景・灯籠流しを1日で効率よく巡る一番人気の完全貸切プライベートツアーです。',
     fullDescription: `初めてダナンを訪れる日本人旅行者の方に圧倒的な支持をいただいている看板ツアーです。
@@ -106,7 +106,7 @@ export const TOURS_DATA: Tour[] = [
       '海外旅行保険'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー（ダナン市内またはホイアン市内）',
-    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。2日前〜前日50%、当日100%のキャンセル料となります。',
+    cancellationPolicy: 'ツアーをキャンセルされる場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。キャンセルをご希望の場合は、LINEまたはメールにてご連絡をお願いいたします。',
     recommendFor: [
       'ダナンとホイアンの必見スポットを1日で効率よく巡りたい方',
       '他人の目を気にせず自分たちのペースで観光したいご夫婦・カップル',
@@ -127,7 +127,7 @@ export const TOURS_DATA: Tour[] = [
     rating: 4.95,
     reviewCount: 142,
     heroImage: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80',
-    badge: '写真映えNo.1',
+    badge: '絶景フォトスポット',
     isFeatured: true,
     shortDescription: 'SNSで世界的人気の「神の手」へ。大型団体バスの混雑ピークを賢く回避する柔軟な時間設定と、日本のおもてなし精神に根ざした快適なプライベートエスコートを提供します。',
     fullDescription: `SNSやテレビで世界的に話題沸騰の「神の手（ゴールデンブリッジ）」へ。
@@ -201,7 +201,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
+    cancellationPolicy: 'ツアーをキャンセルされる場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。キャンセルをご希望の場合は、LINEまたはメールにてご連絡をお願いいたします。',
     recommendFor: [
       '人混みを避けて「神の手」で最高の映え写真を撮りたい方',
       '広大なパーク内で迷わずスムーズにおもてなし案内を受けたい方',
@@ -222,7 +222,7 @@ export const TOURS_DATA: Tour[] = [
     rating: 4.99,
     reviewCount: 98,
     heroImage: 'https://images.unsplash.com/photo-1503764654157-72d979d9af2f?auto=format&fit=crop&w=1200&q=80',
-    badge: 'グルメ満足度99%',
+    badge: '名物ローカルグルメ',
     isFeatured: true,
     shortDescription: '観光客だけでは入りづらいダナンの絶品ローカル食堂を日本語ガイドと巡るナイトツアー。週末はドラゴン橋の炎噴射ショーも鑑賞！',
     fullDescription: `ベトナム中部は、ベトナム随一の美食地帯として知られています。
@@ -284,7 +284,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的なお土産代'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'ご参加日前日までキャンセル無料。',
+    cancellationPolicy: 'ツアーをキャンセルされる場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。キャンセルをご希望の場合は、LINEまたはメールにてご連絡をお願いいたします。',
     recommendFor: [
       '本場のベトナム料理を安心して楽しみたい方',
       '夜のダナンを安全に散策したい女性グループや一人旅の方',
@@ -305,7 +305,7 @@ export const TOURS_DATA: Tour[] = [
     rating: 5.0,
     reviewCount: 64,
     heroImage: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
-    badge: '自由度100%',
+    badge: '完全オーダーメイド',
     isFeatured: false,
     shortDescription: '既存のツアー枠にとらわれず、ダナン周辺はもちろんハノイやホーチミンなどベトナム全土で行きたいスポットや旅程を自由に組み合わせられる完全貸切プライベートチャータープランです。',
     fullDescription: `「フエの世界遺産やハノイ・ハロン湾、ホーチミンに行きたい」「話題のおしゃれカフェとスパを巡りたい」「ゴルフ場送迎のあとに海鮮レストランに行きたい」など、お客様のご希望に合わせてベトナム全土どこでも柔軟に旅程をアレンジします。
@@ -349,7 +349,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様ご指定の場所（ホテルロビー、ダナン空港など）',
-    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
+    cancellationPolicy: 'ツアーをキャンセルされる場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。キャンセルをご希望の場合は、LINEまたはメールにてご連絡をお願いいたします。',
     recommendFor: [
       '自分たちだけのオリジナルプランで観光したい方',
       '三世代旅行やお子様連れで無理のないペースを重視したい方',
@@ -425,7 +425,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
+    cancellationPolicy: 'ツアーをキャンセルされる場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。キャンセルをご希望の場合は、LINEまたはメールにてご連絡をお願いいたします。',
     recommendFor: [
       '小さなお子様やご高齢のご家族をお連れの方',
       '観光名所巡りよりも癒やしや体験を重視したい方',
@@ -446,7 +446,7 @@ export const TOURS_DATA: Tour[] = [
     rating: 4.97,
     reviewCount: 76,
     heroImage: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80',
-    badge: 'ディープ体験No.1',
+    badge: 'ディープ体験',
     isFeatured: true,
     shortDescription: '観光客で賑わう「ハン市場」と、市民の台所「コン市場」を日本語ガイドと散策。注文や衛生面が心配な方でも安心の厳選ローカルフード＆濃厚ココナッツコーヒーを味わう充実の半日ツアーです。',
     fullDescription: `「ガイドブックに載っている観光地だけでなく、地元の人々が通うディープな市場やローカルカフェを体験したい！」という方に最適なツアーです。
@@ -514,7 +514,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'ご参加日の前日までキャンセル無料。',
+    cancellationPolicy: 'ツアーをキャンセルされる場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。キャンセルをご希望の場合は、LINEまたはメールにてご連絡をお願いいたします。',
     recommendFor: [
       'ベトナムのリアルな市場の活気や生活感を味わいたい方',
       'ローカルフードに挑戦したいけれど衛生面が心配な方',
@@ -535,7 +535,7 @@ export const TOURS_DATA: Tour[] = [
     rating: 4.99,
     reviewCount: 84,
     heroImage: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=80',
-    badge: '女子旅人気No.1',
+    badge: '女子旅おすすめ',
     isFeatured: true,
     shortDescription: 'ベトナム発祥の高技術＆高コスパなジェルネイル、日本人好みの清潔オーガニックスパ、ベトナム発ナチュラルコスメや可愛い刺繍雑貨・カゴバッグ巡りを専属日本語ガイドがエスコートする女性のためのご褒美プランです。',
     fullDescription: `「せっかくのベトナム旅行、日本よりもずっとリーズナブルに極上のネイルやスパ、可愛いコスメ雑貨のお買い物を満喫したい！」という女性旅行者の夢をすべて叶えるスペシャルツアーです。
@@ -603,7 +603,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
+    cancellationPolicy: 'ツアーをキャンセルされる場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。キャンセルをご希望の場合は、LINEまたはメールにてご連絡をお願いいたします。',
     recommendFor: [
       '友達同士の女子旅や母娘旅行で綺麗になりたい方',
       '日本よりお得に高品質なネイルやスパを楽しみたい方',
@@ -693,7 +693,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
+    cancellationPolicy: 'ツアーをキャンセルされる場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。キャンセルをご希望の場合は、LINEまたはメールにてご連絡をお願いいたします。',
     recommendFor: [
       '男友達同士のグループ旅行や卒業旅行・慰安旅行',
       'マリンスポーツや体を動かすアクティビティが好きな方',
@@ -715,7 +715,7 @@ export const TOURS_DATA: Tour[] = [
     rating: 4.99,
     reviewCount: 92,
     heroImage: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80',
-    badge: 'SNS映えNo.1',
+    badge: 'リゾート＆SNS映え',
     isFeatured: true,
     shortDescription: '色鮮やかなベトナム伝統衣装「アオザイ」を身にまとい、ノスタルジックな世界遺産ホイアンの街並みで最高の一枚を撮影。職人直伝のランタン作り体験や優雅なアフタヌーンティー、灯籠流しを楽しむ女子旅決定版です。',
     fullDescription: `「ホイアンの黄色い壁やランタンの前で、可愛いアオザイを着て最高の写真を残したい！」「可愛いランタンを自分で手作りして日本に持ち帰りたい！」という女性旅行者の願いをぎゅっと凝縮した大人気ツアーです。
@@ -798,7 +798,7 @@ export const TOURS_DATA: Tour[] = [
       '追加のお飲み物代'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
+    cancellationPolicy: 'ツアーをキャンセルされる場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。キャンセルをご希望の場合は、LINEまたはメールにてご連絡をお願いいたします。',
     recommendFor: [
       'SNSやInstagramで映える可愛い写真をたくさん撮りたい方',
       'ベトナムの伝統衣装アオザイを着て街歩きしてみたい方',
@@ -896,7 +896,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
+    cancellationPolicy: 'ツアーをキャンセルされる場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。キャンセルをご希望の場合は、LINEまたはメールにてご連絡をお願いいたします。',
     recommendFor: [
       '男同士の卒業旅行、サークル仲間、会社の同僚旅行',
       '定番観光地だけでなく、ジープでワイルドに絶景を楽しみたい方',

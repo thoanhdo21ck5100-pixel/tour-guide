@@ -21,7 +21,7 @@ import { SITE_CONFIG } from '@/lib/seo';
 
 export default function ContactClient() {
   const searchParams = useSearchParams();
-  const initialTour = searchParams.get('tour') || undefined;
+  const initialTour = searchParams.get('tour') || searchParams.get('plan') || undefined;
 
   const [selectedDate, setSelectedDate] = useState<string>('');
 
@@ -45,37 +45,61 @@ export default function ContactClient() {
             ホーム
           </Link>
           <span>/</span>
-          <span className="text-[#0B2545] font-bold">空き状況カレンダー・ご予約</span>
+          <span className="text-[#0B2545] font-bold">空き状況・予約・無料相談</span>
         </nav>
 
         {/* Page Title */}
-        <div className="max-w-3xl mb-10">
+        <div className="max-w-3xl mb-8">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold mb-3">
             <Calendar className="w-3.5 h-3.5 text-amber-700" />
             <span>CALENDAR & RESERVATION</span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-black text-[#0B2545] tracking-tight">
-            空き状況カレンダー＆仮予約フォーム
+            空き状況・予約・無料相談フォーム
           </h1>
           <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
             専属ガイドによる完全プライベートツアーのため、<strong>1日1組様限定</strong>となっております。
-            下記カレンダーで空き日程（🟢 空き）をご確認の上、フォームより仮予約リクエストをお送りください。
+            <strong>事前決済不要</strong>で、ツアー料金はベトナム到着後に全額お支払いいただけます（日本円・ベトナムドン対応）。
+            下記カレンダーで空き状況をご確認の上、お気軽にお申し込み・ご相談ください。
           </p>
 
           {/* Reassurance pills */}
           <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-slate-700">
-            <span className="inline-flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs">
+            <span className="inline-flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs text-emerald-700 font-semibold">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              仮予約段階での決済なし（無料）
+              事前決済不要・到着後に全額お支払い
             </span>
             <span className="inline-flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs">
               <Clock className="w-3.5 h-3.5 text-amber-500" />
-              24時間以内に必ず返信
+              送信時点では予約確定ではありません
             </span>
             <span className="inline-flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs">
               <MessageCircle className="w-3.5 h-3.5 text-[#06c755]" />
-              LINEでの事前相談も受付中
+              LINEでの事前相談も大歓迎
             </span>
+          </div>
+        </div>
+
+        {/* 2 Ways to Book / Consult Guide Banner */}
+        <div className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs">
+            <div className="flex items-center gap-2 text-amber-600 font-bold text-xs mb-2">
+              <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center text-xs">①</span>
+              <span>通常プランから予約相談</span>
+            </div>
+            <p className="text-xs text-slate-600 leading-relaxed">
+              希望プランと日程を選択しフォームを送信。内容確認後、LINEまたはメールで詳細をご案内します。<strong>この時点では予約確定ではありません。</strong>
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200/80 shadow-xs">
+            <div className="flex items-center gap-2 text-emerald-800 font-bold text-xs mb-2">
+              <span className="w-5 h-5 rounded-full bg-emerald-200 text-emerald-900 flex items-center justify-center text-xs">②</span>
+              <span>個別相談・オーダーメイド</span>
+            </div>
+            <p className="text-xs text-slate-700 leading-relaxed">
+              「行きたい場所を組み合わせたい」「自分たちだけの旅程を作りたい」「まだ予定が決まっていない」方は、LINEやSNSからいつでもお気軽にご相談ください。
+            </p>
           </div>
         </div>
 
