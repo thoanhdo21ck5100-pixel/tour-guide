@@ -69,6 +69,7 @@ export type ContactMethod = 'line' | 'instagram' | 'email' | 'whatsapp';
 
 export interface BookingSubmission {
   id?: string;
+  bookingCode?: string;
   name: string;
   kana: string;
   contactType: ContactMethod;

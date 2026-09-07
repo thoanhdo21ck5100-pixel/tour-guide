@@ -124,7 +124,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
         throw new Error(data.error || '予約送信中にエラーが発生しました。');
       }
 
-      setBookingId(data.bookingId);
+      setBookingId(data.bookingCode || data.bookingId);
       setIsSuccess(true);
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -149,8 +149,11 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
           <h3 className="text-xl font-bold text-[#0B2545] tracking-tight">
             予約・相談リクエストを承りました！
           </h3>
-          <p className="text-xs text-slate-500 mt-1">
-            受付管理番号: <span className="font-mono font-bold text-slate-700">{bookingId}</span>
+          <p className="text-xs text-slate-500 mt-2">
+            お客様の予約管理番号:{' '}
+            <span className="font-mono font-black text-amber-800 bg-amber-100 px-3 py-1 rounded-lg border border-amber-300 text-base shadow-xs">
+              {bookingId}
+            </span>
           </p>
 
           <div className="mt-6 p-5 bg-slate-50 border border-slate-200 rounded-xl text-left text-xs leading-relaxed text-slate-700 space-y-2">
@@ -165,7 +168,10 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
                   {' '}／ 予備メール: {formData.backupEmail.trim()}
                 </span>
               )}
-              宛てに、内容を確認のうえLINEまたはメールにてご連絡いたします。
+              宛てに、内容を確認の上、専属ガイドより24時間以内にご連絡いたします。
+            </p>
+            <p className="text-emerald-800 font-semibold bg-emerald-50 p-2.5 rounded-lg border border-emerald-200">
+              ✉️ メールアドレスをご入力いただいたお客様には、予約受付完了の控えメールをお送りいたしました。
             </p>
             <p className="text-amber-700 font-bold bg-amber-50 p-2.5 rounded-lg border border-amber-200">
               ※このフォームを送信した時点では、予約確定ではありません。内容を確認後、詳細をご案内いたします。

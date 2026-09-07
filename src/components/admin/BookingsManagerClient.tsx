@@ -125,7 +125,8 @@ export default function BookingsManagerClient({ initialBookings }: Props) {
       const matchTour = (b.tourName || b.tourSlug).toLowerCase().includes(q);
       const matchContact = b.contactValue.toLowerCase().includes(q);
       const matchEmail = b.email ? b.email.toLowerCase().includes(q) : false;
-      return matchName || matchTour || matchContact || matchEmail;
+      const matchCode = b.bookingCode ? b.bookingCode.toLowerCase().includes(q) : false;
+      return matchName || matchTour || matchContact || matchEmail || matchCode;
     }
     return true;
   });
@@ -285,8 +286,8 @@ export default function BookingsManagerClient({ initialBookings }: Props) {
                 {/* Top Bar */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-mono text-xs font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
-                      #{b.id?.slice(0, 8)}...
+                    <span className="font-mono text-xs font-black text-amber-900 bg-amber-100/90 px-2.5 py-1 rounded-lg border border-amber-300 shadow-2xs">
+                      {b.bookingCode || `#${b.id?.slice(0, 8)}`}
                     </span>
 
                     {/* Status Dropdown / Pill */}

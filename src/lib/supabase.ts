@@ -169,15 +169,33 @@ export async function updateDateAvailability(
 }
 
 /**
+ * Generate a simple, memorable booking code (e.g. VNJP-8392)
+ */
+export function generateBookingCode(): string {
+  const num = Math.floor(1000 + Math.random() * 9000);
+  return `VNJP-${num}`;
+}
+
+/**
  * Save booking submission to Supabase or fallback store
  */
 export async function saveBooking(
   submission: BookingSubmission
-): Promise<{ success: boolean; id: string; error?: string }> {
+): Promise<{ success: boolean; id: string; bookingCode: string; error?: string }> {
+  const bookingCode = submission.bookingCode || generateBookingCode();
   const bookingId = `bk_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+
+  // Embed bookingCode tag into specialRequests for persistent cross-table retrieval
+  const codeTag = `【予約管理番号: ${bookingCode}】`;
+  const enrichedRequests = submission.specialRequests?.includes('予約管理番号')
+    ? submission.specialRequests
+    : `${codeTag}\n${submission.specialRequests || ''}`.trim();
+
   const record: BookingSubmission = {
     ...submission,
     id: bookingId,
+    bookingCode,
+    specialRequests: enrichedRequests,
     status: 'pending',
     createdAt: new Date().toISOString(),
   };
@@ -200,7 +218,7 @@ export async function saveBooking(
             adults_count: submission.adultsCount,
             children_count: submission.childrenCount,
             hotel_name: submission.hotelName || null,
-            special_requests: submission.specialRequests || null,
+            special_requests: enrichedRequests,
             status: 'pending',
           },
         ])
@@ -210,19 +228,19 @@ export async function saveBooking(
       if (error) {
         console.error('Supabase booking insert error:', error);
         inMemoryBookings.push(record);
-        return { success: true, id: bookingId };
+        return { success: true, id: bookingId, bookingCode };
       }
 
-      return { success: true, id: data?.id || bookingId };
+      return { success: true, id: data?.id || bookingId, bookingCode };
     } catch (err) {
       console.warn('Supabase request failed, saved to fallback:', err);
       inMemoryBookings.push(record);
-      return { success: true, id: bookingId };
+      return { success: true, id: bookingId, bookingCode };
     }
   }
 
   inMemoryBookings.push(record);
-  return { success: true, id: bookingId };
+  return { success: true, id: bookingId, bookingCode };
 }
 
 /**
@@ -246,10 +264,24 @@ export async function fetchAllBookingsAdmin(): Promise<BookingSubmission[]> {
               extractedEmail = match[1].trim();
             }
           }
+
+          let extractedCode = b.booking_code;
+          if (!extractedCode && b.special_requests) {
+            const matchCode = b.special_requests.match(/【予約管理番号:\s*([^】\n]+)】/);
+            if (matchCode && matchCode[1]) {
+              extractedCode = matchCode[1].trim();
+            }
+          }
+          if (!extractedCode) {
+            // Friendly fallback if none found
+            extractedCode = b.id ? `VNJP-${b.id.slice(0, 4).toUpperCase()}` : 'VNJP-0000';
+          }
+
           const isMulti = b.special_requests?.includes('複数日') || b.trip_type === 'multi';
 
           return {
             id: b.id,
+            bookingCode: extractedCode,
             name: b.name,
             kana: b.kana,
             contactType: b.contact_type,
