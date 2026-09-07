@@ -266,42 +266,48 @@ export async function fetchAllBookingsAdmin(): Promise<BookingSubmission[]> {
  * Tour CMS Operations
  */
 export async function getAllTours(): Promise<Tour[]> {
-  if (supabase) {
+  const tourMap = new Map<string, Tour>();
+  TOURS_DATA.forEach((tour) => tourMap.set(tour.slug, tour));
+
+  const client = getClient();
+  if (client) {
     try {
-      const { data, error } = await supabase.from('tours').select('*').order('created_at', { ascending: true });
+      const { data, error } = await client.from('tours').select('*').order('created_at', { ascending: true });
       if (!error && data && data.length > 0) {
-        return data.map((t) => ({
-          id: t.id,
-          slug: t.slug,
-          title: t.title,
-          subtitle: t.subtitle,
-          category: t.category,
-          categoryLabel: t.category_label,
-          duration: t.duration,
-          priceJpy: t.price_jpy,
-          priceVnd: t.price_vnd,
-          priceNote: t.price_note,
-          rating: Number(t.rating) || 5.0,
-          reviewCount: t.review_count || 0,
-          heroImage: t.hero_image,
-          badge: t.badge,
-          isFeatured: t.is_featured,
-          shortDescription: t.short_description,
-          fullDescription: t.full_description,
-          highlights: t.highlights || [],
-          itinerary: t.itinerary || [],
-          included: t.included || [],
-          excluded: t.excluded || [],
-          meetingPlace: t.meeting_place,
-          cancellationPolicy: t.cancellation_policy,
-          recommendFor: t.recommend_for || [],
-        }));
+        data.forEach((t) => {
+          tourMap.set(t.slug, {
+            id: t.id,
+            slug: t.slug,
+            title: t.title,
+            subtitle: t.subtitle,
+            category: t.category,
+            categoryLabel: t.category_label,
+            duration: t.duration,
+            priceJpy: t.price_jpy,
+            priceVnd: t.price_vnd,
+            priceNote: t.price_note,
+            rating: Number(t.rating) || 5.0,
+            reviewCount: t.review_count || 0,
+            heroImage: t.hero_image,
+            badge: t.badge,
+            isFeatured: t.is_featured,
+            shortDescription: t.short_description,
+            fullDescription: t.full_description,
+            highlights: t.highlights || [],
+            itinerary: t.itinerary || [],
+            included: t.included || [],
+            excluded: t.excluded || [],
+            meetingPlace: t.meeting_place,
+            cancellationPolicy: t.cancellation_policy,
+            recommendFor: t.recommend_for || [],
+          });
+        });
       }
     } catch (err) {
       console.warn('Failed to fetch tours from Supabase, using local:', err);
     }
   }
-  return inMemoryTours;
+  return Array.from(tourMap.values());
 }
 
 export async function upsertTour(tour: Tour, modifiedBy: string = 'admin'): Promise<Tour> {
@@ -312,9 +318,10 @@ export async function upsertTour(tour: Tour, modifiedBy: string = 'admin'): Prom
     inMemoryTours.push(tour);
   }
 
-  if (supabase) {
+  const client = getClient();
+  if (client) {
     try {
-      await supabase.from('tours').upsert(
+      await client.from('tours').upsert(
         {
           slug: tour.slug,
           title: tour.title,
@@ -354,9 +361,10 @@ export async function upsertTour(tour: Tour, modifiedBy: string = 'admin'): Prom
 
 export async function deleteTour(slug: string): Promise<boolean> {
   inMemoryTours = inMemoryTours.filter((t) => t.slug !== slug);
-  if (supabase) {
+  const client = getClient();
+  if (client) {
     try {
-      await supabase.from('tours').delete().eq('slug', slug);
+      await client.from('tours').delete().eq('slug', slug);
     } catch (err) {
       console.warn('Supabase tour delete failed:', err);
     }
@@ -368,35 +376,41 @@ export async function deleteTour(slug: string): Promise<boolean> {
  * Blog CMS Operations
  */
 export async function getAllBlogs(): Promise<BlogPost[]> {
-  if (supabase) {
+  const blogMap = new Map<string, BlogPost>();
+  BLOG_POSTS_DATA.forEach((b) => blogMap.set(b.slug, b));
+
+  const client = getClient();
+  if (client) {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await client
         .from('blog_posts')
         .select('*')
         .order('published_at', { ascending: false });
 
       if (!error && data && data.length > 0) {
-        return data.map((b) => ({
-          id: b.id,
-          slug: b.slug,
-          title: b.title,
-          excerpt: b.excerpt,
-          category: b.category,
-          tags: b.tags || [],
-          coverImage: b.cover_image,
-          publishedAt: b.published_at,
-          readingTime: b.reading_time,
-          featured: b.featured,
-          author: b.author,
-          content: b.content,
-          relatedTourSlug: b.related_tour_slug,
-        }));
+        data.forEach((b) => {
+          blogMap.set(b.slug, {
+            id: b.id,
+            slug: b.slug,
+            title: b.title,
+            excerpt: b.excerpt,
+            category: b.category,
+            tags: b.tags || [],
+            coverImage: b.cover_image,
+            publishedAt: b.published_at,
+            readingTime: b.reading_time,
+            featured: b.featured,
+            author: b.author,
+            content: b.content,
+            relatedTourSlug: b.related_tour_slug,
+          });
+        });
       }
     } catch (err) {
       console.warn('Failed to fetch blogs from Supabase, using local:', err);
     }
   }
-  return inMemoryBlogs;
+  return Array.from(blogMap.values());
 }
 
 export async function upsertBlog(post: BlogPost, modifiedBy: string = 'admin'): Promise<BlogPost> {
