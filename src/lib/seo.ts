@@ -36,8 +36,8 @@ export const SITE_CONFIG = {
   contactEmail: 'nihongoguide01@gmail.com',
   lineId: '@564pshie',
   lineUrl: 'https://lin.ee/vssKBHS',
-  instagramHandle: 'tho.anh.do01',
-  instagramUrl: 'https://www.instagram.com/tho.anh.do01?igsi=MThteDdsazlhdDdlaQ==',
+  instagramHandle: 'vietnam_nihongo_guide.co',
+  instagramUrl: 'https://www.instagram.com/vietnam_nihongo_guide.co?stkn=bWg1Z2FvbGs4Y3hy',
   xHandle: 'NihongoGuide',
   xUrl: 'https://x.com/NihongoGuide',
 };
@@ -162,6 +162,11 @@ export function generateLocalBusinessSchema() {
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
     areaServed: ['Vietnam', 'Da Nang', 'Hoi An', 'Hue', 'Hanoi', 'Ho Chi Minh City', 'Ba Na Hills', 'My Son'],
     knowsLanguage: ['ja', 'vi', 'en'],
+    sameAs: [
+      SITE_CONFIG.lineUrl,
+      SITE_CONFIG.instagramUrl,
+      SITE_CONFIG.xUrl,
+    ],
   };
 }
 
