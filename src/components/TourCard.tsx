@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Clock, Star, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Clock, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Tour } from '@/types';
 
 interface TourCardProps {
@@ -33,16 +33,14 @@ export default function TourCard({ tour }: TourCardProps) {
           </span>
         </div>
 
-        {/* Duration & Rating Overlay */}
+        {/* Duration Overlay */}
         <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-medium">
-          <div className="flex items-center gap-1.5 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md">
+          <div className="flex items-center gap-1.5 bg-black/50 backdrop-blur-xs px-2.5 py-1 rounded-md">
             <Clock className="w-3.5 h-3.5 text-amber-300" />
             <span>所要時間: {tour.duration}</span>
           </div>
-          <div className="flex items-center gap-1 bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-md">
-            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-            <span className="font-bold">{tour.rating}</span>
-            <span className="text-slate-200 text-[10px]">({tour.reviewCount})</span>
+          <div className="flex items-center gap-1 bg-black/50 backdrop-blur-xs px-2.5 py-1 rounded-md text-[11px] text-amber-200">
+            <span>完全貸切</span>
           </div>
         </div>
       </div>

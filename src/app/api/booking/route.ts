@@ -96,7 +96,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       bookingId: result.id,
-      message: 'ご予約リクエストを正常に受け付けました。ガイドより24時間以内にご指定の連絡先へご連絡いたします。',
+      message: 'お問い合わせありがとうございます。内容を確認のうえ、LINEまたはメールにてご連絡いたします。※この時点では予約確定ではありません。',
     });
   } catch (error) {
     console.error('Error processing booking submission:', error);

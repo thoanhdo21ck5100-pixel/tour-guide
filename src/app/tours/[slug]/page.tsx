@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   Clock,
-  Star,
   CheckCircle2,
   XCircle,
   Calendar,
@@ -115,9 +114,9 @@ export default async function TourDetailPage({
               <span className="px-3 py-1 bg-white/20 backdrop-blur-md text-white font-medium rounded-full">
                 {tour.categoryLabel}
               </span>
-              <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-amber-300 font-bold">
-                <Star className="w-3.5 h-3.5 fill-amber-300" />
-                {tour.rating} ({tour.reviewCount}件の日本人クチコミ)
+              <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-emerald-300 font-bold">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                1日1組限定・完全貸切
               </span>
               <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-slate-200">
                 <Clock className="w-3.5 h-3.5 text-amber-300" />
@@ -314,7 +313,7 @@ export default async function TourDetailPage({
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>3日前までキャンセル無料</span>
+                  <span>キャンセル規定は確定前にご案内</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
@@ -324,23 +323,23 @@ export default async function TourDetailPage({
 
               {/* Action Buttons */}
               <div className="space-y-3">
-                <Link
-                  href={`/contact?tour=${tour.slug}`}
-                  className="w-full h-12 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
-                >
-                  <Calendar className="w-4 h-4 text-white shrink-0" />
-                  <span>このツアーを仮予約する</span>
-                </Link>
-
                 <a
                   href={SITE_CONFIG.lineUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full h-12 px-6 rounded-xl bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
+                  className="w-full h-12 px-6 rounded-xl bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
                   <MessageCircle className="w-4 h-4 fill-white shrink-0" />
-                  <span>LINEでこのツアーを相談する</span>
+                  <span>LINEでこのツアーを相談する（無料）</span>
                 </a>
+
+                <Link
+                  href={`/contact?tour=${tour.slug}`}
+                  className="w-full h-12 px-6 rounded-xl bg-[#0B2545] hover:bg-[#133E68] text-white font-bold text-xs shadow-xs transition-all flex items-center justify-center gap-2"
+                >
+                  <Calendar className="w-4 h-4 text-white shrink-0" />
+                  <span>Webフォームから相談・日程確認</span>
+                </Link>
 
                 <a
                   href={SITE_CONFIG.instagramUrl}

@@ -38,7 +38,7 @@ export default function TourEditorClient({ initialTour, isNew }: TourEditorClien
     included: initialTour?.included || ['専用車代', '日本語ガイド料', '入場料'],
     excluded: initialTour?.excluded || ['お食事時の追加飲料', '個人的諸費用'],
     meetingPlace: initialTour?.meetingPlace || 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: initialTour?.cancellationPolicy || 'ご参加日の3日前までキャンセル無料。',
+    cancellationPolicy: initialTour?.cancellationPolicy || 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
     recommendFor: initialTour?.recommendFor || ['初めてのダナン旅行の方', 'ご家族・カップル'],
   });
 

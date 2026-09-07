@@ -36,12 +36,12 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-xs leading-relaxed text-slate-400">
-              ダナン出身・日本語能力試験N1保持の専属ガイド「アン トー (Anh Tho)」による完全貸切のプライベートツアー。安心・安全・おもてなしの心で、ダナン・ホイアンをはじめハノイやホーチミンなどベトナム全土のご旅行をお手伝いします。空港送迎・ホテル宿泊・買い物サポートまで幅広く対応。
+              ダナン出身・日本語能力試験N1保持の日本語ガイド「アン トー (Anh Tho)」による1日1組限定のプライベートツアー。安心と真心を込めたおもてなしで、ダナン・ホイアンを中心にご旅行をお手伝いします（ハノイ・ホーチミン等も対応）。
             </p>
             <div className="flex flex-col gap-2 text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>ダナン出身・生粋の現地ローカル（ベトナム全土対応）</span>
+                <span>ダナン出身・現地ローカル（ダナン・ホイアン中心）</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -49,15 +49,15 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>日本人向けガイド・折衝経験 2年（完全貸切・明朗会計）</span>
+                <span>日本人のお客様・日系企業との業務経験 2年</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>ベトナム各地の空港送迎・ホテル送迎対応</span>
+                <span>1日1組限定・快適な専用車を手配（エアコン完備）</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>ホテル宿泊・市場でのお買い物・滞在サポート対応</span>
+                <span>LINEで旅行前のご相談から当日までサポート</span>
               </div>
             </div>
           </div>

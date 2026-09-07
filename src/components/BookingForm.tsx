@@ -60,7 +60,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.error || '予約送信中にエラーが発生しました。');
+        throw new Error(data.error || '送信中にエラーが発生しました。');
       }
 
       setBookingId(data.bookingId);
@@ -78,7 +78,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
 
   return (
     <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs relative">
-      {/* Success State Modal / Overlay */}
+      {/* Success State */}
       {isSuccess ? (
         <div className="py-8 text-center animate-in fade-in zoom-in-95 duration-300">
           <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -86,11 +86,19 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
           </div>
 
           <h3 className="text-xl font-bold text-[#0B2545] tracking-tight">
-            仮予約のリクエストを承りました！
+            お問い合わせありがとうございます。
           </h3>
-          <p className="text-xs text-slate-500 mt-1">
-            予約管理番号: <span className="font-mono font-bold text-slate-700">{bookingId}</span>
+          <p className="text-sm text-slate-700 font-medium mt-2 leading-relaxed max-w-md mx-auto">
+            内容を確認のうえ、LINEまたはメールにてご連絡いたします。
+            <br />
+            <span className="text-amber-700 font-bold">※この時点では予約確定ではありません。</span>
           </p>
+
+          {bookingId && (
+            <p className="text-xs text-slate-400 mt-2">
+              お問い合わせ管理番号: <span className="font-mono font-bold text-slate-600">{bookingId}</span>
+            </p>
+          )}
 
           <div className="mt-6 p-5 bg-slate-50 border border-slate-200 rounded-xl text-left text-xs leading-relaxed text-slate-700 space-y-2">
             <p className="font-bold text-[#0B2545] flex items-center gap-1.5 text-sm">
@@ -98,10 +106,10 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
               今後の流れについて
             </p>
             <p>
-              ご入力いただいた連絡先（{formData.contactType.toUpperCase()}: {formData.contactValue}）宛てに、専属ガイドより原則<strong>24時間以内</strong>に日程の確定および詳しいご案内をお送りいたします。
+              ご入力いただいたご連絡先（{formData.contactType.toUpperCase()}: {formData.contactValue}）宛てに、原則<strong>24時間以内</strong>にご希望の日程・プランのご提案をお送りいたします。
             </p>
             <p className="text-slate-500">
-              ※現時点では「仮予約」となります。ガイドからのご連絡をもって本予約確定となります。
+              旅程やお見積りの内容に十分ご納得いただいてから、ご予約を確定いたします。
             </p>
           </div>
 
@@ -111,7 +119,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
                 LINEでさらにスムーズにやり取り可能！
               </p>
               <p className="text-[11px] text-emerald-700">
-                公式LINEを追加して「予約した{formData.name}です」と一言送っていただくと最優先で返信いたします。
+                公式LINEを追加して「相談フォームを送った{formData.name}です」と一言送っていただければ迅速に対応いたします。
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2 shrink-0">
@@ -154,22 +162,22 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
                 specialRequests: '',
               });
             }}
-            className="mt-6 text-xs text-slate-500 underline hover:text-slate-700"
+            className="mt-6 text-xs text-slate-500 underline hover:text-slate-700 cursor-pointer"
           >
-            別の日程や別のツアーを予約する
+            別の日程や別の内容で再度相談する
           </button>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <span className="text-xs font-bold text-amber-600 tracking-wider block">
-              RESERVATION FORM
+              CONSULTATION FORM
             </span>
             <h3 className="text-lg sm:text-xl font-bold text-[#0B2545]">
-              プライベートツアー お申し込み・お問い合わせ
+              ベトナム旅行の無料相談・お見積り
             </h3>
             <p className="text-xs text-slate-500 mt-1">
-              完全プライベートのため1日1組様限定となります。気になる点やご要望もお気軽にご記入ください。
+              完全プライベートのため1日1組様限定となります。旅程のご相談・お見積り・空き状況の確認など、お気軽にお送りください。※この時点では予約は確定しません。
             </p>
           </div>
 
@@ -181,111 +189,11 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
             </div>
           )}
 
-          {/* Customer Name Fields */}
+          {/* 1. Dates Selection */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                お名前（漢字） <span className="text-rose-500">*必須</span>
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="例: 山田 太郎"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                フリガナ（カタカナ） <span className="text-rose-500">*必須</span>
-              </label>
-              <input
-                type="text"
-                required
-                placeholder="例: ヤマダ タロウ"
-                value={formData.kana}
-                onChange={(e) => setFormData({ ...formData, kana: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
-              />
-            </div>
-          </div>
-
-          {/* Contact Preference */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="sm:col-span-1">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                希望のご連絡ツール <span className="text-rose-500">*必須</span>
-              </label>
-              <select
-                value={formData.contactType}
-                onChange={(e) =>
-                  setFormData({ ...formData, contactType: e.target.value as ContactMethod })
-                }
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
-              >
-                <option value="line">LINE (推奨)</option>
-                <option value="email">メールアドレス</option>
-                <option value="instagram">Instagram DM</option>
-                <option value="whatsapp">WhatsApp</option>
-              </select>
-            </div>
-            <div className="sm:col-span-2">
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                {formData.contactType === 'line'
-                  ? 'LINE ID または お電話番号'
-                  : formData.contactType === 'email'
-                  ? 'メールアドレス'
-                  : formData.contactType === 'instagram'
-                  ? 'Instagramユーザーネーム (@...)'
-                  : 'WhatsApp番号'}{' '}
-                <span className="text-rose-500">*必須</span>
-              </label>
-              <input
-                type={formData.contactType === 'email' ? 'email' : 'text'}
-                required
-                placeholder={
-                  formData.contactType === 'line'
-                    ? '例: yamada_line123 または 090-xxxx-xxxx'
-                    : formData.contactType === 'email'
-                    ? '例: yamada@example.com'
-                    : formData.contactType === 'instagram'
-                    ? '例: @taro_travel_danang'
-                    : '例: +81-90-xxxx-xxxx'
-                }
-                value={formData.contactValue}
-                onChange={(e) => setFormData({ ...formData, contactValue: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
-              />
-            </div>
-          </div>
-
-          {/* Tour Selection */}
-          <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1.5">
-              ご希望のツアープラン <span className="text-rose-500">*必須</span>
-            </label>
-            <select
-              value={formData.tourSlug}
-              onChange={(e) => setFormData({ ...formData, tourSlug: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
-            >
-              {TOURS_DATA.map((t) => (
-                <option key={t.slug} value={t.slug}>
-                  {t.title} ({t.duration} / {t.priceJpy.toLocaleString('ja-JP')}円〜)
-                </option>
-              ))}
-              <option value="custom-consultation">
-                【旅程相談】行きたい場所を相談して決めたい（無料）
-              </option>
-            </select>
-          </div>
-
-          {/* Dates Selection */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                第1希望日 <span className="text-rose-500">*必須</span>
+                ご希望の日程（第1希望） <span className="text-rose-500">*必須</span>
               </label>
               <input
                 type="date"
@@ -295,7 +203,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
               />
               <span className="text-[10px] text-slate-400 mt-1 block">
-                ※左のカレンダーから日付をクリックしても自動入力されます
+                ※左のカレンダーをクリックしても自動入力されます
               </span>
             </div>
             <div>
@@ -311,7 +219,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
             </div>
           </div>
 
-          {/* Number of Pax */}
+          {/* 2. Number of Pax */}
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1.5">
@@ -351,32 +259,133 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
             </div>
           </div>
 
-          {/* Hotel Name */}
+          {/* 3. Tour Selection */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1.5">
-              ご宿泊先ホテル名（または予定エリア・都市）
+              ご希望のツアープラン <span className="text-rose-500">*必須</span>
+            </label>
+            <select
+              value={formData.tourSlug}
+              onChange={(e) => setFormData({ ...formData, tourSlug: e.target.value })}
+              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+            >
+              {TOURS_DATA.map((t) => (
+                <option key={t.slug} value={t.slug}>
+                  {t.title} ({t.duration} / {t.priceJpy.toLocaleString('ja-JP')}円〜)
+                </option>
+              ))}
+              <option value="custom-consultation">
+                【旅程相談】行きたい場所を相談して決めたい（無料）
+              </option>
+            </select>
+          </div>
+
+          {/* 4. Hotel Name */}
+          <div>
+            <label className="block text-xs font-bold text-slate-700 mb-1.5">
+              ご宿泊先ホテル名（または予定エリア・都市） <span className="text-slate-400 font-normal">（未定の場合は「未定」）</span>
             </label>
             <input
               type="text"
-              placeholder="例: ハイアット リージェンシー ダナン、ハノイ旧市街、ホーチミン市内など（未定の場合は「未定」）"
+              placeholder="例: ハイアット リージェンシー ダナン、ホイアン旧市街周辺など（未定でもOK）"
               value={formData.hotelName}
               onChange={(e) => setFormData({ ...formData, hotelName: e.target.value })}
               className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
             />
           </div>
 
-          {/* Message / Special Requests */}
+          {/* 5. Message / Special Requests */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1.5">
-              ご質問・ご要望・希望都市やアレルギー等
+              ご相談・ご質問・ご要望
             </label>
             <textarea
               rows={3}
-              placeholder="例: フライト到着が14:00なので15:00スタートにできますか？ダナン以外の都市（ハノイやホーチミン等）のツアーも相談したいです。パクチーが苦手です。"
+              placeholder="例: フライト到着が14:00なので15:00スタートにできますか？高齢の両親がいるので歩くペースをゆっくりにしたいです。パクチーが苦手です。"
               value={formData.specialRequests}
               onChange={(e) => setFormData({ ...formData, specialRequests: e.target.value })}
               className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
             />
+          </div>
+
+          {/* 6. Customer Name & Contact Preference */}
+          <div className="pt-2 border-t border-slate-100 space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  お名前（漢字） <span className="text-rose-500">*必須</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="例: 山田 太郎"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  フリガナ（カタカナ） <span className="text-rose-500">*必須</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="例: ヤマダ タロウ"
+                  value={formData.kana}
+                  onChange={(e) => setFormData({ ...formData, kana: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="sm:col-span-1">
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  希望のご連絡方法 <span className="text-rose-500">*必須</span>
+                </label>
+                <select
+                  value={formData.contactType}
+                  onChange={(e) =>
+                    setFormData({ ...formData, contactType: e.target.value as ContactMethod })
+                  }
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                >
+                  <option value="line">LINE (推奨)</option>
+                  <option value="email">メールアドレス</option>
+                  <option value="instagram">Instagram DM</option>
+                  <option value="whatsapp">WhatsApp</option>
+                </select>
+              </div>
+              <div className="sm:col-span-2">
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                  {formData.contactType === 'line'
+                    ? 'LINE ID または お電話番号'
+                    : formData.contactType === 'email'
+                    ? 'メールアドレス'
+                    : formData.contactType === 'instagram'
+                    ? 'Instagramユーザーネーム (@...)'
+                    : 'WhatsApp番号'}{' '}
+                  <span className="text-rose-500">*必須</span>
+                </label>
+                <input
+                  type={formData.contactType === 'email' ? 'email' : 'text'}
+                  required
+                  placeholder={
+                    formData.contactType === 'line'
+                      ? '例: yamada_line123 または 090-xxxx-xxxx'
+                      : formData.contactType === 'email'
+                      ? '例: yamada@example.com'
+                      : formData.contactType === 'instagram'
+                      ? '例: @taro_travel_danang'
+                      : '例: +81-90-xxxx-xxxx'
+                  }
+                  value={formData.contactValue}
+                  onChange={(e) => setFormData({ ...formData, contactValue: e.target.value })}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Reassurance note */}
@@ -384,7 +393,7 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
             <div>
               <span>
-                ご入力いただいた個人情報はツアー手配のご連絡のみに使用し、第三者への開示は一切いたしません。キャンセル規定はご参加日の3日前まで無料です。
+                ご入力いただいた個人情報はご連絡のみに使用いたします。キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。
               </span>
             </div>
           </div>
@@ -393,15 +402,15 @@ export default function BookingForm({ initialDate, initialTourSlug }: BookingFor
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+            className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm sm:text-base shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
           >
             {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                <span>仮予約を送信中...</span>
+                <span>送信中...</span>
               </>
             ) : (
-              <span>この内容で仮予約リクエストを送信する（無料）</span>
+              <span>無料で相談する</span>
             )}
           </button>
         </form>

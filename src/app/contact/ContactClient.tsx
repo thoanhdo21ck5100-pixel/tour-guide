@@ -45,28 +45,30 @@ export default function ContactClient() {
             ホーム
           </Link>
           <span>/</span>
-          <span className="text-[#0B2545] font-bold">空き状況カレンダー・ご予約</span>
+          <span className="text-[#0B2545] font-bold">空き状況・無料相談フォーム</span>
         </nav>
 
         {/* Page Title */}
         <div className="max-w-3xl mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold mb-3">
             <Calendar className="w-3.5 h-3.5 text-amber-700" />
-            <span>CALENDAR & RESERVATION</span>
+            <span>CALENDAR & CONSULTATION</span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-black text-[#0B2545] tracking-tight">
-            空き状況カレンダー＆仮予約フォーム
+            空き状況カレンダー＆無料相談フォーム
           </h1>
           <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
             専属ガイドによる完全プライベートツアーのため、<strong>1日1組様限定</strong>となっております。
-            下記カレンダーで空き日程（🟢 空き）をご確認の上、フォームより仮予約リクエストをお送りください。
+            下記カレンダーで空き日程（🟢 空き）をご確認の上、フォームまたはLINEよりお気軽にご相談ください。
+            <br />
+            <span className="text-amber-700 font-semibold">※お問い合わせ・ご相談の段階では予約は確定しません。</span>
           </p>
 
           {/* Reassurance pills */}
           <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-slate-700">
             <span className="inline-flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              仮予約段階での決済なし（無料）
+              ご相談・お見積り完全無料
             </span>
             <span className="inline-flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs">
               <Clock className="w-3.5 h-3.5 text-amber-500" />
