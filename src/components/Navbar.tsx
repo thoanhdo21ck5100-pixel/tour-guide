@@ -24,12 +24,12 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
           <span className="inline-flex items-center gap-1 text-amber-300">
             <ShieldCheck className="w-3.5 h-3.5" />
-            ダナン出身・JLPT N1の日本語ガイド
+            ベトナム政府公認ガイド
           </span>
           <span className="hidden sm:inline text-slate-400">|</span>
-          <span>ダナン・ホイアン中心（1日1組限定）</span>
+          <span>1日1組限定・ベトナム全土プライベートツアー</span>
           <span className="hidden sm:inline text-slate-400">|</span>
-          <span className="text-emerald-300 font-medium">LINEで無料相談いつでも受付中</span>
+          <span className="text-emerald-300 font-medium">LINEで事前相談いつでも無料受付中</span>
         </div>
       </div>
 
@@ -77,15 +77,24 @@ export default function Navbar() {
         </nav>
 
         {/* Action Buttons */}
-        {/* Social Icons & Primary LINE Action */}
         <div className="hidden sm:flex items-center gap-2 shrink-0">
+          <a
+            href={SITE_CONFIG.lineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-[34px] h-[34px] rounded-full bg-emerald-50 border border-emerald-200 text-[#06c755] hover:bg-emerald-100 flex items-center justify-center shrink-0 transition-all hover:scale-105"
+            title="公式LINEで無料相談"
+            aria-label="公式LINEで無料相談"
+          >
+            <MessageCircle className="w-4 h-4 fill-[#06c755] shrink-0" />
+          </a>
           <a
             href={SITE_CONFIG.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="w-[34px] h-[34px] rounded-full bg-pink-50 border border-pink-200 text-pink-600 hover:bg-pink-100 flex items-center justify-center shrink-0 transition-all hover:scale-105"
-            title="Instagram"
-            aria-label="Instagram"
+            title="Instagram DM"
+            aria-label="Instagram DM"
           >
             <InstagramIcon className="w-4 h-4 text-pink-500 shrink-0" />
           </a>
@@ -99,22 +108,12 @@ export default function Navbar() {
           >
             <XIcon className="w-3.5 h-3.5 text-slate-800 shrink-0" />
           </a>
-          <a
-            href={SITE_CONFIG.lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3.5 text-xs font-bold text-white bg-[#06c755] hover:bg-[#05b34c] rounded-full shadow-xs hover:shadow transition-all shrink-0 whitespace-nowrap"
-            title="公式LINEで無料相談"
-          >
-            <MessageCircle className="w-3.5 h-3.5 fill-white text-white shrink-0" />
-            <span>LINEで無料相談</span>
-          </a>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-1 h-[34px] px-3 text-xs font-semibold text-slate-700 hover:text-[#0B2545] rounded-full hover:bg-slate-100 transition-all shrink-0 whitespace-nowrap"
+            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3.5 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full hover:from-amber-600 hover:to-amber-700 shadow-sm hover:shadow transition-all shrink-0 whitespace-nowrap"
           >
-            <Calendar className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            <span>空き状況</span>
+            <Calendar className="w-3.5 h-3.5 text-white shrink-0" />
+            <span>空き状況・予約</span>
           </Link>
         </div>
 

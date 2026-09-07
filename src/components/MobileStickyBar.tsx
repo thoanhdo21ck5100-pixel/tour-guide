@@ -40,7 +40,7 @@ export default function MobileStickyBar() {
           className="flex items-center justify-center gap-1 py-2.5 px-1.5 rounded-xl bg-[#0B2545] text-white text-[11px] font-bold shadow-xs active:scale-95 transition-transform"
         >
           <Calendar className="w-3.5 h-3.5 text-amber-400" />
-          <span>空き状況</span>
+          <span>空き・予約</span>
         </Link>
       </div>
     </div>

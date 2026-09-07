@@ -12,10 +12,10 @@ const getSiteUrl = (): string => {
 };
 
 export const SITE_CONFIG = {
-  name: 'ベトナム日本語ガイド | ダナン・ホイアン プライベートツアー【ダナン出身・JLPT N1】',
+  name: 'ベトナム日本語ガイド | ベトナム全土プライベートツアー【現地公認】',
   shortName: 'ベトナム日本語ガイド',
   description:
-    '【ダナン出身・JLPT N1】日本人旅行者のための安心・快適なベトナム・ダナン＆ホイアンを中心としたプライベート観光ツアー。日本語堪能な専属ガイド「アン トー」が一組一組の旅を大切におもてなし。人数・行程に合わせた快適な専用車を手配。LINE事前相談無料。',
+    '【ベトナム日本語ガイド公認】日本人旅行者のための安心・快適なベトナム全土プライベート観光ツアー。ダナン・ホイアンをはじめ、ハノイ・ホーチミン・フエなどベトナム各地を日本語堪能な専属ガイドが完全貸切でおもてなし。空港送迎・ホテル宿泊・買い物サポート完備。LINE事前相談無料。',
   url: getSiteUrl(),
   ogImage: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=80',
   keywords: [
@@ -23,11 +23,11 @@ export const SITE_CONFIG = {
     'ベトナム プライベートツアー',
     'ダナン 日本語ガイド',
     'ダナン プライベートツアー',
-    'ホイアン 日本語ガイド',
-    'ダナン 個人旅行',
-    'ベトナム 専用車 日本語',
+    'ベトナム 全土 個人旅行',
+    'ベトナム チャーター 日本語',
     'ホイアン ランタン ツアー',
     'バーナーヒルズ 専用車 送迎',
+    'ハノイ ホーチミン 日本語ガイド',
     'ベトナム 空港送迎 日本語'
   ],
   author: 'アン トー (Anh Tho)',
@@ -55,8 +55,8 @@ export function constructMetadata({
   noIndex?: boolean;
 } = {}): Metadata {
   const fullTitle = title
-    ? `${title} | ベトナム日本語ガイド【ダナン出身・JLPT N1】`
-    : `${SITE_CONFIG.name} - 1日1組・安心の完全貸切`;
+    ? `${title} | ベトナム日本語ガイド【現地公認プライベートツアー】`
+    : `${SITE_CONFIG.name} - 安心の完全貸切・明朗会計`;
 
   const metaDesc = description || SITE_CONFIG.description;
   const ogImg = image || SITE_CONFIG.ogImage;

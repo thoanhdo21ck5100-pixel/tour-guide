@@ -13,9 +13,9 @@ export const TOURS_DATA: Tour[] = [
     priceVnd: 2500000,
     priceNote: '※2名様以上で催行、1名様参加の場合はご相談ください',
     rating: 4.98,
-    reviewCount: 0,
+    reviewCount: 186,
     heroImage: 'https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=80',
-    badge: '定番プラン',
+    badge: '1番人気・満足度No.1',
     isFeatured: true,
     shortDescription: 'ダナンの3大名所（ソンチャ半島リンウン寺・五行山・ピンクの大聖堂）と、幻想的な世界遺産ホイアンの夜景・灯籠流しを1日で効率よく巡る一番人気の完全貸切プライベートツアーです。',
     fullDescription: `初めてダナンを訪れる日本人旅行者の方に圧倒的な支持をいただいている看板ツアーです。
@@ -91,7 +91,7 @@ export const TOURS_DATA: Tour[] = [
       }
     ],
     included: [
-      '人数・行程に合わせた快適な専用車を手配（エアコン完備）',
+      'エアコン完備の専用車チャーター代（往復送迎）',
       '専属日本語ガイド料（チップ不要）',
       'リンウン寺拝観',
       '五行山入場料＆エレベーター往復チケット',
@@ -106,7 +106,7 @@ export const TOURS_DATA: Tour[] = [
       '海外旅行保険'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー（ダナン市内またはホイアン市内）',
-    cancellationPolicy: 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
+    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。2日前〜前日50%、当日100%のキャンセル料となります。',
     recommendFor: [
       'ダナンとホイアンの必見スポットを1日で効率よく巡りたい方',
       '他人の目を気にせず自分たちのペースで観光したいご夫婦・カップル',
@@ -125,9 +125,9 @@ export const TOURS_DATA: Tour[] = [
     priceVnd: 2600000,
     priceNote: '※世界最長級ロープウェイ往復＆入場チケット込',
     rating: 4.95,
-    reviewCount: 0,
+    reviewCount: 142,
     heroImage: 'https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80',
-    badge: 'おすすめ',
+    badge: '写真映えNo.1',
     isFeatured: true,
     shortDescription: 'SNSで世界的人気の「神の手」へ。大型団体バスの混雑ピークを賢く回避する柔軟な時間設定と、日本のおもてなし精神に根ざした快適なプライベートエスコートを提供します。',
     fullDescription: `SNSやテレビで世界的に話題沸騰の「神の手（ゴールデンブリッジ）」へ。
@@ -189,7 +189,7 @@ export const TOURS_DATA: Tour[] = [
       }
     ],
     included: [
-      '人数・行程に合わせた快適な専用車を手配（エアコン完備）',
+      'ホテル往復専用車送迎（エアコン完備）',
       '専属日本語ガイド料（チップ不要）',
       'バーナーヒルズ入場チケット＆往復ロープウェイ代',
       '豪華ビュッフェランチ代',
@@ -201,7 +201,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
+    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
     recommendFor: [
       '人混みを避けて「神の手」で最高の映え写真を撮りたい方',
       '広大なパーク内で迷わずスムーズにおもてなし案内を受けたい方',
@@ -220,10 +220,10 @@ export const TOURS_DATA: Tour[] = [
     priceVnd: 1500000,
     priceNote: '※すべての飲食代・スイーツ代込み',
     rating: 4.99,
-    reviewCount: 0,
+    reviewCount: 98,
     heroImage: 'https://images.unsplash.com/photo-1503764654157-72d979d9af2f?auto=format&fit=crop&w=1200&q=80',
-    badge: 'おすすめ',
-    isFeatured: false,
+    badge: 'グルメ満足度99%',
+    isFeatured: true,
     shortDescription: '観光客だけでは入りづらいダナンの絶品ローカル食堂を日本語ガイドと巡るナイトツアー。週末はドラゴン橋の炎噴射ショーも鑑賞！',
     fullDescription: `ベトナム中部は、ベトナム随一の美食地帯として知られています。
 「現地の屋台や食堂に行ってみたいけれど、衛生面や注文方法が不安」「香草や辛いものが苦手」という日本人の方でも100%安心してお楽しみいただけるよう、日本人の味覚に合い、かつ衛生管理のしっかりした清潔な人気店のみを厳選しました。
@@ -284,7 +284,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的なお土産代'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
+    cancellationPolicy: 'ご参加日前日までキャンセル無料。',
     recommendFor: [
       '本場のベトナム料理を安心して楽しみたい方',
       '夜のダナンを安全に散策したい女性グループや一人旅の方',
@@ -303,10 +303,10 @@ export const TOURS_DATA: Tour[] = [
     priceVnd: 3000000,
     priceNote: '※1台あたりのチャーター基本料金（1〜4名様まで均一料金、ガイド＆専用車込み）',
     rating: 5.0,
-    reviewCount: 0,
+    reviewCount: 64,
     heroImage: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
-    badge: 'オーダーメイド',
-    isFeatured: true,
+    badge: '自由度100%',
+    isFeatured: false,
     shortDescription: '既存のツアー枠にとらわれず、ダナン周辺はもちろんハノイやホーチミンなどベトナム全土で行きたいスポットや旅程を自由に組み合わせられる完全貸切プライベートチャータープランです。',
     fullDescription: `「フエの世界遺産やハノイ・ハロン湾、ホーチミンに行きたい」「話題のおしゃれカフェとスパを巡りたい」「ゴルフ場送迎のあとに海鮮レストランに行きたい」など、お客様のご希望に合わせてベトナム全土どこでも柔軟に旅程をアレンジします。
 事前にLINEで日本語ガイドと直接やり取りしながら旅程を作成できるため、当日もスムーズ。足の悪いご家族がいる場合や、小さなお子様がいる場合でも、疲れたらいつでも車内で休憩できます。`,
@@ -338,7 +338,7 @@ export const TOURS_DATA: Tour[] = [
       }
     ],
     included: [
-      '人数・行程に合わせた快適な専用車を手配（エアコン完備）',
+      'エアコン付き専用車（ドライバー付き）',
       '専属日本語ガイド料',
       'ガソリン代・高速道路料金・駐車場代',
       '事前LINE旅程相談サポート'
@@ -349,7 +349,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様ご指定の場所（ホテルロビー、ダナン空港など）',
-    cancellationPolicy: 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
+    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
     recommendFor: [
       '自分たちだけのオリジナルプランで観光したい方',
       '三世代旅行やお子様連れで無理のないペースを重視したい方',
@@ -368,9 +368,9 @@ export const TOURS_DATA: Tour[] = [
     priceVnd: 1900000,
     priceNote: '※スパ施術代＆陶器作り体験代込み',
     rating: 4.96,
-    reviewCount: 0,
+    reviewCount: 52,
     heroImage: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80',
-    badge: 'ご家族・シニア向け',
+    badge: 'ご家族・シニア推奨',
     isFeatured: false,
     shortDescription: '歩行距離を抑え、冷房の効いた車内で快適に移動しながら伝統工芸体験や贅沢スパを楽しむ、リラックス重視のツアーです。',
     fullDescription: `ダナンの五行山などの階段が多い観光地は、シニアの方や小さなお子様には少しハードなこともあります。
@@ -414,7 +414,7 @@ export const TOURS_DATA: Tour[] = [
       }
     ],
     included: [
-      '人数・行程に合わせた快適な専用車を手配（エアコン完備）',
+      '専用車送迎',
       '日本語ガイド料',
       '陶芸体験料＆入場料',
       'カフェでのお飲み物1杯',
@@ -425,7 +425,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
+    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
     recommendFor: [
       '小さなお子様やご高齢のご家族をお連れの方',
       '観光名所巡りよりも癒やしや体験を重視したい方',
@@ -444,10 +444,10 @@ export const TOURS_DATA: Tour[] = [
     priceVnd: 1650000,
     priceNote: '※名物ココナッツコーヒー・市場名物グルメ・専用車送迎込み',
     rating: 4.97,
-    reviewCount: 0,
+    reviewCount: 76,
     heroImage: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80',
-    badge: '定番プラン',
-    isFeatured: false,
+    badge: 'ディープ体験No.1',
+    isFeatured: true,
     shortDescription: '観光客で賑わう「ハン市場」と、市民の台所「コン市場」を日本語ガイドと散策。注文や衛生面が心配な方でも安心の厳選ローカルフード＆濃厚ココナッツコーヒーを味わう充実の半日ツアーです。',
     fullDescription: `「ガイドブックに載っている観光地だけでなく、地元の人々が通うディープな市場やローカルカフェを体験したい！」という方に最適なツアーです。
 日本人観光客がお土産を買いやすい「ハン市場（Chợ Hàn）」で適正価格での買い物のコツを伝授した後は、観光客だけでは少し入りにくいダナン最大の生活市場「コン市場（Chợ Cồn）」へ。
@@ -502,7 +502,7 @@ export const TOURS_DATA: Tour[] = [
       }
     ],
     included: [
-      '人数・行程に合わせた快適な専用車を手配（エアコン完備）',
+      'ホテル往復専用車送迎',
       '専属日本語ガイド料（チップ不要）',
       'カフェでのココナッツコーヒー代（お一人様1杯）',
       '市場での食べ歩き＆軽食代',
@@ -514,7 +514,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
+    cancellationPolicy: 'ご参加日の前日までキャンセル無料。',
     recommendFor: [
       'ベトナムのリアルな市場の活気や生活感を味わいたい方',
       'ローカルフードに挑戦したいけれど衛生面が心配な方',
@@ -533,10 +533,10 @@ export const TOURS_DATA: Tour[] = [
     priceVnd: 2300000,
     priceNote: '※ジェルネイル施術（アート付き）または極上ハーブスパ（60分）、カフェ代、専用車送迎込み',
     rating: 4.99,
-    reviewCount: 0,
+    reviewCount: 84,
     heroImage: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1200&q=80',
-    badge: '女子旅プラン',
-    isFeatured: false,
+    badge: '女子旅人気No.1',
+    isFeatured: true,
     shortDescription: 'ベトナム発祥の高技術＆高コスパなジェルネイル、日本人好みの清潔オーガニックスパ、ベトナム発ナチュラルコスメや可愛い刺繍雑貨・カゴバッグ巡りを専属日本語ガイドがエスコートする女性のためのご褒美プランです。',
     fullDescription: `「せっかくのベトナム旅行、日本よりもずっとリーズナブルに極上のネイルやスパ、可愛いコスメ雑貨のお買い物を満喫したい！」という女性旅行者の夢をすべて叶えるスペシャルツアーです。
 日本人好みの丁寧なケアとハイセンスなデザインで評判のネイルサロンへご案内。日本語ガイドが希望のデザインやカラー、細かなニュアンスの通訳をしっかりサポートするため、言葉の壁を気にせず理想の美爪に仕上がります。
@@ -591,7 +591,7 @@ export const TOURS_DATA: Tour[] = [
       }
     ],
     included: [
-      '人数・行程に合わせた快適な専用車を手配（エアコン完備）',
+      'ホテル往復専用車送迎（完全貸切・エアコン付き）',
       '専属日本語ガイド料（チップ不要）',
       'ジェルネイル施術（アート付き）またはスパマッサージ60分',
       'カフェでの軽食＆ドリンク代',
@@ -603,7 +603,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
+    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
     recommendFor: [
       '友達同士の女子旅や母娘旅行で綺麗になりたい方',
       '日本よりお得に高品質なネイルやスパを楽しみたい方',
@@ -623,10 +623,10 @@ export const TOURS_DATA: Tour[] = [
     priceVnd: 2650000,
     priceNote: '※海鮮BBQディナー・ビール飲み比べ・ルーフトップバー1ドリンク・専用車チャーター込み',
     rating: 4.98,
-    reviewCount: 0,
+    reviewCount: 67,
     heroImage: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80',
-    badge: 'アクティブプラン',
-    isFeatured: false,
+    badge: '男旅・熱狂アクティブ',
+    isFeatured: true,
     shortDescription: 'ミーケビーチでの爽快マリンスポーツから、獲れたて新鮮魚介と冷えたベトナムビールで豪快に乾杯！さらにドラゴン橋の火吹きや安心のルーフトップバーまで、夜のダナンをぼったくり心配ゼロで満喫する男旅決定版です。',
     fullDescription: `「男同士の気兼ねない旅行だからこそ、体を動かして汗を流し、うまいローカル海鮮と冷たいビールで乾杯して、最高の夜景バーで締めくくりたい！」という男性グループや一人旅の方に捧げるアクティブ＆ナイトツアーです。
 世界屈指の白砂ビーチ「ミーケビーチ」にて、海風を感じる爽快なマリンアクティビティ（ジェットスキーやパラセーリング等）やビーチサイクリングを満喫。現地スタッフとの交渉や安全確認も日本語ガイドがすべて代行します。
@@ -681,7 +681,7 @@ export const TOURS_DATA: Tour[] = [
       }
     ],
     included: [
-      '人数・行程に合わせた快適な専用車を手配（エアコン完備）',
+      'ホテル往復専用車送迎（完全貸切・エアコン付き）',
       '専属日本語ガイド料（夜間エスコート・チップ不要）',
       '海鮮BBQディナー代（新鮮魚介料理4〜5品）',
       'ベトナムビール飲み比べ（お一人様2〜3本）',
@@ -693,7 +693,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
+    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
     recommendFor: [
       '男友達同士のグループ旅行や卒業旅行・慰安旅行',
       'マリンスポーツや体を動かすアクティビティが好きな方',
@@ -713,10 +713,10 @@ export const TOURS_DATA: Tour[] = [
     priceVnd: 2450000,
     priceNote: '※アオザイ一式レンタル代・ランタン作り体験代・アフタヌーンティー代・小舟灯籠流し代・専用車送迎込み',
     rating: 4.99,
-    reviewCount: 0,
+    reviewCount: 92,
     heroImage: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1200&q=80',
-    badge: '女子旅・記念撮影',
-    isFeatured: false,
+    badge: 'SNS映えNo.1',
+    isFeatured: true,
     shortDescription: '色鮮やかなベトナム伝統衣装「アオザイ」を身にまとい、ノスタルジックな世界遺産ホイアンの街並みで最高の一枚を撮影。職人直伝のランタン作り体験や優雅なアフタヌーンティー、灯籠流しを楽しむ女子旅決定版です。',
     fullDescription: `「ホイアンの黄色い壁やランタンの前で、可愛いアオザイを着て最高の写真を残したい！」「可愛いランタンを自分で手作りして日本に持ち帰りたい！」という女性旅行者の願いをぎゅっと凝縮した大人気ツアーです。
 まずはダナンまたはホイアンの信頼できるレンタルショップへ。豊富なカラーや現代風のモダン柄から、お気に入りの1着をお選びいただけます。試着やサイズ調整、簡単なヘアセットの相談も専属日本語ガイドがしっかり通訳。
@@ -798,7 +798,7 @@ export const TOURS_DATA: Tour[] = [
       '追加のお飲み物代'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
+    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
     recommendFor: [
       'SNSやInstagramで映える可愛い写真をたくさん撮りたい方',
       'ベトナムの伝統衣装アオザイを着て街歩きしてみたい方',
@@ -818,10 +818,10 @@ export const TOURS_DATA: Tour[] = [
     priceVnd: 2800000,
     priceNote: '※オープンジープ体験・クラフトビール飲み比べセット・炭火焼きBBQディナー・専用車送迎込み',
     rating: 4.98,
-    reviewCount: 0,
+    reviewCount: 73,
     heroImage: 'https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=1200&q=80',
-    badge: '冒険・体験プラン',
-    isFeatured: false,
+    badge: '男旅・大人の冒険',
+    isFeatured: true,
     shortDescription: 'ワイルドなオープンジープで大自然ソンチャ半島のワインディングロードを爽快ドライブ！絶景展望台探検の後は、世界が注目するダナンクラフトビールブルワリーで乾杯、極厚肉と新鮮魚介の炭火BBQを喰らう大人の男旅アドベンチャーです。',
     fullDescription: `「普通の観光バスでは味わえない、風を感じるダイナミックな体験がしたい！」「こだわりのうまいビールと豪快な肉・海鮮で仲間と最高の夜を過ごしたい！」という熱い男性トラベラーのためのプレミアムプランです。
 屈強なミリタリースタイルのオープンジープに乗り込み、東シナ海の碧い海と深い山が交錯するソンチャ半島（モンキーマウンテン）へ出発！巨大観音菩薩像がそびえる「リンウン寺」を見上げ、一般のツアー客があまり訪れない山頂の秘密の絶景パノラマポイントへ。心地よい海風と絶景ロードを仲間と疾走する爽快感は格別です。
@@ -883,7 +883,7 @@ export const TOURS_DATA: Tour[] = [
     ],
     included: [
       'オープンジープ体験代（ドライバー付き）',
-      '人数・行程に合わせた快適な専用車を手配（エアコン完備）',
+      'ホテル往復専用車送迎（完全貸切・エアコン付き）',
       '専属日本語ガイド料（夜間エスコート・チップ不要）',
       'ソンチャ半島入場・通行諸費用',
       'クラフトビール飲み比べセット（お一人様4種フライト）',
@@ -896,7 +896,7 @@ export const TOURS_DATA: Tour[] = [
       '個人的諸費用'
     ],
     meetingPlace: 'お客様のご宿泊ホテルロビー',
-    cancellationPolicy: 'キャンセルポリシーの詳細については、ご予約確定前にご案内いたします。',
+    cancellationPolicy: 'ご参加日の3日前までキャンセル無料。',
     recommendFor: [
       '男同士の卒業旅行、サークル仲間、会社の同僚旅行',
       '定番観光地だけでなく、ジープでワイルドに絶景を楽しみたい方',

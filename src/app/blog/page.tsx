@@ -9,7 +9,7 @@ import GuideStrategicValueCard from '@/components/GuideStrategicValueCard';
 export const metadata: Metadata = constructMetadata({
   title: 'ダナン現地お役立ちブログ | 観光・交通・グルメ・最新情報',
   description:
-    '【ダナン出身ガイド発】ダナン空港からのGrab乗り方、世界遺産ホイアンのランタン夜市攻略法、女子旅モデルコースなど、日本人旅行者の不安を解消するダナン観光の最新情報をお届けします。',
+    '【現地公認ガイド発】ダナン空港からのGrab乗り方、世界遺産ホイアンのランタン夜市攻略法、女子旅モデルコースなど、日本人旅行者の不安を解消するダナン観光の最新情報をお届けします。',
   canonical: '/blog',
 });
 
