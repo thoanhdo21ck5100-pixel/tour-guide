@@ -1,3 +1,6 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MessageCircle, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
@@ -6,6 +9,11 @@ import XIcon from '@/components/XIcon';
 import { SITE_CONFIG } from '@/lib/seo';
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
   return (
     <footer className="bg-[#07192E] text-slate-300 pt-16 pb-28 sm:pb-16 border-t border-slate-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">

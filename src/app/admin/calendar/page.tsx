@@ -28,7 +28,9 @@ export default function AdminCalendarManagerPage() {
   const loadMonthData = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(`/api/availability?year=${currentYear}&month=${currentMonth}`);
+      const res = await fetch(`/api/availability?year=${currentYear}&month=${currentMonth}&t=${Date.now()}`, {
+        cache: 'no-store',
+      });
       const data = await res.json();
       if (data.availability) {
         setAvailabilityList(data.availability);

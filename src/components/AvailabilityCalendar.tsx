@@ -23,7 +23,9 @@ export default function AvailabilityCalendar({
     let isMounted = true;
     setIsLoading(true);
 
-    fetch(`/api/availability?year=${currentYear}&month=${currentMonth}`)
+    fetch(`/api/availability?year=${currentYear}&month=${currentMonth}&t=${Date.now()}`, {
+      cache: 'no-store',
+    })
       .then((res) => res.json())
       .then((data) => {
         if (isMounted && data.availability) {

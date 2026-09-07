@@ -8,6 +8,8 @@ const AvailabilityUpdateSchema = z.object({
   note: z.string().max(100).optional(),
 });
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: NextRequest) {
   try {
     const json = await request.json();
@@ -22,6 +24,13 @@ export async function POST(request: NextRequest) {
 
     const { date, status, note } = parseResult.data;
     const result = await updateDateAvailability(date, status, note, 'admin_user');
+
+    if (!result.success) {
+      return NextResponse.json(
+        { error: result.error || '空き状況の更新に失敗しました。' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({
       success: true,

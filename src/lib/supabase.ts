@@ -4,12 +4,27 @@ import { TOURS_DATA } from './data/tours';
 import { BLOG_POSTS_DATA } from './data/blog';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey =
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-  process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabaseServiceKey =
+  process.env.SUPABASE_SERVICE_ROLE_KEY ||
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export const supabase: SupabaseClient | null =
-  supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
+  supabaseUrl && (supabaseAnonKey || supabaseServiceKey)
+    ? createClient(supabaseUrl, (supabaseAnonKey || supabaseServiceKey)!)
+    : null;
+
+export const supabaseAdmin: SupabaseClient | null =
+  supabaseUrl && (supabaseServiceKey || supabaseAnonKey)
+    ? createClient(supabaseUrl, (supabaseServiceKey || supabaseAnonKey)!, {
+        auth: {
+          persistSession: false,
+          autoRefreshToken: false,
+        },
+      })
+    : supabase;
+
+const getClient = (): SupabaseClient | null => supabaseAdmin || supabase;
 
 // ==========================================
 // In-Memory Synchronized Stores for Fallback & Immediate Local Testing
@@ -70,13 +85,14 @@ export async function fetchAvailability(year: number, month: number): Promise<Da
   const availabilityMap = new Map<string, DayAvailability>();
   days.forEach((d) => availabilityMap.set(d.date, d));
 
-  if (supabase) {
+  const client = getClient();
+  if (client) {
     try {
       const startDate = `${year}-${String(month).padStart(2, '0')}-01`;
       const lastDay = new Date(year, month, 0).getDate();
       const endDate = `${year}-${String(month).padStart(2, '0')}-${String(lastDay).padStart(2, '0')}`;
 
-      const { data, error } = await supabase
+      const { data, error } = await client
         .from('availability')
         .select('date, status, remaining_slots, note')
         .gte('date', startDate)
@@ -122,9 +138,10 @@ export async function updateDateAvailability(
     modifiedBy,
   });
 
-  if (supabase) {
+  const client = getClient();
+  if (client) {
     try {
-      const { error } = await supabase
+      const { error } = await client
         .from('availability')
         .upsert(
           {
@@ -140,9 +157,11 @@ export async function updateDateAvailability(
 
       if (error) {
         console.error('Supabase availability upsert error:', error);
+        return { success: false, error: error.message };
       }
     } catch (err) {
       console.warn('Failed to upsert to Supabase availability:', err);
+      return { success: false, error: err instanceof Error ? err.message : 'Database error' };
     }
   }
 
