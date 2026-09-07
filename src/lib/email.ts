@@ -10,9 +10,12 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vietnam-nihongo-gu
  * Create Gmail SMTP Transporter
  */
 function createTransporter() {
-  if (!GMAIL_APP_PASSWORD) {
+  const rawPass = process.env.GMAIL_APP_PASSWORD;
+  if (!rawPass) {
     return null;
   }
+
+  const cleanPass = rawPass.replace(/\s+/g, '');
 
   return nodemailer.createTransport({
     service: 'gmail',
@@ -21,7 +24,7 @@ function createTransporter() {
     secure: true,
     auth: {
       user: GMAIL_USER,
-      pass: GMAIL_APP_PASSWORD,
+      pass: cleanPass,
     },
   });
 }
