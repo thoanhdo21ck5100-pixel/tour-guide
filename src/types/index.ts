@@ -8,6 +8,18 @@ export interface ItineraryItem {
   location?: string;
 }
 
+export interface TourVisitedSpot {
+  name: string;
+  description?: string;
+  imageUrl?: string;
+  relatedBlogSlug?: string;
+}
+
+export interface TourFaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface Tour {
   id: string;
   slug: string;
@@ -33,6 +45,9 @@ export interface Tour {
   meetingPlace: string;
   cancellationPolicy: string;
   recommendFor: string[];
+  visitedSpots?: TourVisitedSpot[];
+  faqs?: TourFaqItem[];
+  relatedBlogSlugs?: string[];
 }
 
 export interface BlogPost {
@@ -52,6 +67,7 @@ export interface BlogPost {
     role: string;
     avatar: string;
   };
+  keyTakeaway?: string;
   content: {
     intro: string;
     sections: {
@@ -63,6 +79,8 @@ export interface BlogPost {
     conclusion: string;
   };
   relatedTourSlug?: string;
+  relatedTourSlugs?: string[];
+  relatedBlogSlugs?: string[];
 }
 
 export type ContactMethod = 'line' | 'instagram' | 'email' | 'whatsapp';

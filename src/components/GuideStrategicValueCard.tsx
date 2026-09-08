@@ -31,64 +31,64 @@ export default function GuideStrategicValueCard({
 
   const pillars = [
     {
+      id: 'language',
+      icon: MessageCircle,
+      tag: '言葉の不安を解消',
+      title: '日本語での円滑なコミュニケーション',
+      shortDesc: 'JLPT N1取得ガイドが、歴史の解説から細かなニュアンスまで対応',
+      problem:
+        '個人旅行では、観光地での歴史や見どころの理解が深まりにくいだけでなく、英語やベトナム語が通じない場面で意思疎通に困ることがあります。',
+      solution:
+        '日本語能力試験N1を取得し、日系企業との業務経験（2年）を持つ専属ガイド（アン トー）が全行程をアテンド。観光地の歴史や背景の詳しい解説はもちろん、細かなニュアンスや好みのご要望も日本語でしっかり汲み取ります。',
+      guideQuestion:
+        '『この名所の歴史や見どころ、地元でのエピソードを詳しく教えてもらえますか？』',
+      badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-300',
+      iconColor: 'text-emerald-600 bg-emerald-50',
+    },
+    {
       id: 'food',
       icon: UtensilsCrossed,
-      tag: '食の安全・ぼったくり回避',
-      title: '地元民が通う名店選び＆胃腸に優しい衛生管理',
-      shortDesc: '観光客向け割高店を避け、日本人のデリケートな胃腸にも安心な清潔店へ',
+      tag: '注文・適正価格の代行',
+      title: '現地での注文・お買い物サポート',
+      shortDesc: 'ベトナム語でのメニュー注文代行やお土産の地元適正価格を確認',
       problem:
-        'SNSやネット検索で見つかる店は「観光客向けで価格が高すぎる」「氷や水、調理環境の衛生面が不安」という落とし穴が少なくありません。',
+        'ローカル食堂ではベトナム語メニューしかなく注文に苦労したり、市場では観光客価格が提示されて値段交渉に戸惑うことがあります。',
       solution:
-        '日本人のお客様・日系企業との業務経験（2年）とJLPT N1を持つ専属ガイドが、氷の品質や油、調理器具の清潔さを確認済みの「地元民が本当に愛する名店」へ直行。注文時の「氷なし」「香草別添え」などの細かなリクエストもベトナム語で完全代行します。',
+        'レストランでの「氷なし」「香草別添え」などの細かなリクエストをベトナム語で完全代行。市場やお土産店でも、品質の良い本物の商品を地元適正価格で選べるようサポートします。',
       guideQuestion:
-        '『観光客向けではなく、地元の人が本当に通っていて衛生面も安心できる名店はどこ？』',
+        '『地元の人に愛されていて、日本人の口に合うおすすめのメニューを注文してもらえますか？』',
       badgeColor: 'bg-amber-100 text-amber-800 border-amber-300',
       iconColor: 'text-amber-600 bg-amber-50',
     },
     {
-      id: 'weather',
-      icon: CloudRain,
-      tag: '天候・混雑の神対応',
-      title: '突発的な雨や混雑でも気分を落とさない臨機応変なルート切替',
-      shortDesc: 'バーナーヒルズの濃霧やホイアンの過密も、即座に最適な屋内プランへ',
+      id: 'transport',
+      icon: ShieldCheck,
+      tag: '快適な専用車移動',
+      title: '冷房完備の専用車でのスムーズな移動',
+      shortDesc: '暑さや雨でも安心。スーツケースも積んだまま手ぶらで観光',
       problem:
-        '「バーナーヒルズに着いたら濃霧で神の手が見えない」「ホイアンの通りが人で埋め尽くされて歩けない」など、個人旅行では天候や混雑のトラブルで旅程が崩れがちです。',
+        '日中の厳しい暑さや急なスコール、荷物が多い時の配車アプリ待ちやドライバーとの合流トラブルは、旅の大きな疲労原因になります。',
       solution:
-        'ネットの口コミはリアルタイムの雲の動きや混雑度を解決できません。専属ガイドがいれば「霧なら古城ワインセラーや屋内テーマパークへ」「雨のホイアンなら情緒ある屋根付きカフェや極上スパへ」と、その場でベストな屋内プランへ瞬時に切り替えられます。',
+        'お客様グループ専用のエアコン完備車両をご用意。お荷物やお土産を車内に置いたまま、涼しく快適に目的地へドア・ツー・ドアで移動できます。',
       guideQuestion:
-        '『今日のような天候（混雑）の時は、どの屋内スポットや穴場カフェに変更すれば楽しめますか？』',
+        '『移動中に荷物を車に置いたまま、身軽に散策できますか？』',
       badgeColor: 'bg-sky-100 text-sky-800 border-sky-300',
       iconColor: 'text-sky-600 bg-sky-50',
     },
     {
-      id: 'shopping',
-      icon: Scissors,
-      tag: '買い物・仕立ての適正価格',
-      title: 'ホイアンのオーダーメイド＆お土産で損しない老舗工房直行',
-      shortDesc: '表通りの高い中間マージンや粗悪品を回避し、本物の天然シルクを地元価格で',
+      id: 'flexible',
+      icon: Sparkles,
+      tag: 'プライベートの柔軟性',
+      title: '体調やペースに合わせた柔軟なスケジュール',
+      shortDesc: '他のお客様を気にせず、その場で休憩やルート順序を調整可能',
       problem:
-        'ホイアンの仕立て服や市場のお土産は、観光客だけで入ると「化繊混じりを本物シルクと偽られる」「中間マージンが上乗せされた観光客価格を請求される」リスクがあります。',
+        '団体ツアーでは他のお客様に合わせた固定スケジュールとなり、疲れても休憩しづらかったり、好みの場所に長く滞在できないことがあります。',
       solution:
-        '地元ダナン出身の専属ガイドが同行することで、観光客価格ではなく「地元適正価格」で本物の高品質シルクやリネンを選定。仕上がった洋服のホテルお届けまで確実にサポートします。',
+        '完全貸切プライベートツアーのため、当日の体調や天候、混雑状況に合わせて休憩を挟んだり、見学順序をその場で柔軟に調整できます。',
       guideQuestion:
-        '『適正な地元価格で、本物の天然シルクを仕立ててくれる信頼できる老舗工房はどこ？』',
+        '『少し歩き疲れたので、近くの落ち着いたカフェで休憩を挟めますか？』',
       badgeColor: 'bg-purple-100 text-purple-800 border-purple-300',
       iconColor: 'text-purple-600 bg-purple-50',
-    },
-    {
-      id: 'omotenashi',
-      icon: Sparkles,
-      tag: 'AI/Google検索との決定打',
-      title: 'ダナン出身・JLPT N1が誇る「おもてなしの心（Omotenashi）」',
-      shortDesc: '言葉の通訳を超え、日本人の習慣・美意識・心地よい気配りを深く理解',
-      problem:
-        'Google検索や生成AIは一般的な知識を教えてくれますが、旅の現場で「いま疲れていないか」「体調に合わせた室温調整」「心地よい歩行ペース」といった心情に寄り添うことはできません。',
-      solution:
-        'ダナン生まれ・ダナン育ちで日本語能力試験N1を取得した専属ガイドだからこそ、地元ならではの穴場案内はもちろん、日本基準の清潔感・時間厳守・以心伝心の気配りを徹底。移動や交渉のストレスをすべて取り除き、旅の「楽しい時間」だけに100%浸っていただけます。',
-      guideQuestion:
-        '『（事前にLINEで）私たちの好みに合わせて、無理のない理想のタイムスケジュールを組んでくれますか？』',
-      badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-300',
-      iconColor: 'text-emerald-600 bg-emerald-50',
     },
   ];
 
@@ -108,16 +108,15 @@ export default function GuideStrategicValueCard({
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>
             {mode === 'blog'
-              ? '現地プロ直伝・戦略的旅の知恵袋'
-              : '専属ガイドだから約束できる安心基準'}
+              ? '現地ガイドサポート'
+              : 'アン トーが現地でサポートできること'}
           </span>
         </div>
         <h3 className="text-lg sm:text-2xl font-black text-[#0B2545] tracking-tight">
-          ネット検索やAIには真似できない「専属日本語ガイドの4大価値」
+          専属プライベートガイドだから約束できる「4つの安心サポート」
         </h3>
         <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-          「自力で回る旅」と「専属プライベートガイドを付ける旅」の決定的な違い。
-          旅先でそのまま使える「プロへの質問フレーズ」とともに、安心のおもてなし基準を公開します。
+          安心の日本語対応と完全貸切ならではの柔軟性。旅先でそのまま使えるプロへの相談フレーズと合わせてご紹介します。
         </p>
       </div>
 
@@ -197,7 +196,7 @@ export default function GuideStrategicValueCard({
           <div className="bg-rose-50/60 border border-rose-200/80 rounded-xl p-3.5">
             <span className="font-bold text-rose-700 flex items-center gap-1 mb-1">
               <span>✕</span>
-              <span>個人旅行・ネット検索だけの落とし穴:</span>
+              <span>個人旅行で生じやすい不安・手間:</span>
             </span>
             <p className="text-slate-700 leading-relaxed">{current.problem}</p>
           </div>
@@ -221,7 +220,7 @@ export default function GuideStrategicValueCard({
             {current.guideQuestion}
           </p>
           <p className="text-[11px] text-amber-800 mt-2">
-            ※このような質問を投げていただければ、ガイドがご予算や好みに合わせて最高のご提案をいたします。
+            ※このようなご相談も、お客様のご希望に合わせて柔軟に対応いたします。
           </p>
         </div>
       </div>
@@ -234,7 +233,7 @@ export default function GuideStrategicValueCard({
             ご出発前の不安やお店選びも、LINEで直接ご相談いただけます
           </span>
           <p className="text-[11px] text-slate-500 mt-0.5">
-            日系大学卒の専属ガイドが、日本語で親身にお答えします（相談無料・キャンセル規定明記）
+            日本語能力試験N1専属ガイドが日本語でお答えします（事前相談無料・事前決済不要）
           </p>
         </div>
 

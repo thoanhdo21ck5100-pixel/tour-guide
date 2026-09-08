@@ -698,11 +698,13 @@ export default function BookingForm({
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
             <div className="space-y-1">
               <p className="font-bold text-slate-800">
-                事前決済不要（ツアー料金はベトナム到着後に全額お支払い）
+                ご予約・お支払い・キャンセルについて
               </p>
               <p className="text-slate-600 leading-relaxed">
-                ※フォーム送信時点では予約確定ではありません。内容を確認後、LINEまたはメールで詳細をご案内いたします。
-                キャンセルをご希望の場合は、原則としてご予定日の1週間前までにご連絡ください（1週間前までのキャンセル：キャンセル料なし）。
+                ツアー料金は、ベトナム到着後、ツアー開始前に全額お支払いいただきます。お支払いは、日本円（JPY）またはベトナムドン（VND）で可能です。ご予約時に事前のお支払いは必要ありません。
+              </p>
+              <p className="text-slate-500 leading-relaxed text-[10px]">
+                ※フォーム送信時点では予約確定ではありません。アン トーが内容を確認後、LINEまたはメールで詳細をご案内いたします。キャンセルをご希望の場合は、ご予定日の1週間前までにご連絡ください。
               </p>
             </div>
           </div>
