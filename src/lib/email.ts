@@ -178,7 +178,6 @@ export async function sendCustomerConfirmationEmail(
 
   const customerHtml = `
     <div style="font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif; max-width: 600px; margin: 0 auto; color: #1e293b; line-height: 1.7; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-      {/* Header Banner */}
       <div style="background: linear-gradient(135deg, #0B2545 0%, #133E68 100%); padding: 24px 28px; color: #ffffff;">
         <span style="background: #f59e0b; color: #000; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">受付完了</span>
         <h1 style="margin: 10px 0 4px 0; font-size: 20px; font-weight: bold; color: #ffffff;">
@@ -204,7 +203,6 @@ export async function sendCustomerConfirmationEmail(
           専属ガイドが内容を確認の上、<strong>24時間以内</strong>にご指定の連絡先（LINEまたはこちらのメール）へ、旅程プラン詳細・お見積もりをご案内させていただきます。
         </p>
 
-        {/* Booking Code Highlight Box */}
         <div style="background: #fefce8; border: 2px dashed #f59e0b; border-radius: 10px; padding: 16px; text-align: center; margin: 24px 0;">
           <span style="font-size: 11px; font-weight: bold; color: #92400e; display: block; text-transform: uppercase;">お客様の予約管理番号</span>
           <span style="font-size: 24px; font-weight: 900; font-family: monospace; color: #0B2545; letter-spacing: 1px;">
@@ -215,7 +213,6 @@ export async function sendCustomerConfirmationEmail(
           </span>
         </div>
 
-        {/* Details Table */}
         <h3 style="font-size: 14px; font-weight: bold; color: #0B2545; margin: 24px 0 12px 0; border-left: 4px solid #f59e0b; padding-left: 8px;">
           お申し込み内容の控え
         </h3>
@@ -247,7 +244,6 @@ export async function sendCustomerConfirmationEmail(
           </tr>
         </table>
 
-        {/* Important Reassurance Notices */}
         <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 14px; font-size: 12px; color: #166534; margin: 20px 0;">
           <p style="margin: 0 0 6px 0; font-weight: bold;">
             🌿 ご安心ください（事前決済は不要です）
@@ -259,7 +255,6 @@ export async function sendCustomerConfirmationEmail(
           </ul>
         </div>
 
-        {/* LINE Callout */}
         <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;">
           <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #0B2545;">
             LINEでもスムーズにご相談・やり取りいただけます
@@ -274,7 +269,6 @@ export async function sendCustomerConfirmationEmail(
 
         <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 28px 0 20px 0;" />
 
-        {/* Signature */}
         <div style="font-size: 12px; color: #64748b; line-height: 1.6;">
           <strong style="color: #0B2545; font-size: 13px;">ベトナム日本語ガイド（Anh Tho Guide Service）</strong><br />
           専属ガイド: アン トー（Anh Tho / JLPT N1取得）<br />
