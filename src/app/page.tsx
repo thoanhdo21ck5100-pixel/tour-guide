@@ -243,7 +243,7 @@ export default function HomePage() {
               href="/tours"
               className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#0B2545] hover:bg-[#133E68] text-white font-bold text-sm sm:text-base rounded-full shadow-md hover:shadow-xl hover:scale-102 active:scale-98 transition-all"
             >
-              <span>すべてのツアープラン一覧を見る（全10プラン）</span>
+              <span>すべてのツアープラン一覧を見る（全11プラン）</span>
               <ArrowRight className="w-4 h-4 text-amber-400" />
             </Link>
             <p className="text-xs text-slate-500">
@@ -592,7 +592,7 @@ export default function HomePage() {
               href="/blog"
               className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors"
             >
-              <span>ブログ一覧へ</span>
+              <span>すべての記事を見る</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -601,6 +601,17 @@ export default function HomePage() {
             {featuredPosts.map((post) => (
               <BlogCard key={post.id} post={post} />
             ))}
+          </div>
+
+          {/* Editorial Bottom Link to All Articles */}
+          <div className="mt-10 text-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0B2545] hover:text-amber-600 bg-white border border-slate-200/90 hover:border-amber-400 px-6 py-3 rounded-full shadow-2xs hover:shadow-xs transition-all group"
+            >
+              <span>現地ガイドの旅行情報をもっと見る（全7記事）</span>
+              <ArrowRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </section>

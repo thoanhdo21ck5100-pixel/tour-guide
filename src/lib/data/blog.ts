@@ -447,8 +447,16 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
   }
 ];
 
+const FEATURED_BLOG_SLUGS = [
+  'danang-girls-trip-model-course',
+  'hoian-lantern-night-market-guide',
+  'danang-to-hue-day-trip-guide',
+];
+
 export function getFeaturedBlogPosts(): BlogPost[] {
-  return BLOG_POSTS_DATA.filter((post) => post.featured);
+  return FEATURED_BLOG_SLUGS.map((slug) => getBlogPostBySlug(slug)).filter(
+    (post): post is BlogPost => post !== undefined
+  );
 }
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
