@@ -158,8 +158,8 @@ export function generateLocalBusinessSchema() {
       closes: '22:00',
     },
     priceRange: '¥¥',
-    currenciesAccepted: 'JPY, VND, USD',
-    paymentAccepted: 'Cash, Credit Card, Bank Transfer',
+    currenciesAccepted: 'JPY, VND',
+    paymentAccepted: 'Cash',
     areaServed: ['Vietnam', 'Da Nang', 'Hoi An', 'Hue', 'Hanoi', 'Ho Chi Minh City', 'Ba Na Hills', 'My Son'],
     knowsLanguage: ['ja', 'vi', 'en'],
     sameAs: [
@@ -219,7 +219,7 @@ export function generateBlogPostSchema(post: BlogPost) {
       name: SITE_CONFIG.name,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/favicon.ico`,
+        url: `${SITE_CONFIG.url}/images/logo.png`,
       },
     },
     mainEntityOfPage: {
@@ -252,7 +252,7 @@ export function generateBreadcrumbSchema(items: { name: string; url: string }[])
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `${SITE_CONFIG.url}${item.url}`,
+      item: item.url === '/' || item.url === '' ? SITE_CONFIG.url : `${SITE_CONFIG.url}${item.url}`,
     })),
   };
 }

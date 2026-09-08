@@ -58,7 +58,15 @@ export default async function BlogPostPage({
     notFound();
   }
 
-  const relatedTour = post.relatedTourSlug ? getTourBySlug(post.relatedTourSlug) : null;
+  const tourSlugs = post.relatedTourSlugs && post.relatedTourSlugs.length > 0
+    ? post.relatedTourSlugs
+    : post.relatedTourSlug
+    ? [post.relatedTourSlug]
+    : [];
+
+  const relatedTours = tourSlugs
+    .map((s) => getTourBySlug(s))
+    .filter((t): t is NonNullable<typeof t> => t !== undefined);
   const jsonLd = generateBlogPostSchema(post);
   const breadcrumbLd = generateBreadcrumbSchema([
     { name: 'ホーム', url: '/' },
@@ -226,37 +234,53 @@ export default async function BlogPostPage({
           {/* Guide Support Card */}
           <GuideStrategicValueCard
             mode="blog"
-            relatedTourSlug={post.relatedTourSlug}
+            relatedTourSlug={post.relatedTourSlug || post.relatedTourSlugs?.[0]}
             className="mt-8 mb-4"
           />
 
           {/* ⑪ この記事に関連するツアープラン */}
-          {relatedTour && (
-            <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-[#0B2545] to-[#133E68] text-white shadow-md">
-              <div className="flex items-center gap-2 text-xs text-amber-300 font-bold mb-2">
-                <Compass className="w-4 h-4" />
-                <span>この記事に関連するプライベートツアープラン</span>
+          {relatedTours.length > 0 && (
+            <div className="mt-8 space-y-4">
+              <div className="flex items-center gap-2 text-xs text-amber-800 font-bold mb-1">
+                <Compass className="w-4 h-4 text-amber-600" />
+                <span className="text-sm font-bold text-[#0B2545]">
+                  この記事に関連するプライベートツアープラン
+                </span>
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-white mb-2">
-                {relatedTour.title}
-              </h3>
-              <p className="text-xs text-slate-200 mb-4 line-clamp-2">
-                {relatedTour.shortDescription}
-              </p>
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-3 border-t border-slate-700">
-                <div>
-                  <span className="text-xs text-slate-300">完全定額・事前決済不要: </span>
-                  <span className="text-lg font-bold text-amber-300">
-                    {relatedTour.priceJpy.toLocaleString()}円 / 名
-                  </span>
-                </div>
-                <Link
-                  href={`/tours/${relatedTour.slug}`}
-                  className="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl transition-colors flex items-center gap-1.5"
-                >
-                  <span>ツアー詳細を見る</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+              <div className={`grid grid-cols-1 ${relatedTours.length > 1 ? 'md:grid-cols-2' : ''} gap-4`}>
+                {relatedTours.map((tour) => (
+                  <div
+                    key={tour.id}
+                    className="p-6 rounded-2xl bg-gradient-to-br from-[#0B2545] to-[#133E68] text-white shadow-md flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="inline-block px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[11px] font-bold mb-2">
+                        {tour.categoryLabel}
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-white mb-2 leading-snug">
+                        {tour.title}
+                      </h3>
+                      <p className="text-xs text-slate-200 mb-4 line-clamp-2 leading-relaxed">
+                        {tour.shortDescription}
+                      </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-3 border-t border-slate-700 mt-auto">
+                      <div>
+                        <span className="text-[11px] text-slate-300 block">完全定額・事前決済不要:</span>
+                        <span className="text-base font-bold text-amber-300">
+                          {tour.priceJpy.toLocaleString()}円 / 名
+                        </span>
+                      </div>
+                      <Link
+                        href={`/tours/${tour.slug}`}
+                        className="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl transition-colors flex items-center gap-1.5 shrink-0"
+                      >
+                        <span>ツアー詳細を見る</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}

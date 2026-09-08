@@ -26,20 +26,15 @@ import XIcon from '@/components/XIcon';
 import { getFeaturedTours } from '@/lib/data/tours';
 import { getFeaturedBlogPosts } from '@/lib/data/blog';
 import { FAQS_DATA } from '@/lib/data/faqs';
-import { SITE_CONFIG, generateLocalBusinessSchema, generateFaqSchema } from '@/lib/seo';
+import { SITE_CONFIG, generateFaqSchema } from '@/lib/seo';
 
 export default function HomePage() {
   const featuredTours = getFeaturedTours();
   const featuredPosts = getFeaturedBlogPosts();
-  const localBusinessSchema = generateLocalBusinessSchema();
   const faqSchema = generateFaqSchema(FAQS_DATA);
 
   return (
     <div className="flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -170,6 +165,7 @@ export default function HomePage() {
                       src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1000&q=80"
                       alt="ダナン・ホイアンの美しい景色とプライベートツアー"
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 448px"
                       priority
                       className="object-cover"
                     />
@@ -184,6 +180,7 @@ export default function HomePage() {
                           src="/images/guide/anh-tho-avatar-v3.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
                           fill
+                          sizes="(max-width: 640px) 72px, 80px"
                           className="object-cover"
                           priority
                         />
@@ -400,6 +397,7 @@ export default function HomePage() {
                     src="/images/guide/anh-tho-about-v3.jpg"
                     alt="ベトナム日本語ガイド アン トー (Anh Tho)"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 480px"
                     className="object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545]/80 via-transparent to-transparent" />

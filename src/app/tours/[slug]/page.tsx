@@ -45,7 +45,7 @@ export async function generateMetadata({
   }
 
   return constructMetadata({
-    title: `${tour.title} | ベトナム日本語ガイド`,
+    title: tour.title,
     description: tour.shortDescription,
     image: tour.heroImage,
     canonical: `/tours/${tour.slug}`,

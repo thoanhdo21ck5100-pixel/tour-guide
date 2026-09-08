@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MessageCircle, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
+import { MessageCircle, Mail, Phone, MapPin, CheckCircle2, ArrowRight } from 'lucide-react';
 import InstagramIcon from '@/components/InstagramIcon';
 import XIcon from '@/components/XIcon';
 import { SITE_CONFIG } from '@/lib/seo';
@@ -89,18 +89,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/tours/hoian-girls-trip-aodai-photo-afternoon-tea" className="hover:text-amber-400 transition-colors">
-                  【女子旅】アオザイ変身撮影＆ランタン作り
-                </Link>
-              </li>
-              <li>
                 <Link href="/tours/danang-men-active-marine-nightlife-seafood-bar" className="hover:text-amber-400 transition-colors">
                   【男旅】爽快マリン＆豪快海鮮・夜景バー
-                </Link>
-              </li>
-              <li>
-                <Link href="/tours/danang-men-jeep-adventure-craft-beer-bbq" className="hover:text-amber-400 transition-colors">
-                  【男旅】オープンジープ探検＆クラフトビールBBQ
                 </Link>
               </li>
               <li>
@@ -108,9 +98,13 @@ export default function Footer() {
                   完全オーダーメイド・チャーター
                 </Link>
               </li>
-              <li>
-                <Link href="/tours/family-resort-relax-danang" className="hover:text-amber-400 transition-colors">
-                  ファミリー＆シニア安心の癒やし旅
+              <li className="pt-2 border-t border-slate-800">
+                <Link
+                  href="/tours"
+                  className="inline-flex items-center gap-1 text-amber-400 font-bold hover:text-amber-300 transition-colors"
+                >
+                  <span>全11ツアープラン一覧を見る</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </li>
             </ul>
@@ -208,7 +202,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div>
+          <div suppressHydrationWarning>
             &copy; {new Date().getFullYear()} ベトナム日本語ガイド (Anh Tho Guide Service). All rights reserved.
           </div>
           <div className="flex items-center gap-6">
