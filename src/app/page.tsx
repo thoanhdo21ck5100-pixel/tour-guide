@@ -166,7 +166,6 @@ export default function HomePage() {
                       alt="ダナン・ホイアンの美しい景色とプライベートツアー"
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 448px"
-                      priority
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-transparent to-black/30" />
@@ -182,7 +181,6 @@ export default function HomePage() {
                           fill
                           sizes="(max-width: 640px) 72px, 80px"
                           className="object-cover"
-                          priority
                         />
                       </div>
                       <div>

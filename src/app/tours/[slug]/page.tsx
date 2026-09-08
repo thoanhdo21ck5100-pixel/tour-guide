@@ -145,6 +145,7 @@ export default async function TourDetailPage({
               alt={tour.title}
               fill
               priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#07192E] via-[#07192E]/40 to-transparent" />
