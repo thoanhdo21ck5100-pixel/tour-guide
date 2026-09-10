@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Calendar, Compass, FileText, Inbox, Plus, ArrowRight, ShieldCheck, Clock } from 'lucide-react';
-import { getAllTours, getAllBlogs, fetchAllBookingsAdmin } from '@/lib/supabase';
+import { Calendar, Compass, FileText, Inbox, Plus, ArrowRight, ShieldCheck, Clock, Camera } from 'lucide-react';
+import { getAllTours, getAllBlogs, fetchAllBookingsAdmin, getAllCustomTourPlansAdmin } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -9,6 +9,7 @@ export default async function AdminDashboardPage() {
   const tours = await getAllTours();
   const blogs = await getAllBlogs();
   const bookings = await fetchAllBookingsAdmin();
+  const customPlans = await getAllCustomTourPlansAdmin();
 
   return (
     <div className="p-6 sm:p-10 space-y-8 max-w-6xl w-full mx-auto">
@@ -20,17 +21,24 @@ export default async function AdminDashboardPage() {
             ダナンガイド 管理ダッシュボード
           </h1>
           <p className="text-xs text-slate-500 mt-1">
-            カレンダーの空き枠切り替え、ツアープラン更新、ブログ記事作成を一元管理
+            カレンダーの空き枠切り替え、ツアープラン更新、ツアー日程・写真管理を一元管理
           </p>
         </div>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 flex-wrap">
           <Link
-            href="/admin/calendar"
+            href="/admin/plans"
             className="px-4 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow-xs transition-colors flex items-center gap-1.5"
           >
+            <Camera className="w-4 h-4" />
+            <span>ツアー日程・写真</span>
+          </Link>
+          <Link
+            href="/admin/calendar"
+            className="px-4 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs rounded-xl shadow-xs transition-colors flex items-center gap-1.5"
+          >
             <Calendar className="w-4 h-4" />
-            <span>カレンダー空き管理</span>
+            <span>カレンダー空き</span>
           </Link>
           <Link
             href="/admin/tours/new"
@@ -43,7 +51,7 @@ export default async function AdminDashboardPage() {
       </div>
 
       {/* KPI Stats Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
         {/* Calendar Card */}
         <Link
           href="/admin/calendar"
@@ -58,8 +66,8 @@ export default async function AdminDashboardPage() {
             </span>
           </div>
           <h2 className="text-xs font-bold text-slate-500 mt-3">カレンダー管理</h2>
-          <div className="text-xl font-black text-[#0B2545] mt-1">ワンクリック切替</div>
-          <p className="text-[11px] text-slate-400 mt-0.5">空き / 満席を即時反映</p>
+          <div className="text-xl font-black text-[#0B2545] mt-1">空き枠切替</div>
+          <p className="text-[11px] text-slate-400 mt-0.5">即時反映</p>
         </Link>
 
         {/* Tours Card */}
@@ -77,7 +85,25 @@ export default async function AdminDashboardPage() {
           </div>
           <h2 className="text-xs font-bold text-slate-500 mt-3">掲載中ツアー</h2>
           <div className="text-2xl font-black text-[#0B2545] mt-1">{tours.length} 件</div>
-          <p className="text-[11px] text-slate-400 mt-0.5">プラン編集＆価格設定</p>
+          <p className="text-[11px] text-slate-400 mt-0.5">プラン＆価格設定</p>
+        </Link>
+
+        {/* Tour Plans & Photos Card */}
+        <Link
+          href="/admin/plans"
+          className="bg-white p-5 rounded-2xl border border-amber-200 shadow-xs hover:shadow-md transition-shadow group bg-gradient-to-b from-white to-amber-50/20"
+        >
+          <div className="flex items-center justify-between">
+            <div className="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-2xs">
+              <Camera className="w-5 h-5" />
+            </div>
+            <span className="text-xs text-amber-600 font-bold group-hover:text-amber-700 transition-colors">
+              詳細へ →
+            </span>
+          </div>
+          <h2 className="text-xs font-bold text-amber-900 mt-3">日程＆写真管理</h2>
+          <div className="text-2xl font-black text-[#0B2545] mt-1">{customPlans.length} 件</div>
+          <p className="text-[11px] text-slate-400 mt-0.5">JPVNコード・Drive連携</p>
         </Link>
 
         {/* Blog Card */}
@@ -95,7 +121,7 @@ export default async function AdminDashboardPage() {
           </div>
           <h2 className="text-xs font-bold text-slate-500 mt-3">公開ブログ記事</h2>
           <div className="text-2xl font-black text-[#0B2545] mt-1">{blogs.length} 本</div>
-          <p className="text-[11px] text-slate-400 mt-0.5">SEO対策・現地最新情報</p>
+          <p className="text-[11px] text-slate-400 mt-0.5">SEO＆現地情報</p>
         </Link>
 
         {/* Bookings Card */}
@@ -113,7 +139,7 @@ export default async function AdminDashboardPage() {
           </div>
           <h2 className="text-xs font-bold text-slate-500 mt-3">受信予約件数</h2>
           <div className="text-2xl font-black text-[#0B2545] mt-1">{bookings.length} 件</div>
-          <p className="text-[11px] text-slate-400 mt-0.5">お客様からの仮予約</p>
+          <p className="text-[11px] text-slate-400 mt-0.5">仮予約リクエスト</p>
         </Link>
       </div>
 

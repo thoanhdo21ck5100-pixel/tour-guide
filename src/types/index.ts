@@ -116,3 +116,40 @@ export interface DayAvailability {
   remainingSlots?: number;
   note?: string;
 }
+
+export interface TourPlanScheduleItem {
+  time: string; // e.g., '08:30', '12:00'
+  title: string; // e.g., 'ホテルお迎え・出発'
+  description?: string;
+  location?: string;
+}
+
+export type PhotoStatus = 'pending' | 'ready' | 'expired';
+
+export interface CustomTourPlan {
+  id: string;
+  tourCode: string; // e.g., 'JPVN-8392' (unique, uppercase)
+  bookingId?: string; // Optional link to original booking
+  customerName: string;
+  customerKana?: string;
+  customerEmail: string; // Used for secure 2-factor lookup
+  customerPhone?: string;
+  tourTitle: string; // e.g., 'ダナン・ホイアン 1日オーダーメイドプライベートツアー'
+  tourDate: string; // Start date YYYY-MM-DD
+  endDate?: string; // If multi-day
+  pickupTime?: string; // e.g., '08:30'
+  pickupLocation?: string; // Hotel name or meetup point
+  adultsCount: number;
+  childrenCount: number;
+  participantsNotes?: string; // Names / notes about participants
+  schedule: TourPlanScheduleItem[]; // Chronological confirmed schedule with hours
+  guideNotes?: string; // Tips for clothing, weather, money, etc.
+  driveUrl?: string; // Google Drive / Photos / OneDrive album link
+  photoStatus: PhotoStatus;
+  photosUploadedAt?: string; // ISO date
+  photosExpireAt?: string; // ISO date (typically tourDate or photosUploadedAt + 7 days)
+  status: 'draft' | 'confirmed' | 'in_progress' | 'completed' | 'cancelled';
+  createdAt: string;
+  updatedAt: string;
+}
+

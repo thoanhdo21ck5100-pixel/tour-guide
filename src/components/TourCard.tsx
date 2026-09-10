@@ -74,12 +74,12 @@ export default function TourCard({ tour }: TourCardProps) {
             </span>
             <div className="flex items-baseline gap-1">
               <span className="text-xl sm:text-2xl font-black text-[#0B2545]">
-                {tour.priceJpy.toLocaleString()}
+                {tour.priceJpy.toLocaleString('ja-JP')}
               </span>
               <span className="text-xs font-bold text-slate-700">円 / 名</span>
             </div>
             <span className="text-[10px] text-slate-400">
-              (約 {tour.priceVnd.toLocaleString()} VND)
+              (約 {tour.priceVnd.toLocaleString('ja-JP')} VND)
             </span>
           </div>
 

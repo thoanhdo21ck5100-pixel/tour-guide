@@ -141,6 +141,11 @@ export default function Footer() {
                   予約・無料相談カレンダー
                 </Link>
               </li>
+              <li className="pt-1.5">
+                <Link href="/tour-plan" className="text-amber-400 hover:text-amber-300 transition-colors font-bold flex items-center gap-1">
+                  <span>個人ツアープラン照会・写真</span>
+                </Link>
+              </li>
             </ul>
           </div>
 

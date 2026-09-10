@@ -12,8 +12,9 @@ import {
   LogOut,
   ExternalLink,
   ShieldCheck,
+  Camera,
 } from 'lucide-react';
-import { supabase } from '@/lib/supabase';
+import { supabase } from '@/lib/supabaseClient';
 
 export default function AdminSidebar() {
   const pathname = usePathname();
@@ -25,6 +26,7 @@ export default function AdminSidebar() {
     { label: 'ツアープラン CMS', href: '/admin/tours', icon: Compass },
     { label: '現地ブログ CMS', href: '/admin/blog', icon: FileText },
     { label: '予約リクエスト', href: '/admin/bookings', icon: Inbox },
+    { label: 'ツアー日程・写真管理', href: '/admin/plans', icon: Camera },
   ];
 
   const handleLogout = async () => {

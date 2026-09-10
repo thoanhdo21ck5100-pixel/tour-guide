@@ -203,13 +203,22 @@ export async function sendCustomerConfirmationEmail(
           専属ガイドが内容を確認の上、<strong>24時間以内</strong>にご指定の連絡先（LINEまたはこちらのメール）へ、旅程プラン詳細・お見積もりをご案内させていただきます。
         </p>
 
-        <div style="background: #fefce8; border: 2px dashed #f59e0b; border-radius: 10px; padding: 16px; text-align: center; margin: 24px 0;">
+        <div style="background: #fefce8; border: 2px dashed #f59e0b; border-radius: 10px; padding: 16px; text-align: center; margin: 24px 0 16px 0;">
           <span style="font-size: 11px; font-weight: bold; color: #92400e; display: block; text-transform: uppercase;">お客様の予約管理番号</span>
           <span style="font-size: 24px; font-weight: 900; font-family: monospace; color: #0B2545; letter-spacing: 1px;">
             ${bookingCode}
           </span>
           <span style="font-size: 11px; color: #78350f; display: block; margin-top: 4px;">
             ※今後のやり取りや確認の際、こちらの番号をお伝えいただくとスムーズです。
+          </span>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 24px;">
+          <a href="${SITE_URL}/tour-plan?code=${encodeURIComponent(bookingCode)}&email=${encodeURIComponent(customerEmail)}" style="display: inline-block; background: #0B2545; color: #ffffff; text-decoration: none; padding: 11px 22px; border-radius: 8px; font-weight: bold; font-size: 12px;">
+            🔍 個人ツアープラン・写真の確認画面を開く →
+          </a>
+          <span style="font-size: 11px; color: #64748b; display: block; margin-top: 6px;">
+            ※ツアー確定後のタイムライン詳細や、ツアー終了後の写真（7日間限定）をご確認いただけます。
           </span>
         </div>
 

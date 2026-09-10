@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { fetchAllBookingsAdmin, updateBookingStatus } from '@/lib/supabase';
+import { fetchAllBookingsAdmin, updateBookingStatus, deleteBooking } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -34,3 +34,21 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+
+    if (!id) {
+      return NextResponse.json({ error: 'Missing booking ID' }, { status: 400 });
+    }
+
+    const success = await deleteBooking(id);
+    return NextResponse.json({ success });
+  } catch (error) {
+    console.error('Error deleting booking:', error);
+    return NextResponse.json({ error: 'Server error' }, { status: 500 });
+  }
+}
+

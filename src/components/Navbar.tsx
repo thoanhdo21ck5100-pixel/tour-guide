@@ -74,6 +74,9 @@ export default function Navbar() {
           <Link href="/#faq" className="hover:text-amber-600 transition-colors whitespace-nowrap">
             よくある質問
           </Link>
+          <Link href="/tour-plan" className="hover:text-amber-600 transition-colors whitespace-nowrap flex items-center gap-1 font-bold text-amber-700">
+            <span>プラン照会・写真</span>
+          </Link>
         </nav>
 
         {/* Action Buttons */}
@@ -166,6 +169,14 @@ export default function Navbar() {
               className="py-1 border-b border-slate-100 hover:text-amber-600"
             >
               よくある質問（FAQ）
+            </Link>
+            <Link
+              href="/tour-plan"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 border-b border-slate-100 text-amber-700 font-bold flex items-center justify-between"
+            >
+              <span>個人ツアープラン照会・写真</span>
+              <span className="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">ご予約者様専用</span>
             </Link>
             <div className="pt-2 flex flex-col gap-2.5">
               <a

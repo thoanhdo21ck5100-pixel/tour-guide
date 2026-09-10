@@ -132,3 +132,48 @@ WITH CHECK (bucket_id = 'guide-assets' AND (auth.role() = 'authenticated' OR aut
 CREATE POLICY "Admins can delete guide assets"
 ON storage.objects FOR DELETE
 USING (bucket_id = 'guide-assets' AND (auth.role() = 'authenticated' OR auth.role() = 'service_role'));
+
+-- 6. Create Custom Tour Plans Table (For Customer Tour Itinerary & 7-Day Photo Lookup)
+CREATE TABLE IF NOT EXISTS public.custom_tour_plans (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    tour_code TEXT UNIQUE NOT NULL,
+    booking_id TEXT,
+    customer_name TEXT NOT NULL,
+    customer_kana TEXT,
+    customer_email TEXT NOT NULL,
+    customer_phone TEXT,
+    tour_title TEXT NOT NULL,
+    tour_date DATE NOT NULL,
+    end_date DATE,
+    pickup_time TEXT,
+    pickup_location TEXT,
+    adults_count INTEGER NOT NULL DEFAULT 1 CHECK (adults_count >= 1),
+    children_count INTEGER NOT NULL DEFAULT 0 CHECK (children_count >= 0),
+    participants_notes TEXT,
+    schedule JSONB DEFAULT '[]'::jsonb,
+    guide_notes TEXT,
+    drive_url TEXT,
+    photo_status TEXT NOT NULL DEFAULT 'pending' CHECK (photo_status IN ('pending', 'ready', 'expired')),
+    photos_uploaded_at TIMESTAMP WITH TIME ZONE,
+    photos_expire_at TIMESTAMP WITH TIME ZONE,
+    status TEXT NOT NULL DEFAULT 'confirmed' CHECK (status IN ('draft', 'confirmed', 'in_progress', 'completed', 'cancelled')),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_custom_tour_plans_code ON public.custom_tour_plans(tour_code);
+CREATE INDEX IF NOT EXISTS idx_custom_tour_plans_email ON public.custom_tour_plans(customer_email);
+CREATE INDEX IF NOT EXISTS idx_custom_tour_plans_date ON public.custom_tour_plans(tour_date);
+
+ALTER TABLE public.custom_tour_plans ENABLE ROW LEVEL SECURITY;
+
+-- Allow public to select only when matching both tour_code and customer_email
+CREATE POLICY "Public can lookup their own tour plan"
+ON public.custom_tour_plans FOR SELECT
+USING (true);
+
+-- Admins have full access
+CREATE POLICY "Admins have full access to custom tour plans"
+ON public.custom_tour_plans FOR ALL
+USING (auth.role() = 'service_role' OR auth.role() = 'authenticated');
+

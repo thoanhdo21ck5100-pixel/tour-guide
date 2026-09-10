@@ -345,11 +345,11 @@ export default async function TourDetailPage({
 
               <div className="flex flex-wrap items-baseline gap-3 pt-1">
                 <div className="text-2xl font-black text-[#0B2545]">
-                  {tour.priceJpy.toLocaleString()}
+                  {tour.priceJpy.toLocaleString('ja-JP')}
                   <span className="text-sm font-bold text-slate-700"> 円 / 名</span>
                 </div>
                 <div className="text-xs text-slate-500">
-                  （約 {tour.priceVnd.toLocaleString()} VND）
+                  （約 {tour.priceVnd.toLocaleString('ja-JP')} VND）
                 </div>
                 {tour.priceNote && (
                   <div className="text-xs text-slate-400">{tour.priceNote}</div>
@@ -504,12 +504,12 @@ export default async function TourDetailPage({
               {/* Price display */}
               <div className="flex items-baseline gap-1 mb-1">
                 <span className="text-3xl font-black text-[#0B2545]">
-                  {tour.priceJpy.toLocaleString()}
+                  {tour.priceJpy.toLocaleString('ja-JP')}
                 </span>
                 <span className="text-sm font-bold text-slate-700">円 / 名</span>
               </div>
               <p className="text-xs text-slate-500">
-                (約 {tour.priceVnd.toLocaleString()} VND)
+                (約 {tour.priceVnd.toLocaleString('ja-JP')} VND)
               </p>
               {tour.priceNote && (
                 <p className="text-[11px] text-slate-400 mt-1">{tour.priceNote}</p>

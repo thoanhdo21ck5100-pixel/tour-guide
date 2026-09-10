@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { saveBooking } from '@/lib/supabase';
+import { saveBooking, upsertCustomTourPlan } from '@/lib/supabase';
 import { BookingSubmission } from '@/types';
 import { getTourBySlug } from '@/lib/data/tours';
 import { sendAdminBookingEmail, sendCustomerConfirmationEmail } from '@/lib/email';
@@ -84,6 +84,49 @@ export async function POST(request: NextRequest) {
     };
 
     const result = await saveBooking(submission);
+
+    // Auto-create initial CustomTourPlan so customer can immediately check details & status at /tour-plan
+    try {
+      await upsertCustomTourPlan({
+        tourCode: result.bookingCode,
+        bookingId: result.id,
+        customerName: submission.name,
+        customerKana: submission.kana,
+        customerEmail: customerEmail || (submission.contactType === 'email' ? submission.contactValue : ''),
+        customerPhone: submission.contactType === 'email' ? undefined : `[${submission.contactType.toUpperCase()}] ${submission.contactValue}`,
+        tourTitle: submission.tourName || submission.tourSlug,
+        tourDate: submission.preferredDate,
+        endDate: submission.endDate || (submission.tripType === 'multi' ? submission.alternativeDate : undefined),
+        pickupTime: '08:30（専属ガイド調整中）',
+        pickupLocation: submission.hotelName || 'ホテルロビー',
+        adultsCount: submission.adultsCount,
+        childrenCount: submission.childrenCount,
+        participantsNotes: submission.specialRequests || '',
+        schedule: [
+          {
+            time: '受付完了',
+            title: '専属ガイド（アン トー）が旅程を確認・作成中',
+            description: submission.specialRequests
+              ? `仮予約リクエストを正常に受け付けました。ご要望に合わせて、専属ガイドより24時間以内に最適なタイムラインと詳細見積もりをご案内いたします。`
+              : '仮予約リクエストを正常に受け付けました。専属ガイドより24時間以内に最適なタイムラインと詳細見積もりをご案内いたします。',
+            location: submission.hotelName || 'ダナン・ホイアン',
+          },
+          {
+            time: submission.preferredDate,
+            title: 'ツアー初日・お迎え予定',
+            description: '専用車と専属日本語ガイドがホテルロビーへお迎えにあがります。',
+            location: submission.hotelName || '宿泊先ホテル',
+          },
+        ],
+        guideNotes:
+          '事前決済は不要です。ツアー料金はベトナム到着後に全額お支払いいただけます（日本円・ベトナムドン両替対応）。日程の変更やご質問がございましたら、公式LINEより予約管理番号をお知らせください。',
+        driveUrl: '',
+        photoStatus: 'pending',
+        status: 'draft',
+      });
+    } catch (planErr) {
+      console.warn('Auto-creation of CustomTourPlan upon booking failed:', planErr);
+    }
 
     const adminUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://vietnam-nihongo-guide.com'}/admin/bookings`;
 

@@ -397,27 +397,27 @@ export default function BookingForm({
               </div>
             </div>
 
-            {/* Dedicated Email Field (Optional for backup / ID typo prevention) */}
+            {/* Dedicated Email Field (Optional for backup / tour plan & photo download) */}
             {formData.contactType !== 'email' && (
               <div>
                 <label htmlFor="booking-backup-email" className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
                   <span>
-                    メールアドレス <span className="text-slate-500 font-normal">（任意・予備連絡先）</span>
+                    メールアドレス <span className="text-amber-700 font-bold">（推奨・旅程確認＆写真受信用）</span>
                   </span>
                   <span className="text-[10px] text-amber-700 font-normal">
-                    ※ID入力ミス防止・確認用
+                    ※旅程確認・写真受け取りがスムーズになります
                   </span>
                 </label>
                 <input
                   id="booking-backup-email"
                   type="email"
-                  placeholder="例: yamada@example.com（LINEのID検索が不可の際などの予備連絡先として）"
+                  placeholder="例: yamada@example.com（ツアー日程表や写真ダウンロード用の確認先として）"
                   value={formData.backupEmail}
                   onChange={(e) => setFormData({ ...formData, backupEmail: e.target.value })}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-hidden focus:ring-2 focus:ring-amber-500 bg-white"
                 />
                 <span className="text-[10px] text-slate-500 mt-1 block">
-                  ※LINE等のIDに誤りがあった場合の確認用としてご入力いただけます（任意）
+                  ※ご入力いただくと、専用ページ（/tour-plan）での旅程確認や記念写真の受け取りが簡単に行えます（未入力の場合でもLINE IDでご確認いただけます）。
                 </span>
               </div>
             )}

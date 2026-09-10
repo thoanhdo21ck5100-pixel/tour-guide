@@ -84,9 +84,9 @@ export default async function AdminToursListPage() {
 
                   {/* Price */}
                   <td className="py-3.5 px-4 font-bold text-[#0B2545]">
-                    {tour.priceJpy.toLocaleString()} 円
+                    {tour.priceJpy.toLocaleString('ja-JP')} 円
                     <span className="block text-[10px] text-slate-400 font-normal">
-                      約 {tour.priceVnd.toLocaleString()} VND
+                      約 {tour.priceVnd.toLocaleString('ja-JP')} VND
                     </span>
                   </td>
 

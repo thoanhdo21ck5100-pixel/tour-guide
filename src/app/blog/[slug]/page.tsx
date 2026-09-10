@@ -269,7 +269,7 @@ export default async function BlogPostPage({
                       <div>
                         <span className="text-[11px] text-slate-300 block">完全定額・事前決済不要:</span>
                         <span className="text-base font-bold text-amber-300">
-                          {tour.priceJpy.toLocaleString()}円 / 名
+                          {tour.priceJpy.toLocaleString('ja-JP')}円 / 名
                         </span>
                       </div>
                       <Link
