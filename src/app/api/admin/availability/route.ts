@@ -26,8 +26,14 @@ export async function POST(request: NextRequest) {
     const result = await updateDateAvailability(date, status, note, 'admin_user');
 
     if (!result.success) {
+      console.error('Failed to update availability in Supabase:', result.error);
+      const isRlsError = result.error?.includes('row-level security');
       return NextResponse.json(
-        { error: result.error || '空き状況の更新に失敗しました。' },
+        {
+          error: isRlsError
+            ? 'SupabaseのRLS（行レベルセキュリティ）により更新が拒否されました。Supabase SQL Editorで availability テーブルのRLSを無効化するか、正しい service_role key を設定してください。'
+            : result.error || '空き状況の更新に失敗しました。',
+        },
         { status: 500 }
       );
     }
