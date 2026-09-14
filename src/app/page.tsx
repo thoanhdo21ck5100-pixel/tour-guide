@@ -4,14 +4,8 @@ import {
   MessageCircle,
   Calendar,
   ArrowRight,
-  ShieldCheck,
-  Star,
   Sparkles,
-  HeartHandshake,
   Check,
-  MapPin,
-  Car,
-  QrCode,
   Plane,
   Luggage,
   Clock,
@@ -162,9 +156,10 @@ export default function HomePage() {
                 <div className="relative rounded-3xl overflow-hidden border-2 border-amber-400/30 shadow-2xl bg-slate-900">
                   <div className="relative h-96 w-full">
                     <Image
-                      src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1000&q=80"
+                      src="/images/hero-vietnam.jpg"
                       alt="ダナン・ホイアンの美しい景色とプライベートツアー"
                       fill
+                      priority
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 448px"
                       className="object-cover"
                     />
@@ -179,6 +174,7 @@ export default function HomePage() {
                           src="/images/guide/anh-tho-avatar-v3.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
                           fill
+                          priority
                           sizes="(max-width: 640px) 72px, 80px"
                           className="object-cover"
                         />
