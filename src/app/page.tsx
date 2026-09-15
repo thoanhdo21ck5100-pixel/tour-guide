@@ -174,7 +174,6 @@ export default function HomePage() {
                           src="/images/guide/anh-tho-avatar-v3.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
                           fill
-                          priority
                           sizes="(max-width: 640px) 64px, 80px"
                           className="object-cover"
                         />
