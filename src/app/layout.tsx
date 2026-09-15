@@ -1,10 +1,18 @@
 import type { Metadata } from 'next';
+import { Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import MobileStickyBar from '@/components/MobileStickyBar';
 import ConditionalRouteWrapper from '@/components/ConditionalRouteWrapper';
 import { constructMetadata, generateLocalBusinessSchema } from '@/lib/seo';
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-noto-sans-jp',
+  display: 'swap',
+});
 
 export const metadata: Metadata = constructMetadata();
 
@@ -16,7 +24,7 @@ export default function RootLayout({
   const jsonLd = generateLocalBusinessSchema();
 
   return (
-    <html lang="ja" className="scroll-smooth">
+    <html lang="ja" className={`scroll-smooth ${notoSansJP.variable}`}>
       <head>
         <meta
           name="google-site-verification"
