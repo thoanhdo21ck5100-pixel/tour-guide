@@ -20,14 +20,14 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs transition-all">
       {/* Top Notification Bar for Trust */}
-      <div className="bg-[#0B2545] text-white text-xs py-1.5 px-4 text-center font-medium tracking-wide">
-        <div className="max-w-6xl mx-auto flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+      <div className="bg-[#0B2545] text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-4 text-center font-medium tracking-wide">
+        <div className="max-w-6xl mx-auto flex items-center justify-center gap-1.5 sm:gap-4 flex-wrap">
           <span className="inline-flex items-center gap-1 text-amber-300">
             <ShieldCheck className="w-3.5 h-3.5" />
             ダナン出身・JLPT N1の日本語ガイド
           </span>
-          <span className="hidden sm:inline text-slate-400">|</span>
-          <span>1日1組限定・ベトナム全土プライベートツアー</span>
+          <span className="hidden md:inline text-slate-400">|</span>
+          <span className="hidden sm:inline">1日1組限定・ベトナム全土プライベートツアー</span>
           <span className="hidden sm:inline text-slate-400">|</span>
           <span className="text-emerald-300 font-medium">LINEで事前相談いつでも無料受付中</span>
         </div>
@@ -79,56 +79,60 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Action Buttons */}
-        <div className="hidden sm:flex items-center gap-2 shrink-0">
-          <a
-            href={SITE_CONFIG.lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-[34px] h-[34px] rounded-full bg-emerald-50 border border-emerald-200 text-[#06c755] hover:bg-emerald-100 flex items-center justify-center shrink-0 transition-all hover:scale-105"
-            title="公式LINEで無料相談"
-            aria-label="公式LINEで無料相談"
-          >
-            <MessageCircle className="w-4 h-4 fill-[#06c755] shrink-0" />
-          </a>
-          <a
-            href={SITE_CONFIG.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-[34px] h-[34px] rounded-full bg-pink-50 border border-pink-200 text-pink-600 hover:bg-pink-100 flex items-center justify-center shrink-0 transition-all hover:scale-105"
-            title="Instagram DM"
-            aria-label="Instagram DM"
-          >
-            <InstagramIcon className="w-4 h-4 text-pink-500 shrink-0" />
-          </a>
-          <a
-            href={SITE_CONFIG.xUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-[34px] h-[34px] rounded-full bg-slate-100 border border-slate-200 text-slate-800 hover:bg-slate-200 hover:text-black flex items-center justify-center shrink-0 transition-all hover:scale-105"
-            title="公式 X (Twitter)"
-            aria-label="公式 X (Twitter)"
-          >
-            <XIcon className="w-3.5 h-3.5 text-slate-800 shrink-0" />
-          </a>
+        {/* Action Buttons & Mobile Toggle */}
+        <div className="flex items-center gap-2 shrink-0">
+          {/* Social Icons only on xl screens to avoid cramped header */}
+          <div className="hidden xl:flex items-center gap-2">
+            <a
+              href={SITE_CONFIG.lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-[34px] h-[34px] rounded-full bg-emerald-50 border border-emerald-200 text-[#06c755] hover:bg-emerald-100 flex items-center justify-center shrink-0 transition-all hover:scale-105"
+              title="公式LINEで無料相談"
+              aria-label="公式LINEで無料相談"
+            >
+              <MessageCircle className="w-4 h-4 fill-[#06c755] shrink-0" />
+            </a>
+            <a
+              href={SITE_CONFIG.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-[34px] h-[34px] rounded-full bg-pink-50 border border-pink-200 text-pink-600 hover:bg-pink-100 flex items-center justify-center shrink-0 transition-all hover:scale-105"
+              title="Instagram DM"
+              aria-label="Instagram DM"
+            >
+              <InstagramIcon className="w-4 h-4 text-pink-500 shrink-0" />
+            </a>
+            <a
+              href={SITE_CONFIG.xUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-[34px] h-[34px] rounded-full bg-slate-100 border border-slate-200 text-slate-800 hover:bg-slate-200 hover:text-black flex items-center justify-center shrink-0 transition-all hover:scale-105"
+              title="公式 X (Twitter)"
+              aria-label="公式 X (Twitter)"
+            >
+              <XIcon className="w-3.5 h-3.5 text-slate-800 shrink-0" />
+            </a>
+          </div>
+
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-1.5 h-[34px] px-3.5 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full hover:from-amber-600 hover:to-amber-700 shadow-sm hover:shadow transition-all shrink-0 whitespace-nowrap"
+            className="hidden sm:inline-flex items-center justify-center gap-1.5 h-[36px] px-3.5 sm:px-4 text-xs font-bold text-white bg-gradient-to-r from-amber-500 to-amber-600 rounded-full hover:from-amber-600 hover:to-amber-700 shadow-sm hover:shadow transition-all shrink-0 whitespace-nowrap"
           >
             <Calendar className="w-3.5 h-3.5 text-white shrink-0" />
             <span>予約・無料相談</span>
           </Link>
-        </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 text-slate-700 hover:text-[#0B2545] rounded-lg focus:outline-hidden"
-          aria-label="メニューを開く"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 text-slate-700 hover:text-[#0B2545] rounded-lg focus:outline-hidden"
+            aria-label="メニューを開く"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Dropdown Drawer */}

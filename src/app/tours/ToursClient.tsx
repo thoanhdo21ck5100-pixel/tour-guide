@@ -139,10 +139,10 @@ export default function ToursClient() {
             <p className="mt-3 text-xs sm:text-sm text-slate-200 leading-relaxed">
               「フエの古都巡りと話題のカフェを組み合わせたい」「ゴルフ場送迎のあとに海鮮レストランへ直行したい」など、既存のツアープランにないご要望もLINEで日本語でお気軽にご相談ください。
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-2.5 sm:gap-3">
               <Link
                 href="/contact"
-                className="h-11 px-6 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center"
+                className="w-full sm:w-auto h-11 px-6 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center text-center"
               >
                 オーダーメイドのご相談・お見積り
               </Link>
@@ -150,28 +150,28 @@ export default function ToursClient() {
                 href={SITE_CONFIG.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-11 px-5 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5"
+                className="flex-1 sm:flex-initial h-11 px-4 sm:px-5 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5 whitespace-nowrap"
               >
                 <MessageCircle className="w-4 h-4 fill-white shrink-0" />
-                LINEで相談する
+                LINE相談
               </a>
               <a
                 href={SITE_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-11 px-5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5"
+                className="flex-1 sm:flex-initial h-11 px-4 sm:px-5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5 whitespace-nowrap"
               >
                 <InstagramIcon className="w-4 h-4 text-white shrink-0" />
-                Instagram DMで相談
+                Instagram
               </a>
               <a
                 href={SITE_CONFIG.xUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-11 px-5 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5"
+                className="flex-1 sm:flex-initial h-11 px-4 sm:px-5 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5 whitespace-nowrap"
               >
                 <XIcon className="w-3.5 h-3.5 text-white shrink-0" />
-                X / Twitterで相談
+                X (Twitter)
               </a>
             </div>
           </div>

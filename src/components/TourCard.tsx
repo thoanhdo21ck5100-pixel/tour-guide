@@ -9,9 +9,12 @@ interface TourCardProps {
 
 export default function TourCard({ tour }: TourCardProps) {
   return (
-    <div className="flex flex-col bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 group">
+    <Link
+      href={`/tours/${tour.slug}`}
+      className="flex flex-col bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer h-full"
+    >
       {/* Card Image */}
-      <div className="relative h-56 w-full overflow-hidden bg-slate-100">
+      <div className="relative h-52 sm:h-56 w-full overflow-hidden bg-slate-100">
         <Image
           src={tour.heroImage}
           alt={tour.title}
@@ -46,7 +49,7 @@ export default function TourCard({ tour }: TourCardProps) {
       </div>
 
       {/* Card Body */}
-      <div className="p-6 flex-1 flex flex-col justify-between">
+      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
         <div>
           <h3 className="text-base sm:text-lg font-bold text-[#0B2545] leading-snug group-hover:text-amber-600 transition-colors">
             {tour.title}
@@ -67,7 +70,7 @@ export default function TourCard({ tour }: TourCardProps) {
         </div>
 
         {/* Price & Action */}
-        <div className="mt-6 pt-4 border-t border-slate-100 flex items-end justify-between">
+        <div className="mt-6 pt-4 border-t border-slate-100 flex items-end justify-between gap-3">
           <div>
             <span className="text-[11px] text-emerald-700 font-medium block">
               事前決済不要・現地払い
@@ -83,15 +86,12 @@ export default function TourCard({ tour }: TourCardProps) {
             </span>
           </div>
 
-          <Link
-            href={`/tours/${tour.slug}`}
-            className="inline-flex items-center gap-1.5 px-4 py-2.5 bg-[#0B2545] text-white text-xs font-bold rounded-xl group-hover:bg-amber-600 transition-colors shadow-xs"
-          >
+          <div className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-[#0B2545] text-white text-xs font-bold rounded-xl group-hover:bg-amber-600 transition-colors shadow-xs shrink-0">
             <span>詳細・予約相談</span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

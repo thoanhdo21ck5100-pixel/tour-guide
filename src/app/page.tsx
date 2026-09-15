@@ -45,15 +45,15 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Hero Left Column: Copy & CTAs */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div className="lg:col-span-7 space-y-6 text-left">
               {/* Trust Tag */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs font-bold tracking-wide">
-                <Sparkles className="w-3.5 h-3.5" />
+                <Sparkles className="w-3.5 h-3.5 shrink-0" />
                 <span>ダナン出身・日本語能力試験N1専属ガイド（ベトナム全土対応）</span>
               </div>
 
               {/* Primary SEO Heading */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-[1.25]">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.25]">
                 安心の日本語で巡る、
                 <br />
                 一生モノの
@@ -63,50 +63,50 @@ export default function HomePage() {
               </h1>
 
               {/* Subheading with Secondary Keywords */}
-              <p className="text-sm sm:text-base text-slate-200 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <p className="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed max-w-xl">
                 ダナン・ホイアンをはじめ、ハノイやホーチミンなどベトナム全土の観光は、日本語堪能な専属ガイドにお任せください。五行山、バーナーヒルズなどの名所巡りから、ベトナム各地の完全オーダーメイドツアーまで、専用車で他人に気兼ねなくマイペースに満喫いただけます。
               </p>
 
               {/* Key selling bullets */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 sm:gap-x-5 text-xs text-slate-300">
+              <div className="flex flex-wrap items-center justify-start gap-y-2 gap-x-3.5 sm:gap-x-5 text-xs text-slate-300">
                 <span className="flex items-center gap-1.5">
-                  <Check className="w-4 h-4 text-emerald-400" />
+                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                   日本語検定N1ガイド専属
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Check className="w-4 h-4 text-emerald-400" />
+                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                   1日1組様限定・完全貸切
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Check className="w-4 h-4 text-emerald-400" />
+                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                   ベトナム全土・空港＆ホテル送迎対応
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Check className="w-4 h-4 text-emerald-400" />
+                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                   事前決済不要・到着後に全額払い
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Check className="w-4 h-4 text-emerald-400" />
+                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                   チップ不要の明朗会計
                 </span>
               </div>
 
               {/* CTAs */}
-              <div className="pt-2 flex flex-col items-center lg:items-start gap-3 max-w-lg">
+              <div className="pt-2 flex flex-col items-stretch sm:items-start gap-3 max-w-lg">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-102 active:scale-98 transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs sm:text-sm md:text-base shadow-lg hover:shadow-xl hover:scale-102 active:scale-98 transition-all text-center"
                 >
-                  <Calendar className="w-4 h-4 text-white" />
+                  <Calendar className="w-4 h-4 text-white shrink-0" />
                   <span>予約・無料相談を申し込む（事前決済不要）</span>
                 </Link>
 
-                <div className="w-full grid grid-cols-3 gap-2.5">
+                <div className="w-full grid grid-cols-3 gap-2 sm:gap-2.5">
                   <a
                     href={SITE_CONFIG.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-11 px-2.5 sm:px-4 rounded-xl bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
+                    className="h-11 px-2 sm:px-4 rounded-xl bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
                   >
                     <MessageCircle className="w-4 h-4 fill-white shrink-0" />
                     <span className="truncate">LINE相談</span>
@@ -115,7 +115,7 @@ export default function HomePage() {
                     href={SITE_CONFIG.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-11 px-2.5 sm:px-4 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
+                    className="h-11 px-2 sm:px-4 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
                   >
                     <InstagramIcon className="w-4 h-4 text-white shrink-0" />
                     <span className="truncate">Instagram</span>
@@ -124,7 +124,7 @@ export default function HomePage() {
                     href={SITE_CONFIG.xUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-11 px-2.5 sm:px-4 rounded-xl bg-slate-900/90 hover:bg-black border border-white/20 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
+                    className="h-11 px-2 sm:px-4 rounded-xl bg-slate-900/90 hover:bg-black border border-white/20 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5"
                   >
                     <XIcon className="w-4 h-4 text-white shrink-0" />
                     <span className="truncate">X (Twitter)</span>
@@ -133,28 +133,28 @@ export default function HomePage() {
               </div>
 
               {/* Authentic Credentials */}
-              <div className="pt-6 border-t border-slate-700/60 grid grid-cols-3 gap-4 text-center">
+              <div className="pt-6 border-t border-slate-700/60 grid grid-cols-3 gap-2 sm:gap-4 text-center">
                 <div>
-                  <div className="text-sm sm:text-base font-black text-amber-400">ダナン出身</div>
-                  <div className="text-[11px] text-slate-300 mt-0.5">生粋の現地ローカル</div>
+                  <div className="text-xs sm:text-sm md:text-base font-black text-amber-400">ダナン出身</div>
+                  <div className="text-[10px] sm:text-[11px] text-slate-300 mt-0.5">生粋の現地ローカル</div>
                 </div>
                 <div>
-                  <div className="text-sm sm:text-base font-black text-amber-400">JLPT N1</div>
-                  <div className="text-[11px] text-slate-300 mt-0.5">日本語能力試験最上級</div>
+                  <div className="text-xs sm:text-sm md:text-base font-black text-amber-400">JLPT N1</div>
+                  <div className="text-[10px] sm:text-[11px] text-slate-300 mt-0.5">日本語能力試験最上級</div>
                 </div>
                 <div>
-                  <div className="text-sm sm:text-base font-black text-amber-400">1日1組限定</div>
-                  <div className="text-[11px] text-slate-300 mt-0.5">完全貸切・空港送迎OK</div>
+                  <div className="text-xs sm:text-sm md:text-base font-black text-amber-400">1日1組限定</div>
+                  <div className="text-[10px] sm:text-[11px] text-slate-300 mt-0.5">完全貸切・空港送迎OK</div>
                 </div>
               </div>
             </div>
 
             {/* Hero Right Column: Guide & Photo Card */}
-            <div className="lg:col-span-5 flex justify-center">
+            <div className="lg:col-span-5 flex justify-center w-full">
               <div className="relative w-full max-w-md">
                 {/* Decorative Frame */}
                 <div className="relative rounded-3xl overflow-hidden border-2 border-amber-400/30 shadow-2xl bg-slate-900">
-                  <div className="relative h-96 w-full">
+                  <div className="relative h-72 sm:h-80 lg:h-96 w-full">
                     <Image
                       src="/images/hero-vietnam.jpg"
                       alt="ダナン・ホイアンの美しい景色とプライベートツアー"
@@ -169,13 +169,13 @@ export default function HomePage() {
                   {/* Floating Guide Intro Card */}
                   <div className="p-5 sm:p-6 bg-[#0B2545]/95 backdrop-blur-md border-t border-slate-700">
                     <div className="flex items-center gap-3.5">
-                      <div className="relative w-18 h-18 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 shadow-lg ring-2 ring-amber-400/20">
+                      <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 shadow-lg ring-2 ring-amber-400/20">
                         <Image
                           src="/images/guide/anh-tho-avatar-v3.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
                           fill
                           priority
-                          sizes="(max-width: 640px) 72px, 80px"
+                          sizes="(max-width: 640px) 64px, 80px"
                           className="object-cover"
                         />
                       </div>
@@ -183,7 +183,7 @@ export default function HomePage() {
                         <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block mb-0.5">
                           YOUR PERSONAL GUIDE
                         </span>
-                        <h2 className="text-lg font-bold text-white leading-tight">
+                        <h2 className="text-base sm:text-lg font-bold text-white leading-tight">
                           アン トー (Anh Tho)
                         </h2>
                         <p className="text-xs text-slate-300 mt-1">
@@ -192,7 +192,7 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <p className="mt-3.5 text-xs text-slate-300 leading-relaxed">
+                    <p className="mt-3 text-xs text-slate-300 leading-relaxed">
                       「日本のみなさま、シンチャオ！生まれ育ったダナンをはじめ、ハノイやホーチミンなどベトナム全土の旅を、日本の皆様に心から楽しんでいただけるよう、安心の日本語とおもてなしの心で特別な旅をお手伝いします。」
                     </p>
                   </div>
@@ -227,9 +227,14 @@ export default function HomePage() {
           </div>
 
           {/* Tours Grid (Top 3) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {featuredTours.slice(0, 3).map((tour) => (
-              <TourCard key={tour.id} tour={tour} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+            {featuredTours.slice(0, 3).map((tour, idx) => (
+              <div
+                key={tour.id}
+                className={idx === 2 ? 'md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto lg:max-w-none w-full' : 'w-full'}
+              >
+                <TourCard tour={tour} />
+              </div>
             ))}
           </div>
 
@@ -593,9 +598,14 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {featuredPosts.map((post) => (
-              <BlogCard key={post.id} post={post} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+            {featuredPosts.map((post, idx) => (
+              <div
+                key={post.id}
+                className={idx === 2 ? 'md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto lg:max-w-none w-full' : 'w-full'}
+              >
+                <BlogCard post={post} />
+              </div>
             ))}
           </div>
 
@@ -708,105 +718,165 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right Social Cards: LINE, Instagram & X */}
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 items-stretch justify-center">
-                {/* LINE QR Card */}
-                <div className="bg-white rounded-2xl p-2.5 sm:p-3 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
-                  <div className="flex items-center gap-1 text-[11px] font-bold text-[#06c755] mb-1.5">
-                    <MessageCircle className="w-3.5 h-3.5 fill-[#06c755]" />
-                    <span>公式LINE</span>
-                  </div>
+              {/* Right Social Cards: Mobile Buttons vs Tablet/Desktop QR Cards */}
+              <div className="lg:col-span-7">
+                {/* Mobile Direct Action Tap Cards */}
+                <div className="sm:hidden flex flex-col gap-2.5 w-full">
                   <a
                     href={SITE_CONFIG.lineUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-20 h-20 sm:w-22 sm:h-22 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer"
+                    className="flex items-center justify-between p-3.5 bg-[#06c755] text-white font-bold rounded-2xl shadow-sm active:scale-98 transition-transform"
                   >
-                    <Image
-                      src="/images/guide/line-qr.png"
-                      alt="LINE公式QRコード"
-                      width={90}
-                      height={90}
-                      className="object-contain rounded-lg"
-                    />
-                  </a>
-                  <a
-                    href={SITE_CONFIG.lineUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 text-[9.5px] sm:text-[10px] font-bold text-slate-800 hover:text-[#06c755] transition-colors whitespace-nowrap block"
-                  >
-                    ID: <span className="text-[#06c755] font-mono">{SITE_CONFIG.lineId}</span>
-                  </a>
-                </div>
-
-                {/* Instagram QR Card */}
-                <div className="bg-white rounded-2xl p-2.5 sm:p-3 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
-                  <a
-                    href={SITE_CONFIG.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-[11px] font-bold text-pink-600 hover:text-pink-700 transition-colors mb-1.5"
-                  >
-                    <InstagramIcon className="w-3.5 h-3.5 text-pink-500" />
-                    <span>Instagram</span>
-                  </a>
-                  <a
-                    href={SITE_CONFIG.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative w-20 h-20 sm:w-22 sm:h-22 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs hover:scale-102 transition-transform overflow-hidden"
-                  >
-                    <Image
-                      src="/images/guide/anh-tho-instagram-qr.png"
-                      alt="Instagram QRコード"
-                      width={90}
-                      height={90}
-                      className="object-cover rounded-lg"
-                    />
-                  </a>
-                  <a
-                    href={SITE_CONFIG.instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 text-[8px] sm:text-[8.5px] lg:text-[9px] font-bold text-slate-800 hover:text-pink-600 transition-colors whitespace-nowrap tracking-tight block max-w-full"
-                    title={`@${SITE_CONFIG.instagramHandle}`}
-                  >
-                    @{SITE_CONFIG.instagramHandle}
-                  </a>
-                </div>
-
-                {/* X (Twitter) Card */}
-                <div className="bg-white rounded-2xl p-2.5 sm:p-3 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
-                  <a
-                    href={SITE_CONFIG.xUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-[11px] font-bold text-slate-900 hover:text-sky-600 transition-colors mb-1.5"
-                  >
-                    <XIcon className="w-3.5 h-3.5 text-slate-900" />
-                    <span>X (Twitter)</span>
-                  </a>
-                  <a
-                    href={SITE_CONFIG.xUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative w-20 h-20 sm:w-22 sm:h-22 bg-slate-50 rounded-xl border border-slate-200 p-1.5 flex flex-col items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer group"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-black transition-colors mb-1 shadow-xs">
-                      <XIcon className="w-4 h-4 text-white" />
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                        <MessageCircle className="w-5 h-5 fill-white" />
+                      </div>
+                      <div className="text-left">
+                        <div className="text-[10px] text-white/80">専属ガイドと直接やり取り</div>
+                        <div className="text-xs font-black">公式LINEでチャット相談する</div>
+                      </div>
                     </div>
-                    <span className="text-[9px] text-slate-800 font-bold">ダナン現地情報</span>
-                    <span className="text-[8px] text-amber-600 font-semibold">最新ポスト ›</span>
+                    <ArrowRight className="w-4 h-4 text-white/80 shrink-0" />
                   </a>
+
+                  <a
+                    href={SITE_CONFIG.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-3.5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-bold rounded-2xl shadow-sm active:scale-98 transition-transform"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                        <InstagramIcon className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="text-left">
+                        <div className="text-[10px] text-white/80">最新の写真・リール動画</div>
+                        <div className="text-xs font-black">Instagram DMで相談する</div>
+                      </div>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-white/80 shrink-0" />
+                  </a>
+
                   <a
                     href={SITE_CONFIG.xUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 text-[9.5px] sm:text-[10px] font-bold text-slate-800 hover:text-sky-600 transition-colors whitespace-nowrap block"
+                    className="flex items-center justify-between p-3.5 bg-slate-900 border border-white/20 text-white font-bold rounded-2xl shadow-sm active:scale-98 transition-transform"
                   >
-                    @{SITE_CONFIG.xHandle}
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                        <XIcon className="w-4.5 h-4.5 text-white" />
+                      </div>
+                      <div className="text-left">
+                        <div className="text-[10px] text-white/80">現地ダナンの最新情報</div>
+                        <div className="text-xs font-black">X (Twitter) をチェックする</div>
+                      </div>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-white/80 shrink-0" />
                   </a>
+                </div>
+
+                {/* Tablet & Desktop QR Cards */}
+                <div className="hidden sm:grid sm:grid-cols-3 gap-2.5 sm:gap-3 items-stretch justify-center w-full">
+                  {/* LINE QR Card */}
+                  <div className="bg-white rounded-2xl p-2.5 sm:p-3 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
+                    <div className="flex items-center gap-1 text-[11px] font-bold text-[#06c755] mb-1.5">
+                      <MessageCircle className="w-3.5 h-3.5 fill-[#06c755]" />
+                      <span>公式LINE</span>
+                    </div>
+                    <a
+                      href={SITE_CONFIG.lineUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative w-20 h-20 sm:w-22 sm:h-22 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer"
+                    >
+                      <Image
+                        src="/images/guide/line-qr.png"
+                        alt="LINE公式QRコード"
+                        width={90}
+                        height={90}
+                        className="object-contain rounded-lg"
+                      />
+                    </a>
+                    <a
+                      href={SITE_CONFIG.lineUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 text-[9.5px] sm:text-[10px] font-bold text-slate-800 hover:text-[#06c755] transition-colors whitespace-nowrap block"
+                    >
+                      ID: <span className="text-[#06c755] font-mono">{SITE_CONFIG.lineId}</span>
+                    </a>
+                  </div>
+
+                  {/* Instagram QR Card */}
+                  <div className="bg-white rounded-2xl p-2.5 sm:p-3 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
+                    <a
+                      href={SITE_CONFIG.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-[11px] font-bold text-pink-600 hover:text-pink-700 transition-colors mb-1.5"
+                    >
+                      <InstagramIcon className="w-3.5 h-3.5 text-pink-500" />
+                      <span>Instagram</span>
+                    </a>
+                    <a
+                      href={SITE_CONFIG.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative w-20 h-20 sm:w-22 sm:h-22 bg-white rounded-xl border border-slate-200 p-1 flex items-center justify-center shadow-xs hover:scale-102 transition-transform overflow-hidden"
+                    >
+                      <Image
+                        src="/images/guide/anh-tho-instagram-qr.png"
+                        alt="Instagram QRコード"
+                        width={90}
+                        height={90}
+                        className="object-cover rounded-lg"
+                      />
+                    </a>
+                    <a
+                      href={SITE_CONFIG.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 text-[8px] sm:text-[8.5px] lg:text-[9px] font-bold text-slate-800 hover:text-pink-600 transition-colors whitespace-nowrap tracking-tight block max-w-full"
+                      title={`@${SITE_CONFIG.instagramHandle}`}
+                    >
+                      @{SITE_CONFIG.instagramHandle}
+                    </a>
+                  </div>
+
+                  {/* X (Twitter) Card */}
+                  <div className="bg-white rounded-2xl p-2.5 sm:p-3 text-slate-900 text-center shadow-lg border border-slate-100 flex flex-col items-center justify-between">
+                    <a
+                      href={SITE_CONFIG.xUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-[11px] font-bold text-slate-900 hover:text-sky-600 transition-colors mb-1.5"
+                    >
+                      <XIcon className="w-3.5 h-3.5 text-slate-900" />
+                      <span>X (Twitter)</span>
+                    </a>
+                    <a
+                      href={SITE_CONFIG.xUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative w-20 h-20 sm:w-22 sm:h-22 bg-slate-50 rounded-xl border border-slate-200 p-1.5 flex flex-col items-center justify-center shadow-xs hover:scale-102 transition-transform cursor-pointer group"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-black transition-colors mb-1 shadow-xs">
+                        <XIcon className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-[9px] text-slate-800 font-bold">ダナン現地情報</span>
+                      <span className="text-[8px] text-amber-600 font-semibold">最新ポスト ›</span>
+                    </a>
+                    <a
+                      href={SITE_CONFIG.xUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 text-[9.5px] sm:text-[10px] font-bold text-slate-800 hover:text-sky-600 transition-colors whitespace-nowrap block"
+                    >
+                      @{SITE_CONFIG.xHandle}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
