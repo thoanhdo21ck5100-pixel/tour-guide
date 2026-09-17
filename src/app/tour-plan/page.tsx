@@ -126,14 +126,14 @@ function TourPlanContent() {
         {!plan ? (
           <div className="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
             {/* Header Banner */}
-            <div className="bg-gradient-to-r from-[#0B2545] via-[#133E68] to-[#1E4E79] p-8 sm:p-10 text-white text-center relative">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-400/30 text-amber-300 mb-4 shadow-inner">
-                <Search className="w-7 h-7" />
+            <div className="bg-gradient-to-r from-[#0B2545] via-[#133E68] to-[#1E4E79] p-5 sm:p-8 md:p-10 text-white text-center relative">
+              <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-500/20 border border-amber-400/30 text-amber-300 mb-3 sm:mb-4 shadow-inner">
+                <Search className="w-6 h-6 sm:w-7 sm:h-7" />
               </div>
-              <span className="text-xs font-bold uppercase tracking-widest text-amber-300 block mb-1">
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-amber-300 block mb-1">
                 MY TOUR PLAN & PHOTOS
               </span>
-              <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
+              <h1 className="text-xl sm:text-3xl font-black tracking-tight break-words">
                 個人ツアープラン・記念写真照会
               </h1>
               <p className="text-xs sm:text-sm text-slate-200 mt-2 max-w-lg mx-auto leading-relaxed">
@@ -142,7 +142,7 @@ function TourPlanContent() {
             </div>
 
             {/* Form Box */}
-            <div className="p-6 sm:p-10 space-y-6">
+            <div className="p-4 sm:p-8 md:p-10 space-y-5 sm:space-y-6">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -263,26 +263,26 @@ function TourPlanContent() {
             </div>
 
             {/* Main Plan Card */}
-            <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
               {/* Card Header */}
-              <div className="bg-[#0B2545] text-white p-6 sm:p-8 relative overflow-hidden">
+              <div className="bg-[#0B2545] text-white p-4 sm:p-6 md:p-8 relative overflow-hidden">
                 <div className="relative z-10 space-y-3">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div className="inline-flex items-center gap-2 flex-wrap">
-                      <span className="bg-amber-400 text-slate-950 font-mono font-black text-xs px-3 py-1 rounded-md tracking-wider">
+                      <span className="bg-amber-400 text-slate-950 font-mono font-black text-xs px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-md tracking-wider">
                         {plan.tourCode}
                       </span>
                       {plan.status === 'confirmed' ? (
-                        <span className="bg-emerald-500 text-white font-black text-[11px] px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                        <span className="bg-emerald-500 text-white font-black text-[11px] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full flex items-center gap-1 shadow-sm">
                           <CheckCircle2 className="w-3.5 h-3.5" />
                           予約確定・日程FIX（専属手配完了）
                         </span>
                       ) : plan.status === 'cancelled' ? (
-                        <span className="bg-slate-600 text-white font-bold text-[11px] px-3 py-1 rounded-full flex items-center gap-1">
+                        <span className="bg-slate-600 text-white font-bold text-[11px] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full flex items-center gap-1">
                           キャンセル済み
                         </span>
                       ) : (
-                        <span className="bg-amber-400 text-slate-950 font-black text-[11px] px-3 py-1 rounded-full flex items-center gap-1 shadow-sm animate-pulse">
+                        <span className="bg-amber-400 text-slate-950 font-black text-[11px] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full flex items-center gap-1 shadow-sm animate-pulse">
                           <Clock className="w-3.5 h-3.5" />
                           仮予約受付中・専属ガイド確認中
                         </span>
@@ -294,20 +294,20 @@ function TourPlanContent() {
                     </span>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-black tracking-tight">{plan.tourTitle}</h2>
+                  <h2 className="text-lg sm:text-2xl font-black tracking-tight break-words">{plan.tourTitle}</h2>
 
-                  <div className="flex flex-wrap items-center gap-4 text-xs text-slate-200 pt-1">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs text-slate-200 pt-1">
                     <span className="font-bold text-amber-300 flex items-center gap-1">
-                      <Users className="w-3.5 h-3.5" />
+                      <Users className="w-3.5 h-3.5 shrink-0" />
                       {plan.customerName} 様 {plan.customerKana ? `(${plan.customerKana})` : ''}
                     </span>
-                    <span>|</span>
+                    <span className="hidden sm:inline">|</span>
                     <span className="flex items-center gap-1 font-mono">
-                      <Calendar className="w-3.5 h-3.5 text-amber-300" />
+                      <Calendar className="w-3.5 h-3.5 text-amber-300 shrink-0" />
                       {plan.tourDate}
                       {plan.endDate ? ` 〜 ${plan.endDate}` : ''}
                     </span>
-                    <span>|</span>
+                    <span className="hidden sm:inline">|</span>
                     <span>大人 {plan.adultsCount}名 / お子様 {plan.childrenCount}名</span>
                   </div>
                 </div>
@@ -315,7 +315,7 @@ function TourPlanContent() {
 
               {/* Dynamic Status Reassurance Banner */}
               {plan.status === 'confirmed' ? (
-                <div className="p-4 bg-emerald-50/90 border-b border-emerald-200 flex items-start gap-3 text-xs text-emerald-950">
+                <div className="p-3.5 sm:p-4 bg-emerald-50/90 border-b border-emerald-200 flex items-start gap-2.5 sm:gap-3 text-xs text-emerald-950">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold">【ご予約・旅程確定】専属ガイド（アン トー）とお打ち合わせが完了いたしました</p>
@@ -325,12 +325,12 @@ function TourPlanContent() {
                   </div>
                 </div>
               ) : plan.status === 'cancelled' ? (
-                <div className="p-4 bg-slate-100 border-b border-slate-200 flex items-start gap-3 text-xs text-slate-700">
+                <div className="p-3.5 sm:p-4 bg-slate-100 border-b border-slate-200 flex items-start gap-2.5 sm:gap-3 text-xs text-slate-700">
                   <Info className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
                   <p>このツアープランはキャンセルされました。ご不明な点がございましたらガイドまでお問い合わせください。</p>
                 </div>
               ) : (
-                <div className="p-4 bg-amber-50 border-b border-amber-200 flex items-start gap-3 text-xs text-amber-950">
+                <div className="p-3.5 sm:p-4 bg-amber-50 border-b border-amber-200 flex items-start gap-2.5 sm:gap-3 text-xs text-amber-950">
                   <Clock className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold">【仮予約受付完了】専属ガイド（アン トー）がご要望を確認・スケジュール調整中です</p>
@@ -342,11 +342,11 @@ function TourPlanContent() {
               )}
 
               {/* Meeting & Logistics Summary */}
-              <div className="p-6 sm:p-8 border-b border-slate-100 bg-amber-50/20">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                  <div className="bg-white p-4 rounded-2xl border border-amber-200/60 shadow-2xs space-y-1">
+              <div className="p-4 sm:p-6 md:p-8 border-b border-slate-100 bg-amber-50/20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 text-xs">
+                  <div className="bg-white p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200/60 shadow-2xs space-y-1">
                     <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block flex items-center gap-1">
-                      <Clock className="w-3 h-3 text-amber-600" />
+                      <Clock className="w-3 h-3 text-amber-600 shrink-0" />
                       お迎え・開始時間
                     </span>
                     <p className="text-base font-black text-slate-800 font-mono">
@@ -355,9 +355,9 @@ function TourPlanContent() {
                     <p className="text-[11px] text-slate-500">※当日はロビーにてお待ちください</p>
                   </div>
 
-                  <div className="bg-white p-4 rounded-2xl border border-amber-200/60 shadow-2xs space-y-1">
+                  <div className="bg-white p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200/60 shadow-2xs space-y-1">
                     <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-amber-600" />
+                      <MapPin className="w-3 h-3 text-amber-600 shrink-0" />
                       集合・お迎え場所
                     </span>
                     <p className="text-sm font-bold text-slate-800 line-clamp-2">
@@ -366,9 +366,9 @@ function TourPlanContent() {
                     <p className="text-[11px] text-slate-500">※専属ガイドがネームプレートを持参</p>
                   </div>
 
-                  <div className="bg-white p-4 rounded-2xl border border-amber-200/60 shadow-2xs space-y-1">
+                  <div className="bg-white p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-amber-200/60 shadow-2xs space-y-1">
                     <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block flex items-center gap-1">
-                      <Car className="w-3 h-3 text-amber-600" />
+                      <Car className="w-3 h-3 text-amber-600 shrink-0" />
                       移動・参加情報
                     </span>
                     <p className="text-sm font-bold text-slate-800">
@@ -382,10 +382,10 @@ function TourPlanContent() {
               </div>
 
               {/* Schedule Milestones Timeline */}
-              <div className="p-6 sm:p-8 space-y-6">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-base font-bold text-[#0B2545] flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-amber-500" />
+              <div className="p-4 sm:p-6 md:p-8 space-y-5 sm:space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <h3 className="text-sm sm:text-base font-bold text-[#0B2545] flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-amber-500 shrink-0" />
                     当日のスケジュール・行程詳細
                   </h3>
                   <span className="text-[11px] text-slate-400">※当日の交通状況により微調整となる場合があります</span>
@@ -396,13 +396,13 @@ function TourPlanContent() {
                     現在ガイドが詳細スケジュールを作成中です。完了次第こちらに反映されます。
                   </p>
                 ) : (
-                  <div className="relative pl-6 border-l-2 border-amber-300 space-y-6 ml-3 my-2">
+                  <div className="relative pl-6 border-l-2 border-amber-300 space-y-5 sm:space-y-6 ml-3 my-2">
                     {plan.schedule.map((item, idx) => (
                       <div key={idx} className="relative group">
                         {/* Timeline Pin Dot */}
                         <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-amber-500 border-4 border-white shadow-xs" />
 
-                        <div className="bg-slate-50 group-hover:bg-amber-50/40 p-4 rounded-2xl border border-slate-200 transition-colors">
+                        <div className="bg-slate-50 group-hover:bg-amber-50/40 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 transition-colors">
                           <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
                             <span className="inline-block px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-900 font-mono text-xs font-bold">
                               {item.time}
@@ -410,13 +410,13 @@ function TourPlanContent() {
 
                             {item.location && (
                               <span className="text-[11px] text-slate-500 flex items-center gap-1">
-                                <MapPin className="w-3 h-3 text-amber-600" />
+                                <MapPin className="w-3 h-3 text-amber-600 shrink-0" />
                                 {item.location}
                               </span>
                             )}
                           </div>
 
-                          <h4 className="text-sm font-bold text-slate-900">{item.title}</h4>
+                          <h4 className="text-xs sm:text-sm font-bold text-slate-900 break-words">{item.title}</h4>
 
                           {item.description && (
                             <p className="text-xs text-slate-600 mt-1 leading-relaxed whitespace-pre-wrap">
@@ -431,9 +431,9 @@ function TourPlanContent() {
 
                 {/* Guide Notes */}
                 {plan.guideNotes && (
-                  <div className="mt-8 p-4 rounded-2xl bg-sky-50 border border-sky-200/80 text-xs text-slate-700 space-y-1.5">
+                  <div className="mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-sky-50 border border-sky-200/80 text-xs text-slate-700 space-y-1.5">
                     <span className="font-bold text-sky-900 flex items-center gap-1.5">
-                      <Sparkles className="w-4 h-4 text-sky-600" />
+                      <Sparkles className="w-4 h-4 text-sky-600 shrink-0" />
                       専属ガイド（アン トー）からのワンポイントアドバイス・注意事項
                     </span>
                     <p className="leading-relaxed whitespace-pre-wrap text-slate-700">
@@ -445,7 +445,7 @@ function TourPlanContent() {
             </div>
 
             {/* 📸 Tour Photos Section (Google Drive + 7-Day Expiry Notice) */}
-            <div className="bg-white rounded-3xl border border-slate-200 shadow-md p-6 sm:p-8 space-y-5">
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-md p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
                 <div className="flex items-center gap-2.5">
                   <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
@@ -587,7 +587,7 @@ function TourPlanContent() {
                 }
 
                 return (
-                  <div className="p-8 text-center bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-500 space-y-2">
+                  <div className="p-5 sm:p-8 text-center bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-500 space-y-2">
                     <Camera className="w-8 h-8 text-slate-300 mx-auto" />
                     <p className="font-bold text-slate-700">
                       現在、ツアー写真の準備・厳選処理を行っております。

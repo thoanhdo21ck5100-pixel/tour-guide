@@ -154,31 +154,31 @@ export default async function TourDetailPage({
             <div className="absolute inset-0 bg-gradient-to-t from-[#07192E] via-[#07192E]/40 to-transparent" />
           </div>
 
-          <div className="absolute bottom-6 left-6 right-6 text-white space-y-3">
-            <div className="flex flex-wrap items-center gap-2 text-xs">
+          <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 text-white space-y-2.5 sm:space-y-3">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs">
               {tour.badge && (
-                <span className="px-3 py-1 bg-amber-500 text-white font-bold rounded-full shadow-xs">
+                <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 bg-amber-500 text-white font-bold rounded-full shadow-xs">
                   {tour.badge}
                 </span>
               )}
-              <span className="px-3 py-1 bg-white/20 backdrop-blur-md text-white font-medium rounded-full">
+              <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 bg-white/20 backdrop-blur-md text-white font-medium rounded-full">
                 {tour.categoryLabel}
               </span>
-              <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-amber-300 font-bold">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                事前決済不要・現地払い
+              <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-amber-300 font-bold">
+                <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
+                <span>事前決済不要・現地払い</span>
               </span>
-              <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-slate-200">
-                <Clock className="w-3.5 h-3.5 text-amber-300" />
-                所要時間: {tour.duration}
+              <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-slate-200">
+                <Clock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                <span>所要時間: {tour.duration}</span>
               </span>
             </div>
 
             {/* ② H1 */}
-            <h1 className="text-xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight">
+            <h1 className="text-xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight break-words">
               {tour.title}
             </h1>
-            <p className="text-xs sm:text-sm text-slate-200 line-clamp-2 max-w-3xl">
+            <p className="text-xs sm:text-sm text-slate-200 line-clamp-2 max-w-3xl leading-relaxed">
               {tour.subtitle}
             </p>
           </div>
@@ -187,10 +187,10 @@ export default async function TourDetailPage({
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column */}
-          <div className="lg:col-span-8 space-y-8">
+          <div className="lg:col-span-8 space-y-6 sm:space-y-8">
             {/* ④ このツアーの概要 */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
-              <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-4">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/90 shadow-xs">
+              <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-3 sm:mb-4">
                 このツアーの概要
               </h2>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-line">
@@ -200,15 +200,15 @@ export default async function TourDetailPage({
 
             {/* ⑤ このツアーで訪れる主なスポット */}
             {tour.visitedSpots && tour.visitedSpots.length > 0 && (
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
-                <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-4">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/90 shadow-xs">
+                <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-3 sm:mb-4">
                   このツアーで訪れる主なスポット
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
                   {tour.visitedSpots.map((spot, idx) => (
                     <div
                       key={idx}
-                      className="p-4 rounded-xl border border-slate-200/80 bg-slate-50/60 flex flex-col justify-between"
+                      className="p-3.5 sm:p-4 rounded-xl border border-slate-200/80 bg-slate-50/60 flex flex-col justify-between"
                     >
                       <div>
                         <div className="flex items-center gap-2 mb-1.5">
@@ -241,11 +241,11 @@ export default async function TourDetailPage({
             )}
 
             {/* ⑥ このツアーがおすすめの方 */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
-              <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-4">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/90 shadow-xs">
+              <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-3 sm:mb-4">
                 このツアーがおすすめの方
               </h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                 {tour.recommendFor.map((rec, idx) => (
                   <li
                     key={idx}
@@ -259,12 +259,12 @@ export default async function TourDetailPage({
             </div>
 
             {/* ⑦ 当日のツアースケジュール */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
-              <div className="flex items-center justify-between mb-6">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/90 shadow-xs">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-6">
                 <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3">
                   当日のツアースケジュール（モデル日程）
                 </h2>
-                <span className="text-[11px] text-slate-400">
+                <span className="text-[11px] text-slate-400 pl-4 sm:pl-0">
                   ※完全貸切のため、当日の時間調整も可能です
                 </span>
               </div>
@@ -302,11 +302,11 @@ export default async function TourDetailPage({
             </div>
 
             {/* ⑧ ツアーの特徴・おすすめポイント */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
-              <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-4">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/90 shadow-xs">
+              <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-3 sm:mb-4">
                 ツアーの特徴・おすすめポイント
               </h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                 {tour.highlights.map((h, i) => (
                   <li
                     key={i}
@@ -323,25 +323,25 @@ export default async function TourDetailPage({
             <GuideStrategicValueCard mode="tour" />
 
             {/* ⑩ 料金について（ビジネスモデル解説＆人数別シミュレーション） */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200/90 shadow-xs space-y-5">
-              <div className="flex items-center justify-between pb-3 border-b border-amber-100">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-amber-200/90 shadow-xs space-y-4 sm:space-y-5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-amber-100">
                 <h2 className="text-base sm:text-lg font-bold text-[#0B2545] flex items-center gap-2">
-                  <CreditCard className="w-5 h-5 text-amber-600" />
+                  <CreditCard className="w-5 h-5 text-amber-600 shrink-0" />
                   <span>料金と人数別シミュレーション</span>
                 </h2>
-                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                <span className="self-start sm:self-auto text-[11px] sm:text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 shrink-0 whitespace-nowrap">
                   事前決済不要・到着後払い
                 </span>
               </div>
 
-              <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-2 text-xs sm:text-sm text-slate-800 leading-relaxed">
+              <div className="p-3.5 sm:p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-2 text-xs sm:text-sm text-slate-800 leading-relaxed">
                 <p className="font-bold text-[#0B2545]">
                   当ツアーは、他のお客様と混乗しない「完全プライベート案内（1組貸切）」です。
                 </p>
                 <p className="text-slate-700">
                   基本料金は1名様料金となり、<strong>2人目以降はたったの＋1,000円/名</strong>のみ。人数が増えるほど、1人あたりのご負担が驚くほどお得になります。
                 </p>
-                <p className="text-slate-600 text-xs">
+                <p className="text-slate-600 text-[11px] sm:text-xs">
                   ※専用車・送迎車、観光施設の入場料、お食事・お飲み物、アクティビティ等の実費はガイド基本料金とは別途となります。ご希望の内容をお伺いしたうえで、必要な手配と費用を事前に丁寧にご案内いたします。
                 </p>
               </div>
@@ -351,34 +351,34 @@ export default async function TourDetailPage({
                 <span className="text-xs font-bold text-amber-800 block mb-2">
                   【人数別】日本語ガイド基本料金（1組貸切総額 / 1人あたり目安）
                 </span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
                   {[1, 2, 3, 4].map((pax) => {
                     const { totalJpy, perPersonJpy } = calculateGroupTourPrice(tour.priceJpy, pax);
                     const isPopular = pax === 2;
                     return (
                       <div
                         key={pax}
-                        className={`p-3 rounded-xl border text-center relative transition-all ${
+                        className={`p-2.5 sm:p-3 rounded-xl border text-center relative transition-all ${
                           isPopular
                             ? 'bg-amber-500/10 border-amber-400 ring-2 ring-amber-400/40 shadow-xs'
                             : 'bg-slate-50 border-slate-200'
                         }`}
                       >
                         {isPopular && (
-                          <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-xs whitespace-nowrap">
+                          <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-600 text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full shadow-xs whitespace-nowrap">
                             一番人気！
                           </span>
                         )}
-                        <span className="text-xs font-bold text-slate-700 block">
+                        <span className="text-[11px] sm:text-xs font-bold text-slate-700 block">
                           {pax}名様ご利用
                         </span>
                         <div className="my-1">
-                          <span className="text-lg sm:text-xl font-black text-[#0B2545]">
+                          <span className="text-base sm:text-xl font-black text-[#0B2545]">
                             {totalJpy.toLocaleString('ja-JP')}
                           </span>
-                          <span className="text-[11px] font-bold text-slate-600">円</span>
+                          <span className="text-[10px] sm:text-[11px] font-bold text-slate-600">円</span>
                         </div>
-                        <div className="text-[11px] font-bold text-emerald-700 bg-emerald-50 py-0.5 px-2 rounded-md border border-emerald-200/60 inline-block">
+                        <div className="text-[10px] sm:text-[11px] font-bold text-emerald-700 bg-emerald-50 py-0.5 px-1.5 sm:px-2 rounded-md border border-emerald-200/60 inline-block leading-tight">
                           1人あたり {perPersonJpy.toLocaleString('ja-JP')}円
                         </div>
                       </div>
@@ -395,31 +395,31 @@ export default async function TourDetailPage({
             </div>
 
             {/* ⑪ & ⑫ 料金に含まれるもの・含まれないもの */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-xs">
-                <h3 className="text-sm font-bold text-emerald-800 flex items-center gap-2 mb-4">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                  料金に含まれるもの
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-xs">
+                <h3 className="text-xs sm:text-sm font-bold text-emerald-800 flex items-center gap-2 mb-3 sm:mb-4">
+                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 shrink-0" />
+                  <span>料金に含まれるもの</span>
                 </h3>
                 <ul className="space-y-2 text-xs text-slate-700">
                   {tour.included.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-emerald-500 font-bold">✓</span>
+                      <span className="text-emerald-500 font-bold shrink-0">✓</span>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-xs">
-                <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2 mb-4">
-                  <XCircle className="w-5 h-5 text-slate-400" />
-                  料金に含まれないもの（実費別途）
+              <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-xs">
+                <h3 className="text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-2 mb-3 sm:mb-4">
+                  <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 shrink-0" />
+                  <span>料金に含まれないもの（実費別途）</span>
                 </h3>
                 <ul className="space-y-2 text-xs text-slate-600">
                   {tour.excluded.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-slate-400 font-bold">✕</span>
+                      <span className="text-slate-400 font-bold shrink-0">✕</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -428,10 +428,10 @@ export default async function TourDetailPage({
             </div>
 
             {/* ご希望に応じて各種手配もサポートします */}
-            <div className="bg-gradient-to-br from-amber-50/90 to-orange-50/60 rounded-2xl p-6 sm:p-8 border border-amber-200 shadow-xs space-y-3">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-amber-600 shrink-0" />
-                <h3 className="text-base sm:text-lg font-bold text-[#0B2545]">
+            <div className="bg-gradient-to-br from-amber-50/90 to-orange-50/60 rounded-2xl p-4 sm:p-6 md:p-8 border border-amber-200 shadow-xs space-y-3">
+              <div className="flex items-start sm:items-center gap-2">
+                <Sparkles className="w-5 h-5 text-amber-600 shrink-0 mt-0.5 sm:mt-0" />
+                <h3 className="text-sm sm:text-lg font-bold text-[#0B2545] leading-snug break-words">
                   ご希望に応じて各種手配もサポートします
                 </h3>
               </div>
@@ -444,7 +444,7 @@ export default async function TourDetailPage({
             </div>
 
             {/* ⑬ 集合・送迎について */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/90 shadow-xs">
               <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-3">
                 集合・送迎について
               </h2>
@@ -460,11 +460,11 @@ export default async function TourDetailPage({
             </div>
 
             {/* ⑭ お支払いについて */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs space-y-3">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/90 shadow-xs space-y-3">
               <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-2 flex items-center gap-2">
                 <span>お支払いについて</span>
               </h2>
-              <div className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200">
                 <p className="font-semibold text-slate-900">
                   日本語ガイド料金は、ベトナム到着後、ツアー開始前に全額お支払いいただきます。
                 </p>
@@ -478,11 +478,11 @@ export default async function TourDetailPage({
             </div>
 
             {/* ⑮ キャンセルについて */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/90 shadow-xs">
               <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-3 flex items-center gap-2">
                 <span>キャンセルについて</span>
               </h2>
-              <div className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200">
                 <p className="font-semibold text-slate-900">
                   キャンセルをご希望の場合は、ご予定日の1週間前までにご連絡ください。
                 </p>
@@ -496,15 +496,15 @@ export default async function TourDetailPage({
             <BookingFlowDiagram />
 
             {/* ⑰ よくある質問 */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs space-y-4">
-              <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-4">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/90 shadow-xs space-y-4">
+              <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-3 sm:mb-4">
                 よくある質問（FAQ）
               </h2>
               <div className="space-y-3">
                 {faqs.map((faq, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl border border-slate-200/80 bg-slate-50/50 space-y-2 text-xs"
+                    className="p-3.5 sm:p-4 rounded-xl border border-slate-200/80 bg-slate-50/50 space-y-2 text-xs"
                   >
                     <div className="flex items-start gap-2 font-bold text-[#0B2545]">
                       <HelpCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
@@ -520,26 +520,26 @@ export default async function TourDetailPage({
 
             {/* ⑱ 関連する観光情報 */}
             {displayBlogs.length > 0 && (
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs space-y-4">
-                <div className="flex items-center justify-between">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 border border-slate-200/90 shadow-xs space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
                   <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3">
                     関連する観光情報・現地ブログ
                   </h2>
                   <Link
                     href="/blog"
-                    className="text-xs text-amber-600 font-bold hover:underline flex items-center gap-1"
+                    className="text-xs text-amber-600 font-bold hover:underline flex items-center gap-1 self-start sm:self-auto pl-4 sm:pl-0 shrink-0"
                   >
                     <span>ブログ一覧</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2">
                   {displayBlogs.map((post) => (
                     <Link
                       key={post.id}
                       href={`/blog/${post.slug}`}
-                      className="group p-4 rounded-xl border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between"
+                      className="group p-3.5 sm:p-4 rounded-xl border border-slate-200 hover:border-amber-400 hover:shadow-md transition-all flex flex-col justify-between"
                     >
                       <div className="space-y-2">
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">
@@ -567,7 +567,7 @@ export default async function TourDetailPage({
 
           {/* ⑲ Right Column: Sticky Pricing & Booking Card */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 space-y-4">
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-lg">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7 border border-slate-200/90 shadow-lg">
               <div className="flex items-center justify-between mb-1">
                 <span className="text-[11px] font-bold text-amber-600">
                   日本語ガイド基本料金（1組貸切）

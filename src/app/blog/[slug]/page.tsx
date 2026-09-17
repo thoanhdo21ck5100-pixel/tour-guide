@@ -111,31 +111,31 @@ export default async function BlogPostPage({
         </nav>
 
         {/* ② & ③ & ④ Article Header */}
-        <header className="mb-8 space-y-4">
-          <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
+        <header className="mb-6 sm:mb-8 space-y-3 sm:space-y-4">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-slate-500">
             {/* ② Category */}
-            <span className="px-3 py-1 bg-amber-500 text-white font-bold rounded-full">
+            <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 bg-amber-500 text-white font-bold rounded-full text-[11px] sm:text-xs">
               {post.category}
             </span>
-            <span className="flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5 text-slate-400" />
+            <span className="flex items-center gap-1 text-[11px] sm:text-xs">
+              <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               {post.publishedAt}
             </span>
             <span>•</span>
-            <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-slate-400" />
+            <span className="flex items-center gap-1 text-[11px] sm:text-xs">
+              <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               {post.readingTime}
             </span>
           </div>
 
           {/* ③ H1 */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-[#0B2545] tracking-tight leading-snug">
+          <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-[#0B2545] tracking-tight leading-snug break-words">
             {post.title}
           </h1>
 
           {/* ④ Author */}
-          <div className="flex items-center gap-3 pt-2">
-            <div className="relative w-10 h-10 rounded-full overflow-hidden border border-slate-300">
+          <div className="flex items-center gap-3 pt-1 sm:pt-2">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-slate-300 shrink-0">
               <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
             </div>
             <div>
@@ -146,7 +146,7 @@ export default async function BlogPostPage({
         </header>
 
         {/* ⑤ Cover Image */}
-        <div className="relative h-64 sm:h-96 w-full rounded-3xl overflow-hidden shadow-md mb-8 bg-slate-100">
+        <div className="relative h-56 sm:h-80 md:h-96 w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-md mb-6 sm:mb-8 bg-slate-100">
           <Image
             src={post.coverImage}
             alt={post.title}
@@ -159,7 +159,7 @@ export default async function BlogPostPage({
 
         {/* ⑥ この記事の結論 / 要点 (Answer-First Box) */}
         {post.keyTakeaway && (
-          <div className="p-5 sm:p-6 rounded-2xl bg-amber-50/90 border-2 border-amber-300/80 shadow-xs mb-8 space-y-2">
+          <div className="p-4 sm:p-6 rounded-2xl bg-amber-50/90 border-2 border-amber-300/80 shadow-xs mb-6 sm:mb-8 space-y-2">
             <div className="flex items-center gap-2 text-xs font-bold text-amber-900">
               <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
               <span>この記事の結論 / 要点（Answer-First）</span>
@@ -171,7 +171,7 @@ export default async function BlogPostPage({
         )}
 
         {/* ⑦ 目次（Table of Contents） */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs mb-8">
+        <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-xs mb-6 sm:mb-8">
           <h2 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-1.5">
             <BookOpen className="w-4 h-4 text-amber-500" />
             <span>目次（Contents）</span>
@@ -187,16 +187,16 @@ export default async function BlogPostPage({
         </div>
 
         {/* ⑧ & ⑨ Article Body & Section Tips */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-xs space-y-8 text-slate-800 leading-relaxed">
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-slate-200/90 shadow-xs space-y-6 sm:space-y-8 text-slate-800 leading-relaxed">
           {/* Intro */}
-          <p className="text-sm sm:text-base leading-relaxed text-slate-700 border-l-4 border-amber-500 pl-4 py-1 italic bg-amber-50/40 rounded-r-xl">
+          <p className="text-xs sm:text-base leading-relaxed text-slate-700 border-l-4 border-amber-500 pl-3 sm:pl-4 py-1 italic bg-amber-50/40 rounded-r-xl">
             {post.content.intro}
           </p>
 
           {/* ⑧ Main content sections */}
           {post.content.sections.map((sec, idx) => (
-            <section key={idx} id={`section-${idx}`} className="space-y-4 pt-4">
-              <h2 className="text-lg sm:text-xl font-bold text-[#0B2545] pb-2 border-b border-slate-100">
+            <section key={idx} id={`section-${idx}`} className="space-y-3 sm:space-y-4 pt-3 sm:pt-4">
+              <h2 className="text-base sm:text-xl font-bold text-[#0B2545] pb-2 border-b border-slate-100 break-words">
                 {sec.heading}
               </h2>
 
@@ -206,7 +206,7 @@ export default async function BlogPostPage({
 
               {/* ⑨ 現地ガイドのポイント (Tips Callout) */}
               {sec.tips && sec.tips.length > 0 && (
-                <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200 text-xs text-amber-950 space-y-2 my-4">
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-50/80 border border-amber-200 text-xs text-amber-950 space-y-2 my-3 sm:my-4">
                   <div className="flex items-center gap-1.5 font-bold text-amber-800">
                     <Lightbulb className="w-4 h-4 text-amber-600 shrink-0" />
                     <span>現地ガイドからのアドバイス＆注意点:</span>
@@ -225,8 +225,8 @@ export default async function BlogPostPage({
           ))}
 
           {/* ⑩ まとめ (Conclusion) */}
-          <div className="pt-6 border-t border-slate-100">
-            <h3 className="text-base font-bold text-[#0B2545] mb-2">まとめ</h3>
+          <div className="pt-4 sm:pt-6 border-t border-slate-100">
+            <h3 className="text-sm sm:text-base font-bold text-[#0B2545] mb-2">まとめ</h3>
             <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
               {post.content.conclusion}
             </p>
@@ -248,30 +248,30 @@ export default async function BlogPostPage({
                   この記事に関連するプライベートツアープラン
                 </span>
               </div>
-              <div className={`grid grid-cols-1 ${relatedTours.length > 1 ? 'md:grid-cols-2' : ''} gap-4`}>
+              <div className={`grid grid-cols-1 ${relatedTours.length > 1 ? 'md:grid-cols-2' : ''} gap-3 sm:gap-4`}>
                 {relatedTours.map((tour) => (
                   <div
                     key={tour.id}
-                    className="p-6 rounded-2xl bg-gradient-to-br from-[#0B2545] to-[#133E68] text-white shadow-md flex flex-col justify-between"
+                    className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-[#0B2545] to-[#133E68] text-white shadow-md flex flex-col justify-between"
                   >
                     <div>
                       <div className="inline-block px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[11px] font-bold mb-2">
                         {tour.categoryLabel}
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-white mb-2 leading-snug">
+                      <h3 className="text-sm sm:text-lg font-bold text-white mb-2 leading-snug break-words">
                         {tour.title}
                       </h3>
                       <p className="text-xs text-slate-200 mb-4 line-clamp-2 leading-relaxed">
                         {tour.shortDescription}
                       </p>
                     </div>
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-3 border-t border-slate-700 mt-auto">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 border-t border-slate-700 mt-auto">
                       <div>
                         <span className="text-[10px] font-bold text-emerald-300 bg-emerald-950/70 px-2 py-0.5 rounded-md border border-emerald-500/40 inline-block mb-1">
                           ２名様〜
                         </span>
                         <div className="flex items-baseline gap-1">
-                          <span className="text-base font-black text-amber-300">
+                          <span className="text-base sm:text-lg font-black text-amber-300">
                             {Math.round((tour.priceJpy + 1000) / 2).toLocaleString('ja-JP')}
                           </span>
                           <span className="text-xs font-bold text-slate-200">円〜 / 名</span>
@@ -279,10 +279,10 @@ export default async function BlogPostPage({
                       </div>
                       <Link
                         href={`/tours/${tour.slug}`}
-                        className="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl transition-colors flex items-center gap-1.5 shrink-0"
+                        className="w-full sm:w-auto px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5 shrink-0"
                       >
                         <span>ツアー詳細を見る</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                       </Link>
                     </div>
                   </div>

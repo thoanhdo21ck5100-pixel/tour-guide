@@ -51,13 +51,13 @@ export default function BlogIndexPage() {
         <GuideStrategicValueCard mode="blog" className="mt-14" />
 
         {/* Consultation Callout */}
-        <div className="mt-12 bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-12 bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-5 sm:gap-6">
           <div className="space-y-2 text-center md:text-left">
             <span className="text-xs font-bold text-amber-600 flex items-center justify-center md:justify-start gap-1">
-              <Sparkles className="w-3.5 h-3.5" />
-              記事に関するご質問・個別のご相談もお気軽に
+              <Sparkles className="w-3.5 h-3.5 shrink-0" />
+              <span>記事に関するご質問・個別のご相談もお気軽に</span>
             </span>
-            <h2 className="text-lg sm:text-xl font-bold text-[#0B2545]">
+            <h2 className="text-base sm:text-xl font-bold text-[#0B2545] break-words">
               「この記事のスポットをツアープランに組み込みたい」も大歓迎！
             </h2>
             <p className="text-xs text-slate-600">
@@ -69,10 +69,10 @@ export default function BlogIndexPage() {
             href={SITE_CONFIG.lineUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3.5 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md flex items-center gap-2 shrink-0 transition-all"
+            className="w-full md:w-auto px-6 py-3 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2 shrink-0 transition-all"
           >
-            <MessageCircle className="w-4 h-4 fill-white" />
-            LINEで質問・相談する
+            <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+            <span>LINEで質問・相談する</span>
           </a>
         </div>
       </div>

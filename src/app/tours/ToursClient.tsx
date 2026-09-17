@@ -141,51 +141,53 @@ export default function ToursClient() {
         <GuideStrategicValueCard mode="tour" className="mt-14" />
 
         {/* Order-made Custom Tour Callout Banner */}
-        <div className="mt-12 bg-gradient-to-r from-[#0B2545] to-[#133E68] text-white rounded-3xl p-8 sm:p-10 shadow-lg relative overflow-hidden">
+        <div className="mt-12 bg-gradient-to-r from-[#0B2545] to-[#133E68] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-lg relative overflow-hidden">
           <div className="max-w-2xl">
             <span className="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-bold inline-block mb-3">
               100% ORDER-MADE
             </span>
-            <h2 className="text-xl sm:text-2xl font-black text-white">
+            <h2 className="text-lg sm:text-2xl font-black text-white break-words">
               行きたい場所だけを自由に巡る「完全オーダーメイド」も大歓迎！
             </h2>
             <p className="mt-3 text-xs sm:text-sm text-slate-200 leading-relaxed">
               「フエの古都巡りと話題のカフェを組み合わせたい」「ゴルフ場送迎のあとに海鮮レストランへ直行したい」など、既存のツアープランにないご要望もLINEで日本語でお気軽にご相談ください。
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-2.5 sm:gap-3">
+            <div className="mt-6 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3">
               <Link
                 href="/contact"
                 className="w-full sm:w-auto h-11 px-6 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center text-center"
               >
                 オーダーメイドのご相談・お見積り
               </Link>
-              <a
-                href={SITE_CONFIG.lineUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 sm:flex-initial h-11 px-4 sm:px-5 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5 whitespace-nowrap"
-              >
-                <MessageCircle className="w-4 h-4 fill-white shrink-0" />
-                LINE相談
-              </a>
-              <a
-                href={SITE_CONFIG.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 sm:flex-initial h-11 px-4 sm:px-5 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5 whitespace-nowrap"
-              >
-                <InstagramIcon className="w-4 h-4 text-white shrink-0" />
-                Instagram
-              </a>
-              <a
-                href={SITE_CONFIG.xUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 sm:flex-initial h-11 px-4 sm:px-5 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1.5 whitespace-nowrap"
-              >
-                <XIcon className="w-3.5 h-3.5 text-white shrink-0" />
-                X (Twitter)
-              </a>
+              <div className="grid grid-cols-3 gap-2 sm:flex sm:items-center sm:gap-2.5">
+                <a
+                  href={SITE_CONFIG.lineUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-11 px-2.5 sm:px-4 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1 whitespace-nowrap"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white shrink-0" />
+                  <span>LINE</span>
+                </a>
+                <a
+                  href={SITE_CONFIG.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-11 px-2.5 sm:px-4 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-95 text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1 whitespace-nowrap"
+                >
+                  <InstagramIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" />
+                  <span>Instagram</span>
+                </a>
+                <a
+                  href={SITE_CONFIG.xUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-11 px-2.5 sm:px-4 bg-slate-900 hover:bg-black text-white font-bold text-xs rounded-xl shadow-md transition-all inline-flex items-center justify-center gap-1 whitespace-nowrap"
+                >
+                  <XIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white shrink-0" />
+                  <span>X</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -78,13 +78,13 @@ export default function BookingFlowDiagram({
   ];
 
   return (
-    <div className={`rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs ${className}`}>
+    <div className={`rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-4 sm:p-6 md:p-8 shadow-xs ${className}`}>
       {showTitle && (
-        <div className="mb-6 text-center sm:text-left">
-          <span className="text-[11px] font-bold text-amber-600 uppercase tracking-wider block mb-1">
+        <div className="mb-5 sm:mb-6 text-center sm:text-left">
+          <span className="text-[10px] sm:text-[11px] font-bold text-amber-600 uppercase tracking-wider block mb-1">
             HOW IT WORKS
           </span>
-          <h3 className="text-base sm:text-xl font-bold text-[#0B2545]">
+          <h3 className="text-base sm:text-xl font-bold text-[#0B2545] break-words">
             ご予約からツアー当日までの流れ
           </h3>
           <p className="text-xs text-slate-500 mt-1">
@@ -94,14 +94,14 @@ export default function BookingFlowDiagram({
       )}
 
       {/* Steps Flow Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-3 sm:gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-2.5 sm:gap-4">
         {steps.map((step, idx) => {
           const Icon = step.icon;
           const isPayment = idx === 7;
           return (
             <div
               key={step.num}
-              className={`relative p-4 rounded-2xl border transition-all flex flex-col justify-between ${
+              className={`relative p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-all flex flex-col justify-between ${
                 isPayment
                   ? 'bg-amber-50/80 border-amber-300 ring-2 ring-amber-400/20'
                   : 'bg-slate-50/70 border-slate-200/80 hover:bg-white hover:border-slate-300'

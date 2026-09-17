@@ -49,9 +49,9 @@ export default function TourCard({ tour }: TourCardProps) {
       </div>
 
       {/* Card Body */}
-      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+      <div className="p-4 sm:p-5 md:p-6 flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="text-base sm:text-lg font-bold text-[#0B2545] leading-snug group-hover:text-amber-600 transition-colors">
+          <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#0B2545] leading-snug group-hover:text-amber-600 transition-colors break-words">
             {tour.title}
           </h3>
           <p className="mt-2 text-xs text-slate-600 leading-relaxed line-clamp-2">
@@ -59,7 +59,7 @@ export default function TourCard({ tour }: TourCardProps) {
           </p>
 
           {/* Highlights Bullets */}
-          <ul className="mt-4 space-y-1.5 border-t border-slate-100 pt-3">
+          <ul className="mt-3.5 sm:mt-4 space-y-1.5 border-t border-slate-100 pt-3">
             {tour.highlights.slice(0, 3).map((item, idx) => (
               <li key={idx} className="flex items-start gap-2 text-xs text-slate-700">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
@@ -70,20 +70,20 @@ export default function TourCard({ tour }: TourCardProps) {
         </div>
 
         {/* Price & Action */}
-        <div className="mt-5 pt-4 border-t border-slate-100 flex items-end justify-between gap-2">
+        <div className="mt-4 sm:mt-5 pt-3.5 sm:pt-4 border-t border-slate-100 flex items-end justify-between gap-2">
           <div>
-            <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/70 inline-block mb-1">
+            <span className="text-[10px] sm:text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/70 inline-block mb-1">
               ２名様〜
             </span>
             <div className="flex items-baseline gap-1">
-              <span className="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
+              <span className="text-xl sm:text-2xl md:text-3xl font-black text-[#0B2545] tracking-tight">
                 {Math.round((tour.priceJpy + 1000) / 2).toLocaleString('ja-JP')}
               </span>
               <span className="text-xs font-bold text-slate-600">円〜 / 名</span>
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-[#0B2545] text-white text-xs font-bold rounded-xl group-hover:bg-amber-600 transition-colors shadow-xs shrink-0 mb-0.5">
+          <div className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 bg-[#0B2545] text-white text-xs font-bold rounded-xl group-hover:bg-amber-600 transition-colors shadow-xs shrink-0 mb-0.5">
             <span>プラン詳細</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </div>

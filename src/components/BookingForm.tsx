@@ -199,15 +199,15 @@ export default function BookingForm({
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-xs relative">
+    <div className="bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-6 md:p-8 shadow-xs relative">
       {/* Success State Modal / Overlay */}
       {isSuccess ? (
-        <div className="py-8 text-center animate-in fade-in zoom-in-95 duration-300">
-          <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle className="w-10 h-10" />
+        <div className="py-6 sm:py-8 text-center animate-in fade-in zoom-in-95 duration-300">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+            <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10" />
           </div>
 
-          <h3 className="text-xl font-bold text-[#0B2545] tracking-tight">
+          <h3 className="text-lg sm:text-xl font-bold text-[#0B2545] tracking-tight break-words">
             予約・相談リクエストを承りました！
           </h3>
           <p className="text-xs text-slate-500 mt-2">

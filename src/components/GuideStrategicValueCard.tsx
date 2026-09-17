@@ -97,22 +97,22 @@ export default function GuideStrategicValueCard({
 
   return (
     <div
-      className={`rounded-3xl border border-amber-200/80 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/20 shadow-md p-6 sm:p-8 relative overflow-hidden ${className}`}
+      className={`rounded-2xl sm:rounded-3xl border border-amber-200/80 bg-gradient-to-br from-white via-amber-50/30 to-orange-50/20 shadow-md p-4 sm:p-6 md:p-8 relative overflow-hidden ${className}`}
     >
       {/* Decorative background accent */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-amber-200/20 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
 
       {/* Header */}
-      <div className="relative z-10 mb-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500 text-white text-[11px] font-bold tracking-wide uppercase shadow-xs mb-2.5">
-          <ShieldCheck className="w-3.5 h-3.5" />
+      <div className="relative z-10 mb-5 sm:mb-6">
+        <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-amber-500 text-white text-[10px] sm:text-[11px] font-bold tracking-wide uppercase shadow-xs mb-2 sm:mb-2.5">
+          <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
           <span>
             {mode === 'blog'
               ? '現地ガイドサポート'
               : 'アン トーが現地でサポートできること'}
           </span>
         </div>
-        <h3 className="text-lg sm:text-2xl font-black text-[#0B2545] tracking-tight">
+        <h3 className="text-base sm:text-2xl font-black text-[#0B2545] tracking-tight leading-snug break-words">
           専属プライベートガイドだから約束できる「4つの安心サポート」
         </h3>
         <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
@@ -121,7 +121,7 @@ export default function GuideStrategicValueCard({
       </div>
 
       {/* Nav Tabs for the 4 Pillars */}
-      <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+      <div className="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5 sm:mb-6">
         {pillars.map((pillar, idx) => {
           const Icon = pillar.icon;
           const isActive = idx === activePillar;
@@ -130,22 +130,22 @@ export default function GuideStrategicValueCard({
               key={pillar.id}
               type="button"
               onClick={() => setActivePillar(idx)}
-              className={`p-3 rounded-2xl text-left border transition-all cursor-pointer flex flex-col justify-between ${
+              className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-left border transition-all cursor-pointer flex flex-col justify-between ${
                 isActive
                   ? 'bg-white border-amber-500 shadow-md ring-2 ring-amber-500/20'
                   : 'bg-white/60 border-slate-200/80 hover:bg-white hover:border-slate-300'
               }`}
             >
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center justify-between mb-1.5 sm:mb-2">
                 <div
-                  className={`w-7 h-7 rounded-xl flex items-center justify-center ${
+                  className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0 ${
                     isActive ? 'bg-amber-500 text-white' : 'bg-slate-100 text-slate-600'
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <span
-                  className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md ${
+                  className={`text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 rounded-md ${
                     isActive ? 'bg-amber-100 text-amber-900' : 'text-slate-400'
                   }`}
                 >
@@ -153,11 +153,11 @@ export default function GuideStrategicValueCard({
                 </span>
               </div>
               <div>
-                <span className="text-[10px] font-bold text-amber-700 block truncate">
+                <span className="text-[10px] font-bold text-amber-700 block truncate leading-tight">
                   {pillar.tag}
                 </span>
                 <span
-                  className={`text-xs font-bold line-clamp-1 ${
+                  className={`text-[11px] sm:text-xs font-bold line-clamp-1 leading-tight ${
                     isActive ? 'text-[#0B2545]' : 'text-slate-700'
                   }`}
                 >
@@ -170,7 +170,7 @@ export default function GuideStrategicValueCard({
       </div>
 
       {/* Active Pillar Detail Content Card */}
-      <div className="relative z-10 bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-xs space-y-4">
+      <div className="relative z-10 bg-white rounded-2xl p-4 sm:p-6 border border-slate-200/90 shadow-xs space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
           <div className="flex items-center gap-3">
             <div
@@ -192,18 +192,18 @@ export default function GuideStrategicValueCard({
         </div>
 
         {/* Problem vs Guide Solution */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-          <div className="bg-rose-50/60 border border-rose-200/80 rounded-xl p-3.5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 text-xs">
+          <div className="bg-rose-50/60 border border-rose-200/80 rounded-xl p-3 sm:p-3.5">
             <span className="font-bold text-rose-700 flex items-center gap-1 mb-1">
-              <span>✕</span>
+              <span className="shrink-0">✕</span>
               <span>個人旅行で生じやすい不安・手間:</span>
             </span>
             <p className="text-slate-700 leading-relaxed">{current.problem}</p>
           </div>
 
-          <div className="bg-emerald-50/60 border border-emerald-200/80 rounded-xl p-3.5">
+          <div className="bg-emerald-50/60 border border-emerald-200/80 rounded-xl p-3 sm:p-3.5">
             <span className="font-bold text-emerald-700 flex items-center gap-1 mb-1">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
               <span>専属日本語ガイドが同行する安心のメリット:</span>
             </span>
             <p className="text-slate-700 leading-relaxed">{current.solution}</p>
@@ -211,7 +211,7 @@ export default function GuideStrategicValueCard({
         </div>
 
         {/* Actionable Prompt to Ask the Guide */}
-        <div className="p-4 rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 text-xs">
+        <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 text-xs">
           <div className="flex items-center gap-1.5 font-bold text-amber-900 mb-1">
             <HelpCircle className="w-4 h-4 text-amber-600 shrink-0" />
             <span>【実践】旅行者が専属ガイドにそのまま使える質問フレーズ:</span>
@@ -226,43 +226,43 @@ export default function GuideStrategicValueCard({
       </div>
 
       {/* Conversion Banner & Direct LINE Link */}
-      <div className="relative z-10 mt-6 pt-5 border-t border-amber-200/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="relative z-10 mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-amber-200/60 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
         <div className="text-center sm:text-left">
           <span className="text-xs font-bold text-amber-700 flex items-center justify-center sm:justify-start gap-1">
-            <Sparkles className="w-3.5 h-3.5" />
-            ご出発前の不安やお店選びも、LINEで直接ご相談いただけます
+            <Sparkles className="w-3.5 h-3.5 shrink-0" />
+            <span>ご出発前の不安やお店選びも、LINEで直接ご相談いただけます</span>
           </span>
           <p className="text-[11px] text-slate-500 mt-0.5">
             日本語能力試験N1専属ガイドが日本語でお答えします（事前相談無料・事前決済不要）
           </p>
         </div>
 
-        <div className="flex items-center gap-2.5 w-full sm:w-auto shrink-0">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5 w-full sm:w-auto shrink-0">
           <a
             href={SITE_CONFIG.lineUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 sm:flex-initial px-5 py-2.5 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5"
+            className="w-full sm:w-auto px-5 py-2.5 bg-[#06c755] hover:bg-[#05b34c] text-white font-bold text-xs rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5"
           >
-            <MessageCircle className="w-4 h-4 fill-white" />
+            <MessageCircle className="w-4 h-4 fill-white shrink-0" />
             <span>LINEで質問・相談する</span>
           </a>
 
           {mode === 'blog' && relatedTourSlug ? (
             <Link
               href={`/tours/${relatedTourSlug}`}
-              className="flex-1 sm:flex-initial px-5 py-2.5 bg-[#0B2545] hover:bg-[#133E68] text-white font-bold text-xs rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5"
+              className="w-full sm:w-auto px-5 py-2.5 bg-[#0B2545] hover:bg-[#133E68] text-white font-bold text-xs rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5"
             >
               <span>関連ツアーを見る</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
             </Link>
           ) : (
             <Link
               href="/tours"
-              className="flex-1 sm:flex-initial px-5 py-2.5 bg-[#0B2545] hover:bg-[#133E68] text-white font-bold text-xs rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5"
+              className="w-full sm:w-auto px-5 py-2.5 bg-[#0B2545] hover:bg-[#133E68] text-white font-bold text-xs rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5"
             >
               <span>ツアー一覧を見る</span>
-              <ChevronRight className="w-3.5 h-3.5" />
+              <ChevronRight className="w-3.5 h-3.5 shrink-0" />
             </Link>
           )}
         </div>
