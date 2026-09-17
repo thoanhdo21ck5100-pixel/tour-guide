@@ -57,9 +57,9 @@ export default function Footer() {
           {/* Tours Links */}
           <div>
             <h4 className="text-sm font-bold text-white tracking-wider mb-4 border-l-2 border-amber-500 pl-2.5">
-              おすすめツアー
+              おすすめツアー (全11プラン)
             </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
+            <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <Link href="/tours/danang-hoian-classic-day-trip" className="hover:text-amber-400 transition-colors">
                   ダナン＆ホイアン満喫 1日ツアー
@@ -76,8 +76,23 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tours/hue-imperial-city-day-trip" className="hover:text-amber-400 transition-colors">
+                  ダナン発・フエ古都世界遺産 1日ツアー
+                </Link>
+              </li>
+              <li>
+                <Link href="/tours/danang-local-market-deep-cafe-tour" className="hover:text-amber-400 transition-colors">
+                  ローカル市場＆ディープカフェ巡り
+                </Link>
+              </li>
+              <li>
                 <Link href="/tours/danang-girls-trip-beauty-spa-nail-shopping" className="hover:text-amber-400 transition-colors">
-                  【女子旅】美爪ネイル＆極上スパ・コスメツアー
+                  【女子旅】美爪ネイル＆極上スパ
+                </Link>
+              </li>
+              <li>
+                <Link href="/tours/hoian-girls-trip-aodai-photo-afternoon-tea" className="hover:text-amber-400 transition-colors">
+                  【女子旅】アオザイ撮影＆アフタヌーンティー
                 </Link>
               </li>
               <li>
@@ -86,8 +101,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tours/danang-men-jeep-adventure-craft-beer-bbq" className="hover:text-amber-400 transition-colors">
+                  【男旅】絶景ジープ＆クラフトビールBBQ
+                </Link>
+              </li>
+              <li>
+                <Link href="/tours/family-resort-relax-danang" className="hover:text-amber-400 transition-colors">
+                  【家族・シニア】ゆったりリゾート＆陶芸スパ
+                </Link>
+              </li>
+              <li>
                 <Link href="/tours/custom-order-made-central-vietnam" className="hover:text-amber-400 transition-colors">
-                  完全オーダーメイド・チャーター
+                  ベトナム全土オーダーメイド・チャーター
                 </Link>
               </li>
               <li className="pt-2 border-t border-slate-800">
@@ -95,7 +120,7 @@ export default function Footer() {
                   href="/tours"
                   className="inline-flex items-center gap-1 text-amber-400 font-bold hover:text-amber-300 transition-colors"
                 >
-                  <span>全11ツアープラン一覧を見る</span>
+                  <span>ツアープラン一覧・料金表</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </li>
@@ -105,9 +130,9 @@ export default function Footer() {
           {/* Local Guides & SEO Articles */}
           <div>
             <h4 className="text-sm font-bold text-white tracking-wider mb-4 border-l-2 border-amber-500 pl-2.5">
-              ダナン現地お役立ち情報
+              現地お役立ちブログ (全7記事)
             </h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
+            <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <Link href="/blog/danang-airport-grab-transport-guide" className="hover:text-amber-400 transition-colors">
                   空港から市内への移動＆Grab乗り方
@@ -120,21 +145,53 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/blog/danang-girls-trip-model-course" className="hover:text-amber-400 transition-colors">
-                  ダナン女子旅2泊3日おすすめモデルコース
+                  ダナン女子旅2泊3日モデルコース
                 </Link>
               </li>
               <li>
+                <Link href="/blog/danang-best-season-weather-clothing-guide" className="hover:text-amber-400 transition-colors">
+                  ベストシーズン・気候と服装ガイド
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/hoian-souvenirs-handicrafts-silk-shops" className="hover:text-amber-400 transition-colors">
+                  ホイアンお土産・雑貨・シルク名店
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/danang-safe-stylish-cafes-girls-solo-trip" className="hover:text-amber-400 transition-colors">
+                  安全でおしゃれなダナンカフェ5選
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/danang-to-hue-day-trip-guide" className="hover:text-amber-400 transition-colors">
+                  ダナン発フエ日帰り観光完全ガイド
+                </Link>
+              </li>
+              <li className="pt-2 border-t border-slate-800">
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center gap-1 text-amber-400 font-bold hover:text-amber-300 transition-colors"
+                >
+                  <span>現地お役立ちブログ一覧</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </li>
+              <li className="pt-1.5 flex items-center justify-between gap-2 border-t border-slate-800/60">
                 <Link href="/#faq" className="hover:text-amber-400 transition-colors">
-                  よくある質問（チップ・天候・支払い）
+                  よくある質問
                 </Link>
-              </li>
-              <li>
+                <span className="text-slate-600">•</span>
                 <Link href="/contact" className="hover:text-amber-400 transition-colors">
-                  予約・無料相談カレンダー
+                  空き状況カレンダー
                 </Link>
               </li>
-              <li className="pt-1.5">
-                <Link href="/tour-plan" className="text-amber-400 hover:text-amber-300 transition-colors font-bold flex items-center gap-1">
+              <li className="pt-1">
+                <Link
+                  href="/tour-plan"
+                  rel="nofollow"
+                  className="text-amber-400 hover:text-amber-300 transition-colors font-bold flex items-center gap-1"
+                >
                   <span>個人ツアープラン照会・写真</span>
                 </Link>
               </li>
