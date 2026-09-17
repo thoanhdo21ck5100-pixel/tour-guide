@@ -72,7 +72,7 @@ export default function ContactClient({ initialTour }: ContactClientProps) {
           </h1>
           <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
             専属ガイドによる完全プライベートツアーのため、<strong>1日1組様限定</strong>となっております。
-            <strong>事前決済不要</strong>で、ツアー料金はベトナム到着後に全額お支払いいただけます（日本円・ベトナムドン対応）。
+            <strong>事前決済不要</strong>で、日本語ガイド基本料金はベトナム到着後に全額お支払いいただけます（日本円・ベトナムドン対応）。実費は事前相談のうえご案内いたします。
             下記カレンダーで空き状況をご確認の上、お気軽にお申し込み・ご相談ください。
           </p>
 

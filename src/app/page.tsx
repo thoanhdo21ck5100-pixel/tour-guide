@@ -87,7 +87,7 @@ export default function HomePage() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  チップ不要の明朗会計
+                  ガイド料金と実費を明確に分離
                 </span>
               </div>
 
@@ -292,7 +292,7 @@ export default function HomePage() {
               </div>
               <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-amber-300 font-semibold flex items-center gap-1">
                 <Check className="w-3.5 h-3.5" />
-                <span>フライト遅延時も追加料金なし</span>
+                <span>フライト遅延時も柔軟に対応</span>
               </div>
             </div>
 
@@ -411,7 +411,7 @@ export default function HomePage() {
                     <div>✔ 日本人向けガイド・折衝 2年</div>
                     <div>✔ ベトナム全土・送迎完全対応</div>
                     <div>✔ 宿泊・買い物・滞在サポート</div>
-                    <div>✔ チップ不要・安心の明朗会計</div>
+                    <div>✔ ガイド料金と実費を明確に分離</div>
                   </div>
                 </div>
               </div>
@@ -564,7 +564,7 @@ export default function HomePage() {
                   事前決済不要・到着後に全額お支払い
                 </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  事前のクレジットカード決済や銀行振込は不要です。ツアー料金はベトナム到着後に日本円（JPY）またはベトナムドン（VND）でお支払いいただけます。チップ等の不当な追加請求も一切ありません。
+                  事前のクレジットカード決済や銀行振込は不要です。日本語ガイド基本料金はベトナム到着後に日本円（JPY）またはベトナムドン（VND）でお支払いいただけます。必要な実費は事前に明確にご案内します。
                 </p>
               </div>
               <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-emerald-700 font-semibold">

@@ -183,6 +183,7 @@ export function generateTouristTripSchema(tour: Tour) {
       priceCurrency: 'JPY',
       availability: 'https://schema.org/InStock',
       validFrom: '2026-01-01',
+      description: '日本語ガイド基本料金（実費別途）',
     },
     itinerary: {
       '@type': 'ItemList',

@@ -74,8 +74,8 @@ export default function ToursClient() {
             ベトナム プライベートツアープラン一覧
           </h1>
           <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            すべてのツアーは他のお客様と同乗しない「完全プライベート貸切（1日1組様限定）」。
-            冷暖房完備の専用車と日本語検定N1ガイドが、安心・安全・快適にダナン・ホイアンをはじめベトナム各地をご案内します。行きたい都市やオリジナル旅程のオーダーメイドも承ります。
+            すべてのツアーは他のお客様と混乗しない「完全プライベート案内（1日1組様限定）」。
+            日本語検定N1専属ガイドが、安心・安全・快適にダナン・ホイアンをはじめベトナム各地をご案内します。専用車の手配やオリジナル旅程のオーダーメイドもご希望に合わせて承ります。
           </p>
 
           {/* Quick Assurance Badges */}
@@ -93,6 +93,23 @@ export default function ToursClient() {
               LINE旅程事前相談無料
             </span>
           </div>
+        </div>
+
+        {/* 日本語ガイド基本料金についての解説ボックス */}
+        <div className="mb-8 p-5 sm:p-6 rounded-2xl bg-amber-50/80 border border-amber-200/90 shadow-xs">
+          <div className="flex items-center gap-2 mb-2 text-amber-900 font-bold text-sm sm:text-base">
+            <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+            <span>日本語ガイド基本料金について</span>
+          </div>
+          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+            掲載料金は、日本語ガイドの基本料金です。
+          </p>
+          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mt-1">
+            専用車・交通費、観光施設の入場料、お食事、アクティビティなどの実費は別途となります。
+          </p>
+          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mt-1">
+            ご希望の内容をお伺いしたうえで、必要な手配と費用をご案内いたします。
+          </p>
         </div>
 
         {/* Filter Tabs */}

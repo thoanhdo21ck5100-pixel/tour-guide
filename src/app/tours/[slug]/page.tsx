@@ -12,11 +12,9 @@ import {
   MapPin,
   Heart,
   HelpCircle,
-  BookOpen,
   ArrowRight,
   Sparkles,
   CreditCard,
-  AlertCircle,
 } from 'lucide-react';
 import { getTourBySlug, TOURS_DATA } from '@/lib/data/tours';
 import { getBlogPostBySlug, BLOG_POSTS_DATA } from '@/lib/data/blog';
@@ -80,35 +78,40 @@ export default async function TourDetailPage({
     ? relatedBlogPosts
     : BLOG_POSTS_DATA.slice(0, 2);
 
-  // Tour FAQs (tour-specific or standard)
-  const faqs = tour.faqs && tour.faqs.length > 0
-    ? tour.faqs
-    : [
-        {
-          question: 'ご予約時の事前決済やデポジットは必要ですか？',
-          answer:
-            'いいえ、ご予約時に事前のお支払いは必要ありません。ツアー料金は、ベトナム到着後、ツアー開始前に全額お支払いいただきます。お支払いは、日本円（JPY）またはベトナムドン（VND）で可能です。',
-        },
-        {
-          question: '当日の集合場所とお迎え時間はどうなりますか？',
-          answer: `ご宿泊ホテルのロビーへ専属日本語ガイドと専用車がお迎えにあがります（${tour.meetingPlace}）。前日までにLINEまたはメールで詳細なお時間をご案内いたします。`,
-        },
-        {
-          question: '雨天の場合でもツアーは催行されますか？',
-          answer:
-            '通常の雨天であれば催行いたします。完全プライベートツアーのため、当日の天候に合わせて屋根付きカフェでの休憩を挟んだり、見学順序を入れ替えるなど臨機応変に対応いたします。',
-        },
-        {
-          question: 'スーツケースなどの大きな荷物を専用車に預けられますか？',
-          answer:
-            'はい、お客様専用車のトランクに安全にお預かり可能です。ホテルチェックアウト後の観光や、ホテル移動を兼ねた観光にもご利用いただけます。',
-        },
-        {
-          question: 'キャンセルや日程変更のルールを教えてください。',
-          answer:
-            'キャンセルをご希望の場合は、ご予定日の1週間前までにご連絡ください。キャンセルや日程変更についてご相談がある場合は、LINEまたはメールからお気軽にご連絡ください。',
-        },
-      ];
+  // Standard FAQs combined with tour-specific FAQs
+  const standardFaqs = [
+    {
+      question: '表示されている料金には、車代や食事代も含まれていますか？',
+      answer:
+        'いいえ。表示料金は日本語ガイドの基本料金です。専用車・送迎車、観光施設の入場料、お食事、アクティビティなどの費用は別途となります。ご希望の内容をお伺いしたうえで、必要な手配と費用を事前にご案内いたしますので、安心してご相談ください。',
+    },
+    {
+      question: '自分で車やレストランを手配する必要がありますか？',
+      answer:
+        'いいえ。ご希望に応じて、専用車・レストラン・観光チケット・アクティビティなどの手配をサポートいたします。行きたい場所やご希望の過ごし方をお知らせいただければ、内容を確認したうえで具体的なプランをご案内します。',
+    },
+    {
+      question: '最終的な旅行費用は事前に確認できますか？',
+      answer:
+        'はい。ご希望の人数・行程・移動方法・観光施設・お食事などを確認したうえで、必要な手配と実費の目安をご案内いたします。内容をご確認いただき、ご相談のうえで行程を決定します。',
+    },
+    {
+      question: '当日の集合場所とお迎え時間はどうなりますか？',
+      answer: `ご宿泊ホテルのロビーへ専属日本語ガイドがお迎えにあがります（${tour.meetingPlace}）。専用車の手配も承ります。前日までにLINEまたはメールで詳細なお時間をご案内いたします。`,
+    },
+    {
+      question: 'キャンセルや日程変更のルールを教えてください。',
+      answer:
+        'キャンセルをご希望の場合は、ご予定日の1週間前までにご連絡ください。キャンセルや日程変更についてご相談がある場合は、LINEまたはメールからお気軽にご連絡ください。',
+    },
+  ];
+
+  // Merge tour-specific FAQs (deduplicating by question)
+  const existingQuestions = new Set(standardFaqs.map((f) => f.question));
+  const tourSpecificFaqs = (tour.faqs || []).filter(
+    (f) => !existingQuestions.has(f.question)
+  );
+  const faqs = [...standardFaqs, ...tourSpecificFaqs];
 
   return (
     <div className="bg-[#FDFBF7] min-h-screen py-8 sm:py-12">
@@ -163,7 +166,7 @@ export default async function TourDetailPage({
               </span>
               <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-amber-300 font-bold">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                事前決済不要・現地全額払い
+                事前決済不要・現地払い
               </span>
               <span className="flex items-center gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-slate-200">
                 <Clock className="w-3.5 h-3.5 text-amber-300" />
@@ -183,7 +186,7 @@ export default async function TourDetailPage({
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Blocks ④ to ⑰ */}
+          {/* Left Column */}
           <div className="lg:col-span-8 space-y-8">
             {/* ④ このツアーの概要 */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
@@ -319,40 +322,43 @@ export default async function TourDetailPage({
             {/* ⑨ アン トーが現地でサポートできること */}
             <GuideStrategicValueCard mode="tour" />
 
-            {/* ⑩ 料金・お支払いについて */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200 shadow-xs space-y-4">
+            {/* ⑩ 料金について（ビジネスモデル解説） */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200/90 shadow-xs space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-amber-100">
                 <h2 className="text-base sm:text-lg font-bold text-[#0B2545] flex items-center gap-2">
                   <CreditCard className="w-5 h-5 text-amber-600" />
-                  <span>ご予約・お支払いについて</span>
+                  <span>料金について</span>
                 </h2>
                 <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
-                  事前決済不要
+                  事前決済不要・到着後払い
                 </span>
               </div>
 
               <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-2 text-xs sm:text-sm text-slate-800 leading-relaxed">
-                <p className="font-bold text-amber-950">
-                  ツアー料金は、ベトナム到着後、ツアー開始前に全額お支払いいただきます。
+                <p className="font-bold text-[#0B2545]">
+                  こちらの料金は、日本語ガイドの基本料金です。
                 </p>
                 <p className="text-slate-700">
-                  お支払いは、<strong className="text-[#0B2545]">日本円（JPY）またはベトナムドン（VND）</strong>で可能です。
+                  お客様のご希望に合わせて、観光地・お食事・アクティビティ・移動方法などを組み合わせて、オリジナルの旅程をご相談いただけます。
                 </p>
-                <p className="text-slate-600 text-xs">
-                  ご予約時に事前のお支払いは必要ありません。
+                <p className="text-slate-700">
+                  専用車・送迎車、観光施設の入場料、お食事・お飲み物、アクティビティ、スパ・マッサージなどの費用は、ガイド料金とは別途となります。
+                </p>
+                <p className="text-slate-700">
+                  ご予約前にご希望の内容をお伺いし、必要な手配と費用を確認したうえで、具体的な行程をご案内いたします。
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-baseline gap-3 pt-1">
-                <div className="text-2xl font-black text-[#0B2545]">
-                  {tour.priceJpy.toLocaleString('ja-JP')}
-                  <span className="text-sm font-bold text-slate-700"> 円 / 名</span>
-                </div>
-                <div className="text-xs text-slate-500">
-                  （約 {tour.priceVnd.toLocaleString('ja-JP')} VND）
+              <div className="pt-2">
+                <span className="text-xs font-bold text-amber-700 block mb-0.5">日本語ガイド基本料金</span>
+                <div className="flex flex-wrap items-baseline gap-2">
+                  <div className="text-2xl sm:text-3xl font-black text-[#0B2545]">
+                    {tour.priceJpy.toLocaleString('ja-JP')}
+                    <span className="text-sm font-bold text-slate-700"> 円 / 名</span>
+                  </div>
                 </div>
                 {tour.priceNote && (
-                  <div className="text-xs text-slate-400">{tour.priceNote}</div>
+                  <p className="text-xs text-slate-500 mt-2">{tour.priceNote}</p>
                 )}
               </div>
             </div>
@@ -377,7 +383,7 @@ export default async function TourDetailPage({
               <div className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-xs">
                 <h3 className="text-sm font-bold text-slate-800 flex items-center gap-2 mb-4">
                   <XCircle className="w-5 h-5 text-slate-400" />
-                  料金に含まれないもの
+                  料金に含まれないもの（実費別途）
                 </h3>
                 <ul className="space-y-2 text-xs text-slate-600">
                   {tour.excluded.map((item, idx) => (
@@ -390,6 +396,22 @@ export default async function TourDetailPage({
               </div>
             </div>
 
+            {/* ご希望に応じて各種手配もサポートします */}
+            <div className="bg-gradient-to-br from-amber-50/90 to-orange-50/60 rounded-2xl p-6 sm:p-8 border border-amber-200 shadow-xs space-y-3">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-amber-600 shrink-0" />
+                <h3 className="text-base sm:text-lg font-bold text-[#0B2545]">
+                  ご希望に応じて各種手配もサポートします
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                専用車、レストラン、観光チケット、アクティビティなど、ご希望の内容に合わせて手配・予約をサポートいたします。
+              </p>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                必要な費用については、事前に内容と料金をご案内し、ご相談のうえで決定いたします。お客様がすべてご自身で手配する必要はございませんので、安心してご相談ください。
+              </p>
+            </div>
+
             {/* ⑬ 集合・送迎について */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
               <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-3">
@@ -400,13 +422,31 @@ export default async function TourDetailPage({
                 <div>
                   <p className="font-bold text-slate-900">{tour.meetingPlace}</p>
                   <p className="text-xs text-slate-500 mt-1">
-                    お客様グループ専用のエアコン完備車両でお迎えにあがります。他のお客様との混乗は一切ございません。
+                    お客様のご希望に合わせて専用車の手配を承ります。他のお客様との混乗は一切ございません。前日までに集合場所・時間を丁寧にご案内いたします。
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* ⑭ キャンセルについて */}
+            {/* ⑭ お支払いについて */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs space-y-3">
+              <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-2 flex items-center gap-2">
+                <span>お支払いについて</span>
+              </h2>
+              <div className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed p-4 rounded-xl bg-slate-50 border border-slate-200">
+                <p className="font-semibold text-slate-900">
+                  日本語ガイド料金は、ベトナム到着後、ツアー開始前に全額お支払いいただきます。
+                </p>
+                <p>
+                  お支払いは、<strong className="text-[#0B2545]">日本円（JPY）またはベトナムドン（VND）</strong>で可能です。ご予約時にガイド料金のお支払いは必要ありません。
+                </p>
+                <p className="text-slate-600">
+                  専用車、入場料、お食事、アクティビティなど、別途発生する実費については、ツアー内容を確認したうえで事前にご案内いたします。手配に必要な費用のお支払い方法・タイミングについては、内容に応じて個別にご案内いたします。
+                </p>
+              </div>
+            </div>
+
+            {/* ⑮ キャンセルについて */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
               <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-3 flex items-center gap-2">
                 <span>キャンセルについて</span>
@@ -421,10 +461,10 @@ export default async function TourDetailPage({
               </div>
             </div>
 
-            {/* ⑮ ご予約の流れ (Booking Flow Diagram) */}
+            {/* ⑯ ご予約の流れ (Booking Flow Diagram) */}
             <BookingFlowDiagram />
 
-            {/* ⑯ よくある質問 */}
+            {/* ⑰ よくある質問 */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs space-y-4">
               <h2 className="text-base sm:text-lg font-bold text-[#0B2545] border-l-4 border-amber-500 pl-3 mb-4">
                 よくある質問（FAQ）
@@ -439,7 +479,7 @@ export default async function TourDetailPage({
                       <HelpCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                       <span>{faq.question}</span>
                     </div>
-                    <p className="text-slate-600 pl-6 leading-relaxed">
+                    <p className="text-slate-600 pl-6 leading-relaxed whitespace-pre-line">
                       {faq.answer}
                     </p>
                   </div>
@@ -447,7 +487,7 @@ export default async function TourDetailPage({
               </div>
             </div>
 
-            {/* ⑰ 関連する観光情報 */}
+            {/* ⑱ 関連する観光情報 */}
             {displayBlogs.length > 0 && (
               <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs space-y-4">
                 <div className="flex items-center justify-between">
@@ -494,11 +534,11 @@ export default async function TourDetailPage({
             )}
           </div>
 
-          {/* ⑱ Right Column: Sticky Pricing & Booking Card */}
+          {/* ⑲ Right Column: Sticky Pricing & Booking Card */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 space-y-4">
             <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-lg">
               <span className="text-[11px] font-bold text-amber-600 block mb-1">
-                完全貸切プライベート・明朗会計
+                日本語ガイド基本料金
               </span>
 
               {/* Price display */}
@@ -508,8 +548,8 @@ export default async function TourDetailPage({
                 </span>
                 <span className="text-sm font-bold text-slate-700">円 / 名</span>
               </div>
-              <p className="text-xs text-slate-500">
-                (約 {tour.priceVnd.toLocaleString('ja-JP')} VND)
+              <p className="text-[11px] text-amber-700 font-semibold mt-1">
+                ※交通費・入場料・お食事・アクティビティ等は別途となります。
               </p>
               {tour.priceNote && (
                 <p className="text-[11px] text-slate-400 mt-1">{tour.priceNote}</p>
@@ -519,20 +559,24 @@ export default async function TourDetailPage({
               <div className="my-5 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-700">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>日本語検定N1専属ガイド</span>
+                  <span>日本語対応の専属ガイド</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>冷房完備の専用車往復送迎</span>
+                  <span>ご希望に合わせた旅程相談</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>1週間前まで連絡可</span>
+                  <span>現地での観光・移動サポート</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>チップ不要・追加料金なし</span>
+                  <span>各種予約・手配のご相談</span>
                 </div>
+              </div>
+
+              <div className="p-2.5 mb-4 rounded-lg bg-slate-50 border border-slate-200 text-center text-xs font-semibold text-slate-700">
+                実費については事前にご案内します
               </div>
 
               {/* Action Buttons */}
@@ -542,7 +586,7 @@ export default async function TourDetailPage({
                   className="w-full h-12 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
                   <Calendar className="w-4 h-4 text-white shrink-0" />
-                  <span>このプランを予約・無料相談する</span>
+                  <span>このプランについて無料相談する</span>
                 </Link>
 
                 <a
@@ -578,7 +622,7 @@ export default async function TourDetailPage({
 
               <div className="mt-4 text-center">
                 <span className="text-[10px] text-slate-400">
-                  ※事前決済不要。ツアー料金はベトナム到着後、ツアー開始前に全額お支払いいただけます（日本円・VND対応）。
+                  ※事前決済不要。ガイド基本料金はベトナム到着後、ツアー開始前にお支払いいただけます（日本円・VND対応）。実費は事前相談のうえご案内いたします。
                 </span>
               </div>
             </div>

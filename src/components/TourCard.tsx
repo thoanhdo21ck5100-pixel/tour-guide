@@ -72,22 +72,22 @@ export default function TourCard({ tour }: TourCardProps) {
         {/* Price & Action */}
         <div className="mt-6 pt-4 border-t border-slate-100 flex items-end justify-between gap-3">
           <div>
-            <span className="text-[11px] text-emerald-700 font-medium block">
-              事前決済不要・現地払い
+            <span className="text-[11px] font-bold text-amber-700 block">
+              日本語ガイド基本料金
             </span>
-            <div className="flex items-baseline gap-1">
+            <div className="flex items-baseline gap-1 my-0.5">
               <span className="text-xl sm:text-2xl font-black text-[#0B2545]">
                 {tour.priceJpy.toLocaleString('ja-JP')}
               </span>
               <span className="text-xs font-bold text-slate-700">円 / 名</span>
             </div>
-            <span className="text-[10px] text-slate-400">
-              (約 {tour.priceVnd.toLocaleString('ja-JP')} VND)
+            <span className="text-[10px] text-slate-500 block">
+              ※交通費・入場料・飲食代等は別途
             </span>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 bg-[#0B2545] text-white text-xs font-bold rounded-xl group-hover:bg-amber-600 transition-colors shadow-xs shrink-0">
-            <span>詳細・予約相談</span>
+            <span>詳細・無料相談</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </div>
         </div>
