@@ -18,7 +18,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import InstagramIcon from '@/components/InstagramIcon';
 import XIcon from '@/components/XIcon';
 import { getFeaturedTours } from '@/lib/data/tours';
-import { getFeaturedBlogPosts } from '@/lib/data/blog';
+import { getFeaturedBlogPosts, BLOG_POSTS_DATA } from '@/lib/data/blog';
 import { FAQS_DATA } from '@/lib/data/faqs';
 import { SITE_CONFIG, generateFaqSchema } from '@/lib/seo';
 
@@ -615,7 +615,7 @@ export default function HomePage() {
               href="/blog"
               className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0B2545] hover:text-amber-600 bg-white border border-slate-200/90 hover:border-amber-400 px-6 py-3 rounded-full shadow-2xs hover:shadow-xs transition-all group"
             >
-              <span>現地ガイドの旅行情報をもっと見る（全7記事）</span>
+              <span>現地ガイドの旅行情報をもっと見る（全{BLOG_POSTS_DATA.length}記事）</span>
               <ArrowRight className="w-4 h-4 text-amber-500 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

@@ -4,6 +4,7 @@ import { MessageCircle, Mail, Phone, MapPin, CheckCircle2, ArrowRight } from 'lu
 import InstagramIcon from '@/components/InstagramIcon';
 import XIcon from '@/components/XIcon';
 import { SITE_CONFIG } from '@/lib/seo';
+import { BLOG_POSTS_DATA } from '@/lib/data/blog';
 
 export default function Footer() {
   return (
@@ -130,7 +131,7 @@ export default function Footer() {
           {/* Local Guides & SEO Articles */}
           <div>
             <h4 className="text-sm font-bold text-white tracking-wider mb-4 border-l-2 border-amber-500 pl-2.5">
-              現地お役立ちブログ (全7記事)
+              現地お役立ちブログ (全{BLOG_POSTS_DATA.length}記事)
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
