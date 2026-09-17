@@ -439,7 +439,7 @@ export default function BookingForm({
             >
               {TOURS_DATA.map((t) => (
                 <option key={t.slug} value={t.slug}>
-                  {t.title} ({t.duration} / {t.priceJpy.toLocaleString('ja-JP')}円〜・2名利用時1人{Math.round((t.priceJpy + 1000) / 2).toLocaleString('ja-JP')}円)
+                  {t.title} ({t.duration} / {t.priceJpy.toLocaleString('ja-JP')}円〜)
                 </option>
               ))}
               <option value="custom-consultation">

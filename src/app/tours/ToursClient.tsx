@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { TOURS_DATA } from '@/lib/data/tours';
 import TourCard from '@/components/TourCard';
 import { TourCategory } from '@/types';
-import { Sparkles, MessageCircle, SlidersHorizontal, ShieldCheck, MapPin, Users } from 'lucide-react';
+import { Sparkles, MessageCircle, SlidersHorizontal, ShieldCheck } from 'lucide-react';
 import InstagramIcon from '@/components/InstagramIcon';
 import XIcon from '@/components/XIcon';
 import { SITE_CONFIG } from '@/lib/seo';
@@ -95,151 +95,17 @@ export default function ToursClient() {
           </div>
         </div>
 
-        {/* 日本語ガイド基本料金についてのエリア別明朗料金表 */}
-        <div className="mb-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-amber-50/90 via-white to-orange-50/40 border border-amber-200/90 shadow-sm space-y-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-amber-200/70 pb-4">
-            <div>
-              <div className="flex items-center gap-2 text-amber-900 font-black text-base sm:text-lg">
-                <Sparkles className="w-5 h-5 text-amber-600 shrink-0" />
-                <span>エリア別・日本語ガイド基本料金表（1組貸切）</span>
-              </div>
-              <p className="text-xs text-slate-600 mt-1">
-                ガイドの移動拠点・移動時間に応じた明朗会計。他のお客様との混乗なし！
-              </p>
-            </div>
-            <div className="inline-flex items-center gap-1.5 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-xs self-start sm:self-auto">
-              <ShieldCheck className="w-4 h-4" />
-              <span>事前決済不要・到着後払い</span>
-            </div>
+        {/* 日本語ガイド料金のご案内（シンプル・明朗） */}
+        <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2.5 text-[#0B2545]">
+            <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+            <p className="font-semibold text-slate-800">
+              全プラン他のお客様との混乗なしの<strong>完全プライベート貸切（最安 5,000円〜）</strong>。事前決済不要で到着後払いです。
+            </p>
           </div>
-
-          {/* Area pricing grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* 1. ダナン市内 */}
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-amber-200 shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-black text-[#0B2545] flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-amber-600" />
-                    ダナン市内エリア
-                  </span>
-                  <span className="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-md">
-                    最安 5,000円〜
-                  </span>
-                </div>
-                <div className="space-y-2.5 my-3">
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-slate-700">半日（4時間）</span>
-                      <span className="font-black text-base text-[#0B2545]">5,000円</span>
-                    </div>
-                    <span className="text-[11px] text-emerald-700 font-bold block mt-0.5">
-                      2名利用時: 1人あたり 3,000円
-                    </span>
-                  </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-slate-700">終日（1日満喫）</span>
-                      <span className="font-black text-base text-[#0B2545]">10,000円</span>
-                    </div>
-                    <span className="text-[11px] text-emerald-700 font-bold block mt-0.5">
-                      2名利用時: 1人あたり 5,500円
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-[10px] text-slate-500 pt-2 border-t border-slate-100">
-                ※五行山、ハン市場、ビーチ、ナイトグルメ等
-              </p>
-            </div>
-
-            {/* 2. ホイアン周辺 */}
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-amber-200 shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-black text-[#0B2545] flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-amber-600" />
-                    ホイアン周辺エリア
-                  </span>
-                  <span className="text-[10px] font-bold bg-orange-100 text-orange-800 px-2 py-0.5 rounded-md">
-                    世界遺産
-                  </span>
-                </div>
-                <div className="space-y-2.5 my-3">
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-slate-700">半日（4時間）</span>
-                      <span className="font-black text-base text-[#0B2545]">7,000円</span>
-                    </div>
-                    <span className="text-[11px] text-emerald-700 font-bold block mt-0.5">
-                      2名利用時: 1人あたり 4,000円
-                    </span>
-                  </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-slate-700">終日（1日満喫）</span>
-                      <span className="font-black text-base text-[#0B2545]">12,000円</span>
-                    </div>
-                    <span className="text-[11px] text-emerald-700 font-bold block mt-0.5">
-                      2名利用時: 1人あたり 6,500円
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-[10px] text-slate-500 pt-2 border-t border-slate-100">
-                ※ダナン〜ホイアン周遊、アオザイ撮影、灯籠流し等
-              </p>
-            </div>
-
-            {/* 3. 古都フエ・遠郊 */}
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-amber-200 shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-black text-[#0B2545] flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-amber-600" />
-                    古都フエ・遠郊エリア
-                  </span>
-                  <span className="text-[10px] font-bold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-md">
-                    長距離専任
-                  </span>
-                </div>
-                <div className="space-y-2.5 my-3">
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-slate-700">終日（1日専任）</span>
-                      <span className="font-black text-base text-[#0B2545]">13,000円</span>
-                    </div>
-                    <span className="text-[11px] text-emerald-700 font-bold block mt-0.5">
-                      2名利用時: 1人あたり 7,000円
-                    </span>
-                  </div>
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-slate-700">鉄道・飛行機エリア</span>
-                      <span className="font-bold text-xs text-slate-600">事前お見積り</span>
-                    </div>
-                    <span className="text-[10px] text-slate-500 block mt-0.5">
-                      ハノイ・ホーチミン等対応可
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-[10px] text-slate-500 pt-2 border-t border-slate-100">
-                ※フエは移動に往復4時間以上要するため1日専任制
-              </p>
-            </div>
-          </div>
-
-          {/* Group pricing benefit note */}
-          <div className="p-3.5 rounded-2xl bg-amber-100/60 border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-amber-950">
-            <div className="flex items-center gap-2 font-bold">
-              <Users className="w-4 h-4 text-amber-700 shrink-0" />
-              <span>【グループ利用特典】追加人数はどのプランも「＋1,000円/名」のみ！人数が増えるほど1人あたり超お得</span>
-            </div>
-            <span className="text-slate-600 text-[11px]">
-              ※交通費・入場料・飲食等の実費は別途となります。
-            </span>
-          </div>
+          <span className="text-[11px] text-slate-500 shrink-0">
+            ※複数名でのご利用特典や詳細な時間・行程は各ツアープラン内にてご案内しています。
+          </span>
         </div>
 
         {/* Filter Tabs */}
