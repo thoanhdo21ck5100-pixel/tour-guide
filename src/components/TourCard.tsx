@@ -72,15 +72,14 @@ export default function TourCard({ tour }: TourCardProps) {
         {/* Price & Action */}
         <div className="mt-5 pt-4 border-t border-slate-100 flex items-end justify-between gap-2">
           <div>
-            <div className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/70 inline-block mb-1">
-              （2名様以上: 1人あたり{Math.round((tour.priceJpy + 1000) / 2).toLocaleString('ja-JP')}円〜）
-            </div>
+            <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200/70 inline-block mb-1">
+              ２名様〜
+            </span>
             <div className="flex items-baseline gap-1">
               <span className="text-2xl sm:text-3xl font-black text-[#0B2545] tracking-tight">
-                {tour.priceJpy.toLocaleString('ja-JP')}
+                {Math.round((tour.priceJpy + 1000) / 2).toLocaleString('ja-JP')}
               </span>
-              <span className="text-xs font-bold text-slate-600">円〜</span>
-              <span className="text-[10px] text-slate-400 font-normal ml-0.5">/ 貸切</span>
+              <span className="text-xs font-bold text-slate-600">円〜 / 名</span>
             </div>
           </div>
 

@@ -100,7 +100,7 @@ export default function ToursClient() {
           <div className="flex items-center gap-2.5 text-[#0B2545]">
             <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
             <p className="font-semibold text-slate-800">
-              全プラン他のお客様との混乗なしの<strong>完全プライベート貸切（最安 5,000円〜）</strong>。事前決済不要で到着後払いです。
+              全プラン他のお客様との混乗なしの<strong>完全プライベート貸切（最安 3,000円〜 / 名）</strong>。事前決済不要で到着後払いです。
             </p>
           </div>
           <span className="text-[11px] text-slate-500 shrink-0">
