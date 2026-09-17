@@ -18,9 +18,9 @@ export default function TrustBadges() {
     },
     {
       icon: DollarSign,
-      title: '事前決済不要・到着後払い',
-      subtitle: 'ガイド料金と実費を明確に分離',
-      description: '事前振込やカード決済は不要。ガイド料金はベトナム到着後にお支払いいただけます。必要な実費は事前にご案内します。',
+      title: '最安5,000円〜・到着後払い',
+      subtitle: '追加人数は＋1,000円/名のみ',
+      description: '事前振込・カード決済不要。2名利用なら1人あたり3,000円〜と人数が増えるほどお得！実費は事前に明確にご案内します。',
       color: 'text-emerald-600 bg-emerald-50 border-emerald-200',
     },
     {

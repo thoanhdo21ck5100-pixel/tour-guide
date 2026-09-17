@@ -267,9 +267,12 @@ export default async function BlogPostPage({
                     </div>
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-3 border-t border-slate-700 mt-auto">
                       <div>
-                        <span className="text-[11px] text-slate-300 block">完全定額・事前決済不要:</span>
-                        <span className="text-base font-bold text-amber-300">
-                          {tour.priceJpy.toLocaleString('ja-JP')}円 / 名
+                        <span className="text-[11px] text-slate-300 block">1組貸切・事前決済不要:</span>
+                        <span className="text-base font-black text-amber-300">
+                          {tour.priceJpy.toLocaleString('ja-JP')}円〜
+                        </span>
+                        <span className="text-[10px] text-emerald-300 block">
+                          （2名利用時 1人{Math.round((tour.priceJpy + 1000) / 2).toLocaleString('ja-JP')}円）
                         </span>
                       </div>
                       <Link

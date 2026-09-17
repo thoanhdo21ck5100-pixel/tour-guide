@@ -16,7 +16,7 @@ import {
   Sparkles,
   CreditCard,
 } from 'lucide-react';
-import { getTourBySlug, TOURS_DATA } from '@/lib/data/tours';
+import { getTourBySlug, TOURS_DATA, calculateGroupTourPrice } from '@/lib/data/tours';
 import { getBlogPostBySlug, BLOG_POSTS_DATA } from '@/lib/data/blog';
 import { constructMetadata, generateTouristTripSchema, generateBreadcrumbSchema, SITE_CONFIG } from '@/lib/seo';
 import InstagramIcon from '@/components/InstagramIcon';
@@ -322,12 +322,12 @@ export default async function TourDetailPage({
             {/* ⑨ アン トーが現地でサポートできること */}
             <GuideStrategicValueCard mode="tour" />
 
-            {/* ⑩ 料金について（ビジネスモデル解説） */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200/90 shadow-xs space-y-4">
+            {/* ⑩ 料金について（ビジネスモデル解説＆人数別シミュレーション） */}
+            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-amber-200/90 shadow-xs space-y-5">
               <div className="flex items-center justify-between pb-3 border-b border-amber-100">
                 <h2 className="text-base sm:text-lg font-bold text-[#0B2545] flex items-center gap-2">
                   <CreditCard className="w-5 h-5 text-amber-600" />
-                  <span>料金について</span>
+                  <span>料金と人数別シミュレーション</span>
                 </h2>
                 <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
                   事前決済不要・到着後払い
@@ -336,29 +336,60 @@ export default async function TourDetailPage({
 
               <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-2 text-xs sm:text-sm text-slate-800 leading-relaxed">
                 <p className="font-bold text-[#0B2545]">
-                  こちらの料金は、日本語ガイドの基本料金です。
+                  当ツアーは、他のお客様と混乗しない「完全プライベート案内（1組貸切）」です。
                 </p>
                 <p className="text-slate-700">
-                  お客様のご希望に合わせて、観光地・お食事・アクティビティ・移動方法などを組み合わせて、オリジナルの旅程をご相談いただけます。
+                  基本料金は1名様料金となり、<strong>2人目以降はたったの＋1,000円/名</strong>のみ。人数が増えるほど、1人あたりのご負担が驚くほどお得になります。
                 </p>
-                <p className="text-slate-700">
-                  専用車・送迎車、観光施設の入場料、お食事・お飲み物、アクティビティ、スパ・マッサージなどの費用は、ガイド料金とは別途となります。
-                </p>
-                <p className="text-slate-700">
-                  ご予約前にご希望の内容をお伺いし、必要な手配と費用を確認したうえで、具体的な行程をご案内いたします。
+                <p className="text-slate-600 text-xs">
+                  ※専用車・送迎車、観光施設の入場料、お食事・お飲み物、アクティビティ等の実費はガイド基本料金とは別途となります。ご希望の内容をお伺いしたうえで、必要な手配と費用を事前に丁寧にご案内いたします。
                 </p>
               </div>
 
-              <div className="pt-2">
-                <span className="text-xs font-bold text-amber-700 block mb-0.5">日本語ガイド基本料金</span>
-                <div className="flex flex-wrap items-baseline gap-2">
-                  <div className="text-2xl sm:text-3xl font-black text-[#0B2545]">
-                    {tour.priceJpy.toLocaleString('ja-JP')}
-                    <span className="text-sm font-bold text-slate-700"> 円 / 名</span>
-                  </div>
+              {/* 人数別 料金シミュレーション表 */}
+              <div>
+                <span className="text-xs font-bold text-amber-800 block mb-2">
+                  【人数別】日本語ガイド基本料金（1組貸切総額 / 1人あたり目安）
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  {[1, 2, 3, 4].map((pax) => {
+                    const { totalJpy, perPersonJpy } = calculateGroupTourPrice(tour.priceJpy, pax);
+                    const isPopular = pax === 2;
+                    return (
+                      <div
+                        key={pax}
+                        className={`p-3 rounded-xl border text-center relative transition-all ${
+                          isPopular
+                            ? 'bg-amber-500/10 border-amber-400 ring-2 ring-amber-400/40 shadow-xs'
+                            : 'bg-slate-50 border-slate-200'
+                        }`}
+                      >
+                        {isPopular && (
+                          <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-amber-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-xs whitespace-nowrap">
+                            一番人気！
+                          </span>
+                        )}
+                        <span className="text-xs font-bold text-slate-700 block">
+                          {pax}名様ご利用
+                        </span>
+                        <div className="my-1">
+                          <span className="text-lg sm:text-xl font-black text-[#0B2545]">
+                            {totalJpy.toLocaleString('ja-JP')}
+                          </span>
+                          <span className="text-[11px] font-bold text-slate-600">円</span>
+                        </div>
+                        <div className="text-[11px] font-bold text-emerald-700 bg-emerald-50 py-0.5 px-2 rounded-md border border-emerald-200/60 inline-block">
+                          1人あたり {perPersonJpy.toLocaleString('ja-JP')}円
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
+                <p className="text-[11px] text-slate-500 mt-2">
+                  ※5名様以上の場合も、1名様追加につき＋1,000円のみとなります。
+                </p>
                 {tour.priceNote && (
-                  <p className="text-xs text-slate-500 mt-2">{tour.priceNote}</p>
+                  <p className="text-xs text-slate-500 mt-1">{tour.priceNote}</p>
                 )}
               </div>
             </div>
@@ -537,19 +568,32 @@ export default async function TourDetailPage({
           {/* ⑲ Right Column: Sticky Pricing & Booking Card */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 space-y-4">
             <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-lg">
-              <span className="text-[11px] font-bold text-amber-600 block mb-1">
-                日本語ガイド基本料金
-              </span>
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[11px] font-bold text-amber-600">
+                  日本語ガイド基本料金（1組貸切）
+                </span>
+                <span className="text-[10px] font-bold bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">
+                  人数追加＋1,000円/名
+                </span>
+              </div>
 
               {/* Price display */}
-              <div className="flex items-baseline gap-1 mb-1">
+              <div className="flex items-baseline gap-1 mb-2">
                 <span className="text-3xl font-black text-[#0B2545]">
                   {tour.priceJpy.toLocaleString('ja-JP')}
                 </span>
-                <span className="text-sm font-bold text-slate-700">円 / 名</span>
+                <span className="text-sm font-bold text-slate-700">円〜</span>
               </div>
-              <p className="text-[11px] text-amber-700 font-semibold mt-1">
-                ※交通費・入場料・お食事・アクティビティ等は別途となります。
+
+              <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200/80 mb-3 text-xs text-emerald-900 flex items-center justify-between">
+                <span className="font-semibold">2名利用時（1人あたり）:</span>
+                <span className="font-black text-sm text-emerald-800">
+                  {Math.round((tour.priceJpy + 1000) / 2).toLocaleString('ja-JP')}円
+                </span>
+              </div>
+
+              <p className="text-[11px] text-slate-500 leading-relaxed">
+                ※交通費・入場料・お食事等の実費は別途となります。
               </p>
               {tour.priceNote && (
                 <p className="text-[11px] text-slate-400 mt-1">{tour.priceNote}</p>

@@ -72,17 +72,28 @@ export default function TourCard({ tour }: TourCardProps) {
         {/* Price & Action */}
         <div className="mt-6 pt-4 border-t border-slate-100 flex items-end justify-between gap-3">
           <div>
-            <span className="text-[11px] font-bold text-amber-700 block">
-              日本語ガイド基本料金
-            </span>
-            <div className="flex items-baseline gap-1 my-0.5">
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="text-[10px] font-bold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded-md">
+                1組貸切
+              </span>
+              <span className="text-[10px] font-medium text-slate-500">
+                日本語ガイド基本料金
+              </span>
+            </div>
+            <div className="flex items-baseline gap-1">
               <span className="text-xl sm:text-2xl font-black text-[#0B2545]">
                 {tour.priceJpy.toLocaleString('ja-JP')}
               </span>
-              <span className="text-xs font-bold text-slate-700">円 / 名</span>
+              <span className="text-xs font-bold text-slate-700">円〜</span>
             </div>
-            <span className="text-[10px] text-slate-500 block">
-              ※交通費・入場料・飲食代等は別途
+            <div className="mt-1 flex items-center gap-1 text-[11px] font-bold text-emerald-700">
+              <span>2名利用時: 1人あたり</span>
+              <span className="text-xs font-black text-emerald-800">
+                {Math.round((tour.priceJpy + 1000) / 2).toLocaleString('ja-JP')}円
+              </span>
+            </div>
+            <span className="text-[10px] text-slate-400 block mt-0.5">
+              ※追加＋1,000円/名・交通費等実費別途
             </span>
           </div>
 

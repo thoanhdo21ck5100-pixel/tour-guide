@@ -31,6 +31,7 @@ export interface Tour {
   priceJpy: number;
   priceVnd: number;
   priceNote?: string;
+  extraPersonFeeJpy?: number;
   rating: number;
   reviewCount: number;
   heroImage: string;
