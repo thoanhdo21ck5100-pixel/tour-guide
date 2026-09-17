@@ -1,19 +1,10 @@
 import type { Metadata } from 'next';
-import { Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import MobileStickyBar from '@/components/MobileStickyBar';
 import ConditionalRouteWrapper from '@/components/ConditionalRouteWrapper';
 import { constructMetadata, generateLocalBusinessSchema } from '@/lib/seo';
-
-const notoSansJP = Noto_Sans_JP({
-  subsets: ['latin'],
-  weight: ['500', '700'],
-  variable: '--font-noto-sans-jp',
-  display: 'swap',
-  preload: false,
-});
 
 export const metadata: Metadata = constructMetadata();
 
@@ -25,12 +16,14 @@ export default function RootLayout({
   const jsonLd = generateLocalBusinessSchema();
 
   return (
-    <html lang="ja" className={`scroll-smooth ${notoSansJP.variable}`}>
+    <html lang="ja" className="scroll-smooth">
       <head>
         <meta
           name="google-site-verification"
           content="Eo_PA54cjRmdJ2STOUuKVrKixpZX_UVcyTfUnSn7B3Q"
         />
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
