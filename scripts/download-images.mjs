@@ -112,26 +112,46 @@ async function run() {
   const myPhotosDir = path.resolve('public/images/my-photos');
   if (fs.existsSync(myPhotosDir)) {
     console.log('\n--- Đồng bộ ảnh thật của bạn từ public/images/my-photos ---');
-    const myFiles = fs.readdirSync(myPhotosDir);
-    const myMapping = [
+    // Đồng bộ ảnh tour
+    const tourMapping = [
       { kw: '裏路地ローカルグルメ', dest: 'p3.jpg' },
       { kw: '完全オーダーメイド', dest: 'p4.jpg' },
       { kw: 'お子様・シニア向け', dest: 'p5.jpg' },
       { kw: '市内ローカル市場', dest: 'p6.jpg' },
       { kw: '男旅・アクティブ', dest: 'p8.jpg' },
     ];
-    for (const m of myMapping) {
+    for (const m of tourMapping) {
       const match = myFiles.find(f => f.normalize('NFC').includes(m.kw));
       if (match) {
         fs.copyFileSync(path.join(myPhotosDir, match), path.join(toursDir, m.dest));
-        console.log(`✓ Đồng bộ ảnh thật: ${m.dest} <- ${match}`);
+        console.log(`✓ Đồng bộ ảnh thật Tour: ${m.dest} <- ${match}`);
+      }
+    }
+
+    // Đồng bộ ảnh blog
+    const blogMapping = [
+      { kw: '安全でおしゃれなカフェ5選', dest: 'b6.jpg' },
+      { kw: 'ダナンからホイアンへの行き方', dest: 'b18.jpg' },
+      { kw: '子連れ・シニア世代のダナン旅行安心ガイド', dest: 'b23.jpg' },
+      { kw: 'ダナン専用車チャーター＆日本語ガイド活用術', dest: 'b26.jpg' },
+      { kw: 'ダナン旅行完全ガイド！観光名所・グルメ', dest: 'b28.jpg' },
+    ];
+    for (const m of blogMapping) {
+      const match = myFiles.find(f => f.normalize('NFC').includes(m.kw));
+      if (match) {
+        fs.copyFileSync(path.join(myPhotosDir, match), path.join(blogDir, m.dest));
+        console.log(`✓ Đồng bộ ảnh thật Blog: ${m.dest} <- ${match}`);
       }
     }
   }
 
   console.log('\n--- Bắt đầu tải ảnh Blogs chuẩn thực tế Việt Nam / Đà Nẵng ---');
   for (const [file, url] of Object.entries(blogsMap)) {
-    await downloadImage(url, path.join(blogDir, file));
+    // Không ghi đè nếu blog đã dùng ảnh thật từ my-photos
+    const dest = path.join(blogDir, file);
+    if (!['b6.jpg', 'b18.jpg', 'b23.jpg', 'b26.jpg', 'b28.jpg'].includes(file)) {
+      await downloadImage(url, dest);
+    }
   }
 
   console.log('\n🎉 Hoàn thành tải toàn bộ ảnh chuẩn địa danh!');
