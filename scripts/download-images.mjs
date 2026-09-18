@@ -2,23 +2,14 @@ import fs from 'fs';
 import path from 'path';
 
 // 11 Tour Images: 100% Authentic Vietnam / Da Nang / Hoi An / Hue Landmarks
+// Lưu ý: Các tour có ảnh thật trong public/images/my-photos sẽ tự động dùng ảnh thật của bạn
 const toursMap = {
   // P1: Hoi An Japanese Covered Bridge (Chùa Cầu Hội An)
   'p1.jpg': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/H%E1%BB%99i_An%2C_Ch%C3%B9a_C%E1%BA%A7u%2C_2020-01_CN-01.jpg/1280px-H%E1%BB%99i_An%2C_Ch%C3%B9a_C%E1%BA%A7u%2C_2020-01_CN-01.jpg',
   // P2: Sun World Ba Na Hills Golden Bridge (Cầu Vàng Bà Nà Đà Nẵng)
   'p2.jpg': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Da_Nang_Golden_Bridge%2C_Sun_World_Ba_Na_Hills.jpg/1280px-Da_Nang_Golden_Bridge%2C_Sun_World_Ba_Na_Hills.jpg',
-  // P3: Da Nang Dragon Bridge Night View (Cầu Rồng Đà Nẵng về đêm)
-  'p3.jpg': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Da_Nang_Dragon_Bridge.jpg/1280px-Da_Nang_Dragon_Bridge.jpg',
-  // P4: Hai Van Pass Scenic Coastal Drive (Đèo Hải Vân - Thuê xe riêng tự do)
-  'p4.jpg': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Hai_Van_Pass_Vietnam.jpg/1280px-Hai_Van_Pass_Vietnam.jpg',
-  // P5: Furama Resort Da Nang Ocean Pool (Resort biển Đà Nẵng cho gia đình)
-  'p5.jpg': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Furama_Resort_Da_Nang_pool.jpg/1280px-Furama_Resort_Da_Nang_pool.jpg',
-  // P6: Han Market Da Nang (Chợ Hàn Đà Nẵng nhộn nhịp)
-  'p6.jpg': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Han_Market_Da_Nang.JPG/1280px-Han_Market_Da_Nang.JPG',
   // P7: Organic Spa & Wellness (Spa thư giãn)
   'p7.jpg': 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
-  // P8: Fresh Seafood Tanks in Da Nang (Hải sản tươi sống chọn món tại Đà Nẵng)
-  'p8.jpg': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Live_seafood_tanks_in_Danang.jpg/1280px-Live_seafood_tanks_in_Danang.jpg',
   // P9: Hoi An Lanterns at Night (Phố đèn lồng lung linh Hội An)
   'p9.jpg': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Hoi_An_lanterns_at_night.jpg/1280px-Hoi_An_lanterns_at_night.jpg',
   // P10: Son Tra Peninsula & Linh Ung Pagoda Coast (Bán đảo Sơn Trà ngắm biển Đà Nẵng)
@@ -115,6 +106,27 @@ async function run() {
   console.log('--- Bắt đầu tải ảnh Tours chuẩn thực tế Việt Nam / Đà Nẵng ---');
   for (const [file, url] of Object.entries(toursMap)) {
     await downloadImage(url, path.join(toursDir, file));
+  }
+
+  // Tự động đồng bộ ảnh thật từ public/images/my-photos nếu có
+  const myPhotosDir = path.resolve('public/images/my-photos');
+  if (fs.existsSync(myPhotosDir)) {
+    console.log('\n--- Đồng bộ ảnh thật của bạn từ public/images/my-photos ---');
+    const myFiles = fs.readdirSync(myPhotosDir);
+    const myMapping = [
+      { kw: '裏路地ローカルグルメ', dest: 'p3.jpg' },
+      { kw: '完全オーダーメイド', dest: 'p4.jpg' },
+      { kw: 'お子様・シニア向け', dest: 'p5.jpg' },
+      { kw: '市内ローカル市場', dest: 'p6.jpg' },
+      { kw: '男旅・アクティブ', dest: 'p8.jpg' },
+    ];
+    for (const m of myMapping) {
+      const match = myFiles.find(f => f.normalize('NFC').includes(m.kw));
+      if (match) {
+        fs.copyFileSync(path.join(myPhotosDir, match), path.join(toursDir, m.dest));
+        console.log(`✓ Đồng bộ ảnh thật: ${m.dest} <- ${match}`);
+      }
+    }
   }
 
   console.log('\n--- Bắt đầu tải ảnh Blogs chuẩn thực tế Việt Nam / Đà Nẵng ---');
