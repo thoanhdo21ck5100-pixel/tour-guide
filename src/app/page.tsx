@@ -599,10 +599,10 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-            {featuredPosts.map((post, idx) => (
+            {featuredPosts.slice(0, 3).map((post, idx) => (
               <div
                 key={post.id}
-                className={idx === 2 ? 'md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto lg:max-w-none w-full' : 'w-full'}
+                className={idx === 2 ? 'w-full md:hidden lg:block' : 'w-full'}
               >
                 <BlogCard post={post} />
               </div>

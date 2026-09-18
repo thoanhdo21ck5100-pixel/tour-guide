@@ -1961,7 +1961,6 @@ const FEATURED_BLOG_SLUGS = [
   'danang-travel-guide',
   'japan-to-danang-flight-guide',
   'danang-hoian-travel-guide',
-  'bana-hills-golden-bridge-complete-guide',
 ];
 
 export function getFeaturedBlogPosts(): BlogPost[] {
