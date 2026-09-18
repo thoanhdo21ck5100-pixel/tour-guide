@@ -43,9 +43,9 @@ export default function HomePage() {
         <div className="absolute bottom-10 right-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Hero Left Column: Copy & CTAs */}
-            <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="md:col-span-7 space-y-5 lg:space-y-6 text-left">
               {/* Trust Tag */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-xs font-bold tracking-wide">
                 <Sparkles className="w-3.5 h-3.5 shrink-0" />
@@ -53,7 +53,7 @@ export default function HomePage() {
               </div>
 
               {/* Primary SEO Heading */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.25]">
+              <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-5xl font-black tracking-tight leading-[1.25]">
                 安心の日本語で巡る、
                 <br />
                 一生モノの
@@ -63,7 +63,7 @@ export default function HomePage() {
               </h1>
 
               {/* Subheading with Secondary Keywords */}
-              <p className="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed max-w-xl">
+              <p className="text-xs sm:text-sm md:text-sm lg:text-base text-slate-200 leading-relaxed max-w-xl">
                 ダナン・ホイアンをはじめ、ハノイやホーチミンなどベトナム全土の観光は、日本語堪能な専属ガイドにお任せください。五行山、バーナーヒルズなどの名所巡りから、ベトナム各地の完全オーダーメイドツアーまで、専用車で他人に気兼ねなくマイペースに満喫いただけます。
               </p>
 
@@ -92,10 +92,10 @@ export default function HomePage() {
               </div>
 
               {/* CTAs */}
-              <div className="pt-2 flex flex-col items-stretch sm:items-start gap-3 max-w-lg">
+              <div className="pt-2 flex flex-col items-stretch sm:items-start md:items-stretch lg:items-start gap-3 max-w-lg">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs sm:text-sm md:text-base shadow-lg hover:shadow-xl hover:scale-102 active:scale-98 transition-all text-center"
+                  className="w-full sm:w-auto md:w-full lg:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs sm:text-sm md:text-sm lg:text-base shadow-lg hover:shadow-xl hover:scale-102 active:scale-98 transition-all text-center whitespace-nowrap"
                 >
                   <Calendar className="w-4 h-4 text-white shrink-0" />
                   <span>予約・無料相談を申し込む（事前決済不要）</span>
@@ -150,11 +150,11 @@ export default function HomePage() {
             </div>
 
             {/* Hero Right Column: Guide & Photo Card */}
-            <div className="lg:col-span-5 flex justify-center w-full">
+            <div className="md:col-span-5 flex justify-center w-full">
               <div className="relative w-full max-w-md">
                 {/* Decorative Frame */}
                 <div className="relative rounded-3xl overflow-hidden border-2 border-amber-400/30 shadow-2xl bg-slate-900">
-                  <div className="relative h-72 sm:h-80 lg:h-96 w-full">
+                  <div className="relative h-72 sm:h-80 md:h-72 lg:h-96 w-full">
                     <Image
                       src="/images/hero-vietnam.jpg"
                       alt="ダナン・ホイアンの美しい景色とプライベートツアー"
@@ -168,9 +168,9 @@ export default function HomePage() {
                   </div>
 
                   {/* Floating Guide Intro Card */}
-                  <div className="p-5 sm:p-6 bg-[#0B2545]/95 backdrop-blur-md border-t border-slate-700">
-                    <div className="flex items-center gap-3.5">
-                      <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 shadow-lg ring-2 ring-amber-400/20">
+                  <div className="p-4 sm:p-5 lg:p-6 bg-[#0B2545]/95 backdrop-blur-md border-t border-slate-700">
+                    <div className="flex items-center gap-3 sm:gap-3.5">
+                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-2xl overflow-hidden border-2 border-amber-400 shrink-0 shadow-lg ring-2 ring-amber-400/20">
                         <Image
                           src="/images/guide/anh-tho-avatar-v3.jpg"
                           alt="専属ガイド アン トー (Anh Tho)"
@@ -183,16 +183,16 @@ export default function HomePage() {
                         <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest block mb-0.5">
                           YOUR PERSONAL GUIDE
                         </span>
-                        <h2 className="text-base sm:text-lg font-bold text-white leading-tight">
+                        <h2 className="text-sm sm:text-base lg:text-lg font-bold text-white leading-tight">
                           アン トー (Anh Tho)
                         </h2>
-                        <p className="text-xs text-slate-300 mt-1">
+                        <p className="text-[11px] sm:text-xs text-slate-300 mt-1">
                           ダナン出身（生粋のローカル）/ JLPT N1 / ベトナム全土対応
                         </p>
                       </div>
                     </div>
 
-                    <p className="mt-3 text-xs text-slate-300 leading-relaxed">
+                    <p className="mt-2.5 sm:mt-3 text-[11px] sm:text-xs text-slate-300 leading-relaxed">
                       「日本のみなさま、シンチャオ！生まれ育ったダナンをはじめ、ハノイやホーチミンなどベトナム全土の旅を、日本の皆様に心から楽しんでいただけるよう、安心の日本語とおもてなしの心で特別な旅をお手伝いします。」
                     </p>
                   </div>
@@ -226,12 +226,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Tours Grid (Top 3) */}
+          {/* Tours Grid (Top 3: 3 on mobile stacked, 2 on iPad/tablet, 3 on PC) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             {featuredTours.slice(0, 3).map((tour, idx) => (
               <div
                 key={tour.id}
-                className={idx === 2 ? 'md:col-span-2 lg:col-span-1 md:max-w-md md:mx-auto lg:max-w-none w-full' : 'w-full'}
+                className={idx === 2 ? 'w-full md:hidden lg:block' : 'w-full'}
               >
                 <TourCard tour={tour} />
               </div>
@@ -591,10 +591,10 @@ export default function HomePage() {
             </div>
             <Link
               href="/blog"
-              className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors"
+              className="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-amber-600 hover:text-amber-700 transition-colors whitespace-nowrap shrink-0"
             >
-              <span>すべての記事を見る</span>
-              <ArrowRight className="w-4 h-4" />
+              <span className="whitespace-nowrap">すべての記事を見る</span>
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </Link>
           </div>
 

@@ -24,6 +24,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -32,6 +34,8 @@ body {
   color: var(--foreground);
   font-feature-settings: "palt" 1;
   letter-spacing: 0.02em;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Japanese typography optimization */
